@@ -1,0 +1,15 @@
+html {
+  font-size: 38px;
+  font-family: sans-serif;
+}
+
+main {
+  max-width: 23em;
+  margin: auto;
+}
+
+section#observations p {
+  background: #ddd;
+  padding: 31px;
+  margin: 22px;
+}
