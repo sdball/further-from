@@ -18,7 +18,8 @@ config :further_from, FurtherFromWeb.Endpoint,
     layout: false
   ],
   pubsub_server: FurtherFrom.PubSub,
-  live_view: [signing_salt: "oDFPtpuT"]
+  live_view: [signing_salt: "oDFPtpuT"],
+  adapter: Bandit.PhoenixAdapter
 
 # Configures the mailer
 #
