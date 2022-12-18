@@ -17,8 +17,8 @@ defmodule FurtherFromWeb.Router do
   scope "/", FurtherFromWeb do
     pipe_through :browser
 
-    live "/", TimelineLive
-    live "/interesting-pairs", TimelineLive
+    live "/", InterestingPairsLive
+    live "/interesting-pairs", InterestingPairsLive
     live "/:event1/:event2", ComparisonLive
     # live "/first-flight/moon-landing", TimelineLive
   end

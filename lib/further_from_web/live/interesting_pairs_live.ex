@@ -1,4 +1,4 @@
-defmodule FurtherFromWeb.TimelineLive do
+defmodule FurtherFromWeb.InterestingPairsLive do
   use FurtherFromWeb, :live_view
   require Logger
 
@@ -6,7 +6,7 @@ defmodule FurtherFromWeb.TimelineLive do
     {:ok, socket}
   end
 
-  def handle_params(_params, _session, socket) do
+  def handle_params(_params, _url, socket) do
     {:noreply, socket}
   end
 end
