@@ -19,7 +19,9 @@ defmodule FurtherFromWeb.Router do
 
     live "/", InterestingPairsLive
     live "/interesting-pairs", InterestingPairsLive
-    live "/:event1/:event2", ComparisonLive
+    live "/compare", EventSearchLive
+    live "/compare/:event1", EventLive
+    live "/compare/:event1/:event2", ComparisonLive
     # live "/first-flight/moon-landing", TimelineLive
   end
 

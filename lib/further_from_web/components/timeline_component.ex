@@ -4,7 +4,7 @@ defmodule FurtherFromWeb.TimelineComponent do
   def event(assigns) do
     ~H"""
     <div class="flex-start flex items-center pt-2">
-      <.timeline_dot category={@event.category} />
+      <.timeline_dot event={@event} />
       <p class="text-2xl text-gray-800 ml-3"><%= @event.year %></p>
     </div>
     <div class="mt-0.5 ml-4 mb-6">
@@ -14,10 +14,19 @@ defmodule FurtherFromWeb.TimelineComponent do
     """
   end
 
-  def timeline_dot(assigns) do
+  def timeline_dot(assigns) when not is_map_key(assigns, :event) do
     ~H"""
     <div class="bg-gray-300 w-6 h-6 flex items-center justify-center rounded-full -ml-3">
       <Heroicons.calendar class="w-3 h-3" />
+    </div>
+    """
+  end
+
+  def timeline_dot(assigns) do
+    ~H"""
+    <div class="group bg-gray-300 w-6 h-6 flex items-center justify-center rounded-full -ml-3 hover:bg-red-300">
+      <Heroicons.calendar class="w-3 h-3 group-hover:hidden" />
+      <Heroicons.x_mark class="w-3 h-3 hidden group-hover:flex" phx-click="remove" phx-value-event-key={@event.key} />
     </div>
     """
   end
@@ -35,7 +44,7 @@ defmodule FurtherFromWeb.TimelineComponent do
   def past_comparison(assigns) do
     ~H"""
     <div class="flex-start flex items-center pt-3">
-      <div class="-ml-1 mr-3 h-2 w-2 rounded-full bg-gray-300"></div>
+      <.timeline_dot />
       <p class="text-2xl text-gray-800"><%= @comparison.pivot_year %></p>
     </div>
     <div class="mt-0.5 ml-4 mb-6">

@@ -1,7 +1,6 @@
 defmodule FurtherFromWeb.ComparisonLive do
   use FurtherFromWeb, :live_view
   alias FurtherFromWeb.TimelineComponent
-  require Logger
 
   def mount(_params, _session, socket) do
     {:ok, socket}
@@ -13,6 +12,16 @@ defmodule FurtherFromWeb.ComparisonLive do
     event2 = get_event(event2_key)
     comparison = FurtherFrom.Engine.compare(event1, event2)
     {:noreply, assign(socket, comparison: comparison, current_year: current_year)}
+  end
+
+  def handle_event("remove", %{"event-key" => remove_key}, socket) do
+    remaining_event =
+      [socket.assigns.comparison.first, socket.assigns.comparison.last]
+      |> Enum.find(fn event ->
+        event.key != remove_key
+      end)
+
+    {:noreply, push_navigate(socket, to: ~p"/compare/#{remaining_event.key}")}
   end
 
   defp get_event(key) do

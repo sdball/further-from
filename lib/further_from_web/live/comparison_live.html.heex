@@ -1,27 +1,27 @@
-<div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
-  <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
-    <div class="mx-auto max-w-md">
-      <ol class="border-l border-gray-300">
-        <li>
-          <TimelineComponent.comparison_summary comparison={@comparison} current_year={@current_year} />
-        </li>
-        <li>
-          <div class="my-12 mx-3 flex h-full">
-            <h4 class="text-l mb-1.5 font-semibold text-gray-900 mx-auto">&hellip; <%= @comparison.difference %> years &hellip;</h4>
-          </div>
-        </li>
-        <li>
-          <TimelineComponent.event event={@comparison.last} />
-        </li>
-        <li>
-          <div class="my-12 mx-3 flex h-full">
-            <h4 class="text-l mb-1.5 font-semibold text-gray-900 mx-auto">&hellip; <%= @comparison.difference %> years &hellip;</h4>
-          </div>
-        </li>
-        <li>
-          <TimelineComponent.event event={@comparison.first} />
-        </li>
-      </ol>
-    </div>
-  </div>
+<div class="mx-auto max-w-md">
+  <ol class="border-l border-gray-300">
+    <li>
+      <TimelineComponent.comparison_summary comparison={@comparison} current_year={@current_year} />
+    </li>
+    <li>
+      <div class="my-12 mx-3 flex h-full">
+        <h4 class="text-l mb-1.5 font-semibold text-gray-900 mx-auto">
+          &hellip; <%= @comparison.difference %> years &hellip;
+        </h4>
+      </div>
+    </li>
+    <li>
+      <TimelineComponent.event event={@comparison.last} />
+    </li>
+    <li>
+      <div class="my-12 mx-3 flex h-full">
+        <h4 class="text-l mb-1.5 font-semibold text-gray-900 mx-auto">
+          &hellip; <%= @comparison.difference %> years &hellip;
+        </h4>
+      </div>
+    </li>
+    <li>
+      <TimelineComponent.event event={@comparison.first} />
+    </li>
+  </ol>
 </div>
