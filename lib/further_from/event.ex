@@ -29,8 +29,7 @@ defmodule FurtherFrom.Event do
         key: "beastmaster-movie-release",
         name: "The Beastmaster movie release",
         keywords: [:movie],
-        year: 1982,
-        short_name: "Beastmaster"
+        year: 1982
       },
       %FurtherFrom.Event{
         key: "conan-the-barbarian-movie-release",
