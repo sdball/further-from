@@ -17,7 +17,7 @@
   </div>
 </header>
 
-<main class="">
+<main class="min-h-[400px]">
   <.flash kind={:info} title="Success!" flash={@flash} />
   <.flash kind={:error} title="Error!" flash={@flash} />
   <.flash
@@ -33,3 +33,10 @@
   </.flash>
   <%= @inner_content %>
 </main>
+
+<footer class="bg-gray-100 text-left lg:text-left">
+  <div class="text-center text-gray-700 p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+    © <%= Date.utc_today.year %>:
+    <.link class="text-gray-800" href="https://www.strangeleaflet.com">Stephen Ball</.link>
+  </div>
+</footer>
