@@ -4,12 +4,20 @@ defmodule FurtherFromWeb.TimelineComponent do
   def event(assigns) do
     ~H"""
     <div class="flex-start flex items-center pt-2">
-      <div class="-ml-1 mr-3 h-2 w-2 rounded-full bg-gray-300"></div>
-      <p class="text-2xl text-gray-800"><%= @event.year %></p>
+      <.timeline_dot category={@event.category} />
+      <p class="text-2xl text-gray-800 ml-3"><%= @event.year %></p>
     </div>
     <div class="mt-0.5 ml-4 mb-6">
       <h4 class="mb-1.5 text-xl font-semibold text-gray-800">The <%= @event.name %></h4>
       <p class="text-l mb-1.5 font-light text-gray-800"><%= @event.description %></p>
+    </div>
+    """
+  end
+
+  def timeline_dot(assigns) do
+    ~H"""
+    <div class="bg-gray-300 w-6 h-6 flex items-center justify-center rounded-full -ml-3">
+      <Heroicons.calendar class="w-3 h-3" />
     </div>
     """
   end
@@ -41,8 +49,8 @@ defmodule FurtherFromWeb.TimelineComponent do
   def future_comparison(assigns) do
     ~H"""
     <div class="flex-start flex items-center pt-3">
-      <div class="-ml-1 mr-3 h-2 w-2 rounded-full bg-gray-300"></div>
-      <p class="text-2xl text-gray-800"><%= @comparison.pivot_year %></p>
+      <.timeline_dot />
+      <p class="text-2xl text-gray-800 ml-3"><%= @comparison.pivot_year %></p>
     </div>
     <div class="mt-0.5 ml-4 mb-6">
       <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
