@@ -17,7 +17,10 @@ defmodule FurtherFromWeb.Router do
   scope "/", FurtherFromWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", TimelineLive
+    live "/interesting-pairs", TimelineLive
+    live "/:event1/:event2", ComparisonLive
+    # live "/first-flight/moon-landing", TimelineLive
   end
 
   # Other scopes may use custom stacks.
