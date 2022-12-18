@@ -83,6 +83,13 @@ defmodule FurtherFrom.Event do
         name: "earliest known publicly demonstrated electronic game",
         keywords: [:videogames],
         year: 1950
+      },
+      %FurtherFrom.Event{
+        key: "first-clamshell-laptop",
+        name: "first clamshell laptop (GRiD Compass)",
+        keywords: [:technology],
+        year: 1982,
+        description: "The GRiD Compass was the first clamshell laptop. It weighed 10 pounds but is still considered the first truly portable laptop computer."
       }
     ]
   end
