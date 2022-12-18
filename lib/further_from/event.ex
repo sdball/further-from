@@ -10,11 +10,26 @@ defmodule FurtherFrom.Event do
       collection
       |> Enum.find(fn event -> event.key == key end)
 
-    if is_nil(event.short_name) do
-      Map.put(event, :short_name, event.name)
-    else
-      event
+    case event do
+      nil ->
+        nil
+
+      event ->
+        if is_nil(event.short_name) do
+          Map.put(event, :short_name, event.name)
+        else
+          event
+        end
     end
+  end
+
+  def build_year_event(year) when is_integer(year) do
+    %{
+      name: "year #{year}",
+      short_name: "year #{year}",
+      year: year
+    }
+    |> new()
   end
 
   def with_keyword(collection, keyword) do
@@ -118,7 +133,8 @@ defmodule FurtherFrom.Event do
         keywords: [:technology, :movies],
         category: :movies,
         year: 1878,
-        description: "An 11-frame clip of man riding a horse. It was recorded by Eadweard Eadweard using 12 separate cameras that he designed to have a then cutting edge 1/25th of a second shutter speed. He also designed the zoöpraxiscope as a mechanism to view the photos as a movie."
+        description:
+          "An 11-frame clip of man riding a horse. It was recorded by Eadweard Eadweard using 12 separate cameras that he designed to have a then cutting edge 1/25th of a second shutter speed. He also designed the zoöpraxiscope as a mechanism to view the photos as a movie."
       }
     ]
   end
