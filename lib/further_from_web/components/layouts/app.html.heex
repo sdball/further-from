@@ -1,11 +1,17 @@
 <header class="sticky top-0 z-30 w-full px-2 py-4 bg-white sm:px-4 shadow-xl">
   <div class="flex items-center justify-between mx-auto max-w-7xl">
-    <.link href="/">
+    <.link navigate={~p"/"}>
       <span class="text-2xl font-bold text-blue-600">FurtherFrom</span>
     </.link>
-    <div class="flex items-center space-x-1">
-      <ul class="hidden space-x-2 md:inline-flex">
-        <li><.link patch={~p"/interesting-pairs"} class="px-4 py-2 font-semibold text-gray-600 rounded hover:underline">Interesting Pairs</.link></li>
+    <div class="items-center space-x-1 hidden sm:flex">
+      <ul class="hidden space-x-2 sm:inline-flex">
+        <li><.link navigate={~p"/"} class="px-4 py-2 font-semibold text-gray-600 rounded hover:underline">Home</.link></li>
+        <li><.link navigate={~p"/interesting-pairs"} class="px-4 py-2 font-semibold text-gray-600 rounded hover:underline">Interesting Pairs</.link></li>
+      </ul>
+    </div>
+    <div class="grid items-center space-x-1 sm:hidden">
+      <ul class="">
+        <li><.link navigate={~p"/interesting-pairs"} class="px-4 py-2 font-semibold text-gray-600 rounded hover:underline">Interesting Pairs</.link></li>
       </ul>
     </div>
   </div>
