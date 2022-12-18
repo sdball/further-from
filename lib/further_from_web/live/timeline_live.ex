@@ -6,11 +6,7 @@ defmodule FurtherFromWeb.TimelineLive do
     {:ok, socket}
   end
 
-  defp get_event(key) do
-    get_events()
-    |> FurtherFrom.Event.lookup(key)
-  end
-
-  defp get_events do
+  def handle_params(_params, _session, socket) do
+    {:noreply, socket}
   end
 end
