@@ -6,8 +6,9 @@ defmodule FurtherFrom.Event do
   end
 
   def lookup(collection, key) do
-    event = collection
-    |> Enum.find(fn event -> event.key == key end)
+    event =
+      collection
+      |> Enum.find(fn event -> event.key == key end)
 
     if is_nil(event.short_name) do
       Map.put(event, :short_name, event.name)
@@ -89,7 +90,23 @@ defmodule FurtherFrom.Event do
         name: "first clamshell laptop (GRiD Compass)",
         keywords: [:technology],
         year: 1982,
-        description: "The GRiD Compass was the first clamshell laptop. It weighed 10 pounds but is still considered the first truly portable laptop computer."
+        description:
+          "The GRiD Compass was the first clamshell laptop. It weighed 10 pounds but is still considered the first truly portable laptop computer."
+      },
+      %FurtherFrom.Event{
+        key: "gutenberg-printing-press",
+        name: "Gutenberg printing press introduced in Europe",
+        keywords: [:technology],
+        year: 1439,
+        description:
+          "Around this time Johannes Gutenberg, of the German city of Mainz, introduced the printing press to Europe."
+      },
+      %FurtherFrom.Event{
+        key: "first-movie",
+        name: "first movie ever recorded",
+        keywords: [:technology],
+        year: 1878,
+        description: "An 11-frame clip of man riding a horse. It was recorded by Eadweard Eadweard using 12 separate cameras that he designed to have a then cutting edge 1/25th of a second shutter speed. He also designed the zoöpraxiscope as a mechanism to view the photos as a movie."
       }
     ]
   end
