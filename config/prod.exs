@@ -11,7 +11,11 @@ import Config
 # before starting your production server.
 config :further_from, FurtherFromWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json",
-  check_origin: ["https://furtherfrom.com", "https://further-from.fly.dev"]
+  check_origin: [
+    "https://furtherfrom.com",
+    "https://www.furtherfrom.com",
+    "https://further-from.fly.dev"
+  ]
 
 # Configures Swoosh API Client
 config :swoosh, :api_client, FurtherFrom.Finch
