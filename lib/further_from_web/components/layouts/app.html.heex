@@ -71,9 +71,14 @@
   <%= @inner_content %>
 </main>
 
-<footer class="bg-gray-100 text-left lg:text-left">
-  <div class="text-center text-gray-700 p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-    © <%= Date.utc_today().year %>
-    <.link class="text-gray-800" href="https://www.strangeleaflet.com">Stephen Ball</.link>
+<footer class="bg-gray-100 text-left">
+  <div class="text-center text-gray-700 p-4 bg-purple-200">
+    <span>Proudly running on <.link class="text-blue-800" href="https://www.phoenixframework.org/">Phoenix LiveView</.link> and <.link class="text-blue-800" href="https://github.com/mtrudel/bandit">Bandit</.link> hosted by <.link class="text-blue-800" href="https://fly.io/">Fly.io</.link></span>
+  </div>
+  <div class="text-center text-gray-700 p-4 bg-gray-200">
+    <span class="text-gray-800">
+      © <%= Date.utc_today().year %>
+      <.link class="text-blue-900" href="https://www.strangeleaflet.com">Stephen Ball</.link>
+    </span>
   </div>
 </footer>
