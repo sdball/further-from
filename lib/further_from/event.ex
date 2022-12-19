@@ -6,21 +6,9 @@ defmodule FurtherFrom.Event do
   end
 
   def lookup(collection, key) do
-    event =
-      collection
-      |> Enum.find(fn event -> event.key == key end)
-
-    case event do
-      nil ->
-        nil
-
-      event ->
-        if is_nil(event.short_name) do
-          Map.put(event, :short_name, event.name)
-        else
-          event
-        end
-    end
+    collection
+    |> Enum.find(fn event -> event.key == key end)
+    |> maybe_shortname()
   end
 
   def build_year_event(year) when is_integer(year) do
@@ -37,6 +25,29 @@ defmodule FurtherFrom.Event do
     |> Enum.filter(fn x ->
       Enum.member?(x.keywords, keyword)
     end)
+  end
+
+  def random_event() do
+    get_events()
+    |> Enum.random()
+    |> maybe_shortname()
+  end
+
+  def random_event(omit: omit_event) do
+    get_events()
+    |> Enum.reject(fn event -> event.key == omit_event.key end)
+    |> Enum.random()
+    |> maybe_shortname()
+  end
+
+  def maybe_shortname(nil), do: nil
+
+  def maybe_shortname(event) do
+    if is_nil(event.short_name) do
+      Map.put(event, :short_name, event.name)
+    else
+      event
+    end
   end
 
   def get_events() do

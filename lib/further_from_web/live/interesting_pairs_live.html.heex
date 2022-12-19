@@ -1,15 +1,17 @@
-<div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
+<div class="relative flex min-h-screen flex-col overflow-hidden bg-gray-50 py-6 sm:py-12">
   <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
     <h1 class="text-4xl font-semibold">Interesting pairs</h1>
     <ul class="py-4">
-      <li>
-        <.link
-          navigate={~p"/compare/first-flight/apollo-11-moon-landing"}
-          class="text-blue-700 hover:underline"
-        >
-          Wright Brother's First Flight / Apollo 11 Moon Landing
-        </.link>
-      </li>
+      <%= for {event1, event2} <- @interesting_pairs do %>
+        <li class="py-4">
+          <.link
+            navigate={~p"/compare/#{event1.key}/#{event2.key}"}
+            class="text-blue-700 hover:underline"
+          >
+            <%= event1.name %> / <%= event2.name %>
+          </.link>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>

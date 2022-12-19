@@ -21,6 +21,14 @@
             Interesting Pairs
           </.link>
         </li>
+        <li>
+          <.link
+            navigate={~p"/compare"}
+            class="px-4 py-2 font-semibold text-gray-600 rounded hover:underline"
+          >
+            Search
+          </.link>
+        </li>
       </ul>
     </div>
     <div class="grid items-center space-x-1 sm:hidden">
@@ -31,6 +39,14 @@
             class="px-4 py-2 font-semibold text-gray-600 rounded hover:underline"
           >
             Interesting Pairs
+          </.link>
+        </li>
+        <li>
+          <.link
+            navigate={~p"/compare"}
+            class="px-4 py-2 font-semibold text-gray-600 rounded hover:underline"
+          >
+            Search
           </.link>
         </li>
       </ul>
@@ -57,7 +73,7 @@
 
 <footer class="bg-gray-100 text-left lg:text-left">
   <div class="text-center text-gray-700 p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-    © <%= Date.utc_today().year %>:
+    © <%= Date.utc_today().year %>
     <.link class="text-gray-800" href="https://www.strangeleaflet.com">Stephen Ball</.link>
   </div>
 </footer>

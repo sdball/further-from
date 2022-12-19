@@ -45,7 +45,7 @@ defmodule FurtherFromWeb.TimelineComponent do
     ~H"""
     <div class="flex-start flex items-center pt-3">
       <.timeline_dot />
-      <p class="text-2xl text-gray-800"><%= @comparison.pivot_year %></p>
+      <p class="text-2xl text-gray-800 ml-3"><%= @comparison.pivot_year %></p>
     </div>
     <div class="mt-0.5 ml-4 mb-6">
       <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
