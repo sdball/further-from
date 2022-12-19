@@ -6,7 +6,6 @@ defmodule FurtherFromWeb.HomeLive do
       if connected?(socket) do
         socket
         |> assign_new(:comparison, fn ->
-          dbg("making a comparison")
           event1 = get_random_event()
           event2 = get_random_event(omit: event1)
           FurtherFrom.Engine.compare(event1, event2)
