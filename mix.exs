@@ -50,7 +50,8 @@ defmodule FurtherFrom.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
-      {:bandit, ">= 0.6.3"}
+      {:bandit, ">= 0.6.3"},
+      {:inflex, "~> 2.0.0"}
     ]
   end
 

@@ -43,14 +43,14 @@ defmodule FurtherFrom.Event do
     [
       %FurtherFrom.Event{
         key: "beastmaster-movie-release",
-        name: "The Beastmaster movie release",
+        name: "release of the movie The Beastmaster",
         keywords: [:movie],
         category: :movies,
         year: 1982
       },
       %FurtherFrom.Event{
         key: "conan-the-barbarian-movie-release",
-        name: "Conan the Barbarian movie release",
+        name: "release of the movie Conan the Barbarian",
         keywords: [:movie],
         category: :movies,
         year: 1982,
@@ -81,7 +81,7 @@ defmodule FurtherFrom.Event do
       },
       %FurtherFrom.Event{
         key: "forrest-gump-movie-release",
-        name: "Forrest Gump movie release",
+        name: "release of the movie Forrest Gump",
         keywords: [:movie],
         category: :movies,
         year: 1994
