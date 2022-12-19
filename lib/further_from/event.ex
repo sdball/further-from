@@ -64,8 +64,7 @@ defmodule FurtherFrom.Event do
         name: "release of the movie Conan the Barbarian",
         keywords: [:movie],
         category: :movies,
-        year: 1982,
-        short_name: "Conan the Barbarian"
+        year: 1982
       },
       %FurtherFrom.Event{
         key: "apollo-11-moon-landing",
