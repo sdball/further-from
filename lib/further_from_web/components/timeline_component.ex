@@ -66,7 +66,7 @@ defmodule FurtherFromWeb.TimelineComponent do
     </div>
     <div class="mt-0.5 ml-4 mb-6">
       <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
-        In <%= @comparison.pivot_year %> got further from the <%= @comparison.last.short_name %> than the <%= @comparison.last.short_name %> was from the <%= @comparison.first.short_name %>. These events were <%= @comparison.difference %> years apart.
+        In <%= @comparison.pivot_year %> we got further from the <%= @comparison.last.short_name %> than the <%= @comparison.last.short_name %> was from the <%= @comparison.first.short_name %>. These events were <%= @comparison.difference %> years apart.
       </h4>
     </div>
     """
