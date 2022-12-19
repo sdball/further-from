@@ -77,7 +77,7 @@ defmodule FurtherFrom.Event do
       },
       %FurtherFrom.Event{
         key: "first-flight",
-        name: "Wright brother's first flight",
+        name: "Wright brothers' first flight",
         keywords: [:historic, :flight, :technology],
         category: :technology,
         year: 1903
