@@ -33,12 +33,29 @@ defmodule FurtherFromWeb.TimelineComponent do
 
   def comparison_summary(assigns) do
     cond do
+      assigns.comparison.first.year == assigns.comparison.last.year ->
+        same_year_comparison(assigns)
+
       assigns.comparison.pivot_year < assigns.current_year ->
         past_comparison(assigns)
 
       true ->
         future_comparison(assigns)
     end
+  end
+
+  def same_year_comparison(assigns) do
+    ~H"""
+    <div class="flex-start flex items-center pt-3">
+      <.timeline_dot />
+      <p class="text-2xl text-gray-800 ml-3"><%= @comparison.pivot_year %></p>
+    </div>
+    <div class="mt-0.5 ml-4 mb-6">
+      <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
+        The <%= @comparison.last.short_name %> and the <%= @comparison.first.short_name %> both happened in <%= @comparison.first.year %>.
+      </h4>
+    </div>
+    """
   end
 
   def past_comparison(assigns) do
