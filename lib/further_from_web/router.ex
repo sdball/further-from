@@ -22,7 +22,6 @@ defmodule FurtherFromWeb.Router do
     live "/compare", EventSearchLive
     live "/compare/:event", EventLive
     live "/compare/:event1/:event2", ComparisonLive
-    # live "/first-flight/moon-landing", TimelineLive
   end
 
   # Other scopes may use custom stacks.
