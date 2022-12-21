@@ -106,7 +106,7 @@ defmodule FurtherFrom.DataSetup do
       },
       %{
         key: "elixir-lang",
-        name: "Elixir language was introduced",
+        name: "Elixir language being introduced",
         category: "programming",
         year: 2012,
         description:
@@ -114,7 +114,7 @@ defmodule FurtherFrom.DataSetup do
       },
       %{
         key: "javascript-lang",
-        name: "JavaScript language was introduced",
+        name: "JavaScript language being introduced",
         category: "programming",
         year: 1995,
         description:
@@ -122,7 +122,7 @@ defmodule FurtherFrom.DataSetup do
       },
       %{
         key: "ruby-lang",
-        name: "Ruby language was introduced",
+        name: "Ruby language being introduced",
         category: "programming",
         year: 1995,
         description:
@@ -130,7 +130,7 @@ defmodule FurtherFrom.DataSetup do
       },
       %{
         key: "python-lang",
-        name: "Python programming language was introduced",
+        name: "Python programming language being introduced",
         category: "programming",
         year: 1991,
         description:
