@@ -8,7 +8,7 @@ defmodule FurtherFromWeb.TimelineComponent do
       <p class="text-2xl text-gray-800 ml-3"><%= @event.year %></p>
     </div>
     <div class="mt-0.5 ml-4 mb-6">
-      <h4 class="mb-1.5 text-xl font-semibold text-gray-800">The <%= @event.name %></h4>
+      <h4 class="mb-1.5 text-xl font-semibold text-gray-800"><%= @event.timeline_text %></h4>
       <p class="text-l mb-1.5 font-light text-gray-800"><%= @event.description %></p>
     </div>
     """
@@ -52,7 +52,7 @@ defmodule FurtherFromWeb.TimelineComponent do
     </div>
     <div class="mt-0.5 ml-4 mb-6">
       <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
-        The <%= @comparison.last.short_name %> and the <%= @comparison.first.short_name %> both happened in <%= @comparison.first.year %>.
+        The <%= @comparison.last.summary_text %> and the <%= @comparison.first.summary_text %> both happened in <%= @comparison.first.year %>.
       </h4>
     </div>
     """
@@ -66,7 +66,7 @@ defmodule FurtherFromWeb.TimelineComponent do
     </div>
     <div class="mt-0.5 ml-4 mb-6">
       <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
-        In <%= @comparison.pivot_year %> we got further from the <%= @comparison.last.short_name %> than the <%= @comparison.last.short_name %> was from the <%= @comparison.first.short_name %>. These events were <%= @comparison.difference %> years apart.
+        In <%= @comparison.pivot_year %> we got further from the <%= @comparison.last.summary_text %> than the <%= @comparison.last.summary_text %> was from the <%= @comparison.first.summary_text %>. These events were <%= @comparison.difference %> years apart.
       </h4>
     </div>
     """
@@ -80,7 +80,7 @@ defmodule FurtherFromWeb.TimelineComponent do
     </div>
     <div class="mt-0.5 ml-4 mb-6">
       <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
-        In <%= @comparison.pivot_year %> we'll be further from the <%= @comparison.last.short_name %> than the <%= @comparison.last.short_name %> was from the <%= @comparison.first.short_name %>. These events were <%= @comparison.difference %> years apart.
+        In <%= @comparison.pivot_year %> we'll be further from the <%= @comparison.last.summary_text %> than the <%= @comparison.last.summary_text %> was from the <%= @comparison.first.summary_text %>. These events were <%= @comparison.difference %> years apart.
       </h4>
     </div>
     """

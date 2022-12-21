@@ -14,7 +14,8 @@ defmodule FurtherFrom.TimelineFixtures do
         category: "movie",
         description: "A complete sentence or sentences succiently describing the event in question.",
         key: "essentially-a-url-slug",
-        name: "event (should read well with a leading 'the')",
+        summary_text: "event being done in the present tense",
+        timeline_text: "event was done in the past tense",
         short_name: "short, colloquial name e.g. NES for Nintendo Entertainment System",
         year: 1999
       })

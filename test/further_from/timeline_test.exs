@@ -12,7 +12,8 @@ defmodule FurtherFrom.TimelineTest do
       category: nil,
       description: nil,
       key: nil,
-      name: nil,
+      summary_text: nil,
+      timeline_text: nil,
       short_name: nil,
       year: nil
     }
@@ -62,7 +63,8 @@ defmodule FurtherFrom.TimelineTest do
         category: "some category",
         description: "some description",
         key: "some key",
-        name: "some name",
+        summary_text: "some summary_text",
+        timeline_text: "some timeline_text",
         short_name: "some short_name",
         year: 42
       }
@@ -71,7 +73,8 @@ defmodule FurtherFrom.TimelineTest do
       assert event.category == "some category"
       assert event.description == "some description"
       assert event.key == "some key"
-      assert event.name == "some name"
+      assert event.summary_text == "some summary_text"
+      assert event.timeline_text == "some timeline_text"
       assert event.short_name == "some short_name"
       assert event.year == 42
     end
@@ -87,7 +90,8 @@ defmodule FurtherFrom.TimelineTest do
         category: "some updated category",
         description: "some updated description",
         key: "some updated key",
-        name: "some updated name",
+        summary_text: "some updated summary_text",
+        timeline_text: "some updated timeline_text",
         short_name: "some updated short_name",
         year: 43
       }
@@ -96,7 +100,8 @@ defmodule FurtherFrom.TimelineTest do
       assert event.category == "some updated category"
       assert event.description == "some updated description"
       assert event.key == "some updated key"
-      assert event.name == "some updated name"
+      assert event.summary_text == "some updated summary_text"
+      assert event.timeline_text == "some updated timeline_text"
       assert event.short_name == "some updated short_name"
       assert event.year == 43
     end

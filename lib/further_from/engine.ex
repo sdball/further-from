@@ -9,8 +9,6 @@ defmodule FurtherFrom.Engine do
 
     difference = abs(first.year - last.year)
     pivot_year = last.year + difference
-    first = maybe_shortname(first)
-    last = maybe_shortname(last)
     %Comparison{pivot_year: pivot_year, first: first, last: last, difference: difference}
   end
 
@@ -25,13 +23,5 @@ defmodule FurtherFrom.Engine do
     |> Enum.sort(fn a, b ->
       a.pivot_year < b.pivot_year
     end)
-  end
-
-  defp maybe_shortname(event) do
-    if is_nil(event.short_name) do
-      Map.put(event, :short_name, event.name)
-    else
-      event
-    end
   end
 end

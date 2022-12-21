@@ -5,7 +5,6 @@ defmodule FurtherFrom.Timeline do
 
   import Ecto.Query, warn: false
   alias FurtherFrom.Repo
-
   alias FurtherFrom.Timeline.Event
 
   @doc """
@@ -149,18 +148,18 @@ defmodule FurtherFrom.Timeline do
 
   def build_year_event(year) when is_integer(year) do
     %{
-      name: "year #{year}",
-      short_name: "year #{year}",
+      present: "year #{year}",
+      past: "year #{year}",
       year: year
     }
   end
 
   def get_event_by_key_or_year(key) do
-    event = FurtherFrom.Timeline.get_event_by_key(key)
+    event = get_event_by_key(key)
 
     cond do
       is_nil(event) && Regex.match?(~r/\d\d\d\d/, key) ->
-        Event.build_year_event(key |> String.to_integer())
+        build_year_event(key |> String.to_integer())
 
       true ->
         event

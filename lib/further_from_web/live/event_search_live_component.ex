@@ -14,7 +14,7 @@ defmodule FurtherFromWeb.EventSearchLiveComponent do
     matched_events =
       FurtherFrom.Timeline.list_events()
       |> Enum.filter(fn event ->
-        String.downcase(event.name) =~ String.downcase(value) ||
+        String.downcase(event.timeline_text) =~ String.downcase(value) ||
           event.year |> Integer.to_string() =~ value ||
           event.category =~ value
       end)
@@ -55,7 +55,7 @@ defmodule FurtherFromWeb.EventSearchLiveComponent do
             phx-click="select-event"
             phx-value-item={event.key}
           >
-            <%= event.year %> — the <%= event.name %>
+            <%= event.year %> — the <%= event.timeline_text %>
           </div>
         <% end %>
       </div>
