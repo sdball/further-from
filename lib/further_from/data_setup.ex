@@ -110,7 +110,7 @@ defmodule FurtherFrom.DataSetup do
         category: "programming",
         year: 2012,
         description:
-          "In 2012 José Valim publicly introduced Elixir to the world as a new syntactially approachable language for the BEAM. Now extremely popular and noted for its ease of use, scalability, and reliably."
+          "In 2012 José Valim publicly introduced Elixir to the world as a new syntactially approachable language for the BEAM. Now extremely popular and noted for its ease of use, scalability, and reliability."
       },
       %{
         key: "javascript-lang",
