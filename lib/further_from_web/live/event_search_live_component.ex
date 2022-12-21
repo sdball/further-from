@@ -18,16 +18,17 @@ defmodule FurtherFromWeb.EventSearchLiveComponent do
           event.year |> Integer.to_string() =~ value ||
           event.category =~ value
       end)
-
-    matched_events =
-      if Map.has_key?(socket.assigns, :selected_event) do
-        matched_events
-        |> Enum.reject(fn event ->
-          event.key == socket.assigns.selected_event.key
-        end)
-      else
-        matched_events
-      end
+      |> then(fn events ->
+        if Map.has_key?(socket.assigns, :selected_event) do
+          events
+          |> Enum.reject(fn event ->
+            event.key == socket.assigns.selected_event.key
+          end)
+        else
+          events
+        end
+      end)
+      |> Enum.sort_by(& &1.year)
 
     {:noreply, assign(socket, :matched_events, matched_events)}
   end
