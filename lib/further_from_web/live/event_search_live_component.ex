@@ -6,7 +6,7 @@ defmodule FurtherFromWeb.EventSearchLiveComponent do
     <div class="py-8 px-16" id="{id}">
       <label class="text-lg text-grey-500 font-bold pb-2"><%= @title %>:</label>
       <input
-        class="border border-solid border-grey-700 rounded p-2"
+        class="border border-solid border-grey-700 rounded p-2 min-w-full"
         id="search-input"
         autocomplete="off"
         type="text"
