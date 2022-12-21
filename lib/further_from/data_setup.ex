@@ -97,6 +97,14 @@ defmodule FurtherFrom.DataSetup do
         year: 1878,
         description:
           "An 11-frame clip of man riding a horse. It was recorded by Eadweard Eadweard using 12 separate cameras that he designed to have a then cutting edge 1/25th of a second shutter speed. He also designed the zoöpraxiscope as a mechanism to view the photos as a movie."
+      },
+      %{
+        key: "elixir-lang",
+        name: "Elixir language was introduced",
+        category: "programming",
+        year: 2012,
+        description:
+          "In 2012 José Valim publicly introduced Elixir to the world as a new syntactially approachable language for the BEAM. Now extremely popular and noted for its ease of use, scalability, and reliably."
       }
     ]
     |> Enum.each(fn attrs ->
