@@ -13,20 +13,6 @@ defmodule FurtherFromWeb.EventLive do
     {:noreply, assign(socket, event: event, matched_events: [], current_year: current_year)}
   end
 
-  def handle_event("search", %{"value" => value}, socket) do
-    matched_events =
-      Timeline.list_events()
-      |> Enum.reject(fn event ->
-        event.key == socket.assigns.event.key
-      end)
-      |> Enum.filter(fn event ->
-        String.downcase(event.name) =~ String.downcase(value)
-        || event.year |> Integer.to_string() =~ value 
-      end)
-
-    {:noreply, assign(socket, :matched_events, matched_events)}
-  end
-
   def handle_event("select-event", %{"item" => event2_key}, socket) do
     event1_key = socket.assigns.event.key
     {:noreply, push_navigate(socket, to: ~p"/compare/#{event1_key}/#{event2_key}")}

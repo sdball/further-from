@@ -3,8 +3,6 @@
     <%= live_component(FurtherFromWeb.EventSearchLiveComponent,
       id: :search,
       title: "Search for an event",
-      events_count: Enum.count(@matched_events),
-      events: @matched_events
     ) %>
   </div>
 </div>
