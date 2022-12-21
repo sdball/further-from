@@ -8,9 +8,6 @@ defmodule FurtherFrom.Application do
   @impl true
   def start(_type, _args) do
     FurtherFrom.Release.migrate()
-
-    topologies = Application.get_env(:libcluster, :topologies) || []
-
     children = [
       # Start the Telemetry supervisor
       FurtherFromWeb.Telemetry,
@@ -21,11 +18,9 @@ defmodule FurtherFrom.Application do
       # Start Finch
       {Finch, name: FurtherFrom.Finch},
       # Start the Endpoint (http/https)
-      FurtherFromWeb.Endpoint,
+      FurtherFromWeb.Endpoint
       # Start a worker by calling: FurtherFrom.Worker.start_link(arg)
       # {FurtherFrom.Worker, arg}
-      # Setup for clustering
-      {Cluster.Supervisor, [topologies, [name: FurtherFrom.ClusterSupervisor]]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
