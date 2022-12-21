@@ -1,6 +1,6 @@
 defmodule FurtherFromWeb.InterestingPairsLive do
   use FurtherFromWeb, :live_view
-  alias FurtherFrom.Event
+  alias FurtherFrom.Timeline
 
   def mount(_params, _session, socket) do
     socket =
@@ -17,8 +17,6 @@ defmodule FurtherFromWeb.InterestingPairsLive do
   end
 
   defp interesting_pairs() do
-    events = Event.get_events()
-
     [
       {"first-flight", "apollo-11-moon-landing"},
       {"forrest-gump-in-vietnam-war", "forrest-gump-movie-release"},
@@ -27,8 +25,8 @@ defmodule FurtherFromWeb.InterestingPairsLive do
     ]
     |> Enum.map(fn {key1, key2} ->
       {
-        Event.lookup(events, key1),
-        Event.lookup(events, key2)
+        Timeline.get_event_by_key(key1),
+        Timeline.get_event_by_key(key2)
       }
     end)
   end

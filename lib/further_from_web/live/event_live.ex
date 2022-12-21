@@ -1,7 +1,7 @@
 defmodule FurtherFromWeb.EventLive do
   use FurtherFromWeb, :live_view
   alias FurtherFromWeb.TimelineComponent
-  alias FurtherFrom.Event
+  alias FurtherFrom.Timeline
 
   def mount(_params, _session, socket) do
     {:ok, socket}
@@ -9,13 +9,13 @@ defmodule FurtherFromWeb.EventLive do
 
   def handle_params(%{"event" => event_key}, _url, socket) do
     current_year = Date.utc_today().year
-    event = get_event_or_year(event_key)
+    event = Timeline.get_event_by_key_or_year(event_key)
     {:noreply, assign(socket, event: event, matched_events: [], current_year: current_year)}
   end
 
   def handle_event("search", %{"value" => value}, socket) do
     matched_events =
-      FurtherFrom.Event.get_events()
+      Timeline.list_events()
       |> Enum.reject(fn event ->
         event.key == socket.assigns.event.key
       end)
@@ -34,19 +34,5 @@ defmodule FurtherFromWeb.EventLive do
 
   def handle_event("remove", _params, socket) do
     {:noreply, push_navigate(socket, to: ~p"/compare")}
-  end
-
-  defp get_event_or_year(key) do
-    event =
-      FurtherFrom.Event.get_events()
-      |> FurtherFrom.Event.lookup(key)
-
-    cond do
-      is_nil(event) && Regex.match?(~r/\d\d\d\d/, key) ->
-        Event.build_year_event(key |> String.to_integer())
-
-      true ->
-        event
-    end
   end
 end

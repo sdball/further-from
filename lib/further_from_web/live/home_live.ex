@@ -22,19 +22,11 @@ defmodule FurtherFromWeb.HomeLive do
     {:ok, socket}
   end
 
-  # def handle_params(_params, _url, socket) do
-  #   current_year = Date.utc_today().year
-  #   event1 = get_random_event()
-  #   event2 = get_random_event(omit: event1)
-  #   comparison = FurtherFrom.Engine.compare(event1, event2)
-  #   {:noreply, assign(socket, comparison: comparison, current_year: current_year)}
-  # end
-
   defp get_random_event() do
-    FurtherFrom.Event.random_event()
+    FurtherFrom.Timeline.get_random_event()
   end
 
   defp get_random_event(omit: omit_event) do
-    FurtherFrom.Event.random_event(omit: omit_event)
+    FurtherFrom.Timeline.get_random_event(omit: omit_event)
   end
 end

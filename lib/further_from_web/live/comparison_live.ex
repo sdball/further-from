@@ -1,7 +1,7 @@
 defmodule FurtherFromWeb.ComparisonLive do
   use FurtherFromWeb, :live_view
   alias FurtherFromWeb.TimelineComponent
-  alias FurtherFrom.Event
+  alias FurtherFrom.Timeline
 
   def mount(_params, _session, socket) do
     {:ok, socket}
@@ -26,13 +26,11 @@ defmodule FurtherFromWeb.ComparisonLive do
   end
 
   defp get_event_or_year(key) do
-    event =
-      FurtherFrom.Event.get_events()
-      |> FurtherFrom.Event.lookup(key)
+    event = Timeline.get_event_by_key(key)
 
     cond do
       is_nil(event) && Regex.match?(~r/\d\d\d\d/, key) ->
-        Event.build_year_event(key |> String.to_integer())
+        Timeline.build_year_event(key |> String.to_integer())
 
       true ->
         event

@@ -12,7 +12,7 @@ defmodule FurtherFromWeb.EventSearchLive do
 
   def handle_event("search", %{"value" => value}, socket) do
     matched_events =
-      FurtherFrom.Event.get_events()
+      FurtherFrom.Timeline.list_events()
       |> Enum.filter(fn event ->
         String.downcase(event.name) =~ String.downcase(value)
       end)
