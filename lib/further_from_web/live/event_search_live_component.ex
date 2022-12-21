@@ -3,7 +3,7 @@ defmodule FurtherFromWeb.EventSearchLiveComponent do
 
   def render(assigns) do
     ~H"""
-    <div class="flex flex-col py-8 px-16" id="{id}" x-data="{ open: false }">
+    <div class="py-8 px-16" id="{id}">
       <label class="text-lg text-grey-500 font-bold pb-2"><%= @title %>:</label>
       <input
         class="border border-solid border-grey-700 rounded p-2"
@@ -11,10 +11,9 @@ defmodule FurtherFromWeb.EventSearchLiveComponent do
         autocomplete="off"
         type="text"
         phx-keyup="search"
-        x-on:keydown="open = true"
       />
 
-      <div class="bg-white mt-2 rounded shadow" x-show="open" @click.away="open = false">
+      <div class="bg-white mt-2 rounded shadow">
         <div class="p-4 pb-2 italic text-sm text-gray-400">
           <%= @events_count %> <%= Inflex.inflect("Results", @events_count) %>
         </div>
