@@ -56,7 +56,7 @@ defmodule FurtherFromWeb.EventSearchLiveComponent do
             phx-click="select-event"
             phx-value-item={event.key}
           >
-            <%= event.year %> — the <%= event.timeline_text %>
+            <%= event.year %> — <%= event.timeline_text %>
           </div>
         <% end %>
       </div>
