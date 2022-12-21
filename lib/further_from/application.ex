@@ -18,8 +18,7 @@ defmodule FurtherFrom.Application do
       # Start Finch
       {Finch, name: FurtherFrom.Finch},
       # Start the Endpoint (http/https)
-      FurtherFromWeb.Endpoint,
-      {Task.Supervisor, name: FurtherFrom.TaskSupervisor}
+      FurtherFromWeb.Endpoint
       # Start a worker by calling: FurtherFrom.Worker.start_link(arg)
       # {FurtherFrom.Worker, arg}
     ]
@@ -27,9 +26,7 @@ defmodule FurtherFrom.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: FurtherFrom.Supervisor]
-    return = Supervisor.start_link(children, opts)
-    Task.Supervisor.start_child(FurtherFrom.TaskSupervisor, FurtherFrom.DataSetup, :init, [])
-    return
+    Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
