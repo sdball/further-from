@@ -2,7 +2,7 @@ defmodule FurtherFrom.DataSetup do
   alias FurtherFrom.Timeline.Event
   alias FurtherFrom.Repo
 
-  def init do
+  def init(_repo) do
     delete_all()
     create_events()
   end

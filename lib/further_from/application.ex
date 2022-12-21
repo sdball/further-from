@@ -8,6 +8,7 @@ defmodule FurtherFrom.Application do
   @impl true
   def start(_type, _args) do
     FurtherFrom.Release.migrate()
+    FurtherFrom.Release.load_data()
     children = [
       # Start the Telemetry supervisor
       FurtherFromWeb.Telemetry,
