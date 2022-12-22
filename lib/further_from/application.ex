@@ -7,8 +7,11 @@ defmodule FurtherFrom.Application do
 
   @impl true
   def start(_type, _args) do
-    FurtherFrom.Release.migrate()
-    FurtherFrom.Release.load_data()
+    if System.get_env("MIX_ENV") == "prod" do
+      FurtherFrom.Release.migrate()
+      FurtherFrom.Release.load_data()
+    end
+
     children = [
       # Start the Telemetry supervisor
       FurtherFromWeb.Telemetry,
