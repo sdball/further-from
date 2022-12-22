@@ -1,6 +1,8 @@
 defmodule FurtherFromWeb.HomeLive do
   use FurtherFromWeb, :live_view
 
+  @page_title "Home"
+
   def mount(_params, _session, socket) do
     socket =
       if connected?(socket) do
@@ -17,9 +19,14 @@ defmodule FurtherFromWeb.HomeLive do
         socket
         |> assign(:comparison, nil)
         |> assign(:current_year, nil)
+        |> assign(:page_title, @page_title)
       end
 
     {:ok, socket}
+  end
+
+  def handle_params(_params, _url, socket) do
+    {:noreply, socket |> assign(:page_title, @page_title)}
   end
 
   defp get_random_event() do

@@ -2,18 +2,21 @@ defmodule FurtherFromWeb.InterestingPairsLive do
   use FurtherFromWeb, :live_view
   alias FurtherFrom.Timeline
 
+  @page_title "Interesting Pairs"
+
   def mount(_params, _session, socket) do
     socket =
       socket
       |> assign_new(:interesting_pairs, fn ->
         interesting_pairs()
       end)
+      |> assign(:page_title, @page_title)
 
     {:ok, socket}
   end
 
   def handle_params(_params, _url, socket) do
-    {:noreply, socket}
+    {:noreply, socket |> assign(:page_title, @page_title)}
   end
 
   defp interesting_pairs() do

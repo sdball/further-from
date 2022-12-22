@@ -12,7 +12,15 @@ defmodule FurtherFromWeb.ComparisonLive do
     event1 = get_event_or_year(event1_key)
     event2 = get_event_or_year(event2_key)
     comparison = FurtherFrom.Engine.compare(event1, event2)
-    {:noreply, assign(socket, comparison: comparison, current_year: current_year)}
+
+    socket = assign(socket, comparison: comparison, current_year: current_year)
+
+    {:noreply,
+     assign(socket,
+       page_title:
+       "#{comparison.first.timeline_text} (#{comparison.first.year}) / #{comparison.last.timeline_text} (#{comparison.last.year})",
+       page_description: TimelineComponent.comparison_summary_text(socket.assigns)
+     )}
   end
 
   def handle_event("remove", %{"event-key" => remove_key}, socket) do

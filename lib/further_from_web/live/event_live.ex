@@ -10,7 +10,14 @@ defmodule FurtherFromWeb.EventLive do
   def handle_params(%{"event" => event_key}, _url, socket) do
     current_year = Date.utc_today().year
     event = Timeline.get_event_by_key_or_year(event_key)
-    {:noreply, assign(socket, event: event, matched_events: [], current_year: current_year)}
+
+    {:noreply,
+     assign(socket,
+       event: event,
+       matched_events: [],
+       current_year: current_year,
+       page_title: "#{event.timeline_text} (#{event.year})"
+     )}
   end
 
   def handle_event("select-event", %{"item" => event2_key}, socket) do

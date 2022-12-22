@@ -24,14 +24,28 @@ defmodule FurtherFromWeb.TimelineComponent do
 
   def timeline_dot(assigns) do
     ~H"""
-    <div class="group bg-gray-300 w-6 h-6 flex items-center justify-center rounded-full -ml-3 hover:bg-red-300">
+    <div class="group bg-gray-300 w-6 h-6 flex items-center justify-center rounded-full -ml-3 hover:bg-red-300" phx-click="remove" phx-value-event-key={@event.key}>
       <Heroicons.calendar class="w-3 h-3 group-hover:hidden" />
-      <Heroicons.x_mark class="w-3 h-3 hidden group-hover:flex" phx-click="remove" phx-value-event-key={@event.key} />
+      <Heroicons.x_mark class="w-3 h-3 hidden group-hover:flex" />
     </div>
     """
   end
 
   def comparison_summary(assigns) do
+    ~H"""
+    <div class="flex-start flex items-center pt-3">
+      <.timeline_dot />
+      <p class="text-2xl text-gray-800 ml-3"><%= @comparison.pivot_year %></p>
+    </div>
+    <div class="mt-0.5 ml-4 mb-6">
+      <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
+        <.comparison_summary_text comparison={@comparison} current_year={@current_year} />
+      </h4>
+    </div>
+    """
+  end
+
+  def comparison_summary_text(assigns) do
     cond do
       assigns.comparison.first.year == assigns.comparison.last.year ->
         same_year_comparison(assigns)
@@ -46,43 +60,19 @@ defmodule FurtherFromWeb.TimelineComponent do
 
   def same_year_comparison(assigns) do
     ~H"""
-    <div class="flex-start flex items-center pt-3">
-      <.timeline_dot />
-      <p class="text-2xl text-gray-800 ml-3"><%= @comparison.pivot_year %></p>
-    </div>
-    <div class="mt-0.5 ml-4 mb-6">
-      <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
-        The <%= @comparison.last.summary_text %> and the <%= @comparison.first.summary_text %> both happened in <%= @comparison.first.year %>.
-      </h4>
-    </div>
+    The <%= @comparison.last.summary_text %> and the <%= @comparison.first.summary_text %> both happened in <%= @comparison.first.year %>.
     """
   end
 
   def past_comparison(assigns) do
     ~H"""
-    <div class="flex-start flex items-center pt-3">
-      <.timeline_dot />
-      <p class="text-2xl text-gray-800 ml-3"><%= @comparison.pivot_year %></p>
-    </div>
-    <div class="mt-0.5 ml-4 mb-6">
-      <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
-        In <%= @comparison.pivot_year %> we got further from the <%= @comparison.last.summary_text %> than the <%= @comparison.last.summary_text %> was from the <%= @comparison.first.summary_text %>. These events were <%= @comparison.difference %> years apart.
-      </h4>
-    </div>
+    In <%= @comparison.pivot_year %> we got further from the <%= @comparison.last.summary_text %> than the <%= @comparison.last.summary_text %> was from the <%= @comparison.first.summary_text %>. These events were <%= @comparison.difference %> years apart.
     """
   end
 
   def future_comparison(assigns) do
     ~H"""
-    <div class="flex-start flex items-center pt-3">
-      <.timeline_dot />
-      <p class="text-2xl text-gray-800 ml-3"><%= @comparison.pivot_year %></p>
-    </div>
-    <div class="mt-0.5 ml-4 mb-6">
-      <h4 class="mb-1.5 text-xl font-semibold text-gray-800">
-        In <%= @comparison.pivot_year %> we'll be further from the <%= @comparison.last.summary_text %> than the <%= @comparison.last.summary_text %> was from the <%= @comparison.first.summary_text %>. These events were <%= @comparison.difference %> years apart.
-      </h4>
-    </div>
+    In <%= @comparison.pivot_year %> we'll be further from the <%= @comparison.last.summary_text %> than the <%= @comparison.last.summary_text %> was from the <%= @comparison.first.summary_text %>. These events were <%= @comparison.difference %> years apart.
     """
   end
 end

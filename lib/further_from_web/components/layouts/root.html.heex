@@ -4,12 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
-    <.live_title suffix=" · Phoenix Framework">
+    <.live_title suffix=" · FurtherFrom">
       <%= assigns[:page_title] || "FurtherFrom" %>
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
+
+
+    <%# facebook open graph tags %>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={assigns[:page_title]} />
+    <%= if assigns[:comparison] do %>
+      <meta property="og:description" content={assigns[:page_description]} />
+    <% end %>
+
+    <%# twitter card tags additive with the og: tags %>
+    <meta name="twitter:domain" value="furtherfrom.com" />
+    <meta name="twitter:title" value={assigns[:page_title]} />
+    <%= if assigns[:comparison] do %>
+      <meta name="twitter:description" value={assigns[:page_description]} />
+      <meta name="twitter:label1" value={assigns[:comparison].first.timeline_text} />
+      <meta name="twitter:data1" value={assigns[:comparison].first.year} />
+      <meta name="twitter:label2" value={assigns[:comparison].last.timeline_text} />
+      <meta name="twitter:data2" value={assigns[:comparison].last.year} />
+      <meta name="twitter:label3" value="Pivot year" />
+      <meta name="twitter:data3" value={assigns[:comparison].pivot_year} />
+    <%end %>
   </head>
   <body class="bg-gray-50 antialiased">
     <%= @inner_content %>
