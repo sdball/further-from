@@ -17,11 +17,13 @@ defmodule FurtherFromWeb.Router do
   scope "/", FurtherFromWeb do
     pipe_through :browser
 
-    live "/", HomeLive
-    live "/interesting-pairs", InterestingPairsLive
-    live "/compare", EventSearchLive
-    live "/compare/:event", EventLive
-    live "/compare/:event1/:event2", ComparisonLive
+    live_session :user do
+      live "/", HomeLive
+      live "/interesting-pairs", InterestingPairsLive
+      live "/compare", EventSearchLive
+      live "/compare/:event", EventLive
+      live "/compare/:event1/:event2", ComparisonLive
+    end
   end
 
   # Other scopes may use custom stacks.
