@@ -1,18 +1,31 @@
-<div class="relative flex flex-col overflow-hidden bg-gray-50 py-6 sm:py-12" :if={@comparison}>
+<div :if={@comparison} class="relative flex flex-col overflow-hidden bg-gray-50 py-6 sm:py-12">
   <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
     <.link class="text-blue-700 absolute top-4 right-4" navigate={~p"/"}>Another?</.link>
     <FurtherFromWeb.TimelineComponent.comparison_summary
       comparison={@comparison}
       current_year={@current_year}
     />
-    <p class="ml-4"><.link class="text-blue-800" navigate={~p"/compare/#{@comparison.first.key}/#{@comparison.last.key}"}>permalink to this comparison</.link></p>
+    <p class="ml-4">
+      <.link
+        class="text-blue-800"
+        navigate={~p"/compare/#{@comparison.first.key}/#{@comparison.last.key}"}
+      >
+        permalink to this comparison
+      </.link>
+    </p>
     <p class="ml-4">(randomly selected)</p>
   </div>
 </div>
 
 <div class="relative flex flex-col overflow-hidden bg-gray-50 sm:py-12">
   <div class="relative bg-white px-6 pt-6 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 text-lg">
-    <p>You can <.link class="text-blue-700" navigate={~p"/compare"}>search the available events</.link></p>
-    <p>You can also browse <.link class="text-blue-700" navigate={~p"/interesting-pairs"}>Interesting Pairs</.link></p>
+    <p>
+      You can
+      <.link class="text-blue-700" navigate={~p"/compare"}>search the available events</.link>
+    </p>
+    <p>
+      You can also browse
+      <.link class="text-blue-700" navigate={~p"/interesting-pairs"}>Interesting Pairs</.link>
+    </p>
   </div>
 </div>

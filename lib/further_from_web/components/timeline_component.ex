@@ -24,7 +24,11 @@ defmodule FurtherFromWeb.TimelineComponent do
 
   def timeline_dot(assigns) do
     ~H"""
-    <div class="group bg-gray-300 w-6 h-6 flex items-center justify-center rounded-full -ml-3 hover:bg-red-300" phx-click="remove" phx-value-event-key={@event.key}>
+    <div
+      class="group bg-gray-300 w-6 h-6 flex items-center justify-center rounded-full -ml-3 hover:bg-red-300"
+      phx-click="remove"
+      phx-value-event-key={@event.key}
+    >
       <Heroicons.calendar class="w-3 h-3 group-hover:hidden" />
       <Heroicons.x_mark class="w-3 h-3 hidden group-hover:flex" />
     </div>

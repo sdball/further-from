@@ -18,7 +18,7 @@ defmodule FurtherFromWeb.ComparisonLive do
     {:noreply,
      assign(socket,
        page_title:
-       "#{comparison.first.timeline_text} (#{comparison.first.year}) / #{comparison.last.timeline_text} (#{comparison.last.year})",
+         "#{comparison.first.timeline_text} (#{comparison.first.year}) / #{comparison.last.timeline_text} (#{comparison.last.year})",
        page_description: TimelineComponent.comparison_summary_text(socket.assigns)
      )}
   end

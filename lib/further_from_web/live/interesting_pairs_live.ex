@@ -25,7 +25,7 @@ defmodule FurtherFromWeb.InterestingPairsLive do
       {"forrest-gump-in-vietnam-war", "forrest-gump-movie-release"},
       {"nes", "snes"},
       {"earliest-videogame", "nes"},
-      {"first-movie", "earliest-electronic-game"},
+      {"first-movie", "earliest-electronic-game"}
     ]
     |> Enum.map(fn {key1, key2} ->
       {

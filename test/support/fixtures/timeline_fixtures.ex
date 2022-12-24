@@ -12,7 +12,8 @@ defmodule FurtherFrom.TimelineFixtures do
       attrs
       |> Enum.into(%{
         category: "movie",
-        description: "A complete sentence or sentences succiently describing the event in question.",
+        description:
+          "A complete sentence or sentences succiently describing the event in question.",
         key: "essentially-a-url-slug",
         summary_text: "event being done in the present tense",
         timeline_text: "event was done in the past tense",

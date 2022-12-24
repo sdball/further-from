@@ -11,15 +11,12 @@
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
 
-
-    <%# facebook open graph tags %>
     <meta property="og:type" content="website" />
     <meta property="og:title" content={assigns[:page_title]} />
     <%= if assigns[:comparison] do %>
       <meta property="og:description" content={assigns[:page_description]} />
     <% end %>
 
-    <%# twitter card tags additive with the og: tags %>
     <meta name="twitter:domain" value="furtherfrom.com" />
     <meta name="twitter:title" value={assigns[:page_title]} />
     <%= if assigns[:comparison] do %>
@@ -30,8 +27,9 @@
       <meta name="twitter:data2" value={assigns[:comparison].last.year} />
       <meta name="twitter:label3" value="Pivot year" />
       <meta name="twitter:data3" value={assigns[:comparison].pivot_year} />
-    <%end %>
-    <script defer data-domain="furtherfrom.com" src="https://plausible.io/js/script.js"></script>
+    <% end %>
+    <script defer data-domain="furtherfrom.com" src="https://plausible.io/js/script.js">
+    </script>
   </head>
   <body class="bg-gray-50 antialiased">
     <%= @inner_content %>

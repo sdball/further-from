@@ -17,7 +17,15 @@ defmodule FurtherFrom.Timeline.Event do
   @doc false
   def changeset(event, attrs) do
     event
-    |> cast(attrs, [:key, :summary_text, :timeline_text, :year, :category, :description, :short_name])
+    |> cast(attrs, [
+      :key,
+      :summary_text,
+      :timeline_text,
+      :year,
+      :category,
+      :description,
+      :short_name
+    ])
     |> validate_required([:key, :summary_text, :timeline_text, :year, :category])
   end
 end
