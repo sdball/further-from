@@ -24,7 +24,9 @@ import topbar from "../vendor/topbar"
 import Plausible from 'plausible-tracker'
 
 const plausible = Plausible({
-  domain: 'furtherfrom.com'
+  domain: 'furtherfrom.com',
+  trackLocalhost: true,
+  apiHost: "http://localhost:4000",
 })
 plausible.enableAutoPageviews()
 
