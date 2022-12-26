@@ -20,6 +20,9 @@ defmodule FurtherFromWeb.PlausibleTrackerController do
 
     with {:ok, body_text, _conn} <- Plug.Conn.read_body(conn),
          {:ok, body} <- Jason.decode(body_text) do
+
+      body = Map.put(body, :props, %{region: System.get_env("FLY_REGION")})
+
       request =
         Finch.build(
           :post,

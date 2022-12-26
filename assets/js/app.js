@@ -25,7 +25,6 @@ import Plausible from 'plausible-tracker'
 
 const plausible = Plausible({
   domain: 'furtherfrom.com',
-  trackLocalhost: true,
   apiHost: "https://furtherfrom.com",
 })
 plausible.enableAutoPageviews()
