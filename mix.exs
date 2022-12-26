@@ -51,7 +51,8 @@ defmodule FurtherFrom.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:bandit, ">= 0.6.4"},
-      {:inflex, "~> 2.0.0"}
+      {:inflex, "~> 2.0.0"},
+      {:libcluster, "~> 3.1"},
     ]
   end
 

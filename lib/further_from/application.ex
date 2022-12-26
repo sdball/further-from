@@ -12,6 +12,8 @@ defmodule FurtherFrom.Application do
       FurtherFrom.Release.load_data()
     end
 
+    topologies = Application.get_env(:libcluster, :topologies) || []
+
     children = [
       # Start the Telemetry supervisor
       FurtherFromWeb.Telemetry,
@@ -22,7 +24,9 @@ defmodule FurtherFrom.Application do
       # Start Finch
       {Finch, name: FurtherFrom.Finch},
       # Start the Endpoint (http/https)
-      FurtherFromWeb.Endpoint
+      FurtherFromWeb.Endpoint,
+      # Setup for clustering
+      {Cluster.Supervisor, [topologies, [name: FurtherFrom.ClusterSupervisor]]}
       # Start a worker by calling: FurtherFrom.Worker.start_link(arg)
       # {FurtherFrom.Worker, arg}
     ]
