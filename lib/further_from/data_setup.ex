@@ -4,15 +4,15 @@ defmodule FurtherFrom.DataSetup do
 
   def init(_repo) do
     delete_events()
-    load_events() |> create_events()
+    load_events(source: :text) |> create_events()
   end
 
   def delete_events() do
     Repo.delete_all(Event)
   end
 
-  def load_events(filepath) do
-    File.read!(filepath)
+  def load_events(source: :text) do
+    events_text()
     |> String.split("\n\n")
     |> Enum.map(fn event ->
       [key, summary, timeline, category, year | description] =
@@ -29,7 +29,7 @@ defmodule FurtherFrom.DataSetup do
     end)
   end
 
-  def load_events() do
+  def load_events_inline(source: :code) do
     [
       %{
         category: "movies",
@@ -243,5 +243,230 @@ defmodule FurtherFrom.DataSetup do
       |> Event.changeset(attrs)
       |> Repo.insert!()
     end)
+  end
+
+  def events_text do
+    """
+    beastmaster-movie-release
+    release of the movie The Beastmaster
+    release of the movie The Beastmaster
+    movies
+    1982
+    One of the pinnacle achievements of the sword and sorcery movie genre.
+
+    conan-the-barbarian-movie-release
+    release of the movie Conan the Barbarian
+    release of the movie Conan the Barbarian
+    movies
+    1982
+    Not as good as The Beastmaster, but Conan the
+    Barbarian earned lead actor Arnold
+    Schwarzenegger worldwide recognition.
+
+
+    apollo-11-moon-landing
+    Apollo 11 Moon Landing
+    Apollo 11 Moon Landing
+    space
+    1969
+    Apollo 11 (July 16–24, 1969) was the American spaceflight that first landed
+    humans on the Moon.
+
+    first-flight
+    Wright brothers' first flight
+    Wright brothers' first flight
+    technology
+    1903
+    The Wright Brothers did not solely rely on engine power to lift their flying
+    machines off the ground. Instead, they emphasized the importance of piloting
+    skills. Through over a thousand gliding flights from the top of Kill Devil
+    Hill, the brothers were able to identify the engineering principles that allow
+    for lift and the necessary controls to maintain an aircraft in flight.
+
+    forrest-gump-in-vietnam-war
+    character Forrest Gump being in the Vietnam War
+    character Forrest Gump in the Vietnam War
+    movies
+    1967
+
+
+    forrest-gump-movie-release
+    release of the movie Forrest Gump
+    release of the movie Forrest Gump
+    movies
+    1994
+
+
+    nes
+    NES release in North America
+    Nintendo Entertainment System (NES) released in North America
+    videogames
+    1985
+    The NES ran at 60FPS… unless you had a bunch of sprites on the screen.
+
+    snes
+    Super Nintendo being released in North America
+    Super Nintendo Entertainment System (SNES) released in North America
+    videogames
+    1991
+    No more hard angles on these controllers. And six action buttons!
+
+    earliest-electronic-game
+    earliest known publicly demonstrated electronic game
+    earliest known publicly demonstrated electronic game
+    videogames
+    1950
+    The earliest known publicly demonstrated electronic game was created in 1950.
+    Bertie the Brain was an arcade game of tic-tac-toe, built by Josef Kates for
+    the 1950 Canadian National Exhibition.
+
+    earliest-videogame
+    earliest videogame
+    earliest videogame
+    videogames
+    1958
+    "Tennis for Two" was the first videogame that was open to the general public.
+    Prior games were entirely research projects or technology demonstrations. It
+    was played on an oscilloscope which presented a side view of a tennis match.
+    The custom built controller had a button to take a shot and a knob to adjust a
+    shot's angle. Even this earliest videogame was very popular with long lines of
+    people queuing up for a turn to play.
+
+    first-clamshell-laptop
+    first clamshell laptop (GRiD Compass)
+    first clamshell laptop (GRiD Compass)
+    technology
+    1982
+    The GRiD Compass was the first clamshell laptop. It weighed 10 pounds but is
+    still considered the first truly portable laptop computer.
+
+    gutenberg-printing-press
+    Gutenberg printing press being introduced in Europe
+    Gutenberg printing press introduced in Europe
+    technology
+    1439
+    Around this time Johannes Gutenberg, of the German city of Mainz, introduced
+    the printing press to Europe.
+
+    first-movie
+    first movie ever recorded
+    first movie ever recorded
+    movies
+    1878
+    An 11-frame clip of man riding a horse. It was recorded by Eadweard Eadweard
+    using 12 separate cameras that he designed to have a then cutting edge 1/25th
+    of a second shutter speed. He also designed the zoöpraxiscope as a mechanism
+    to view the photos as a movie.
+
+    erlang-lang
+    Erlang programming language being introduced
+    Erlang programming language introduced
+    programming
+    1986
+    Developed and designed by Joe Armstrong, Erlang was originally proprietary to
+    the Ericsson company. Erlang wasn't open sourced until years later in 1998.
+    Erlang is fundamentally designed to be distributed, fault tolerant, soft
+    realtime, and highly available. Erlang provides developer friendly concurrency
+    abstractions, functional programming, and immutable data.
+
+    erlang-open-sourced
+    Erlang programming language being open sourced
+    Erlang programming language open sourced
+    programming
+    1998
+    Jane Walerud is credited with the heroic effort of convincing Ericsson
+    management that is was in everyone's best interest to open source Erlang and
+    OTP. This was a monumental feat as the very term "open-source" had only even
+    been coined a few months prior.
+
+    elixir-lang
+    Elixir programming language being introduced
+    Elixir programming language introduced
+    programming
+    2012
+    In 2012 José Valim publicly introduced Elixir to the world as a new
+    syntactically approachable language for the BEAM (Erlang's VM). Elixir has
+    grown extremely popular in the years since and noted for its ease of use,
+    scalability, and reliability. (And it's running this website!)
+
+    javascript-lang
+    JavaScript language being introduced
+    JavaScript introduced
+    programming
+    1995
+    Long ago JavaScript was safely trapped within browser engines. Then everything
+    changed when Google open sourced Chrome and developers used its JavaScript
+    execution engine to build a server-side JavaScript runtime that we now call
+    NodeJS.
+
+    ruby-lang
+    Ruby programming language being introduced
+    Ruby programming language introduced
+    programming
+    1995
+    Ruby is an interpreted, high-level, scripting language with a strong
+    foundation in object oriented programming and famously expressive syntax. In
+    the words of creator Yukihiro Matsumoto: "I really wanted a genuine
+    object-oriented, easy-to-use scripting language. I looked for but couldn't
+    find one. So I decided to make it."
+
+    python-lang
+    Python programming language being introduced
+    Python programming language introduced
+    programming
+    1991
+    Introduced in 1991 by Guido van Rossum. Python was designed to have a small
+    core, large standard library, and to be easily extensible via modules. That
+    foundational design has kept Python popular in the decades since.
+
+    zork-i-released
+    release of Zork I
+    Infocom released Zork I
+    videogames
+    1980
+    Arguably the most famous work of interactive fiction and a huge financial
+    success for Infocom. In 2007, Zork was noted by the Library of Congress as one
+    of the ten most important video games of all time.
+
+    rocket-league-released
+    release of Rocket League
+    Rocket League released
+    videogames
+    2015
+    Soccer. With cars. That are also rockets. A simple game with a simple premise
+    and simple controls that ends up having a surprisingly deep skill well with
+    innovative mechanics still being discovered even years later.
+
+    secret-of-monkey-island-released
+    release of The Secret of Monkey Island
+    Lucasarts released The Secret of Monkey Island
+    videogames
+    1990
+    One of the foundational works of point and click gaming. Frustrated with
+    the "gotcha!" deaths and unwinnable states of contemporary adventure games,
+    creators Ron Gilbert and Tim Schafer designed Monkey Island so that it was
+    always possible to win. A design choice that continued through the rest of
+    Lucasarts adventure games.
+
+    wing-commander-released
+    release of Wing Commander
+    Origin Systems released Wing Commander
+    videogames
+    1990
+    A landmark game in the space combat genre by Chris Roberts who is now
+    working to create Star Citizen.
+
+    interstellar-movie-release
+    release of the movie Interstellar
+    Interstellar movie released
+    movies
+    2014
+    Interstellar is a 2014 science fiction film directed by Christopher Nolan
+    and starring Matthew McConaughey, Anne Hathaway, and Michael Caine. The
+    film follows a group of astronauts who travel through a wormhole in search
+    of a new home for humanity, as Earth is on the verge of environmental
+    collapse. The story is based on scientific concepts such as relativity and
+    gravity, and explores human themes of love and sacrifice.
+    """
   end
 end
