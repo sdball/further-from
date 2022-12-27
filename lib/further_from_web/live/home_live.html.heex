@@ -17,7 +17,25 @@
   </div>
 </div>
 
-<div class="relative flex flex-col overflow-hidden bg-gray-50 sm:py-12">
+<div :if={@recent_comparisons} class="relative flex flex-col overflow-hidden bg-gray-50 sm:pb-12">
+  <div class="relative bg-white px-6 pt-6 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+    <h2 class="text-xl font-semibold">Recent Comparisons</h2>
+    <ul>
+      <%= for recent <- @recent_comparisons do %>
+        <li>
+          <.link
+            class="text-blue-800"
+            navigate={~p"/compare/#{@comparison.first.key}/#{@comparison.last.key}"}
+          >
+            <%= "#{@comparison.first.key} — #{@comparison.last.key}" %>
+          </.link>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="relative flex flex-col overflow-hidden bg-gray-50 sm:pb-12">
   <div class="relative bg-white px-6 pt-6 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 text-lg">
     <p>
       You can

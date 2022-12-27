@@ -15,10 +15,12 @@ defmodule FurtherFromWeb.HomeLive do
         |> assign_new(:current_year, fn ->
           Date.utc_today().year
         end)
+        |> assign(:recent_comparisons, nil)
       else
         socket
         |> assign(:comparison, nil)
         |> assign(:current_year, nil)
+        |> assign(:recent_comparisons, nil)
         |> assign(:page_title, @page_title)
       end
 
