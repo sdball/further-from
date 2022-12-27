@@ -198,3 +198,12 @@ One of the foundational works of point and click gaming. Frustrated with the
 creators Ron Gilbert and Tim Schafer designed Monkey Island so that it was
 always possible to win. A design choice that continued through the rest of
 Lucasarts adventure games.
+
+wing-commander-released
+release of Wing Commander
+Origin Systems released Wing Commander
+videogames
+1990
+A landmark game in the space combat genre.
+Developed by Chris Roberts who is now working
+to create Star Citizen.
