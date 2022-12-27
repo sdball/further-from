@@ -467,6 +467,39 @@ defmodule FurtherFrom.DataSetup do
     of a new home for humanity, as Earth is on the verge of environmental
     collapse. The story is based on scientific concepts such as relativity and
     gravity, and explores human themes of love and sacrifice.
+
+    sinking-of-the-titanic
+    sinking of the Titanic
+    Titanic sinks
+    history
+    1912
+    The Titanic was equipped with a number of innovative features, including
+    electricity, elevators, and a swimming pool. It also had a gym, a Turkish
+    bath, and a squash court. Its historic sinking is still one of the
+    deadliest maritime disasters in history.
+
+    release-of-the-movie-titanic
+    release of the movie Titantic
+    Titanic movie released
+    movies
+    1997
+    It's hard to overstate how much of a media phenomenon Titanic was during
+    its theatrical release. One interesting fact is that the set crew built a
+    1:1 scale replica of the Titanic's Grand Staircase for the production.
+
+    louisiana-purchase
+    Louisiana Purchase
+    Louisiana Purchase
+    history
+    1803
+    The purchase doubled the size of the United States and was considered a
+    major accomplishment of the presidency of Thomas Jefferson. The Louisiana
+    Purchase was made possible by the Napoleonic Wars, which had left France in
+    need of funds and weakened its hold on its North American colonies. In
+    1803, the United States offered to purchase New Orleans and the land west
+    of the Mississippi River for $10 million, but France instead offered to
+    sell all of the Louisiana Territory, which included a much larger area, for
+    $15 million.
     """
   end
 end
