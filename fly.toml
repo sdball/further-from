@@ -6,8 +6,8 @@ kill_timeout = 5
 processes = []
 
 [mounts]
- source = "furtherfrom_data"
- destination = "/data"
+  source = "furtherfrom_data"
+  destination = "/data"
 
 [env]
   DATABASE_PATH = "/data/furtherfrom_data/furtherfrom_prod.db"
