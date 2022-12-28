@@ -1,46 +1,24 @@
 defmodule FurtherFrom.Comparison.RecentlySeen do
-  use Ash.Resource,
-    data_layer: Ash.DataLayer.Ets
+  use Ecto.Schema
+  import Ecto.Changeset
 
-  actions do
-    defaults [:create, :read]
+  schema "recently_seen" do
+    field :first_key, :string
+    field :first_timeline_text, :string
+    field :first_year, :integer
+    field :last_key, :string
+    field :last_timeline_text, :string
+    field :last_year, :integer
+    field :pivot_year, :integer
+    field :region, :string
+
+    timestamps()
   end
 
-  attributes do
-    uuid_primary_key :id
-
-    create_timestamp :inserted_at
-
-    attribute :region, :string do
-      default System.get_env("FLY_REGION") || "local"
-    end
-
-    attribute :first_key, :string do
-      allow_nil? false
-    end
-
-    attribute :last_key, :string do
-      allow_nil? false
-    end
-
-    attribute :first_timeline_text, :string do
-      allow_nil? false
-    end
-
-    attribute :last_timeline_text, :string do
-      allow_nil? false
-    end
-
-    attribute :first_year, :integer do
-      allow_nil? false
-    end
-
-    attribute :last_year, :integer do
-      allow_nil? false
-    end
-
-    attribute :pivot_year, :integer do
-      allow_nil? false
-    end
+  @doc false
+  def changeset(recently_seen, attrs) do
+    recently_seen
+    |> cast(attrs, [:region, :first_key, :last_key, :first_timeline_text, :last_timeline_text, :first_year, :last_year, :pivot_year])
+    |> validate_required([:region, :first_key, :last_key, :first_timeline_text, :last_timeline_text, :first_year, :last_year, :pivot_year])
   end
 end

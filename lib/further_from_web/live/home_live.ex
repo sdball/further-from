@@ -42,7 +42,6 @@ defmodule FurtherFromWeb.HomeLive do
         socket
       ) do
     if socket.assigns.recent_comparisons do
-      # {:noreply, socket |> recent_comparisons()}
       {:noreply,
        socket |> assign(:recent_comparisons, socket.assigns.recent_comparisons ++ [recently_seen])}
     else
@@ -64,10 +63,6 @@ defmodule FurtherFromWeb.HomeLive do
   end
 
   defp recently_seen_comparisons(limit \\ 10) do
-    FurtherFrom.Comparison.RecentlySeen
-    |> Ash.Query.for_read(:read)
-    |> Ash.Query.sort(inserted_at: :desc)
-    |> Ash.Query.limit(limit)
-    |> FurtherFrom.Comparison.read!()
+    FurtherFrom.Comparison.recently_seen(limit)
   end
 end

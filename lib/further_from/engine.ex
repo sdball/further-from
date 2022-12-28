@@ -1,4 +1,6 @@
 defmodule FurtherFrom.Engine do
+  require Logger
+
   alias FurtherFrom.Comparison
 
   def compare(primary, secondary) do
@@ -15,20 +17,25 @@ defmodule FurtherFrom.Engine do
   end
 
   def write_to_recently_seen(comparison) do
-    FurtherFrom.Comparison.RecentlySeen
-    |> Ash.Changeset.for_create(:create, %{
-      last_timeline_text: comparison.last.timeline_text,
-      first_timeline_text: comparison.first.timeline_text,
+    %{
       first_key: comparison.first.key,
-      last_key: comparison.last.key,
+      first_timeline_text: comparison.first.timeline_text,
       first_year: comparison.first.year,
+      last_key: comparison.last.key,
+      last_timeline_text: comparison.last.timeline_text,
       last_year: comparison.last.year,
       pivot_year: comparison.pivot_year,
-    })
-    |> FurtherFrom.Comparison.create!()
-    |> then(fn recently_seen ->
-      FurtherFromWeb.Endpoint.broadcast!("recently_seen_comparison", "created", recently_seen)
-    end)
+      region: System.get_env("FLY_REGION") || "local"
+    }
+    |> Comparison.create_recently_seen()
+    |> case do
+      {:ok, recently_seen} ->
+        Logger.info(recently_seen)
+        FurtherFromWeb.Endpoint.broadcast!("recently_seen_comparison", "created", recently_seen)
+
+      {:error, error} ->
+        Logger.error(error)
+    end
 
     comparison
   end
