@@ -18,7 +18,25 @@ defmodule FurtherFrom.Comparison.RecentlySeen do
   @doc false
   def changeset(recently_seen, attrs) do
     recently_seen
-    |> cast(attrs, [:region, :first_key, :last_key, :first_timeline_text, :last_timeline_text, :first_year, :last_year, :pivot_year])
-    |> validate_required([:region, :first_key, :last_key, :first_timeline_text, :last_timeline_text, :first_year, :last_year, :pivot_year])
+    |> cast(attrs, [
+      :region,
+      :first_key,
+      :last_key,
+      :first_timeline_text,
+      :last_timeline_text,
+      :first_year,
+      :last_year,
+      :pivot_year
+    ])
+    |> validate_required([
+      :region,
+      :first_key,
+      :last_key,
+      :first_timeline_text,
+      :last_timeline_text,
+      :first_year,
+      :last_year,
+      :pivot_year
+    ])
   end
 end

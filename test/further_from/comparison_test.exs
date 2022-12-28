@@ -8,7 +8,16 @@ defmodule FurtherFrom.ComparisonTest do
 
     import FurtherFrom.ComparisonFixtures
 
-    @invalid_attrs %{first_key: nil, first_timeline_text: nil, first_year: nil, last_key: nil, last_timeline_text: nil, last_year: nil, pivot_year: nil, region: nil}
+    @invalid_attrs %{
+      first_key: nil,
+      first_timeline_text: nil,
+      first_year: nil,
+      last_key: nil,
+      last_timeline_text: nil,
+      last_year: nil,
+      pivot_year: nil,
+      region: nil
+    }
 
     test "list_recently_seen/0 returns all recently_seen" do
       recently_seen = recently_seen_fixture()
@@ -21,7 +30,16 @@ defmodule FurtherFrom.ComparisonTest do
     end
 
     test "create_recently_seen/1 with valid data creates a recently_seen" do
-      valid_attrs = %{first_key: "some first_key", first_timeline_text: "some first_timeline_text", first_year: 42, last_key: "some last_key", last_timeline_text: "some last_timeline_text", last_year: 42, pivot_year: 42, region: "some region"}
+      valid_attrs = %{
+        first_key: "some first_key",
+        first_timeline_text: "some first_timeline_text",
+        first_year: 42,
+        last_key: "some last_key",
+        last_timeline_text: "some last_timeline_text",
+        last_year: 42,
+        pivot_year: 42,
+        region: "some region"
+      }
 
       assert {:ok, %RecentlySeen{} = recently_seen} = Comparison.create_recently_seen(valid_attrs)
       assert recently_seen.first_key == "some first_key"
@@ -40,9 +58,21 @@ defmodule FurtherFrom.ComparisonTest do
 
     test "update_recently_seen/2 with valid data updates the recently_seen" do
       recently_seen = recently_seen_fixture()
-      update_attrs = %{first_key: "some updated first_key", first_timeline_text: "some updated first_timeline_text", first_year: 43, last_key: "some updated last_key", last_timeline_text: "some updated last_timeline_text", last_year: 43, pivot_year: 43, region: "some updated region"}
 
-      assert {:ok, %RecentlySeen{} = recently_seen} = Comparison.update_recently_seen(recently_seen, update_attrs)
+      update_attrs = %{
+        first_key: "some updated first_key",
+        first_timeline_text: "some updated first_timeline_text",
+        first_year: 43,
+        last_key: "some updated last_key",
+        last_timeline_text: "some updated last_timeline_text",
+        last_year: 43,
+        pivot_year: 43,
+        region: "some updated region"
+      }
+
+      assert {:ok, %RecentlySeen{} = recently_seen} =
+               Comparison.update_recently_seen(recently_seen, update_attrs)
+
       assert recently_seen.first_key == "some updated first_key"
       assert recently_seen.first_timeline_text == "some updated first_timeline_text"
       assert recently_seen.first_year == 43
@@ -55,7 +85,10 @@ defmodule FurtherFrom.ComparisonTest do
 
     test "update_recently_seen/2 with invalid data returns error changeset" do
       recently_seen = recently_seen_fixture()
-      assert {:error, %Ecto.Changeset{}} = Comparison.update_recently_seen(recently_seen, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Comparison.update_recently_seen(recently_seen, @invalid_attrs)
+
       assert recently_seen == Comparison.get_recently_seen!(recently_seen.id)
     end
 
