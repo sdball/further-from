@@ -53,6 +53,8 @@ defmodule FurtherFrom.MixProject do
       {:bandit, ">= 0.6.4"},
       {:inflex, "~> 2.0.0"},
       {:libcluster, "~> 3.1"},
+      {:ash, "~> 2.4"},
+      {:elixir_sense, github: "elixir-lsp/elixir_sense", only: [:dev, :test]},
     ]
   end
 

@@ -22,13 +22,17 @@
     <h2 class="text-xl font-semibold">Recent Comparisons</h2>
     <ul>
       <%= for recent <- @recent_comparisons do %>
-        <li>
+        <li class="py-2">
           <.link
             class="text-blue-800"
-            navigate={~p"/compare/#{@comparison.first.key}/#{@comparison.last.key}"}
+            navigate={~p"/compare/#{recent.first_key}/#{recent.last_key}"}
           >
-            <%= "#{@comparison.first.key} — #{@comparison.last.key}" %>
+            <%= "#{recent.first_timeline_text} (#{recent.first_year})" %>
+            <br /><%= "#{recent.last_timeline_text} (#{recent.last_year})" %>
           </.link>
+          <br />Pivot Year: <%= recent.pivot_year %>
+          <br />Region: <%= recent.region %>
+          <br />Date: <%= recent.inserted_at %>
         </li>
       <% end %>
     </ul>

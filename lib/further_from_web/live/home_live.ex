@@ -4,6 +4,8 @@ defmodule FurtherFromWeb.HomeLive do
   @page_title "Home"
 
   def mount(_params, _session, socket) do
+    FurtherFromWeb.Endpoint.subscribe("recently_seen_comparison")
+
     socket =
       if connected?(socket) do
         socket
@@ -15,7 +17,7 @@ defmodule FurtherFromWeb.HomeLive do
         |> assign_new(:current_year, fn ->
           Date.utc_today().year
         end)
-        |> assign(:recent_comparisons, nil)
+        |> recent_comparisons()
       else
         socket
         |> assign(:comparison, nil)
@@ -31,11 +33,41 @@ defmodule FurtherFromWeb.HomeLive do
     {:noreply, socket |> assign(:page_title, @page_title)}
   end
 
+  def handle_info(
+        %Phoenix.Socket.Broadcast{
+          topic: "recently_seen_comparison",
+          event: "created",
+          payload: recently_seen
+        },
+        socket
+      ) do
+    if socket.assigns.recent_comparisons do
+      # {:noreply, socket |> recent_comparisons()}
+      {:noreply,
+       socket |> assign(:recent_comparisons, socket.assigns.recent_comparisons ++ [recently_seen])}
+    else
+      {:noreply, socket |> recent_comparisons()}
+    end
+  end
+
   defp get_random_event() do
     FurtherFrom.Timeline.get_random_event()
   end
 
   defp get_random_event(omit: omit_event) do
     FurtherFrom.Timeline.get_random_event(omit: omit_event)
+  end
+
+  defp recent_comparisons(socket) do
+    socket
+    |> assign(:recent_comparisons, recently_seen_comparisons())
+  end
+
+  defp recently_seen_comparisons(limit \\ 10) do
+    FurtherFrom.Comparison.RecentlySeen
+    |> Ash.Query.for_read(:read)
+    |> Ash.Query.sort(inserted_at: :desc)
+    |> Ash.Query.limit(limit)
+    |> FurtherFrom.Comparison.read!()
   end
 end
