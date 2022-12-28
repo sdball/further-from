@@ -26,7 +26,9 @@ defmodule FurtherFrom.Application do
       # Start the Endpoint (http/https)
       FurtherFromWeb.Endpoint,
       # Setup for clustering
-      {Cluster.Supervisor, [topologies, [name: FurtherFrom.ClusterSupervisor]]}
+      {Cluster.Supervisor, [topologies, [name: FurtherFrom.ClusterSupervisor]]},
+      # Subscribe to published data between nodes
+      {FurtherFrom.Subscriber, %{topics: ["recently_seen_comparison"]}}
       # Start a worker by calling: FurtherFrom.Worker.start_link(arg)
       # {FurtherFrom.Worker, arg}
     ]
