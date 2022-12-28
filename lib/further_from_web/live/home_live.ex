@@ -42,8 +42,9 @@ defmodule FurtherFromWeb.HomeLive do
         socket
       ) do
     if socket.assigns.recent_comparisons do
-      {:noreply,
-       socket |> assign(:recent_comparisons, socket.assigns.recent_comparisons ++ [recently_seen])}
+      new_recent_comparisons = [recently_seen] ++ socket.assigns.recent_comparisons
+
+      {:noreply, socket |> assign(:recent_comparisons, new_recent_comparisons)}
     else
       {:noreply, socket |> recent_comparisons()}
     end
