@@ -42,7 +42,9 @@ defmodule FurtherFromWeb.HomeLive do
         socket
       ) do
     if socket.assigns.recent_comparisons do
-      new_recent_comparisons = [recently_seen] ++ socket.assigns.recent_comparisons
+      new_recent_comparisons =
+        ([recently_seen] ++ socket.assigns.recent_comparisons)
+        |> Enum.uniq_by(& &1.id)
 
       {:noreply, socket |> assign(:recent_comparisons, new_recent_comparisons |> Enum.take(10))}
     else
