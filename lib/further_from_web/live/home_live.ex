@@ -68,4 +68,10 @@ defmodule FurtherFromWeb.HomeLive do
   defp recently_seen_comparisons(limit \\ 10) do
     FurtherFrom.Comparison.recently_seen(limit)
   end
+
+  defp place_name("iad"), do: "Ashburn, Virginia (US)"
+  defp place_name("fra"), do: "Frankfurt, Germany"
+  defp place_name("sjc"), do: "Sunnyvale, California (US)"
+  defp place_name("syd"), do: "Sydney, Australia"
+  defp place_name(region), do: region
 end

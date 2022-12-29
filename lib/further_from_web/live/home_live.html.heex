@@ -31,7 +31,7 @@
             <br /><%= "#{recent.last_timeline_text} (#{recent.last_year})" %>
           </.link>
           <br />Pivot Year: <%= recent.pivot_year %>
-          <br />Region: <%= recent.region %>
+          <br />Region: <%= place_name(recent.region) %>
           <br />Date: <%= recent.inserted_at %>
         </li>
       <% end %>
