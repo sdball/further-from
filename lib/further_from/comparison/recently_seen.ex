@@ -38,5 +38,6 @@ defmodule FurtherFrom.Comparison.RecentlySeen do
       :last_year,
       :pivot_year
     ])
+    |> unique_constraint([:first_key, :last_key, :region])
   end
 end

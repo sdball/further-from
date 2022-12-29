@@ -55,7 +55,7 @@ defmodule FurtherFrom.Comparison do
   def create_recently_seen(attrs \\ %{}) do
     %RecentlySeen{}
     |> RecentlySeen.changeset(attrs)
-    |> Repo.insert()
+    |> Repo.insert(on_conflict: {:replace_all_except, [:id]})
   end
 
   @doc """
