@@ -30,7 +30,10 @@ defmodule FurtherFromWeb.EventSearchLiveComponent do
       end)
       |> Enum.sort_by(& &1.year)
 
-    {:noreply, assign(socket, :matched_events, matched_events)}
+    {:noreply,
+     socket
+     |> assign(:matched_events, matched_events)
+     |> assign(:events_count, Enum.count(matched_events))}
   end
 
   def render(assigns) do
