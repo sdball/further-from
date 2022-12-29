@@ -30,7 +30,6 @@ defmodule FurtherFrom.Engine do
     |> Comparison.create_recently_seen()
     |> case do
       {:ok, recently_seen} ->
-        Logger.info(recently_seen)
         FurtherFromWeb.Endpoint.broadcast!("recently_seen_comparison", "created", recently_seen)
 
       {:error, error} ->
