@@ -7,10 +7,8 @@ defmodule FurtherFrom.Application do
 
   @impl true
   def start(_type, _args) do
-    if System.get_env("MIX_ENV") == "prod" do
-      FurtherFrom.Release.migrate()
-      FurtherFrom.Release.load_data()
-    end
+    FurtherFrom.Release.migrate()
+    FurtherFrom.Release.load_data()
 
     topologies = Application.get_env(:libcluster, :topologies) || []
 
