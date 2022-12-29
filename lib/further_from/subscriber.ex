@@ -19,7 +19,10 @@ defmodule FurtherFrom.Subscriber do
   end
 
   @impl true
-  def handle_info(%{topic: "recently_seen_comparison", event: "created", payload: recently_seen}, state) do
+  def handle_info(
+        %{topic: "recently_seen_comparison", event: "created", payload: recently_seen},
+        state
+      ) do
     if recently_seen.region != state.region do
       recently_seen
       |> Map.from_struct()
