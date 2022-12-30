@@ -321,7 +321,7 @@ defmodule FurtherFrom.DataSetup do
     $15 million.
 
     linux-open-sourced
-    open sourcing of Linux
+    Linux operating system being open sourced
     Linux open sourced
     programming
     1991
