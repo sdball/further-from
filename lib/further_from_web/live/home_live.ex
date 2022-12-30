@@ -73,5 +73,5 @@ defmodule FurtherFromWeb.HomeLive do
   defp place_name("fra"), do: "Frankfurt, Germany"
   defp place_name("sjc"), do: "Sunnyvale, California (US)"
   defp place_name("syd"), do: "Sydney, Australia"
-  defp place_name(region), do: region
+  defp place_name(_region), do: "Ashburn, Virginia (US)"
 end

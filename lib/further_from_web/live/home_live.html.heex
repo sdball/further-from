@@ -34,9 +34,9 @@
               </.link>
               <br />Pivot Year: <%= recent.pivot_year %>
             </div>
-            <div class="flex justify-between background-gray-100 pt-2 text-sm">
-              <div class="text-left">Region: <%= place_name(recent.region) %></div>
-              <div class="text-right">Date: <%= recent.inserted_at %></div>
+            <div class="flex justify-between background-gray-100 pt-2 text-sm text-gray-500">
+              <div class="text-left"><%= place_name(recent.region) %></div>
+              <div class="text-right"><%= recent.inserted_at %></div>
             </div>
           </div>
         </li>
