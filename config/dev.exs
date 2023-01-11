@@ -1,5 +1,8 @@
 import Config
 
+config :further_from,
+  load_data: true
+
 # Configure your database
 config :further_from, FurtherFrom.Repo,
   database: Path.expand("../further_from_dev.db", Path.dirname(__ENV__.file)),

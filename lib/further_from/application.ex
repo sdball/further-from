@@ -7,8 +7,10 @@ defmodule FurtherFrom.Application do
 
   @impl true
   def start(_type, _args) do
-    FurtherFrom.Release.migrate()
-    FurtherFrom.Release.load_data()
+    if Application.get_env(:further_from, :load_data) do
+      FurtherFrom.Release.migrate()
+      FurtherFrom.Release.load_data()
+    end
 
     topologies = Application.get_env(:libcluster, :topologies) || []
 

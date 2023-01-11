@@ -1,5 +1,8 @@
 import Config
 
+config :further_from,
+  load_data: true
+
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
 # when generating URLs.

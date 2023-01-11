@@ -8,7 +8,8 @@
 import Config
 
 config :further_from,
-  ecto_repos: [FurtherFrom.Repo]
+  ecto_repos: [FurtherFrom.Repo],
+  load_data: false
 
 # Configures the endpoint
 config :further_from, FurtherFromWeb.Endpoint,
