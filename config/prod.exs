@@ -17,9 +17,6 @@ config :further_from, FurtherFromWeb.Endpoint,
     "https://further-from.fly.dev"
   ]
 
-# Configures Swoosh API Client
-config :swoosh, :api_client, FurtherFrom.Finch
-
 # Do not print debug messages in production
 config :logger, level: :info
 

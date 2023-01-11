@@ -17,12 +17,6 @@ config :further_from, FurtherFromWeb.Endpoint,
   secret_key_base: "yuhw2uGFOBdwgR8QkpdUP9miB3246oRLmLErwj168DslNWgw26l4SiKcFnekF1Wl",
   server: false
 
-# In test we don't send emails.
-config :further_from, FurtherFrom.Mailer, adapter: Swoosh.Adapters.Test
-
-# Disable swoosh api client as it is only required for production adapters.
-config :swoosh, :api_client, false
-
 # Print only warnings and errors during test
 config :logger, level: :warning
 
