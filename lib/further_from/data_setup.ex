@@ -384,6 +384,75 @@ defmodule FurtherFrom.DataSetup do
     There's not going to be a gas station around here until sometime in the
     next century. Without gasoline, we can't get the DeLorean up to 88 miles
     per hour.
+
+    lord-of-the-rings-movie-release
+    release of the movie The Lord of the Rings
+    The Lord of the Rings movie release
+    movies
+    1978
+    Ralph Bakshi's ambitious undertaking which brought Middle Earth to life via
+    cel animation and rotoscoped live action footage.
+
+    fellowship-of-the-ring-movie-release
+    release of the movie The Lord of the Rings: The Fellowship of the Ring
+    The Fellowship of the Ring movie release
+    movies
+    2001
+    Achieving near-universal critical acclaim is no small feat. The first of
+    Peter Jackson's LOTR trilogy succeeds.
+
+    the-two-towers-movie-release
+    release of the movie The Lord of the Rings: The Two Towers
+    The Two Towers movie release
+    movies
+    2002
+    The opening scene of Gandalf fighting the Balrog is cinematic legend. We can
+    almost forgive the movie's strange and complex divergence from the plot of
+    the book which requires characters to make strangely illogical decisions in
+    order to keep the story lined up for the third movie.
+
+    the-return-of-the-king-movie-release
+    release of the movie The Lord of the Rings: The Return of the King
+    The Return of the King movie release
+    movies
+    2003
+    Sadly this movie misses a major point of the books by not including the
+    scouring of the shire. More than a battle set piece the hobbits reclaiming
+    the shire from an authoritarian government is a critical balance to the
+    quest to destroy the ring.
+
+    fellowship-of-the-ring-book-release
+    release of the book The Lord of the Rings: The Fellowship of the Ring
+    The Fellowship of the Ring book release
+    books
+    1954
+    "Don't adventures ever have an end? I suppose not. Someone else always has
+    to carry on on the story."
+
+    the-two-towers-book-release
+    release of the book The Lord of the Rings: The Two Towers
+    The Two Towers book release
+    books
+    1954
+    "I would not take this thing, if it lay by the highway. Not were Minas
+    Tirith falling in ruin and I alone could save her, so, using the weapon
+    of the Dark Lord for her good and my glory. No, I do not wish for such
+    triumphs, Frodo." —Faramir. The book version of Faramir was far more level
+    headed and wise.
+
+    the-return-of-the-king-book-release
+    release of the book The Lord of the Rings: The Return of the King
+    The Return of the King book release
+    books
+    1955
+    Unlike the movies, the books contain the critically and thematically
+    important "scouring of the shire" which contextualizes the effects of the
+    larger adventure. Frodo, Sam, Merry, and Pippen return to the shire to find
+    it under the control of an authortarian regime that has torn down the old
+    houses and replaced the mill with machinery that pollutes the air and water.
+    They inspire and lead an unrising to overthrow those in power and restore
+    the Shire. If you've only ever seen the movies, you should at least read
+    this section of the books.
     """
   end
 end
