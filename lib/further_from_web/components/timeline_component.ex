@@ -57,6 +57,9 @@ defmodule FurtherFromWeb.TimelineComponent do
       assigns.comparison.pivot_year < assigns.current_year ->
         past_comparison(assigns)
 
+      assigns.comparison.pivot_year == assigns.current_year ->
+        this_year_comparison(assigns)
+
       true ->
         future_comparison(assigns)
     end
@@ -77,6 +80,12 @@ defmodule FurtherFromWeb.TimelineComponent do
   def future_comparison(assigns) do
     ~H"""
     In <%= @comparison.pivot_year %> we'll be further from the <%= @comparison.last.summary_text %> than the <%= @comparison.last.summary_text %> was from the <%= @comparison.first.summary_text %>. These events were <%= @comparison.difference %> years apart.
+    """
+  end
+
+  def this_year_comparison(assigns) do
+    ~H"""
+    In <%= @comparison.pivot_year %> we're now further from the <%= @comparison.last.summary_text %> than the <%= @comparison.last.summary_text %> was from the <%= @comparison.first.summary_text %>. These events were <%= @comparison.difference %> years apart.
     """
   end
 end
