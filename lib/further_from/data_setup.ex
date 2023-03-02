@@ -453,6 +453,23 @@ defmodule FurtherFrom.DataSetup do
     They inspire and lead an unrising to overthrow those in power and restore
     the Shire. If you've only ever seen the movies, you should at least read
     this section of the books.
+
+    dark-side-of-the-moon-album-release
+    release of the album The Dark Side of the Moon
+    The Dark Side of the Moon album release
+    music
+    1973
+    If you don't already know what this is then you should hear this album at
+    least once. Or at least watch a Polyphonic episode about the album on YouTube.
+
+    disney-company-founded
+    the founding of The Walt Disney Company
+    Walt Disney Company founded
+    business
+    1923
+    Founded by Roy and Walt Disney, at the time it was called the Disney
+    Brothers Studio. It wasn't until 1928 with Steamboat Willie that the studio
+    really started to take off.
     """
   end
 end
