@@ -1,4 +1,7 @@
 defmodule FurtherFromWeb.TimelineComponent do
+  @moduledoc """
+  Phoenix LiveView components that make up the timeline.
+  """
   use Phoenix.Component
 
   def event(assigns) do

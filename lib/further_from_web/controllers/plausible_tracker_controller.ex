@@ -1,7 +1,8 @@
 defmodule FurtherFromWeb.PlausibleTrackerController do
+  require Logger
   use FurtherFromWeb, :controller
 
-  def pageview(conn = %Plug.Conn{req_headers: headers}, _params) do
+  def pageview(%Plug.Conn{req_headers: headers} = conn, _params) do
     user_agent =
       headers
       |> Enum.find(&(elem(&1, 0) == "user-agent"))
@@ -31,13 +32,13 @@ defmodule FurtherFromWeb.PlausibleTrackerController do
         )
 
       if conn.host == "localhost" do
-        dbg(request)
+        Logger.debug(request)
       else
         Finch.request(request, FurtherFrom.Finch)
       end
     else
       error ->
-        dbg(error)
+        Logger.error(error)
     end
 
     text(conn, "OK")

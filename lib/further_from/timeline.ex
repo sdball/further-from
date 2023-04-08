@@ -157,12 +157,10 @@ defmodule FurtherFrom.Timeline do
   def get_event_by_key_or_year(key) do
     event = get_event_by_key(key)
 
-    cond do
-      is_nil(event) && Regex.match?(~r/\d\d\d\d/, key) ->
-        build_year_event(key |> String.to_integer())
-
-      true ->
-        event
+    if is_nil(event) && Regex.match?(~r/\d\d\d\d/, key) do
+      build_year_event(key |> String.to_integer())
+    else
+      event
     end
   end
 end

@@ -1,4 +1,8 @@
 defmodule FurtherFrom.Comparison do
+  @moduledoc """
+  A Phoenix context for comparison data.  
+  """
+
   defstruct [:pivot_year, :first, :last, :difference]
 
   alias FurtherFrom.Repo

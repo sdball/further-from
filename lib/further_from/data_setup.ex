@@ -1,4 +1,17 @@
 defmodule FurtherFrom.DataSetup do
+  @moduledoc """
+  Functions and (currently) the actual data to setup a FurtherFrom instance.  
+
+  The approach here is that whenever a FurtherFrom instance starts it bootstraps
+  itself with the encoded events. That allows easily adding new clusters in
+  fly.io and means we don't need to do anything more complex than starting the
+  application.
+
+  Storing the data in the code is a convenience to allow easily adding new
+  events, not a long term design choice. This data structure of events is also
+  not a long term design choice. I simply haven't yet bothered to think through
+  how to model the events most effectively.
+  """
   alias FurtherFrom.Timeline.Event
   alias FurtherFrom.Repo
 

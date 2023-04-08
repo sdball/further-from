@@ -1,4 +1,8 @@
 defmodule FurtherFromWeb.EventSearchLiveComponent do
+  @moduledoc """
+  A Phoenix LiveView component to handle searching for events.  
+  """
+
   use Phoenix.LiveComponent
 
   def mount(socket) do

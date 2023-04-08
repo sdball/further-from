@@ -1,4 +1,12 @@
 defmodule FurtherFrom.Subscriber do
+  @moduledoc """
+  Allow subscribing to topics as declared in `application.ex` and handle topic
+  messages. Currently only supports `recently_seen_comparisons` to persist
+  recently seen comparisons from outside the current region.
+  """
+
+  require Logger
+
   use GenServer
 
   def start_link(arg) do
@@ -6,11 +14,10 @@ defmodule FurtherFrom.Subscriber do
   end
 
   @impl true
-  def init(state = %{topics: topics}) do
+  def init(%{topics: topics} = state) do
     topics
     |> Enum.each(fn topic ->
       FurtherFromWeb.Endpoint.subscribe(topic)
-      # FurtherFromWeb.Endpoint.subscribe("recently_seen_comparison")
     end)
 
     state = Map.put(state, :region, System.get_env("FLY_REGION") || "local")
@@ -28,7 +35,7 @@ defmodule FurtherFrom.Subscriber do
       |> Map.from_struct()
       |> FurtherFrom.Comparison.create_recently_seen()
     else
-      dbg("got a comparison from our region")
+      Logger.debug("got a comparison from our region")
     end
 
     {:noreply, state}

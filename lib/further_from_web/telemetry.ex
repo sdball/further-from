@@ -1,4 +1,8 @@
 defmodule FurtherFromWeb.Telemetry do
+  @moduledoc """
+  A generated Phoenix application module to handle generic telemetry metrics.
+  """
+
   use Supervisor
   import Telemetry.Metrics
 

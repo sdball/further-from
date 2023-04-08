@@ -1,4 +1,7 @@
 defmodule FurtherFrom.Timeline.Event do
+  @moduledoc """
+  An Ecto schema/changeset for timeline events.
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

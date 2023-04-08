@@ -1,4 +1,7 @@
 defmodule FurtherFrom.Comparison.RecentlySeen do
+  @moduledoc """
+  Ecto schema/changeset for recently seen comparisons  
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

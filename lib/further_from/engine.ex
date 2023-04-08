@@ -1,4 +1,8 @@
 defmodule FurtherFrom.Engine do
+  @moduledoc """
+  Logic to handle comparing events and to broadcast comparisons to
+  `recently_seen_comparisons`
+  """
   require Logger
 
   alias FurtherFrom.Comparison
