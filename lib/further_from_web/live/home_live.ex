@@ -4,10 +4,9 @@ defmodule FurtherFromWeb.HomeLive do
   @page_title "Home"
 
   def mount(_params, _session, socket) do
-    FurtherFromWeb.Endpoint.subscribe("recently_seen_comparison")
-
     socket =
       if connected?(socket) do
+        FurtherFromWeb.Endpoint.subscribe("recently_seen_comparison")
         socket
         |> assign_new(:comparison, fn ->
           event1 = get_random_event()
