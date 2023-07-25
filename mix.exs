@@ -49,7 +49,7 @@ defmodule FurtherFrom.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
-      {:bandit, ">= 0.7.5"},
+      {:bandit, "~> 1.0-pre"},
       {:inflex, "~> 2.0.0"},
       {:libcluster, "~> 3.1"},
       {:credo, "~> 1.7", only: [:dev], runtime: false}
