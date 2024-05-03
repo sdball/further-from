@@ -1,6 +1,6 @@
 defmodule FurtherFrom.DataSetup do
   @moduledoc """
-  Functions and (currently) the actual data to setup a FurtherFrom instance.  
+  Functions and (currently) the actual data to setup a FurtherFrom instance.
 
   The approach here is that whenever a FurtherFrom instance starts it bootstraps
   itself with the encoded events. That allows easily adding new clusters in
@@ -483,6 +483,24 @@ defmodule FurtherFrom.DataSetup do
     Founded by Roy and Walt Disney, at the time it was called the Disney
     Brothers Studio. It wasn't until 1928 with Steamboat Willie that the studio
     really started to take off.
+
+    aim-released
+    the release of AOL Instant Messenger
+    AOL Instant Messenger released
+    internet
+    1997
+    On May 1, 1997 AOL Instant Messenger (AIM) was released. It wasn't the first
+    way to chat with friends online (ICQ) but it was extremely popular.
+
+    aim-discontinued
+    the discontinuation of AOL Instant Messenger
+    AOL Instant Messenger discontinued
+    internet
+    2017
+    In 2017 Verizon (having acquired AOL in 2015) discontinued
+    AIM as a service after years of declining use. For years
+    users had been moving to even easier to use services such
+    as Google Chat and iMessage.
     """
   end
 end
