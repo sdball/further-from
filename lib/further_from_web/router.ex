@@ -14,17 +14,6 @@ defmodule FurtherFromWeb.Router do
     plug :accepts, ["json"]
   end
 
-  pipeline :plausible do
-    plug :accepts, ["text/plain"]
-  end
-
-  scope "/api", FurtherFromWeb do
-    pipe_through :plausible
-
-    get "/event", PlausibleTrackerController, :pageview
-    post "/event", PlausibleTrackerController, :pageview
-  end
-
   scope "/", FurtherFromWeb do
     pipe_through :browser
 
