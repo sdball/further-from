@@ -13,9 +13,9 @@ die() {
   exit "$code"
 }
 
-COOKIE=$(fly ssh console -C "cat app/releases/COOKIE" -q -r iad)
+COOKIE=$(fly ssh console -C "cat /app/releases/COOKIE" -q -r iad)
 IP=$(fly ips private | awk '(NR==2){ print $3; exit }')
-APP_NAME=$(fly info -j | jq -r ".Name")
+APP_NAME=$(fly status -j | jq -r ".Name")
 FULL_NODE_NAME="${APP_NAME}@${IP}"
 
 msg "Attempting to connect to $FULL_NODE_NAME using $COOKIE"
