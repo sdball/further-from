@@ -44,7 +44,6 @@ defmodule FurtherFromWeb do
         layouts: [html: FurtherFromWeb.Layouts]
 
       import Plug.Conn
-      import FurtherFromWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -86,7 +85,6 @@ defmodule FurtherFromWeb do
       import Phoenix.HTML
       # Core UI components and translation
       import FurtherFromWeb.CoreComponents
-      import FurtherFromWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

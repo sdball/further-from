@@ -1,6 +1,6 @@
 defmodule FurtherFromWeb.EventSearchLiveComponent do
   @moduledoc """
-  A Phoenix LiveView component to handle searching for events.  
+  A Phoenix LiveView component to handle searching for events.
   """
 
   use Phoenix.LiveComponent
@@ -13,6 +13,10 @@ defmodule FurtherFromWeb.EventSearchLiveComponent do
 
     {:ok, socket}
   end
+
+  def pluralize(_singular, plural, 0), do: plural
+  def pluralize(singular, _plural, 1), do: singular
+  def pluralize(_singular, plural, _count), do: plural
 
   def handle_event("search", %{"value" => value}, socket) do
     matched_events =
@@ -55,7 +59,7 @@ defmodule FurtherFromWeb.EventSearchLiveComponent do
 
       <div class="bg-white mt-2 rounded shadow">
         <div class="p-4 pb-2 italic text-sm text-gray-400">
-          <%= @events_count %> <%= Inflex.inflect("Results", @events_count) %>
+          <%= @events_count %> <%= pluralize("Result", "Results", @events_count) %>
         </div>
         <%= for event <- @matched_events do %>
           <div

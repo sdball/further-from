@@ -10,9 +10,9 @@ defmodule FurtherFromWeb.CoreComponents do
   [heroicons_elixir](https://github.com/mveytsman/heroicons_elixir) project.
   """
   use Phoenix.Component
+  use Gettext, backend: MyApp.Gettext
 
   alias Phoenix.LiveView.JS
-  import FurtherFromWeb.Gettext
 
   @doc """
   Renders a modal.
