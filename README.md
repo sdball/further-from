@@ -1,18 +1,58 @@
-# FurtherFrom
+# Further From
 
-This is the Phoenix LiveView web application and data behind https://furtherfrom.com.
+The static site behind https://furtherfrom.com. Pick two moments and find the
+crossover: the moment we'll be further from the later one than it was from the
+earlier one.
 
-To run the server locally:
+There's no build step and no dependencies. `public/` is the whole site, and
+pushing to `main` deploys it to GitHub Pages.
 
-  * Have Elixir
-  * Have SQlite
-  * Clone this repo
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start the Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+```
+public/index.html    the page: comparison, picker, upcoming crossovers, interesting pairs
+public/when.js       the date math, shared by the page and the tests
+public/events.json   every event
+test/                node --test checks for the date math and the events
+scripts/serve        serves public/ locally
+```
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Run it locally
 
-The codebase includes all of the event data directly. Your locally running
-instance will have exactly the same data as one of the clustered instances
-actually running on furtherfrom.com.
+```sh
+scripts/serve        # http://localhost:8000/
+scripts/serve 9000   # or pick a port
+node --test test/*.test.mjs
+```
+
+Use the server rather than opening the file directly, since the page fetches `events.json`.
+
+## Adding an event
+
+Add an object to `public/events.json`. Order doesn't matter.
+
+```json
+{
+  "key": "apollo-11-moon-landing",
+  "date": "1969-07-20",
+  "title": "Apollo 11 Moon Landing",
+  "phrase": "the Apollo 11 Moon landing",
+  "category": "space",
+  "description": "Apollo 11 (July 16–24, 1969) was the American spaceflight that first landed humans on the Moon.",
+  "source": "https://…"
+}
+```
+
+- `key` is lowercase and hyphenated. It's what appears in links (`?a=first-flight&b=apollo-11-moon-landing`).
+- `date` is as precise as you know it: `"1969"`, `"1969-07"`, or `"1969-07-20"`. Use negative years for BCE (`"-43"` is 44 BCE). Dates before 1582 should stay year-only, since the math uses the Gregorian calendar.
+- `title` is the heading in lists and on the timeline.
+- `phrase` has to read in the middle of a sentence: "we'll be further from *the Apollo 11 Moon landing* than it was from *the Wright brothers' first flight*." Include the article.
+- `description` and `source` are optional.
+
+`node --test test/*.test.mjs` checks for missing fields, duplicate keys, and bad dates. CI runs it before every deploy.
+
+## How the comparison works
+
+Two events are compared at the coarser of their two precisions. Two exact dates
+are compared to the day, a day and a month to the month, and anything with a
+year-only date to the year. The page says when that happens.
+
+Any year or date also works in place of an event key: `?a=1999-12-31&b=apollo-11-moon-landing`.

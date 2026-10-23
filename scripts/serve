@@ -1,0 +1,11 @@
+#!/bin/sh
+# Serve public/ locally, the way GitHub Pages will.
+# Usage: scripts/serve [port]   (default 8000, or $PORT)
+
+set -e
+
+root="$(cd "$(dirname "$0")/.." && pwd)"
+port="${1:-${PORT:-8000}}"
+
+echo "Serving $root/public at http://localhost:$port/ (Ctrl-C to stop)"
+exec python3 -m http.server --bind 127.0.0.1 --directory "$root/public" "$port"

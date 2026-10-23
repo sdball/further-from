@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Further From</title>
+<meta name="description" content="Pick two moments in history and find the day we'll be further from the later one than it was from the earlier one.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Further From">
+<meta property="og:description" content="Pick two moments in history and find the day we'll be further from the later one than it was from the earlier one.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f3eee4;
+    --card: #fbf8f1;
+    --ink: #1e1a15;
+    --muted: #6b6255;
+    --rule: #ddd3c2;
+    --rule-strong: #b3a690;
+    --chip: #ebe3d4;
+    --first: #2c5d88;
+    --last: #9a5f0c;
+    --pivot: #bf3b24;
+    --pivot-wash: rgba(191, 59, 36, 0.16);
+    --focus: #2c5d88;
+    --shadow: 0 1px 0 rgba(30, 26, 21, 0.04), 0 18px 40px -26px rgba(30, 26, 21, 0.45);
+
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #14120f;
+      --card: #1d1a15;
+      --ink: #eee7da;
+      --muted: #a59a8a;
+      --rule: #393329;
+      --rule-strong: #5e5547;
+      --chip: #2a251e;
+      --first: #8fb8df;
+      --last: #e3b45e;
+      --pivot: #f38a6b;
+      --pivot-wash: rgba(243, 138, 107, 0.2);
+      --focus: #8fb8df;
+      --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 18px 40px -26px rgba(0, 0, 0, 0.9);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #14120f;
+    --card: #1d1a15;
+    --ink: #eee7da;
+    --muted: #a59a8a;
+    --rule: #393329;
+    --rule-strong: #5e5547;
+    --chip: #2a251e;
+    --first: #8fb8df;
+    --last: #e3b45e;
+    --pivot: #f38a6b;
+    --pivot-wash: rgba(243, 138, 107, 0.2);
+    --focus: #8fb8df;
+    --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 18px 40px -26px rgba(0, 0, 0, 0.9);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 1.0625rem/1.55 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration-color: var(--rule-strong); text-underline-offset: 0.18em; }
+  a:hover { text-decoration-color: currentColor; }
+
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+
+  button { font: inherit; color: inherit; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  kbd {
+    font: 500 0.8em var(--mono);
+    padding: 0.05em 0.4em;
+    border: 1px solid var(--rule-strong);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+    background: var(--card);
+  }
+
+  /* ---------- Masthead ---------- */
+
+  .mast { padding: 2rem 1.25rem 0; }
+
+  .mast-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+  }
+
+  .wordmark {
+    font: 600 clamp(2.2rem, 1.6rem + 2.6vw, 3.4rem)/1 var(--serif);
+    font-variation-settings: "opsz" 144;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+  .wordmark i { font-weight: 400; color: var(--pivot); }
+
+  .tagline { margin: 0; max-width: 34rem; color: var(--muted); font-size: 1rem; }
+
+  /* a ruler: small ticks every 8px, tall ones every 80px */
+  .ruler {
+    max-width: 1180px;
+    height: 14px;
+    margin: 1.25rem auto 0;
+    border-top: 1.5px solid var(--ink);
+    background:
+      repeating-linear-gradient(90deg, var(--ink) 0 1.5px, transparent 1.5px 80px) top left / 100% 12px no-repeat,
+      repeating-linear-gradient(90deg, var(--rule-strong) 0 1px, transparent 1px 8px) top left / 100% 6px no-repeat;
+  }
+
+  /* ---------- Layout ---------- */
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 1.75rem 1.25rem 3rem; }
+
+  .layout { display: grid; gap: 1.5rem; }
+  .lower { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+
+  @media (min-width: 1000px) {
+    .layout { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; }
+    .picker { position: sticky; top: 1rem; }
+    .lower { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: clamp(1.25rem, 0.9rem + 1.6vw, 2.25rem);
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    font: 500 0.78rem/1.3 var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h2.section {
+    margin: 0 0 0.25rem;
+    font: 600 1.45rem/1.2 var(--serif);
+    font-variation-settings: "opsz" 48;
+  }
+
+  .sub { margin: 0 0 1rem; color: var(--muted); font-size: 0.95rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    padding: 0 1rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    background: transparent;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  .btn:hover { background: var(--chip); }
+  .btn.primary { background: var(--ink); color: var(--card); border-color: var(--ink); }
+  .btn.primary:hover { background: var(--pivot); border-color: var(--pivot); }
+
+  .btn kbd { background: transparent; color: inherit; border-color: currentColor; opacity: 0.65; }
+
+  /* ---------- Comparison ---------- */
+
+  .headline {
+    margin: 0;
+    font: 450 clamp(1.55rem, 1.05rem + 2vw, 2.45rem)/1.2 var(--serif);
+    font-variation-settings: "opsz" 96;
+    letter-spacing: -0.01em;
+    text-wrap: pretty;
+  }
+  .headline .when { font-style: italic; color: var(--pivot); white-space: nowrap; }
+  .headline .ev {
+    text-decoration: underline;
+    text-decoration-thickness: 0.09em;
+    text-underline-offset: 0.16em;
+  }
+  .headline .ev.first { text-decoration-color: var(--first); }
+  .headline .ev.last { text-decoration-color: var(--last); }
+
+  .status { margin: 1rem 0 0; font-size: 1.05rem; }
+  .status strong { font-weight: 600; }
+  .note { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.9rem; }
+
+  /* the proportional line: earlier, later, crossover, and where today sits */
+  .track { position: relative; height: 92px; margin: 2.25rem 0.5rem 0.5rem; }
+  .track-line {
+    position: absolute; left: 0; right: 0; top: 40px; height: 2px;
+    background: var(--rule-strong);
+  }
+  .track-seg { position: absolute; top: 39px; height: 4px; border-radius: 2px; }
+  .track-seg.done { background: var(--ink); }
+  .track-seg.todo {
+    background: repeating-linear-gradient(90deg, var(--pivot) 0 6px, transparent 6px 11px);
+    opacity: 0.55;
+  }
+  .track-seg.progress { background: var(--pivot); }
+
+  .pin { position: absolute; top: 33px; width: 0; }
+  .pin .dot {
+    position: absolute; left: -8px; top: 0;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--card); border: 4px solid currentColor;
+  }
+  .pin.first { color: var(--first); }
+  .pin.last { color: var(--last); }
+  .pin.pivot { color: var(--pivot); }
+  .pin.pivot .dot { background: currentColor; }
+  .pin-label {
+    position: absolute; top: 24px; white-space: nowrap;
+    font: 500 0.78rem/1.35 var(--mono);
+  }
+  .pin-label span { display: block; color: var(--muted); font-weight: 400; }
+  .pin.first .pin-label { left: -8px; }
+  .pin.last .pin-label { transform: translateX(-50%); text-align: center; }
+  .pin.pivot .pin-label { right: -8px; text-align: right; }
+
+  .now { position: absolute; top: 0; height: 52px; width: 0; }
+  .now::after {
+    content: ""; position: absolute; left: -1px; top: 18px; bottom: 0;
+    border-left: 2px dotted var(--ink);
+  }
+  .now-tag {
+    position: absolute; top: 0; transform: translateX(-50%);
+    padding: 0 0.45rem; border-radius: 4px;
+    background: var(--ink); color: var(--card);
+    font: 500 0.72rem/1.45 var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .now.edge-left .now-tag { transform: none; left: -6px; }
+  .now.edge-right .now-tag { transform: translateX(-100%); left: 6px; }
+  .now.off::after { display: none; }
+
+  /* the vertical timeline of stops, newest at the top */
+  .stops { list-style: none; margin: 2rem 0 0; padding: 0; position: relative; }
+  .stops::before {
+    content: ""; position: absolute; left: 7px; top: 0.6rem; bottom: 0.6rem;
+    border-left: 2px solid var(--rule);
+  }
+  .stop { position: relative; padding: 0 0 0 2.25rem; }
+  .stop::before {
+    content: ""; position: absolute; left: 0; top: 0.3rem;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--card); border: 4px solid var(--stop-color, var(--rule-strong));
+  }
+  .stop.pivot { --stop-color: var(--pivot); }
+  .stop.pivot::before { background: var(--pivot); }
+  .stop.first { --stop-color: var(--first); }
+  .stop.last { --stop-color: var(--last); }
+  .stop-date {
+    margin: 0;
+    font: 500 0.85rem/1.4 var(--mono);
+    color: var(--stop-color, var(--muted));
+  }
+  .stop-title {
+    margin: 0.1rem 0 0.35rem;
+    font: 600 1.2rem/1.3 var(--serif);
+    font-variation-settings: "opsz" 36;
+  }
+  .stop-body { margin: 0; color: var(--muted); max-width: 40rem; }
+  .tag {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.05rem 0.5rem;
+    border-radius: 999px;
+    background: var(--chip);
+    color: var(--muted);
+    font: 500 0.72rem/1.5 var(--mono);
+    vertical-align: 0.2em;
+    letter-spacing: 0.03em;
+  }
+  .gap {
+    position: relative;
+    margin: 1rem 0;
+    padding: 0.6rem 0 0.6rem 2.25rem;
+    font: 500 0.88rem/1.4 var(--mono);
+    color: var(--muted);
+  }
+  .gap::before {
+    content: ""; position: absolute; left: 7px; top: 0; bottom: 0;
+    border-left: 2px dashed var(--rule-strong);
+  }
+  .gap b { color: var(--ink); font-weight: 500; }
+
+  .card-foot {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem;
+    margin-top: 2rem; padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+  }
+  .card-foot .copied { color: var(--muted); font-size: 0.9rem; }
+
+  .empty { text-align: left; }
+  .empty p { color: var(--muted); }
+
+  /* ---------- Picker ---------- */
+
+  .slots { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 1rem 0 0.75rem; }
+  .slot { position: relative; display: flex; }
+  .slot-btn {
+    flex: 1;
+    min-height: 64px;
+    padding: 0.55rem 2.4rem 0.55rem 0.8rem;
+    border: 1.5px dashed var(--rule-strong);
+    border-radius: 12px;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+  }
+  .slot-btn[aria-pressed="true"] { border-style: solid; border-color: var(--ink); background: var(--paper); }
+  .slot-btn.filled { border-style: solid; }
+  .slot-num { display: block; font: 500 0.72rem/1.4 var(--mono); color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+  .slot-val {
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    font-weight: 600; font-size: 0.92rem; line-height: 1.3;
+  }
+  .slot-btn:not(.filled) .slot-val { color: var(--muted); font-weight: 400; font-style: italic; }
+  .slot-clear {
+    position: absolute; right: 2px; top: 50%; transform: translateY(-50%);
+    width: 40px; height: 40px; border: 0; border-radius: 50%;
+    background: transparent; color: var(--muted); font-size: 1.3rem; line-height: 1; cursor: pointer;
+  }
+  .slot-clear:hover { color: var(--pivot); background: var(--chip); }
+
+  .howto { margin: 0 0 1rem; color: var(--muted); font-size: 0.9rem; }
+
+  .search {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.6rem 0.9rem;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 10px;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 1rem var(--sans);
+  }
+  .search::placeholder { color: var(--muted); }
+  .search:focus-visible { outline-offset: 0; border-color: var(--focus); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.75rem 0 0.5rem; }
+  .chip {
+    min-height: 34px;
+    padding: 0 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font: 500 0.78rem var(--mono);
+    cursor: pointer;
+  }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--card); border-color: var(--ink); }
+
+  .count { margin: 0.5rem 0; font: 400 0.8rem var(--mono); color: var(--muted); }
+
+  .list {
+    list-style: none; margin: 0; padding: 0;
+    max-height: 26rem; overflow-y: auto;
+    border-top: 1px solid var(--rule);
+    overscroll-behavior: contain;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 6.75rem 1fr;
+    gap: 0.75rem;
+    align-items: baseline;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.6rem 0.4rem;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+  }
+  .row:hover { background: var(--paper); }
+  .row-date { font: 500 0.8rem var(--mono); color: var(--muted); }
+  .row-title { font-size: 0.95rem; line-height: 1.35; }
+  .row-title .tag { margin-left: 0.3rem; }
+  .row.picked { background: var(--paper); }
+  .row.picked { box-shadow: inset 3px 0 0 var(--ink); }
+  .badge {
+    display: inline-grid; place-items: center;
+    width: 1.35rem; height: 1.35rem; margin-right: 0.4rem;
+    border-radius: 50%; background: var(--ink); color: var(--card);
+    font: 500 0.72rem var(--mono); vertical-align: 0.1em;
+  }
+  .row[aria-disabled="true"] { cursor: default; opacity: 0.6; }
+  .row.custom .row-title { font-weight: 600; }
+  .no-match { padding: 1rem 0.4rem; color: var(--muted); }
+
+  /* ---------- Feeds and pairs ---------- */
+
+  .feed { list-style: none; margin: 0; padding: 0; }
+  .feed a {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 0.75rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+  }
+  .feed li:last-child a { border-bottom: 0; }
+  .feed a:hover .feed-pair b { text-decoration: underline; text-decoration-color: var(--last); }
+  .feed time { font: 500 0.82rem/1.45 var(--mono); color: var(--pivot); }
+  .feed time span { display: block; color: var(--muted); font-weight: 400; }
+  .feed-pair { font-size: 0.95rem; line-height: 1.4; }
+  .feed-pair b { font-weight: 600; }
+  .feed-pair span { color: var(--muted); }
+  h3.feed-head {
+    margin: 1.5rem 0 0.25rem;
+    font: 500 0.78rem/1.3 var(--mono);
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  }
+
+  .pairs { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+  @media (min-width: 600px) { .pairs { grid-template-columns: 1fr 1fr; } }
+  .pairs a {
+    display: block; height: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    text-decoration: none;
+  }
+  .pairs a:hover { border-color: var(--rule-strong); background: var(--paper); }
+  .pairs .pair-a { color: var(--first); }
+  .pairs .pair-b { color: var(--last); }
+  .pairs .pair-a, .pairs .pair-b { display: block; font-weight: 600; font-size: 0.92rem; line-height: 1.35; }
+  .pairs .pair-and { display: block; font: 400 0.75rem var(--mono); color: var(--muted); margin: 0.1rem 0; }
+  .pairs .pair-when { display: block; margin-top: 0.5rem; font: 500 0.78rem var(--mono); color: var(--pivot); }
+
+  .about { margin-top: 1.5rem; }
+  .about p { max-width: 46rem; }
+  .about p:last-child { margin-bottom: 0; }
+
+  footer {
+    max-width: 1180px; margin: 0 auto; padding: 0 1.25rem 2.5rem;
+    color: var(--muted); font-size: 0.9rem;
+  }
+
+  @media (max-width: 520px) {
+    .row { grid-template-columns: 5.9rem 1fr; gap: 0.5rem; }
+    .feed a { grid-template-columns: 6.4rem 1fr; }
+    .pin-label { font-size: 0.7rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="mast-inner">
+    <a class="wordmark" href="./">Further <i>From</i></a>
+    <p class="tagline">Pick two moments. Find the day we'll be further from the later one than it was from the earlier one.</p>
+  </div>
+  <div class="ruler" aria-hidden="true"></div>
+</header>
+
+<div class="wrap">
+  <div class="layout">
+    <main id="comparison" class="card" aria-live="polite">
+      <p class="eyebrow">Loading</p>
+      <noscript><p>Further From does its date math in your browser, so it needs JavaScript.</p></noscript>
+    </main>
+
+    <section class="card picker" aria-labelledby="pick-h">
+      <h2 class="section" id="pick-h">Pick two moments</h2>
+      <div class="slots" role="group" aria-label="Moments to compare" id="slots"></div>
+      <p class="howto">Choose a slot, then an event below. Type a year or a date like <kbd>1999-12-31</kbd> to use any moment. Press <kbd>/</kbd> to search.</p>
+      <label class="sr-only" for="filter">Search events</label>
+      <input class="search" id="filter" type="search" placeholder="Search events, years, or categories" autocomplete="off" spellcheck="false" aria-keyshortcuts="/" aria-controls="list">
+      <div class="chips" role="group" aria-label="Categories" id="chips"></div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <ul class="list" id="list"></ul>
+    </section>
+  </div>
+
+  <div class="lower">
+    <section class="card" aria-labelledby="soon-h">
+      <h2 class="section" id="soon-h">Crossovers on the calendar</h2>
+      <p class="sub">Every pair of events has a crossover. These are the next ones coming up, and the ones we passed most recently.</p>
+      <h3 class="feed-head">Coming up</h3>
+      <ol class="feed" id="upcoming"></ol>
+      <h3 class="feed-head">Recently passed</h3>
+      <ol class="feed" id="passed"></ol>
+    </section>
+
+    <section class="card" aria-labelledby="pairs-h">
+      <h2 class="section" id="pairs-h">Interesting pairs</h2>
+      <p class="sub">A few comparisons worth a look.</p>
+      <ul class="pairs" id="pairs"></ul>
+    </section>
+  </div>
+
+  <section class="card about" aria-labelledby="about-h">
+    <h2 class="section" id="about-h">How it works</h2>
+    <p>Take two moments. The gap between them keeps the same length forever, but the later one keeps slipping further into the past. The crossover is the moment the later one is as far behind us as the earlier one was behind it. After that, we're further from it than it was from the other.</p>
+    <p>Each event is dated as precisely as it's known. Two exact dates are compared to the day. If either one is only known to the month or the year, the comparison uses that instead, and the page says so.</p>
+    <p>The events live in <a href="https://github.com/sdball/further-from/blob/main/public/events.json">events.json</a> on GitHub. Suggestions and pull requests are welcome.</p>
+  </section>
+</div>
+
+<footer>
+  © <span id="year">2026</span> <a href="https://www.strangeleaflet.com">Stephen Ball</a>. Every link to a comparison can be shared.
+</footer>
+
+<script src="when.js"></script>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const W = window.When;
+
+  const PAIRS = [
+    ["first-flight", "apollo-11-moon-landing"],
+    ["bttf-marty-in-1955", "bttf-movie-release"],
+    ["sinking-of-the-titanic", "release-of-the-movie-titanic"],
+    ["fellowship-of-the-ring-book-release", "fellowship-of-the-ring-movie-release"],
+    ["aim-released", "aim-discontinued"],
+    ["conan-the-barbarian-movie-release", "beastmaster-movie-release"],
+    ["forrest-gump-in-vietnam-war", "forrest-gump-movie-release"],
+    ["nes", "snes"],
+    ["earliest-videogame", "nes"],
+    ["first-movie", "earliest-electronic-game"],
+  ];
+
+  const PRECISION = ["to the year", "to the month", "to the day"];
+  const PRECISION_NOUN = ["year", "month", "day"];
+
+  let EVENTS = [];
+  const BY_KEY = new Map();
+  const state = { picks: [null, null], active: 1, filter: "", category: null };
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+  // ---------- Helpers ----------
+
+  function el(tag, attrs = {}, ...kids) {
+    const node = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === "class") node.className = v;
+      else if (k === "style") node.style.cssText = v;
+      else if (k.startsWith("on")) node.addEventListener(k.slice(2), v);
+      else node.setAttribute(k, v === true ? "" : v);
+    }
+    for (const kid of kids.flat()) if (kid != null && kid !== false) node.append(kid);
+    return node;
+  }
+
+  // like append, but skips the null and false that conditional children leave behind
+  function fill(node, ...kids) {
+    node.replaceChildren(...kids.flat(Infinity).filter((k) => k != null && k !== false));
+  }
+
+  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+  function short(t) {
+    return W.format(t, "short");
+  }
+
+  // an event from the catalog, or a moment typed as a date
+  function resolve(token) {
+    if (!token) return null;
+    if (BY_KEY.has(token)) return BY_KEY.get(token);
+    const when = W.parse(token);
+    if (!when) return null;
+    const words = W.format(when);
+    return {
+      key: token, when, custom: true, category: "date",
+      title: when.p === W.YEAR ? `The year ${words}` : words,
+      phrase: when.p === W.YEAR ? `the year ${words}` : words,
+    };
+  }
+
+  function href(a, b) {
+    const params = new URLSearchParams();
+    if (a) params.set("a", a);
+    if (b) params.set("b", b);
+    const q = params.toString();
+    return q ? `?${q}` : "./";
+  }
+
+  // ---------- URL state ----------
+
+  function readUrl() {
+    const params = new URLSearchParams(location.search);
+    state.picks = [resolve(params.get("a")), resolve(params.get("b"))];
+    state.active = state.picks[0] ? 1 : 0;
+  }
+
+  function writeUrl(push) {
+    const url = href(state.picks[0]?.key, state.picks[1]?.key);
+    history[push ? "pushState" : "replaceState"](null, "", url);
+  }
+
+  function randomPair() {
+    // a same-year pair has no crossover worth showing, so try again
+    for (let i = 0; i < 20; i++) {
+      const a = EVENTS[Math.floor(Math.random() * EVENTS.length)];
+      const b = EVENTS[Math.floor(Math.random() * EVENTS.length)];
+      if (a !== b && W.compare(a, b).tense !== "same") return [a, b];
+    }
+    return [BY_KEY.get("first-flight"), BY_KEY.get("apollo-11-moon-landing")];
+  }
+
+  // ---------- Comparison ----------
+
+  // where today falls in the comparison's own units, with the fraction of the current one
+  function nowValue(p) {
+    const t = W.today();
+    const n = W.dayNumber(t.y, t.m, t.d);
+    if (p === W.YEAR) {
+      const start = W.dayNumber(t.y, 1, 1);
+      return t.y + (n - start) / (W.dayNumber(t.y + 1, 1, 1) - start);
+    }
+    if (p === W.MONTH) {
+      const start = W.dayNumber(t.y, t.m, 1);
+      const next = t.m === 12 ? W.dayNumber(t.y + 1, 1, 1) : W.dayNumber(t.y, t.m + 1, 1);
+      return W.value(t, W.MONTH) + (n - start) / (next - start);
+    }
+    return n;
+  }
+
+  function headline(c) {
+    const last = el("span", { class: "ev last" }, c.last.phrase);
+    const first = el("span", { class: "ev first" }, c.first.phrase);
+    const when = W.when(c.pivot);
+    if (c.tense === "same") {
+      return [el("span", { class: "ev first" }, cap(c.first.phrase)), " and ", last,
+        " both happened ", el("span", { class: "when" }, W.when(W.fromValue(W.value(c.first.when, c.p), c.p))), "."];
+    }
+    if (c.tense === "present") {
+      const lead = ["This year", "This month", "Today"][c.p];
+      return [el("span", { class: "when" }, lead), " we're now further from ", last, " than it was from ", first, "."];
+    }
+    const verb = c.tense === "past" ? " we got further from " : " we'll be further from ";
+    return [el("span", { class: "when" }, cap(when)), verb, last, " than it was from ", first, "."];
+  }
+
+  function statusLine(c) {
+    if (c.tense === "same") return null;
+    if (c.tense === "present") return `That's ${["this year", "this month", "today"][c.p]}.`;
+    const distance = W.distance(c.pivot);
+    if (c.tense === "past") return `That was ${distance} ago.`;
+    const lo = W.value(c.last.when, c.p), hi = W.value(c.pivot, c.p);
+    const pct = Math.floor(((nowValue(c.p) - lo) / (hi - lo)) * 100);
+    const tail = pct < 0
+      ? ` ${cap(c.last.phrase)} hasn't happened yet.`
+      : ` We're ${pct}% of the way there.`;
+    return `That's ${distance} from now.${tail}`;
+  }
+
+  // say when one event is dated more loosely than the other
+  function precisionNote(c) {
+    const looser = [c.first, c.last].find((e) => e.when.p === c.p);
+    const other = looser === c.first ? c.last : c.first;
+    if (other.when.p === c.p) return null;
+    return `${cap(looser.phrase)} is only dated to the ${PRECISION_NOUN[c.p]}, so this is measured ${PRECISION[c.p]}.`;
+  }
+
+  function track(c) {
+    const lo = W.value(c.first.when, c.p);
+    const hi = W.value(c.pivot, c.p);
+    const lastPos = ((W.value(c.last.when, c.p) - lo) / (hi - lo)) * 100;
+    let nowPos = ((nowValue(c.p) - lo) / (hi - lo)) * 100;
+    if (c.tense === "present") nowPos = 100;
+
+    const kids = [
+      el("div", { class: "track-line" }),
+      el("div", { class: "track-seg done", style: `left:0;width:${lastPos}%` }),
+      el("div", { class: "track-seg todo", style: `left:${lastPos}%;width:${100 - lastPos}%` }),
+    ];
+    if (nowPos > lastPos) {
+      const end = Math.min(nowPos, 100);
+      kids.push(el("div", { class: "track-seg progress", style: `left:${lastPos}%;width:${end - lastPos}%` }));
+    }
+
+    const pin = (cls, t, role) => el("div", { class: `pin ${cls}`, style: `left:${cls === "first" ? 0 : cls === "last" ? lastPos : 100}%` },
+      el("span", { class: "dot" }),
+      el("span", { class: "pin-label" }, short(t), el("span", {}, role)));
+    kids.push(pin("first", c.first.when, "earlier"), pin("last", c.last.when, "later"), pin("pivot", c.pivot, "crossover"));
+
+    // today might sit far outside the line, so park it at an edge with an arrow
+    let cls = "now", label = "Now", pos = nowPos;
+    if (nowPos > 100.5) { cls += " off edge-right"; label = "Now →"; pos = 100; }
+    else if (nowPos < -0.5) { cls += " off edge-left"; label = "← Now"; pos = 0; }
+    else if (nowPos > 88) cls += " edge-right";
+    else if (nowPos < 12) cls += " edge-left";
+    kids.push(el("div", { class: cls, style: `left:${pos}%` }, el("span", { class: "now-tag" }, label)));
+
+    const words = `A line from ${short(c.first.when)} to ${short(c.pivot)}, with ${short(c.last.when)} halfway. Today is ${
+      nowPos > 100.5 ? "past the crossover" : nowPos < -0.5 ? "before both events" : `${Math.round(nowPos)}% of the way along`}.`;
+    return el("div", { class: "track", role: "img", "aria-label": words }, kids);
+  }
+
+  function eventStop(e, cls) {
+    return el("li", { class: `stop ${cls}` },
+      el("p", { class: "stop-date" }, W.format(e.when)),
+      el("h3", { class: "stop-title" }, e.title, el("span", { class: "tag" }, e.category)),
+      e.description ? el("p", { class: "stop-body" }, e.description) : null);
+  }
+
+  function gapItem(c) {
+    if (c.p !== W.DAY) return el("li", { class: "gap" }, el("b", {}, W.gapText(c.gap, c.p)));
+    const rough = W.roughly(c.first.when, c.last.when);
+    return el("li", { class: "gap" }, el("b", {}, W.gapText(c.gap, c.p)), rough ? ` · ${rough}` : null);
+  }
+
+  function crossoverBody(c) {
+    const last = c.last.phrase, first = c.first.phrase;
+    if (c.tense === "past") return `Since then, ${last} has been further behind us than ${first} was behind it.`;
+    if (c.tense === "present") return `Right about now, ${last} slips further behind us than ${first} was behind it.`;
+    return `From then on, ${last} will be further behind us than ${first} was behind it.`;
+  }
+
+  function cardFoot() {
+    const copied = el("span", { class: "copied", "aria-live": "polite" });
+    return el("div", { class: "card-foot" },
+      el("button", { class: "btn primary", type: "button", "aria-keyshortcuts": "r", onclick: another }, "Another pair ", el("kbd", {}, "R")),
+      el("button", {
+        class: "btn", type: "button",
+        onclick: async () => {
+          try {
+            await navigator.clipboard.writeText(location.href);
+            copied.textContent = "Link copied.";
+          } catch {
+            copied.textContent = "Couldn't copy. The address bar has the link.";
+          }
+        },
+      }, "Copy link"),
+      copied);
+  }
+
+  function renderComparison() {
+    const [a, b] = state.picks;
+    const root = $("comparison");
+
+    if (!a || !b) {
+      const one = a || b;
+      fill(root,
+        el("p", { class: "eyebrow" }, one ? "One more" : "Nothing picked"),
+        el("h1", { class: "headline" }, one ? `Pick a moment to compare with ${one.phrase}.` : "Pick two moments to compare."),
+        el("p", { class: "status" }, "Choose from the list, or type any year or date into the search."),
+        one ? el("ol", { class: "stops" }, eventStop(one, "last")) : null,
+        cardFoot());
+      document.title = "Further From";
+      return;
+    }
+
+    const c = W.compare(a, b);
+    const note = precisionNote(c);
+    fill(root,
+      el("p", { class: "eyebrow" }, c.tense === "same" ? "Same " + PRECISION_NOUN[c.p] : `The crossover · measured ${PRECISION[c.p]}`),
+      el("h1", { class: "headline" }, headline(c)),
+      statusLine(c) ? el("p", { class: "status" }, statusLine(c)) : null,
+      note ? el("p", { class: "note" }, note) : null,
+      c.tense === "same" ? null : track(c),
+      el("ol", { class: "stops" },
+        c.tense === "same" ? null : [
+          el("li", { class: "stop pivot" },
+            el("p", { class: "stop-date" }, W.format(c.pivot)),
+            el("h3", { class: "stop-title" }, "The crossover"),
+            el("p", { class: "stop-body" }, crossoverBody(c))),
+          gapItem(c),
+        ],
+        eventStop(c.last, "last"),
+        gapItem(c),
+        eventStop(c.first, "first")),
+      cardFoot());
+    document.title = `${c.first.title} / ${c.last.title} · Further From`;
+  }
+
+  // ---------- Picker ----------
+
+  function renderSlots() {
+    const slots = $("slots");
+    slots.replaceChildren();
+    state.picks.forEach((pick, i) => {
+      slots.append(el("div", { class: "slot" },
+        el("button", {
+          class: "slot-btn" + (pick ? " filled" : ""), type: "button",
+          "aria-pressed": String(state.active === i),
+          onclick: () => { state.active = i; renderSlots(); $("filter").focus(); },
+        },
+          el("span", { class: "slot-num" }, `Moment ${i + 1}`),
+          el("span", { class: "slot-val" }, pick ? pick.title : "Pick one below")),
+        pick ? el("button", {
+          class: "slot-clear", type: "button", "aria-label": `Clear moment ${i + 1}`,
+          onclick: () => { state.picks[i] = null; state.active = i; commit(true); },
+        }, "×") : null));
+    });
+  }
+
+  function matches(e, words) {
+    if (state.category && e.category !== state.category) return false;
+    const hay = `${e.title} ${e.phrase} ${e.category} ${e.date} ${W.format(e.when)}`.toLowerCase();
+    return words.every((w) => hay.includes(w));
+  }
+
+  function renderList() {
+    const words = state.filter.toLowerCase().split(/\s+/).filter(Boolean);
+    const shown = EVENTS.filter((e) => matches(e, words));
+    const list = $("list");
+    list.replaceChildren();
+
+    const typed = W.parse(state.filter);
+    if (typed) {
+      const moment = resolve(state.filter.trim());
+      list.append(el("li", {}, el("button", {
+        class: "row custom", type: "button", onclick: () => pick(moment),
+      }, el("span", { class: "row-date" }, short(typed)), el("span", { class: "row-title" }, `Use ${moment.phrase} as moment ${state.active + 1}`))));
+    }
+
+    for (const e of shown) {
+      const slot = state.picks.findIndex((p) => p && p.key === e.key);
+      const taken = slot !== -1 && slot !== state.active;
+      list.append(el("li", {}, el("button", {
+        class: "row" + (slot !== -1 ? " picked" : ""), type: "button",
+        "aria-disabled": taken ? "true" : null,
+        "aria-label": `${e.title}, ${W.format(e.when)}${slot !== -1 ? `, picked as moment ${slot + 1}` : ""}`,
+        onclick: () => { if (!taken) pick(e); },
+      },
+        el("span", { class: "row-date" }, short(e.when)),
+        el("span", { class: "row-title" },
+          slot !== -1 ? el("span", { class: "badge", "aria-hidden": "true" }, String(slot + 1)) : null,
+          e.title, el("span", { class: "tag" }, e.category)))));
+    }
+    if (!shown.length && !typed) list.append(el("li", { class: "no-match" }, "No events match. Try a year, or a date like 1999-12-31."));
+    $("count").textContent = W.plural(shown.length, "event");
+  }
+
+  function renderChips() {
+    const cats = [...new Set(EVENTS.map((e) => e.category))].sort();
+    const chips = $("chips");
+    chips.replaceChildren();
+    for (const cat of [null, ...cats]) {
+      chips.append(el("button", {
+        class: "chip", type: "button", "aria-pressed": String(state.category === cat),
+        onclick: () => { state.category = cat; renderChips(); renderList(); },
+      }, cat ?? "all"));
+    }
+  }
+
+  function pick(e) {
+    state.picks[state.active] = e;
+    const other = 1 - state.active;
+    if (!state.picks[other]) state.active = other;
+    commit(true);
+    if (state.picks[0] && state.picks[1]) showComparison();
+  }
+
+  function showComparison() {
+    const top = $("comparison").getBoundingClientRect().top;
+    if (top < 0 || top > innerHeight * 0.5) {
+      $("comparison").scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+    }
+  }
+
+  function another() {
+    state.picks = randomPair();
+    state.active = 1;
+    commit(true);
+  }
+
+  function commit(push) {
+    writeUrl(push);
+    render();
+  }
+
+  function render() {
+    renderComparison();
+    renderSlots();
+    renderList();
+  }
+
+  // ---------- Crossovers on the calendar ----------
+
+  function feedRow(c) {
+    const ahead = c.tense === "future";
+    const rel = c.tense === "present" ? ["this year", "this month", "today"][c.p]
+      : ahead ? `in ${W.distance(c.pivot)}` : `${W.distance(c.pivot)} ago`;
+    return el("li", {}, el("a", { href: href(c.first.key, c.last.key), "data-pair": "" },
+      el("time", {}, short(c.pivot), el("span", {}, rel)),
+      el("span", { class: "feed-pair" }, el("b", {}, c.last.title), el("span", {}, " passes "), c.first.title)));
+  }
+
+  function renderFeeds() {
+    const today = W.today();
+    const t = W.dayNumber(today.y, today.m, today.d);
+    const all = [];
+    for (let i = 0; i < EVENTS.length; i++) {
+      for (let j = i + 1; j < EVENTS.length; j++) {
+        const c = W.compare(EVENTS[i], EVENTS[j]);
+        if (c.tense !== "same") all.push({ c, span: W.span(c.pivot) });
+      }
+    }
+    const upcoming = all.filter((x) => x.span[1] >= t).sort((x, y) => x.span[1] - y.span[1]).slice(0, 6);
+    const passed = all.filter((x) => x.span[1] < t).sort((x, y) => y.span[1] - x.span[1]).slice(0, 4);
+    $("upcoming").replaceChildren(...upcoming.map((x) => feedRow(x.c)));
+    $("passed").replaceChildren(...passed.map((x) => feedRow(x.c)));
+  }
+
+  function renderPairs() {
+    const items = PAIRS.map(([a, b]) => [BY_KEY.get(a), BY_KEY.get(b)]).filter(([a, b]) => a && b);
+    $("pairs").replaceChildren(...items.map(([a, b]) => {
+      const c = W.compare(a, b);
+      return el("li", {}, el("a", { href: href(a.key, b.key), "data-pair": "" },
+        el("span", { class: "pair-a" }, c.first.title),
+        el("span", { class: "pair-and" }, "and"),
+        el("span", { class: "pair-b" }, c.last.title),
+        el("span", { class: "pair-when" }, c.tense === "same" ? "same " + PRECISION_NOUN[c.p] : `crossover ${short(c.pivot)}`)));
+    }));
+  }
+
+  // ---------- Events ----------
+
+  // links to other comparisons swap the page in place instead of reloading
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a[data-pair]");
+    if (!link || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+    history.pushState(null, "", link.getAttribute("href"));
+    readUrl();
+    render();
+    window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
+  });
+
+  window.addEventListener("popstate", () => { readUrl(); render(); });
+
+  $("filter").addEventListener("input", (e) => { state.filter = e.target.value; renderList(); });
+  $("filter").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const first = $("list").querySelector(".row:not([aria-disabled='true'])");
+      if (first) first.click();
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      $("list").querySelector(".row")?.focus();
+    }
+  });
+
+  // arrow keys walk the list, and up from the top goes back to the search
+  $("list").addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+    const rows = [...$("list").querySelectorAll(".row")];
+    const i = rows.indexOf(document.activeElement);
+    if (i === -1) return;
+    e.preventDefault();
+    if (e.key === "ArrowUp" && i === 0) $("filter").focus();
+    else rows[Math.max(0, Math.min(rows.length - 1, i + (e.key === "ArrowDown" ? 1 : -1)))].focus();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.target.matches("input:not([type=range]), textarea, select")) return;
+    if (e.key === "/") { e.preventDefault(); $("filter").focus(); }
+    else if (e.key === "r" || e.key === "R") { if (EVENTS.length) another(); }
+  });
+
+  // ---------- Start ----------
+
+  async function start() {
+    $("year").textContent = W.today().y;
+    try {
+      const res = await fetch("events.json");
+      if (!res.ok) throw new Error(res.status);
+      EVENTS = (await res.json())
+        .map((e) => ({ ...e, when: W.parse(e.date) }))
+        .filter((e) => e.when)
+        .sort((x, y) => W.span(x.when)[0] - W.span(y.when)[0]);
+    } catch (err) {
+      $("comparison").replaceChildren(
+        el("p", { class: "eyebrow" }, "Trouble"),
+        el("h1", { class: "headline" }, "The events didn't load."),
+        el("p", { class: "status" }, "Reload the page to try again."));
+      console.error(err);
+      return;
+    }
+    for (const e of EVENTS) BY_KEY.set(e.key, e);
+
+    readUrl();
+    if (!state.picks[0] && !state.picks[1] && !location.search) {
+      state.picks = randomPair();
+      writeUrl(false);
+    }
+    renderChips();
+    renderFeeds();
+    renderPairs();
+    render();
+  }
+
+  start();
+</script>
+</body>
+</html>
