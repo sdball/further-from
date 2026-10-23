@@ -205,7 +205,13 @@
     letter-spacing: -0.01em;
     text-wrap: pretty;
   }
-  .headline .when { font-style: italic; color: var(--pivot); white-space: nowrap; }
+  /* the date in bold sans, so it stands apart from the serif sentence */
+  .headline .when {
+    font: 700 0.86em/1 var(--sans);
+    letter-spacing: -0.01em;
+    color: var(--pivot);
+    white-space: nowrap;
+  }
   .headline .ev {
     text-decoration: underline;
     text-decoration-thickness: 0.09em;
@@ -577,7 +583,7 @@
       else if (k.startsWith("on")) node.addEventListener(k.slice(2), v);
       else node.setAttribute(k, v === true ? "" : v);
     }
-    for (const kid of kids.flat()) if (kid != null && kid !== false) node.append(kid);
+    for (const kid of kids.flat(Infinity)) if (kid != null && kid !== false) node.append(kid);
     return node;
   }
 
@@ -655,20 +661,27 @@
     return n;
   }
 
+  // only the date itself is set off, not the "on" or "in" in front of it
+  function dated(t) {
+    return [t.p === W.DAY ? "on " : "in ", el("span", { class: "when" }, W.format(t))];
+  }
+
   function headline(c) {
     const last = el("span", { class: "ev last" }, c.last.phrase);
     const first = el("span", { class: "ev first" }, c.first.phrase);
-    const when = W.when(c.pivot);
     if (c.tense === "same") {
       return [el("span", { class: "ev first" }, cap(c.first.phrase)), " and ", last,
-        " both happened ", el("span", { class: "when" }, W.when(W.fromValue(W.value(c.first.when, c.p), c.p))), "."];
+        " both happened ", dated(W.fromValue(W.value(c.first.when, c.p), c.p)), "."];
     }
     if (c.tense === "present") {
-      const lead = ["This year", "This month", "Today"][c.p];
-      return [el("span", { class: "when" }, lead), " we're now further from ", last, " than it was from ", first, "."];
+      const lead = c.p === W.DAY
+        ? ["Today, ", el("span", { class: "when" }, W.format(c.pivot)), ","]
+        : ["In ", el("span", { class: "when" }, W.format(c.pivot))];
+      return [lead, " we're now further from ", last, " than it was from ", first, "."];
     }
+    const [on, date] = dated(c.pivot);
     const verb = c.tense === "past" ? " we got further from " : " we'll be further from ";
-    return [el("span", { class: "when" }, cap(when)), verb, last, " than it was from ", first, "."];
+    return [cap(on), date, verb, last, " than it was from ", first, "."];
   }
 
   function statusLine(c) {
