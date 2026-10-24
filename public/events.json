@@ -671,5 +671,23 @@
     "category": "technology",
     "description": "Satoshi Nakamoto put a newspaper headline into the very first block: \"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks.\"",
     "source": "https://en.wikipedia.org/wiki/Bitcoin"
+  },
+  {
+    "key": "summer-of-69-single-release",
+    "date": "1985-05-27",
+    "title": "Release of the song Summer of '69",
+    "phrase": "the release of the song \"Summer of '69\"",
+    "category": "music",
+    "description": "Bryan Adams released \"Summer of '69\" as a single on Memorial Day 1985. Critics pointed out he was only nine that summer.",
+    "source": "https://en.wikipedia.org/wiki/Summer_of_%2769"
+  },
+  {
+    "key": "summer-of-1969",
+    "date": "1969-06",
+    "title": "The summer of 1969",
+    "phrase": "the summer of 1969",
+    "category": "history",
+    "description": "The summer of 1969 had the Stonewall riots, the Apollo 11 Moon landing, and Woodstock.",
+    "source": "https://en.wikipedia.org/wiki/1969"
   }
 ]
