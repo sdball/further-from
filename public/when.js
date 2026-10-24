@@ -100,6 +100,13 @@
     return { p, first, last, gap, pivot, tense };
   }
 
+  // where the other event lands if one of a comparison's events moves to t,
+  // keeping the gap between them
+  function shift(c, moved, t) {
+    const sign = moved === c.last ? -1 : 1;
+    return fromValue(value(t, c.p) + sign * c.gap, c.p);
+  }
+
   // calendar years, months, and days from one day to a later one
   function between(a, b) {
     let months = (b.y * 12 + b.m) - (a.y * 12 + a.m);
@@ -171,6 +178,6 @@
 
   root.When = {
     YEAR, MONTH, DAY, parse, dayNumber, fromDayNumber, value, fromValue, span,
-    today, compare, between, format, when, gapText, roughly, distance, plural, yearText,
+    today, compare, shift, between, format, when, gapText, roughly, distance, plural, yearText,
   };
 })(typeof window !== "undefined" ? window : globalThis);

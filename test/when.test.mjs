@@ -67,6 +67,17 @@ test("tense is measured at the comparison's precision", () => {
   assert.equal(When.compare(ev("a", "2026-10-21"), ev("b", "2026-10-23"), NOW).tense, "future");
 });
 
+test("shift moves one event and keeps the gap", () => {
+  const song = When.compare(ev("song", "1985-05-27"), ev("summer", "1969-06"), NOW);
+  assert.equal(When.format(When.shift(song, song.last, NOW)), "November 2010");
+  assert.equal(When.format(When.shift(song, song.first, NOW)), "September 2042");
+  assert.equal(When.format(When.shift(song, song.last, song.last.when)), "June 1969");
+
+  const c = When.compare(ev("apollo", "1969-07-20"), ev("flight", "1903-12-17"), NOW);
+  assert.equal(When.format(When.shift(c, c.last, NOW)), "March 21, 1961");
+  assert.equal(When.format(When.shift(c, c.first, NOW)), "May 26, 2092");
+});
+
 test("words", () => {
   assert.equal(When.gapText(23957, When.DAY), "23,957 days");
   assert.equal(When.gapText(15, When.MONTH), "1 year, 3 months");

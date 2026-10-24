@@ -91,6 +91,8 @@
 
   button { font: inherit; color: inherit; }
 
+  [hidden] { display: none !important; }
+
   .sr-only {
     position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
@@ -147,9 +149,10 @@
   .layout { display: grid; gap: 1.5rem; }
   .lower { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
 
+  /* the what-if card follows the picker on phones, but sits under the comparison on wide screens */
   @media (min-width: 1000px) {
-    .layout { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; }
-    .picker { position: sticky; top: 1rem; }
+    .layout { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); grid-template-rows: auto 1fr; align-items: start; }
+    .picker { grid-column: 2; grid-row: 1 / span 2; position: sticky; top: 1rem; }
     .lower { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
   }
 
@@ -430,6 +433,33 @@
   .row.custom .row-title { font-weight: 600; }
   .no-match { padding: 1rem 0.4rem; color: var(--muted); }
 
+  /* ---------- What if ---------- */
+
+  .whatif-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.6rem; margin: 1rem 0 0; }
+  .whatif-label {
+    font: 500 0.78rem/1.3 var(--mono);
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  }
+  .move { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .move .chip {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    min-height: 40px; padding: 0.35rem 0.8rem;
+    color: var(--ink); font: 600 0.88rem/1.3 var(--sans); text-align: left;
+  }
+  .move .chip::before {
+    content: ""; flex: none;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--card); border: 3px solid var(--dot);
+  }
+  .move .chip.first { --dot: var(--first); }
+  .move .chip.last { --dot: var(--last); }
+  .move .chip[aria-pressed="true"] { color: var(--card); }
+  .date-input { width: auto; min-height: 44px; font: 500 0.95rem var(--mono); }
+  .btn.small { min-height: 40px; padding: 0 0.85rem; font-size: 0.85rem; }
+
+  .headline.whatif-line { margin-top: 1.5rem; font-size: clamp(1.3rem, 1rem + 1.2vw, 1.75rem); }
+  #whatif .stops { margin-top: 1.5rem; }
+
   /* ---------- Feeds and pairs ---------- */
 
   .feed { list-style: none; margin: 0; padding: 0; }
@@ -516,6 +546,19 @@
       <p class="count" id="count" aria-live="polite"></p>
       <ul class="list" id="list"></ul>
     </section>
+
+    <section class="card" id="whatif" aria-labelledby="whatif-h">
+      <h2 class="section" id="whatif-h">What if</h2>
+      <p class="sub">Move one of the two moments and the other one follows, keeping the same gap.</p>
+      <div class="whatif-controls" id="whatif-controls" hidden>
+        <span class="whatif-label" id="move-label">Move</span>
+        <div class="move" role="group" aria-labelledby="move-label" id="whatif-move"></div>
+        <label class="whatif-label" for="whatif-on">to</label>
+        <input class="search date-input" id="whatif-on" type="date">
+        <button class="btn small" type="button" id="whatif-today" hidden>Back to today</button>
+      </div>
+      <div id="whatif-out" aria-live="polite"></div>
+    </section>
   </div>
 
   <div class="lower">
@@ -570,7 +613,8 @@
 
   let EVENTS = [];
   const BY_KEY = new Map();
-  const state = { picks: [null, null], active: 1, filter: "", category: null };
+  // whatIf.on is null for today
+  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null } };
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
   // ---------- Helpers ----------
@@ -921,6 +965,64 @@
     renderComparison();
     renderSlots();
     renderList();
+    renderWhatIf();
+  }
+
+  // ---------- What if ----------
+
+  function isoDate(t) {
+    return `${String(t.y).padStart(4, "0")}-${String(t.m).padStart(2, "0")}-${String(t.d).padStart(2, "0")}`;
+  }
+
+  function whatIfStop(e, cls, t) {
+    return el("li", { class: `stop ${cls}` },
+      el("p", { class: "stop-date" }, W.format(t)),
+      el("h3", { class: "stop-title" }, e.title),
+      el("p", { class: "stop-body" }, `Actually ${W.format(e.when)}.`));
+  }
+
+  // the controls stay put while the date is typed, and only the sentence and stops redraw
+  function renderWhatIf() {
+    const [a, b] = state.picks;
+    const c = a && b ? W.compare(a, b) : null;
+    const live = c && c.tense !== "same";
+    $("whatif-controls").hidden = !live;
+    if (!live) {
+      fill($("whatif-out"), el("p", { class: "status" }, c
+        ? `${cap(c.first.phrase)} and ${c.last.phrase} happened in the same ${PRECISION_NOUN[c.p]}, so wherever one goes, the other goes too.`
+        : "Pick two moments, then move one of them to see where the other lands."));
+      return;
+    }
+
+    const moved = state.whatIf.move === "first" ? c.first : c.last;
+    const other = moved === c.first ? c.last : c.first;
+    const cls = (e) => (e === c.first ? "first" : "last");
+    const on = state.whatIf.on || W.today();
+    const at = W.fromValue(W.value(on, c.p), c.p);
+    const lands = W.shift(c, moved, on);
+
+    fill($("whatif-move"), [c.first, c.last].map((e) => el("button", {
+      class: `chip ${cls(e)}`, type: "button", "aria-pressed": String(e === moved),
+      onclick: () => { state.whatIf.move = cls(e); renderWhatIf(); },
+    }, e.title)));
+
+    fill($("whatif-out"),
+      el("p", { class: "headline whatif-line" },
+        "If ", el("span", { class: `ev ${cls(moved)}` }, moved.phrase), " were ",
+        state.whatIf.on ? ["on ", el("span", { class: "when" }, W.format(on))] : el("span", { class: "when" }, "today"),
+        ", ", el("span", { class: `ev ${cls(other)}` }, other.phrase),
+        " would be ", el("span", { class: "when" }, W.format(lands)), "."),
+      el("ol", { class: "stops" },
+        whatIfStop(c.last, "last", moved === c.last ? at : lands),
+        gapItem(c),
+        whatIfStop(c.first, "first", moved === c.first ? at : lands)));
+  }
+
+  function setWhatIfDay(t) {
+    const now = W.today();
+    state.whatIf.on = t && W.value(t, W.DAY) !== W.value(now, W.DAY) ? t : null;
+    $("whatif-today").hidden = !state.whatIf.on;
+    renderWhatIf();
   }
 
   // ---------- Crossovers on the calendar ----------
@@ -978,6 +1080,16 @@
   window.addEventListener("popstate", () => { readUrl(); render(); });
 
   $("filter").addEventListener("input", (e) => { state.filter = e.target.value; renderList(); });
+
+  // a half-typed date reads as empty, so only a cleared field goes back to today
+  $("whatif-on").addEventListener("input", (e) => {
+    const t = W.parse(e.target.value);
+    if (t || !e.target.value) setWhatIfDay(t);
+  });
+  $("whatif-today").addEventListener("click", () => {
+    $("whatif-on").value = isoDate(W.today());
+    setWhatIfDay(null);
+  });
   $("filter").addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -1011,6 +1123,7 @@
 
   async function start() {
     $("year").textContent = W.today().y;
+    $("whatif-on").value = isoDate(W.today());
     try {
       const res = await fetch("events.json");
       if (!res.ok) throw new Error(res.status);
