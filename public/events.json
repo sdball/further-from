@@ -372,5 +372,257 @@
     "phrase": "the shutdown of AOL Instant Messenger",
     "category": "internet",
     "description": "In 2017 Verizon (having acquired AOL in 2015) discontinued AIM as a service after years of declining use. For years users had been moving to even easier to use services such as Google Chat and iMessage."
+  },
+  {
+    "key": "sputnik-1-launch",
+    "date": "1957-10-04",
+    "title": "Launch of Sputnik 1",
+    "phrase": "the launch of Sputnik 1",
+    "category": "space",
+    "description": "Earth's first artificial satellite was a polished metal ball about the size of a beach ball that pretty much just orbited and beeped. But radio operators around the world could hear that beep, and it kicked off the Space Race.",
+    "source": "https://en.wikipedia.org/wiki/Sputnik_1"
+  },
+  {
+    "key": "first-human-in-space",
+    "date": "1961-04-12",
+    "title": "Yuri Gagarin's flight into space",
+    "phrase": "Yuri Gagarin becoming the first person in space",
+    "category": "space",
+    "description": "Vostok 1 made a single orbit of Earth in 108 minutes. Gagarin didn't land with his capsule: he ejected about 7 km up and parachuted down on his own!",
+    "source": "https://en.wikipedia.org/wiki/Vostok_1"
+  },
+  {
+    "key": "voyager-2-launch",
+    "date": "1977-08-20",
+    "title": "Launch of Voyager 2",
+    "phrase": "the launch of Voyager 2",
+    "category": "space",
+    "description": "Despite the name, Voyager 2 launched first. It's still the only spacecraft to have visited Uranus and Neptune.",
+    "source": "https://en.wikipedia.org/wiki/Voyager_2"
+  },
+  {
+    "key": "voyager-1-launch",
+    "date": "1977-09-05",
+    "title": "Launch of Voyager 1",
+    "phrase": "the launch of Voyager 1",
+    "category": "space",
+    "description": "Launched sixteen days after its twin on a faster path, Voyager 1 is the most distant human-made object. It carries a golden record of sounds and music from Earth.",
+    "source": "https://en.wikipedia.org/wiki/Voyager_1"
+  },
+  {
+    "key": "first-space-shuttle-launch",
+    "date": "1981-04-12",
+    "title": "First Space Shuttle launch",
+    "phrase": "the first Space Shuttle launch",
+    "category": "space",
+    "description": "STS-1 sent Columbia into orbit twenty years to the day after Yuri Gagarin's flight. It was the first time Americans had flown in space since 1975.",
+    "source": "https://en.wikipedia.org/wiki/STS-1"
+  },
+  {
+    "key": "challenger-disaster",
+    "date": "1986-01-28",
+    "title": "Space Shuttle Challenger disaster",
+    "phrase": "the Space Shuttle Challenger disaster",
+    "category": "space",
+    "description": "Challenger broke apart 73 seconds after launch, killing all seven crew members. An O-ring seal in one of the solid rocket boosters failed in the unusually cold weather. The Challenger disaster is still a foundational case study of engineering safety, group communication, and management.",
+    "source": "https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster"
+  },
+  {
+    "key": "hubble-launch",
+    "date": "1990-04-24",
+    "title": "Launch of the Hubble Space Telescope",
+    "phrase": "the launch of the Hubble Space Telescope",
+    "category": "space",
+    "description": "Hubble's first images were blurry because its main mirror had been ground to slightly the wrong shape. A 1993 shuttle mission fitted it with corrective optics. I always thought it was cool that a telescope had to get glasses.",
+    "source": "https://en.wikipedia.org/wiki/Hubble_Space_Telescope"
+  },
+  {
+    "key": "mars-pathfinder-landing",
+    "date": "1997-07-04",
+    "title": "Mars Pathfinder landing",
+    "phrase": "the Mars Pathfinder landing",
+    "category": "space",
+    "description": "Pathfinder bounced onto Mars wrapped in airbags, then let out Sojourner, the first rover to drive on another planet.",
+    "source": "https://en.wikipedia.org/wiki/Mars_Pathfinder"
+  },
+  {
+    "key": "iss-first-crew",
+    "date": "2000-11-02",
+    "title": "First crew arrives at the International Space Station",
+    "phrase": "the first crew arriving at the International Space Station",
+    "category": "space",
+    "description": "Expedition 1 started a continuous human presence in space that hasn't been broken since.",
+    "source": "https://en.wikipedia.org/wiki/Expedition_1"
+  },
+  {
+    "key": "curiosity-rover-landing",
+    "date": "2012-08-06",
+    "title": "Curiosity rover lands on Mars",
+    "phrase": "the Curiosity rover landing on Mars",
+    "category": "space",
+    "description": "Curiosity was too heavy for the bounce down on airbags approach, so NASA lowered it to the surface on cables from a rocket-powered sky crane. The engineers called the landing \"seven minutes of terror.\"",
+    "source": "https://en.wikipedia.org/wiki/Curiosity_(rover)"
+  },
+  {
+    "key": "new-horizons-pluto-flyby",
+    "date": "2015-07-14",
+    "title": "New Horizons flies past Pluto",
+    "phrase": "New Horizons flying past Pluto",
+    "category": "space",
+    "description": "New Horizons launched in January 2006, when Pluto was still a planet, and took nine and a half years to get there.",
+    "source": "https://en.wikipedia.org/wiki/New_Horizons"
+  },
+  {
+    "key": "jwst-launch",
+    "date": "2021-12-25",
+    "title": "Launch of the James Webb Space Telescope",
+    "phrase": "the launch of the James Webb Space Telescope",
+    "category": "space",
+    "description": "Launched on Christmas morning, folded origami-style to fit inside its rocket. On the way out to its orbit a million miles from Earth, it had to unfold a sunshield the size of a tennis court and it worked perfectly.",
+    "source": "https://en.wikipedia.org/wiki/James_Webb_Space_Telescope"
+  },
+  {
+    "key": "arpanet-first-message",
+    "date": "1969-10-29",
+    "title": "First message sent over ARPANET",
+    "phrase": "the first message sent over ARPANET",
+    "category": "internet",
+    "description": "A student at UCLA tried to log in to a computer at the Stanford Research Institute by typing \"LOGIN.\" The system crashed after \"LO.\"",
+    "source": "https://en.wikipedia.org/wiki/ARPANET"
+  },
+  {
+    "key": "first-email",
+    "date": "1971",
+    "title": "First email sent between computers",
+    "phrase": "the first email sent between two computers",
+    "category": "internet",
+    "description": "Ray Tomlinson sent it over ARPANET and chose the @ sign to separate the user from the machine. He later said he couldn't remember what the message said, probably something like QWERTYUIOP.",
+    "source": "https://en.wikipedia.org/wiki/History_of_email"
+  },
+  {
+    "key": "apple-ii-release",
+    "date": "1977-06-10",
+    "title": "Apple II goes on sale",
+    "phrase": "the Apple II going on sale",
+    "category": "technology",
+    "description": "Steve Wozniak's design, with color graphics and eight expansion slots, turned Apple into a real company. VisiCalc, the first spreadsheet program, gave people a reason to buy one for the office.",
+    "source": "https://en.wikipedia.org/wiki/Apple_II"
+  },
+  {
+    "key": "ibm-pc-announced",
+    "date": "1981-08-12",
+    "title": "IBM announces the IBM PC",
+    "phrase": "IBM announcing the IBM PC",
+    "category": "technology",
+    "description": "IBM built it from off-the-shelf parts and licensed its operating system from a small company called Microsoft. That made it easy to clone, and the clones are why we still say \"PC.\"",
+    "source": "https://en.wikipedia.org/wiki/IBM_Personal_Computer"
+  },
+  {
+    "key": "macintosh-release",
+    "date": "1984-01-24",
+    "title": "Release of the Macintosh",
+    "phrase": "the release of the original Macintosh",
+    "category": "technology",
+    "description": "Announced by the \"1984\" Super Bowl ad two days earlier, the Macintosh brought the mouse and a graphical interface to people who couldn't afford Apple's Lisa.",
+    "source": "https://en.wikipedia.org/wiki/Macintosh_128K"
+  },
+  {
+    "key": "world-wide-web-proposal",
+    "date": "1989-03",
+    "title": "Tim Berners-Lee proposes the World Wide Web",
+    "phrase": "Tim Berners-Lee's proposal for the World Wide Web",
+    "category": "internet",
+    "description": "His manager at CERN, Mike Sendall, called it \"vague, but exciting.\" Berners-Lee has given the date as March 12, but he admits the document itself only says \"March 1989\" and that March 12 is actually his mother's birthday.",
+    "source": "https://en.wikipedia.org/wiki/History_of_the_World_Wide_Web"
+  },
+  {
+    "key": "world-wide-web-goes-public",
+    "date": "1991-08-06",
+    "title": "The World Wide Web goes public",
+    "phrase": "the World Wide Web going public",
+    "category": "internet",
+    "description": "Tim Berners-Lee posted a short summary of the project to the alt.hypertext newsgroup and invited anyone interested to join in.",
+    "source": "https://en.wikipedia.org/wiki/History_of_the_World_Wide_Web"
+  },
+  {
+    "key": "windows-95-release",
+    "date": "1995-08-24",
+    "title": "Release of Windows 95",
+    "phrase": "the release of Windows 95",
+    "category": "technology",
+    "description": "Microsoft licensed \"Start Me Up\" by the Rolling Stones to introduce the Start button, and people lined up at midnight to buy an operating system.",
+    "source": "https://en.wikipedia.org/wiki/Windows_95"
+  },
+  {
+    "key": "google-founded",
+    "date": "1998-09-04",
+    "title": "Founding of Google",
+    "phrase": "the founding of Google",
+    "category": "internet",
+    "description": "Larry Page and Sergey Brin incorporated Google while they were PhD students at Stanford. Its first office was their friend Susan Wojcicki's garage.",
+    "source": "https://en.wikipedia.org/wiki/Google"
+  },
+  {
+    "key": "wikipedia-launch",
+    "date": "2001-01-15",
+    "title": "Wikipedia launches",
+    "phrase": "the launch of Wikipedia",
+    "category": "internet",
+    "description": "Wikipedia started as a side project to feed draft articles into Nupedia, an encyclopedia written by experts. It quickly outgrew Nupedia, which shut down in 2003.",
+    "source": "https://en.wikipedia.org/wiki/Wikipedia"
+  },
+  {
+    "key": "ipod-introduced",
+    "date": "2001-10-23",
+    "title": "Apple introduces the iPod",
+    "phrase": "Apple introducing the iPod",
+    "category": "technology",
+    "description": "\"1,000 songs in your pocket.\" The first iPod had a scroll wheel that actually turned, and at first it only worked with Macs.",
+    "source": "https://en.wikipedia.org/wiki/IPod_Classic"
+  },
+  {
+    "key": "facebook-launch",
+    "date": "2004-02-04",
+    "title": "Launch of Facebook",
+    "phrase": "the launch of Facebook",
+    "category": "internet",
+    "description": "It launched as TheFacebook, and at first only Harvard students could sign up.",
+    "source": "https://en.wikipedia.org/wiki/Facebook"
+  },
+  {
+    "key": "first-youtube-video",
+    "date": "2005-04-23",
+    "title": "First video uploaded to YouTube",
+    "phrase": "the first video uploaded to YouTube",
+    "category": "internet",
+    "description": "\"Me at the zoo\" is 19 seconds of co-founder Jawed Karim standing in front of the elephants at the San Diego Zoo. The cool thing about them is that they have really, really, really long trunks.",
+    "source": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+  },
+  {
+    "key": "twitter-public-launch",
+    "date": "2006-07-15",
+    "title": "Twitter launches to the public",
+    "phrase": "Twitter launching to the public",
+    "category": "internet",
+    "description": "Its original code name was twttr, inspired by Flickr and the five-character length of American SMS short codes. Posts were limited to 140 characters until 2017.",
+    "source": "https://en.wikipedia.org/wiki/Twitter"
+  },
+  {
+    "key": "iphone-release",
+    "date": "2007-06-29",
+    "title": "Release of the iPhone",
+    "phrase": "the release of the original iPhone",
+    "category": "technology",
+    "description": "No App Store, no 3G, no copy and paste. All Apple offered was a compelling and intuitive user experience.",
+    "source": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)"
+  },
+  {
+    "key": "bitcoin-genesis-block",
+    "date": "2009-01-03",
+    "title": "Bitcoin's genesis block",
+    "phrase": "the mining of Bitcoin's first block",
+    "category": "technology",
+    "description": "Satoshi Nakamoto put a newspaper headline into the very first block: \"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks.\"",
+    "source": "https://en.wikipedia.org/wiki/Bitcoin"
   }
 ]
