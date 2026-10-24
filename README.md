@@ -13,6 +13,9 @@ public/when.js       the date math, shared by the page and the tests
 public/events.json   every event
 test/                node --test checks for the date math and the events
 scripts/serve        serves public/ locally
+scripts/check-dates  compares event dates with Wikidata
+scripts/check-claims finds Wikipedia sentences that back up a description
+scripts/upcoming     prints the next crossovers
 ```
 
 ## Run it locally
@@ -48,6 +51,13 @@ Add an object to `public/events.json`. Order doesn't matter.
 - `description` and `source` are optional.
 
 `node --test test/*.test.mjs` checks for missing fields, duplicate keys, and bad dates. CI runs it before every deploy.
+
+When adding a batch, `scripts/check-dates` compares each event's date with
+Wikidata's dates for its Wikipedia `source` (or pass a TSV of `date<TAB>title`
+to vet candidates first). `!!` means no date matched, often because Wikidata has
+a different date for the article, so check the article itself.
+`scripts/check-claims` takes a TSV of `title<TAB>regex` and prints the matching
+sentences, and `scripts/upcoming` shows what the batch does to the upcoming feed.
 
 ## How the comparison works
 

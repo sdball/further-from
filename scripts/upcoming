@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+// Print the next crossovers, picked the same way as the page's "upcoming" feed.
+// Usage: scripts/upcoming [count]   (default 12; the page shows 6)
+
+const { readFileSync } = require("node:fs");
+const path = require("node:path");
+const vm = require("node:vm");
+
+const root = path.join(__dirname, "..");
+const context = {};
+vm.runInNewContext(readFileSync(path.join(root, "public", "when.js"), "utf8"), context);
+const W = context.When;
+const events = JSON.parse(readFileSync(path.join(root, "public", "events.json"), "utf8"))
+  .map((e) => ({ ...e, when: W.parse(e.date) }));
+const count = Number(process.argv[2]) || 12;
+
+const now = W.today();
+const t = W.dayNumber(now.y, now.m, now.d);
+const all = [];
+for (let i = 0; i < events.length; i++) {
+  for (let j = i + 1; j < events.length; j++) {
+    const c = W.compare(events[i], events[j]);
+    if (c.tense !== "same") all.push({ c, end: W.span(c.pivot)[1] });
+  }
+}
+for (const { c } of all.filter((x) => x.end >= t).sort((a, b) => a.end - b.end).slice(0, count)) {
+  console.log(W.format(c.pivot).padEnd(20), c.last.title, "passes", c.first.title);
+}

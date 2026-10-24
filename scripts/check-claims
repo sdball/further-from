@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# Find the sentences in Wikipedia articles that back up (or don't) claims in descriptions.
+# Usage: scripts/check-claims claims.tsv   lines of "Wikipedia title<TAB>regex"
+#
+# Prints up to two matching sentences per line, or NO MATCH. Matching is case-insensitive.
+# Requests are spaced a few seconds apart, since Wikipedia rate-limits quick bursts.
+
+import json, re, sys, time, urllib.parse, urllib.request
+
+AGENT = "further-from-events (https://furtherfrom.com)"
+
+
+def article(title):
+    query = urllib.parse.urlencode({"action": "query", "prop": "extracts", "explaintext": 1, "titles": title,
+                                    "redirects": 1, "format": "json"})
+    req = urllib.request.Request("https://en.wikipedia.org/w/api.php?" + query, headers={"User-Agent": AGENT})
+    pages = json.load(urllib.request.urlopen(req, timeout=30))["query"]["pages"]
+    return next(iter(pages.values())).get("extract", "")
+
+
+if len(sys.argv) != 2:
+    sys.exit("usage: scripts/check-claims claims.tsv")
+
+lines = [l.rstrip("\n").split("\t") for l in open(sys.argv[1]) if l.strip()]
+for i, (title, pattern) in enumerate(lines):
+    if i:
+        time.sleep(3)
+    sentences = re.split(r"(?<=[.!?])\s+", article(title))
+    hits = [s.strip()[:260] for s in sentences if re.search(pattern, s, re.I)][:2]
+    print(f"[{title}] /{pattern}/")
+    for hit in hits or ["NO MATCH"]:
+        print("   ", hit)

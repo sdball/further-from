@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+# Compare event dates with the dates Wikidata has for the same Wikipedia article.
+# Usage: scripts/check-dates                  every event whose source is an English Wikipedia link
+#        scripts/check-dates candidates.tsv   lines of "date<TAB>Wikipedia title", for vetting new events
+#
+# "ok" means one of Wikidata's dates starts with ours. "!!" isn't necessarily wrong: Wikidata
+# often has a different date for the article (a spacecraft's launch, not its flyby) or none.
+
+import json, os, sys, time, urllib.parse, urllib.request
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+AGENT = "further-from-events (https://furtherfrom.com)"
+PROPS = {"P619": "launch", "P620": "landing", "P577": "published", "P585": "point in time",
+         "P571": "inception", "P580": "start", "P1191": "first performance", "P606": "first flight",
+         "P729": "service entry"}
+PRECISION = {9: "Y", 10: "YM", 11: "YMD"}
+WIKI = "https://en.wikipedia.org/wiki/"
+
+
+def fetch(titles):
+    query = urllib.parse.urlencode({"action": "wbgetentities", "sites": "enwiki", "titles": "|".join(titles),
+                                    "props": "claims|sitelinks", "sitefilter": "enwiki", "format": "json"})
+    req = urllib.request.Request("https://www.wikidata.org/w/api.php?" + query, headers={"User-Agent": AGENT})
+    return json.load(urllib.request.urlopen(req, timeout=30))["entities"]
+
+
+def candidates():
+    if len(sys.argv) > 1:
+        for line in open(sys.argv[1]):
+            if line.strip():
+                date, title = line.rstrip("\n").split("\t")
+                yield date, title.replace("_", " "), title
+        return
+    for e in json.load(open(os.path.join(ROOT, "public", "events.json"))):
+        if e.get("source", "").startswith(WIKI):
+            title = urllib.parse.unquote(e["source"][len(WIKI):]).split("#")[0].replace("_", " ")
+            yield e["date"], title, e["key"]
+
+
+rows = list(candidates())
+found = {}
+titles = sorted({title for _, title, _ in rows})
+for i in range(0, len(titles), 40):
+    for qid, entity in fetch(titles[i:i + 40]).items():
+        if "sitelinks" in entity:
+            found[entity["sitelinks"]["enwiki"]["title"]] = (qid, entity)
+    time.sleep(1)
+
+for date, title, label in rows:
+    if title not in found:
+        print(f"??  {date:11} {label}  ({title} not found on Wikidata)")
+        continue
+    qid, entity = found[title]
+    dates = []
+    for prop, name in PROPS.items():
+        for claim in entity["claims"].get(prop, []):
+            value = claim["mainsnak"].get("datavalue", {}).get("value")
+            if value:
+                dates.append((name, value["time"][1:11], PRECISION.get(value["precision"], value["precision"])))
+    ok = any(d.startswith(date) for _, d, _ in dates)
+    listed = "; ".join(f"{name}={d}/{p}" for name, d, p in dates) or "no dates"
+    print(f"{'ok' if ok else '!!'}  {date:11} {label} [{qid}]  {listed}")
