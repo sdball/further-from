@@ -300,6 +300,7 @@
     font-variation-settings: "opsz" 36;
   }
   .stop-body { margin: 0; color: var(--muted); max-width: 40rem; }
+  .source { font-size: 0.85em; white-space: nowrap; }
   .tag {
     display: inline-block;
     margin-left: 0.4rem;
@@ -744,7 +745,9 @@
     return el("li", { class: `stop ${cls}` },
       el("p", { class: "stop-date" }, W.format(e.when)),
       el("h3", { class: "stop-title" }, e.title, el("span", { class: "tag" }, e.category)),
-      e.description ? el("p", { class: "stop-body" }, e.description) : null);
+      e.description || e.source ? el("p", { class: "stop-body" }, e.description, e.description && e.source ? " " : null,
+        e.source ? el("a", { class: "source", href: e.source, target: "_blank", rel: "noopener" },
+          "Source", el("span", { "aria-hidden": "true" }, " ↗")) : null) : null);
   }
 
   function gapItem(c) {
