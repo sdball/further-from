@@ -118,6 +118,33 @@
     return { years: Math.floor(months / 12), months: months % 12, days: dayNumber(b.y, b.m, b.d) - anchor };
   }
 
+  // whole years from a comparison's earlier event to its later one, at its precision
+  function wholeYears(c) {
+    if (c.p === YEAR) return c.gap;
+    if (c.p === MONTH) return Math.floor(c.gap / 12);
+    return between(c.first.when, c.last.when).years;
+  }
+
+  // ---------- Lifetimes ----------
+  // A birth is a range of day numbers [earliest, latest], since an age or a
+  // birth year only narrows it down so far.
+
+  // the birth range for someone who is n years old on day t
+  function bornAgo(n, t = today()) {
+    const day = (y) => dayNumber(y, t.m, Math.min(t.d, daysInMonth(y, t.m)));
+    return [day(t.y - n - 1) + 1, day(t.y - n)];
+  }
+
+  // the youngest and oldest someone with that birth could have been at a moment,
+  // with null for youngest when the moment might be before they were born,
+  // or null overall when it certainly was
+  function agesAt(born, t) {
+    const [start, end] = span(t);
+    if (end < born[0]) return null;
+    const years = (a, b) => between(fromDayNumber(a), fromDayNumber(b)).years;
+    return [start >= born[1] ? years(born[1], start) : null, years(born[0], end)];
+  }
+
   // ---------- Words ----------
 
   function plural(n, one, many = one + "s") {
@@ -178,6 +205,6 @@
 
   root.When = {
     YEAR, MONTH, DAY, parse, dayNumber, fromDayNumber, value, fromValue, span,
-    today, compare, shift, between, format, when, gapText, roughly, distance, plural, yearText,
+    today, compare, shift, between, wholeYears, bornAgo, agesAt, format, when, gapText, roughly, distance, plural, yearText,
   };
 })(typeof window !== "undefined" ? window : globalThis);

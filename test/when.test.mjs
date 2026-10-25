@@ -97,3 +97,33 @@ test("between borrows days from the right month", () => {
   assert.deepEqual({ ...When.between(When.parse("2024-01-31"), When.parse("2024-03-01")) }, { years: 0, months: 1, days: 1 });
   assert.deepEqual({ ...When.between(When.parse("2023-12-20"), When.parse("2024-01-05")) }, { years: 0, months: 0, days: 16 });
 });
+
+test("whole years count only full years at the comparison's precision", () => {
+  const years = (a, b) => When.wholeYears(When.compare(ev("a", a), ev("b", b), NOW));
+  assert.equal(years("1903-12-17", "1969-07-20"), 65);
+  assert.equal(years("1955-11-05", "1985-11-05"), 30);
+  assert.equal(years("1955-11-05", "1985-11-04"), 29);
+  assert.equal(years("1969-06", "1985-05-27"), 15);
+  assert.equal(years("1969-06", "1985-06-27"), 16);
+  assert.equal(years("1912", "1997-12-19"), 85);
+});
+
+test("an age narrows a birth to a year-long range", () => {
+  const born = [...When.bornAgo(40, NOW)].map((n) => When.format({ p: When.DAY, ...When.fromDayNumber(n) }));
+  assert.deepEqual(born, ["October 24, 1985", "October 23, 1986"]);
+  const leap = [...When.bornAgo(1, When.parse("2024-02-29"))].map((n) => When.format({ p: When.DAY, ...When.fromDayNumber(n) }));
+  assert.deepEqual(leap, ["March 1, 2022", "February 28, 2023"]);
+});
+
+test("ages at a moment cover every birthday the birth range allows", () => {
+  const exact = When.span(When.parse("1985-06-14"));
+  assert.deepEqual([...When.agesAt(exact, When.parse("1997-06-13"))], [11, 11]);
+  assert.deepEqual([...When.agesAt(exact, When.parse("1997-06-14"))], [12, 12]);
+  assert.deepEqual([...When.agesAt(exact, When.parse("1997-06"))], [11, 12]);
+  assert.equal(When.agesAt(exact, When.parse("1984")), null);
+  assert.deepEqual([...When.agesAt(exact, When.parse("1985"))], [null, 0]);
+
+  const forty = When.bornAgo(40, NOW);
+  assert.deepEqual([...When.agesAt(forty, When.parse("1997-06-14"))], [10, 11]);
+  assert.deepEqual([...When.agesAt(forty, NOW)], [40, 40]);
+});

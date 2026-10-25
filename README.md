@@ -8,7 +8,7 @@ There's no build step and no dependencies. `public/` is the whole site, and
 pushing to `main` deploys it to GitHub Pages.
 
 ```
-public/index.html    the page: comparison, picker, upcoming crossovers, interesting pairs
+public/index.html    the page: comparison, picker, lifetime timeline, upcoming crossovers, interesting pairs
 public/when.js       the date math, shared by the page and the tests
 public/events.json   every event
 test/                node --test checks for the date math and the events

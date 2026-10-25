@@ -500,6 +500,48 @@
   .pairs .pair-and { display: block; font: 400 0.75rem var(--mono); color: var(--muted); margin: 0.1rem 0; }
   .pairs .pair-when { display: block; margin-top: 0.5rem; font: 500 0.78rem var(--mono); color: var(--pivot); }
 
+  /* ---------- In your lifetime ---------- */
+
+  .age { margin-top: 1.5rem; }
+  .age-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.6rem; margin: 1rem 0 0; }
+  .age-input { width: 13rem; min-height: 44px; font: 500 1rem var(--mono); }
+  .age-more { margin-top: 1rem; }
+
+  .life { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+  .life h3.feed-head { margin-top: 0; }
+  .life .chips { margin-top: 0.5rem; }
+  /* the pairs stack beside the timeline on wide screens */
+  @media (min-width: 1000px) {
+    .life { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; }
+    .life .pairs { grid-template-columns: 1fr; }
+  }
+
+  .life-list {
+    list-style: none; margin: 0; padding: 0;
+    max-height: 34rem; overflow-y: auto;
+    border-top: 1px solid var(--rule);
+    overscroll-behavior: contain;
+  }
+  .life-row {
+    display: grid;
+    grid-template-columns: 6.5rem 6.75rem 1fr;
+    gap: 0.75rem;
+    align-items: baseline;
+    min-height: 44px;
+    padding: 0.6rem 0.4rem;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+  }
+  a.life-row:hover { background: var(--paper); }
+  .life-age { font: 500 0.8rem var(--mono); color: var(--pivot); }
+  .life-age.unsure { color: var(--muted); }
+  .life-date { font: 500 0.8rem var(--mono); color: var(--muted); }
+  .life-title { font-size: 0.95rem; line-height: 1.35; }
+  .life-title .tag { margin-left: 0.3rem; }
+  .life-row.mark { background: var(--paper); }
+  .life-row.mark .life-age { color: var(--ink); }
+  .life-row.mark .life-title { font-weight: 600; }
+
   .about { margin-top: 1.5rem; }
   .about p { max-width: 46rem; }
   .about p:last-child { margin-bottom: 0; }
@@ -513,6 +555,9 @@
     .row { grid-template-columns: 5.9rem 1fr; gap: 0.5rem; }
     .feed a { grid-template-columns: 6.4rem 1fr; }
     .pin-label { font-size: 0.7rem; }
+    .life-row { grid-template-columns: 5.5rem 1fr; gap: 0.1rem 0.5rem; }
+    .life-age { grid-row: 1 / span 2; }
+    .life-date, .life-title { grid-column: 2; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -568,6 +613,29 @@
     </section>
   </div>
 
+  <section class="card age" aria-labelledby="age-h">
+    <h2 class="section" id="age-h">In your lifetime</h2>
+    <p class="sub">Put in your age, or your birthday for ages to the day, to see every event since you were born and how old you were for each one. Pick one to find when we'll be further from it than it was from your birth.</p>
+    <div class="age-controls">
+      <label class="whatif-label" for="age-in">Your age or birthday</label>
+      <input class="search age-input" id="age-in" type="text" placeholder="40 or 1985-06-14" autocomplete="off" spellcheck="false">
+    </div>
+    <p class="status" id="age-summary" aria-live="polite"></p>
+    <div class="life" id="life" hidden>
+      <div>
+        <h3 class="feed-head">Your timeline</h3>
+        <div class="chips" role="group" aria-label="Event types on your timeline" id="life-chips"></div>
+        <ol class="life-list" id="life-list"></ol>
+      </div>
+      <div>
+        <h3 class="feed-head">As far apart as you've been alive</h3>
+        <p class="count" id="age-count"></p>
+        <ul class="pairs" id="age-pairs"></ul>
+        <button class="btn small age-more" type="button" id="age-more" hidden>Show more</button>
+      </div>
+    </div>
+  </section>
+
   <div class="lower">
     <section class="card" aria-labelledby="soon-h">
       <h2 class="section" id="soon-h">Crossovers on the calendar</h2>
@@ -617,11 +685,15 @@
 
   const PRECISION = ["to the year", "to the month", "to the day"];
   const PRECISION_NOUN = ["year", "month", "day"];
+  // how many age matches show at a time
+  const AGE_STEP = 6;
 
   let EVENTS = [];
+  // every pair of events that didn't happen at the same time, compared
+  let COMPARISONS = [];
   const BY_KEY = new Map();
   // whatIf.on is null for today
-  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null } };
+  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null }, life: null, lifeHidden: new Set(), ageShown: AGE_STEP };
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
   // ---------- Helpers ----------
@@ -1046,13 +1118,7 @@
   function renderFeeds() {
     const today = W.today();
     const t = W.dayNumber(today.y, today.m, today.d);
-    const all = [];
-    for (let i = 0; i < EVENTS.length; i++) {
-      for (let j = i + 1; j < EVENTS.length; j++) {
-        const c = W.compare(EVENTS[i], EVENTS[j]);
-        if (c.tense !== "same") all.push({ c, span: W.span(c.pivot) });
-      }
-    }
+    const all = COMPARISONS.map((c) => ({ c, span: W.span(c.pivot) }));
     const upcoming = all.filter((x) => x.span[1] >= t).sort((x, y) => x.span[1] - y.span[1]).slice(0, 6);
     const passed = all.filter((x) => x.span[1] < t).sort((x, y) => y.span[1] - x.span[1]).slice(0, 4);
     $("upcoming").replaceChildren(...upcoming.map((x) => feedRow(x.c)));
@@ -1071,6 +1137,137 @@
     }));
   }
 
+  // ---------- In your lifetime ----------
+
+  // an age like 40, or a birthday like 1985 or 1985-06-14, as a range of possible birth days
+  function readBirth(text) {
+    const s = text.trim();
+    const now = W.today(), t = W.dayNumber(now.y, now.m, now.d);
+    let born, moment = null;
+    if (/^\d{1,3}$/.test(s)) {
+      const n = Number(s);
+      if (n < 1 || n > 150) return null;
+      born = W.bornAgo(n, now);
+    } else {
+      moment = /^\d{4}/.test(s) ? W.parse(s) : null;
+      if (!moment) return null;
+      born = W.span(moment);
+      if (born[0] > t || now.y - moment.y > 150) return null;
+    }
+    // the middle of the range stands in for a single birthday when one is needed
+    const mid = W.fromDayNumber(Math.min(t, Math.floor((born[0] + born[1]) / 2)));
+    return { born, moment, key: moment ? s : String(mid.y), age: W.between(mid, now).years };
+  }
+
+  function ageLabel([young, old]) {
+    if (young === null) return "around birth";
+    return young === old ? `age ${old}` : `age ${young}–${old}`;
+  }
+
+  function bornLine(life) {
+    const [young, old] = W.agesAt(life.born, W.today());
+    const now = young === old ? old : `${young} or ${old}`;
+    if (life.moment) return `You were born ${W.when(life.moment)}, so you're ${now}.`;
+    const [y0, y1] = life.born.map((n) => W.fromDayNumber(n).y);
+    return `You were born in ${y0 === y1 ? y0 : `${y0} or ${y1}`}.`;
+  }
+
+  function lifeMark(age, date, title) {
+    return el("li", {}, el("div", { class: "life-row mark" },
+      el("span", { class: "life-age" }, age),
+      el("span", { class: "life-date" }, date),
+      el("span", { class: "life-title" }, title)));
+  }
+
+  function renderLife() {
+    const life = state.life;
+    $("life").hidden = !life;
+    if (!life) {
+      $("age-summary").textContent = $("age-in").value.trim() ? "Try an age like 40, a year like 1985, or a date like 1985-06-14." : "";
+      return;
+    }
+
+    const now = W.today(), t = W.dayNumber(now.y, now.m, now.d);
+    const lived = EVENTS.map((e) => ({ e, ages: W.agesAt(life.born, e.when) }))
+      .filter((x) => x.ages && W.span(x.e.when)[0] <= t);
+    $("age-summary").textContent = `${bornLine(life)} ${lived.length
+      ? `${W.plural(lived.length, "event")} on the list ${lived.length === 1 ? "has" : "have"} happened in your lifetime.`
+      : "Nothing on the list has happened in your lifetime yet."}`;
+
+    const counts = new Map();
+    for (const { e } of lived) counts.set(e.category, (counts.get(e.category) || 0) + 1);
+    fill($("life-chips"), [...counts.keys()].sort().map((cat) => el("button", {
+      class: "chip", type: "button", "aria-pressed": String(!state.lifeHidden.has(cat)),
+      onclick: () => {
+        if (state.lifeHidden.has(cat)) state.lifeHidden.delete(cat); else state.lifeHidden.add(cat);
+        renderLife();
+      },
+    }, `${cat} ${counts.get(cat)}`)));
+
+    const shown = lived.filter((x) => !state.lifeHidden.has(x.e.category));
+    const [y0, y1] = life.born.map((n) => W.fromDayNumber(n).y);
+    fill($("life-list"),
+      lifeMark("born", life.moment ? short(life.moment) : y0 === y1 ? String(y0) : `${y0}–${y1}`, "You were born"),
+      shown.map(({ e, ages }) => el("li", {}, el("a", { class: "life-row", href: href(life.key, e.key), "data-pair": "" },
+        el("span", { class: ages[0] === null ? "life-age unsure" : "life-age" }, ageLabel(ages)),
+        el("span", { class: "life-date" }, short(e.when)),
+        el("span", { class: "life-title" }, e.title, el("span", { class: "tag" }, e.category))))),
+      lived.length && !shown.length ? el("li", { class: "no-match" }, "Every event type is hidden. Pick one above to show it.") : null,
+      lifeMark(ageLabel(W.agesAt(life.born, now)), short(now), "Today"));
+
+    renderAge(life.age);
+  }
+
+  // the gap in years, months, and days, as precisely as the comparison knows it
+  function apart(c) {
+    if (c.p !== W.DAY) return W.gapText(c.gap, c.p);
+    const { years, months, days } = W.between(c.first.when, c.last.when);
+    const parts = [];
+    if (years) parts.push(W.plural(years, "year"));
+    if (months) parts.push(W.plural(months, "month"));
+    if (days) parts.push(W.plural(days, "day"));
+    return parts.length === 1 && years ? `exactly ${parts[0]}` : parts.join(", ");
+  }
+
+  // roughly how many days past the whole years a gap runs, so the closest fits come first;
+  // a gap only known to the year or month could fall anywhere in it, so it sits in the middle
+  function overrun(c) {
+    if (c.p === W.YEAR) return 183;
+    if (c.p === W.MONTH) return (c.gap % 12) * 30.5 + 15;
+    const { months, days } = W.between(c.first.when, c.last.when);
+    return months * 30.5 + days;
+  }
+
+  // the closest fits, each event once, then everything else that fits
+  function ageMatches(age) {
+    const fits = COMPARISONS.filter((c) => W.wholeYears(c) === age)
+      .map((c) => ({ c, over: overrun(c) }))
+      .sort((x, y) => x.over - y.over || W.span(y.c.last.when)[0] - W.span(x.c.last.when)[0])
+      .map((x) => x.c);
+    const used = new Set(), first = [], rest = [];
+    for (const c of fits) {
+      if (used.has(c.first.key) || used.has(c.last.key)) rest.push(c);
+      else { first.push(c); used.add(c.first.key); used.add(c.last.key); }
+    }
+    return [...first, ...rest];
+  }
+
+  function renderAge(age) {
+    const list = $("age-pairs");
+    const fits = ageMatches(age);
+    const years = W.plural(age, "year");
+    $("age-count").textContent = fits.length
+      ? `${W.plural(fits.length, "pair")} of events ${fits.length === 1 ? "is" : "are"} ${years} apart.`
+      : `No two events are ${years} apart. Try another age.`;
+    list.replaceChildren(...fits.slice(0, state.ageShown).map((c) =>
+      el("li", {}, el("a", { href: href(c.first.key, c.last.key), "data-pair": "" },
+        el("span", { class: "pair-a" }, c.first.title),
+        el("span", { class: "pair-and" }, `${apart(c)} later`),
+        el("span", { class: "pair-b" }, c.last.title),
+        el("span", { class: "pair-when" }, `crossover ${short(c.pivot)}`)))));
+    $("age-more").hidden = fits.length <= state.ageShown;
+  }
+
   // ---------- Events ----------
 
   // links to other comparisons swap the page in place instead of reloading
@@ -1087,6 +1284,13 @@
   window.addEventListener("popstate", () => { readUrl(); render(); });
 
   $("filter").addEventListener("input", (e) => { state.filter = e.target.value; renderList(); });
+
+  $("age-in").addEventListener("input", (e) => {
+    state.life = readBirth(e.target.value);
+    state.ageShown = AGE_STEP;
+    renderLife();
+  });
+  $("age-more").addEventListener("click", () => { state.ageShown += AGE_STEP; renderAge(state.life.age); });
 
   // a half-typed date reads as empty, so only a cleared field goes back to today
   $("whatif-on").addEventListener("input", (e) => {
@@ -1147,12 +1351,21 @@
       return;
     }
     for (const e of EVENTS) BY_KEY.set(e.key, e);
+    for (let i = 0; i < EVENTS.length; i++) {
+      for (let j = i + 1; j < EVENTS.length; j++) {
+        const c = W.compare(EVENTS[i], EVENTS[j]);
+        if (c.tense !== "same") COMPARISONS.push(c);
+      }
+    }
 
     readUrl();
     if (!state.picks[0] && !state.picks[1] && !location.search) {
       state.picks = randomPair();
       writeUrl(false);
     }
+    // a browser can bring back what was typed before a reload
+    state.life = readBirth($("age-in").value);
+    renderLife();
     renderChips();
     renderFeeds();
     renderPairs();
