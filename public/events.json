@@ -1724,5 +1724,284 @@
     "category": "movies",
     "description": "Hacker Neo (Keanu Reeves) learns that the world is a simulated reality built by machines to keep humans pacified. Will Smith turned down the role to make Wild Wild West, skeptical about the film's \"bullet time\" effects, which went on to be copied everywhere. Its digital rain green code was designed by Simon Whiteley, who likes to tell people it's made of Japanese sushi recipes.",
     "source": "https://en.wikipedia.org/wiki/The_Matrix"
+  },
+  {
+    "key": "telnet-developed",
+    "date": "1969",
+    "title": "Telnet developed for ARPANET",
+    "phrase": "the development of Telnet",
+    "category": "internet",
+    "description": "Telnet let you log in to a faraway computer and type on it as if you were sitting in front of it. It sends everything, usernames and passwords included, as plain text, so these days it's not recommended for anything that matters.",
+    "source": "https://en.wikipedia.org/wiki/Telnet"
+  },
+  {
+    "key": "ftp-specification",
+    "date": "1971-04-16",
+    "title": "File Transfer Protocol specified",
+    "phrase": "the first File Transfer Protocol specification",
+    "category": "internet",
+    "description": "Abhay Bhushan wrote the original specification for FTP, published as RFC 114. It's older than TCP/IP, the protocols the internet runs on, and it's still around.",
+    "source": "https://en.wikipedia.org/wiki/File_Transfer_Protocol"
+  },
+  {
+    "key": "first-bbs",
+    "date": "1978-02-16",
+    "title": "First bulletin board system (CBBS) goes online",
+    "phrase": "the first bulletin board system going online",
+    "category": "internet",
+    "description": "The Great Blizzard of 1978 snowed in Ward Christensen and Randy Suess, two Chicago computer hobbyists, and gave them the quiet time to build CBBS so hobbyists could swap messages by modem.",
+    "source": "https://en.wikipedia.org/wiki/CBBS"
+  },
+  {
+    "key": "usenet-established",
+    "date": "1980",
+    "title": "Usenet established",
+    "phrase": "the establishment of Usenet",
+    "category": "internet",
+    "description": "Tom Truscott and Jim Ellis of Duke University linked up with the University of North Carolina to share messages sorted into topics called newsgroups. Usenet gave us the FAQ, the flame, the sockpuppet, and spam.",
+    "source": "https://en.wikipedia.org/wiki/Usenet"
+  },
+  {
+    "key": "first-emoticon",
+    "date": "1982-09-19",
+    "title": "First :-) emoticon",
+    "phrase": "the first :-) emoticon",
+    "category": "internet",
+    "description": "Scott Fahlman posted to a Carnegie Mellon bulletin board: \"I propose that the following character sequence for joke markers: :-) Read it sideways.\"",
+    "source": "https://en.wikipedia.org/wiki/Scott_Fahlman"
+  },
+  {
+    "key": "arpanet-switches-to-tcp-ip",
+    "date": "1983-01-01",
+    "title": "ARPANET switches to TCP/IP",
+    "phrase": "ARPANET switching to TCP/IP",
+    "category": "internet",
+    "description": "On this flag day, ARPANET switched from its old NCP protocol to TCP/IP all at once, with no going back. The internet still runs on TCP/IP.",
+    "source": "https://en.wikipedia.org/wiki/Internet_protocol_suite"
+  },
+  {
+    "key": "first-com-domain",
+    "date": "1985-03-15",
+    "title": "First .com domain registered",
+    "phrase": "the registration of the first .com domain",
+    "category": "internet",
+    "description": "symbolics.com, for Symbolics, a company that made computers built to run the Lisp programming language. In 2009 the domain was sold to a domain name investment company.",
+    "source": "https://en.wikipedia.org/wiki/Symbolics"
+  },
+  {
+    "key": "irc-created",
+    "date": "1988-08",
+    "title": "Internet Relay Chat created",
+    "phrase": "the creation of IRC",
+    "category": "internet",
+    "description": "Jarkko Oikarinen wrote IRC at the University of Oulu in Finland to replace the chat program on the university's BBS. By the middle of 1989 there were some 40 IRC servers around the world.",
+    "source": "https://en.wikipedia.org/wiki/IRC"
+  },
+  {
+    "key": "archie-search-engine",
+    "date": "1990",
+    "title": "Archie, the first internet search engine",
+    "phrase": "the release of Archie, the first internet search engine",
+    "category": "internet",
+    "description": "Alan Emtage, a postgraduate student from Barbados at McGill University in Montreal, wrote Archie to index FTP archives. The name is \"archive\" without the v.",
+    "source": "https://en.wikipedia.org/wiki/Archie_(search_engine)"
+  },
+  {
+    "key": "gopher-released",
+    "date": "1991",
+    "title": "Gopher released",
+    "phrase": "the release of Gopher",
+    "category": "internet",
+    "description": "A team at the University of Minnesota, whose mascot is the gopher, built a menu-driven way to burrow through the internet. It was an early alternative to the World Wide Web, until the university announced in 1993 that it would charge licensing fees for its server.",
+    "source": "https://en.wikipedia.org/wiki/Gopher_(protocol)"
+  },
+  {
+    "key": "eternal-september",
+    "date": "1993-09",
+    "title": "The September that never ended",
+    "phrase": "the start of the Eternal September",
+    "category": "internet",
+    "description": "Every September a wave of new college students joined Usenet and had to learn its etiquette. In September 1993, internet providers started bringing in new users all year round, and to Usenet's old-timers it felt like the September that never ended.",
+    "source": "https://en.wikipedia.org/wiki/Eternal_September"
+  },
+  {
+    "key": "ebay-founded",
+    "date": "1995-09-03",
+    "title": "Founding of eBay",
+    "phrase": "the founding of eBay",
+    "category": "internet",
+    "description": "Pierre Omidyar started it as AuctionWeb, a hobby site. Its first sale was a broken laser pointer for $14.83, and when Omidyar checked that the buyer knew it was broken, he said, \"I'm a collector of broken laser pointers.\"",
+    "source": "https://en.wikipedia.org/wiki/EBay"
+  },
+  {
+    "key": "hotmail-launch",
+    "date": "1996-07-04",
+    "title": "Hotmail launches",
+    "phrase": "the launch of Hotmail",
+    "category": "internet",
+    "description": "Sabeer Bhatia and Jack Smith launched it on Independence Day to stand for freedom from email tied to your internet provider. Microsoft bought it the next year for about $400 million.",
+    "source": "https://en.wikipedia.org/wiki/Outlook.com"
+  },
+  {
+    "key": "gmail-launch",
+    "date": "2004-04-01",
+    "title": "Gmail launches",
+    "phrase": "the launch of Gmail",
+    "category": "internet",
+    "description": "Google launched it on April Fools' Day with a whole gigabyte of free storage, far more than anyone else offered. A year later, on its first birthday, Google doubled it.",
+    "source": "https://en.wikipedia.org/wiki/Gmail"
+  },
+  {
+    "key": "reddit-founded",
+    "date": "2005-06",
+    "title": "Reddit founded",
+    "phrase": "the founding of Reddit",
+    "category": "internet",
+    "description": "University of Virginia roommates Steve Huffman and Alexis Ohanian started it in Y Combinator's first class. The site looked empty at first, so they made hundreds of fake users to post from. Call it Usenet with upvotes.",
+    "source": "https://en.wikipedia.org/wiki/Reddit"
+  },
+  {
+    "key": "eniac-unveiled",
+    "date": "1946-02-15",
+    "title": "ENIAC unveiled",
+    "phrase": "the unveiling of ENIAC",
+    "category": "technology",
+    "description": "The press called it a \"Giant Brain.\" Six women, Kay McNulty, Betty Jennings, Betty Snyder, Marlyn Wescoff, Fran Bilas, and Ruth Lichterman, did most of its programming, but none of the women who programmed it were invited to the dedication or the dinner afterward.",
+    "source": "https://en.wikipedia.org/wiki/ENIAC"
+  },
+  {
+    "key": "first-computer-bug",
+    "date": "1947",
+    "title": "First actual case of bug being found",
+    "phrase": "the first actual computer bug being found",
+    "category": "technology",
+    "description": "Operators traced an error in Harvard's Mark II computer to a moth stuck in a relay and taped it into the log: \"First actual case of bug being found.\" Engineers had called defects bugs since at least the 1870s, but Grace Hopper made the moth famous.",
+    "source": "https://en.wikipedia.org/wiki/Software_bug"
+  },
+  {
+    "key": "turing-imitation-game",
+    "date": "1950",
+    "title": "Alan Turing proposes the imitation game",
+    "phrase": "Alan Turing proposing the imitation game",
+    "category": "technology",
+    "description": "\"Can machines think?\" Turing found the question too vague, so he swapped it for a game: can a machine pass for a person in conversation? We call it the Turing test now.",
+    "source": "https://en.wikipedia.org/wiki/Computing_Machinery_and_Intelligence"
+  },
+  {
+    "key": "dartmouth-ai-workshop",
+    "date": "1956",
+    "title": "Dartmouth workshop on artificial intelligence",
+    "phrase": "the Dartmouth workshop on artificial intelligence",
+    "category": "technology",
+    "description": "Widely considered the founding event of AI as a field. The proposal was optimistic: \"We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer.\"",
+    "source": "https://en.wikipedia.org/wiki/Dartmouth_workshop"
+  },
+  {
+    "key": "perceptron",
+    "date": "1958",
+    "title": "Frank Rosenblatt describes the perceptron",
+    "phrase": "Frank Rosenblatt describing the perceptron",
+    "category": "technology",
+    "description": "An artificial neuron that learns from examples. A single layer of them turned out to be too limited, which stalled neural network research for years, until people stacked perceptrons into layers.",
+    "source": "https://en.wikipedia.org/wiki/Perceptron"
+  },
+  {
+    "key": "eliza-chatbot",
+    "date": "1966",
+    "title": "ELIZA, one of the first chatbots",
+    "phrase": "the creation of ELIZA",
+    "category": "technology",
+    "description": "Joseph Weizenbaum's program at MIT played a therapist by turning your words back into questions. He was surprised how readily people treated it as human; his own secretary asked him to leave the room so she and ELIZA could have a real conversation.",
+    "source": "https://en.wikipedia.org/wiki/ELIZA"
+  },
+  {
+    "key": "mother-of-all-demos",
+    "date": "1968-12-09",
+    "title": "The Mother of All Demos",
+    "phrase": "the Mother of All Demos",
+    "category": "technology",
+    "description": "In 90 minutes, Douglas Engelbart showed a San Francisco audience the mouse, clickable hypertext, and much of the rest of modern personal computing, running live over homemade modems from his lab in Menlo Park.",
+    "source": "https://en.wikipedia.org/wiki/The_Mother_of_All_Demos"
+  },
+  {
+    "key": "first-handheld-cell-phone-call",
+    "date": "1973-04-03",
+    "title": "First handheld cell phone call",
+    "phrase": "the first handheld cell phone call",
+    "category": "technology",
+    "description": "Martin Cooper of Motorola stood on a Manhattan sidewalk with a prototype and called his counterpart at the competition, Bell Labs.",
+    "source": "https://en.wikipedia.org/wiki/Martin_Cooper_(inventor)"
+  },
+  {
+    "key": "first-text-message",
+    "date": "1992-12-03",
+    "title": "First text message",
+    "phrase": "the first text message",
+    "category": "technology",
+    "description": "Neil Papworth, a test engineer, sent \"Merry Christmas\" from a computer to his colleague Richard Jarvis's phone over the Vodafone network in the UK.",
+    "source": "https://en.wikipedia.org/wiki/SMS"
+  },
+  {
+    "key": "deep-blue-beats-kasparov",
+    "date": "1997-05",
+    "title": "Deep Blue beats Garry Kasparov",
+    "phrase": "Deep Blue beating Garry Kasparov",
+    "category": "technology",
+    "description": "Kasparov beat IBM's chess computer in 1996, then lost the 1997 rematch 3½–2½. He accused IBM of cheating, alleging that a grandmaster had been behind one of its moves.",
+    "source": "https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov"
+  },
+  {
+    "key": "y2k",
+    "date": "2000-01-01",
+    "title": "Y2K",
+    "phrase": "Y2K",
+    "category": "technology",
+    "description": "Programs that saved space by storing only the last two digits of the year were about to decide it was 1900. The world spent something like $300 billion fixing them, and the problems on the day were generally minor.",
+    "source": "https://en.wikipedia.org/wiki/Year_2000_problem"
+  },
+  {
+    "key": "alexnet-imagenet",
+    "date": "2012-09-30",
+    "title": "AlexNet enters the ImageNet challenge",
+    "phrase": "AlexNet's entry in the ImageNet challenge",
+    "category": "technology",
+    "description": "Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton trained a neural network on two Nvidia graphics cards in Krizhevsky's bedroom at his parents' house. It won by more than ten percentage points and kicked off the deep learning boom.",
+    "source": "https://en.wikipedia.org/wiki/AlexNet"
+  },
+  {
+    "key": "alphago-beats-lee-sedol",
+    "date": "2016-03",
+    "title": "AlphaGo beats Lee Sedol",
+    "phrase": "AlphaGo beating Lee Sedol",
+    "category": "technology",
+    "description": "DeepMind's AlphaGo won four of five games of Go, and its move 37 in game two stunned professionals. Lee won game four with a \"divine move\" of his own. He retired in 2019, calling AI \"an entity that cannot be defeated.\"",
+    "source": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol"
+  },
+  {
+    "key": "attention-is-all-you-need",
+    "date": "2017-06-12",
+    "title": "\"Attention Is All You Need\" published",
+    "phrase": "the publication of \"Attention Is All You Need\"",
+    "category": "technology",
+    "description": "Eight researchers at Google introduced the transformer, which became the main architecture of large language models. It's the T in GPT.",
+    "source": "https://en.wikipedia.org/wiki/Attention_Is_All_You_Need"
+  },
+  {
+    "key": "chatgpt-release",
+    "date": "2022-11-30",
+    "title": "Release of ChatGPT",
+    "phrase": "the release of ChatGPT",
+    "category": "technology",
+    "description": "OpenAI's chatbot gained a million users in five days and 100 million in two months.",
+    "source": "https://en.wikipedia.org/wiki/ChatGPT"
+  },
+  {
+    "key": "claude-public-launch",
+    "date": "2023-07",
+    "title": "Claude.ai opens to the public",
+    "phrase": "Claude.ai opening to the public",
+    "category": "technology",
+    "description": "Anthropic first released Claude as a chatbot in March 2023. In July, Claude 2 became the first Anthropic model available to the general public.",
+    "source": "https://en.wikipedia.org/wiki/Claude_(AI)"
   }
 ]
