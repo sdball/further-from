@@ -510,10 +510,13 @@
   .life { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
   .life h3.feed-head { margin-top: 0; }
   .life .chips { margin-top: 0.5rem; }
-  /* the pairs stack beside the timeline on wide screens */
+  /* the pairs stack beside the timeline on wide screens, and the timeline
+     stretches to match them as "Show more" adds pairs */
   @media (min-width: 1000px) {
-    .life { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; }
+    .life { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
     .life .pairs { grid-template-columns: 1fr; }
+    .life-main { display: flex; flex-direction: column; }
+    .life-main .life-list { flex: 1 1 auto; min-height: 34rem; max-height: none; contain: size; }
   }
 
   .life-list {
@@ -622,7 +625,7 @@
     </div>
     <p class="status" id="age-summary" aria-live="polite"></p>
     <div class="life" id="life" hidden>
-      <div>
+      <div class="life-main">
         <h3 class="feed-head">Your timeline</h3>
         <div class="chips" role="group" aria-label="Event types on your timeline" id="life-chips"></div>
         <ol class="life-list" id="life-list"></ol>
