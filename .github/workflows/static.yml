@@ -26,6 +26,14 @@ jobs:
         with:
           node-version: 22
       - run: node --test test/*.test.mjs
+      - name: Check every page has GoatCounter
+        run: |
+          missing=$(grep -rL --include='*.html' 'data-goatcounter="https://sdball.goatcounter.com/count"' public || true)
+          if [ -n "$missing" ]; then
+            echo "::error::These pages are missing the GoatCounter snippet:"
+            echo "$missing"
+            exit 1
+          fi
 
   deploy:
     needs: test
