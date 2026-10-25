@@ -56,11 +56,14 @@ Follow the README's format. Beyond what the tests enforce:
   scripts call Wikidata and Wikipedia. Put their TSV input files in a scratch
   directory, not the repo.
 - Descriptions are a sentence or three: plain, specific, and allowed to be
-  playful (see `nes`). Where an event harmed people (colonization, broken
-  treaties, slavery, worker deaths), say so plainly and back it with the
-  source. `mount-rushmore-completed` is the model. The aim is honesty, not
-  grimness. The site leans toward lighter history and keeps wars and
-  assassinations to a minimum.
+  playful (see `nes`). Don't tell an event only the way a traditional US
+  history class would when that version leaves out the people on the other
+  side of it, such as the Native peoples whose land it was.
+  `mount-rushmore-completed` is the model: it starts from the Lakota's Six
+  Grandfathers Mountain and the broken Fort Laramie treaty, not from the
+  carving. Back that perspective with the source. The point is a fuller
+  picture, not a list of every harm. The site leans toward lighter history
+  and keeps wars and assassinations to a minimum.
 - Use an existing `category` if one fits (`history`, `videogames`, `movies`,
   `space`, `technology`, `internet`, `programming`, `books`, `music`,
   `business`). Each category becomes a filter chip.
