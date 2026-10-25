@@ -1139,5 +1139,428 @@
     "category": "history",
     "description": "Farmers near Xi'an dug into the tomb complex of China's first emperor. The pits hold an estimated 8,000 soldiers, most of them still buried.",
     "source": "https://en.wikipedia.org/wiki/Terracotta_Army"
+  },
+  {
+    "key": "deadline-released",
+    "date": "1982",
+    "title": "Infocom released Deadline",
+    "phrase": "the release of Deadline",
+    "category": "videogames",
+    "description": "Infocom's first mystery. You're a detective called to a Connecticut estate to look into a suspicious death while the suspects go about their own business, and you can't make an arrest stick without motive, method, and opportunity. The box came with a police file and three white pills in a plastic bag, which started Infocom's tradition of feelies.",
+    "source": "https://en.wikipedia.org/wiki/Deadline_(1982_video_game)"
+  },
+  {
+    "key": "planetfall-released",
+    "date": "1983-07-08",
+    "title": "Infocom released Planetfall",
+    "phrase": "the release of Planetfall",
+    "category": "videogames",
+    "description": "Steve Meretzky's first game. You're an Ensign Seventh Class who mops the decks until the ship blows up. On the planet below you meet Floyd, a childlike robot who became Infocom's most popular character, and plenty of players have told Meretzky they cried over what happens to him.",
+    "source": "https://en.wikipedia.org/wiki/Planetfall"
+  },
+  {
+    "key": "enchanter-released",
+    "date": "1983-08-10",
+    "title": "Infocom released Enchanter",
+    "phrase": "the release of Enchanter",
+    "category": "videogames",
+    "description": "Originally meant to be Zork IV. You're a novice Enchanter sent after an evil warlock in the hope that he won't take you seriously. Spells have to be memorized before they're cast, and each one is a nonsense word the parser treats as a verb, so FROTZ BOOK makes the book glow.",
+    "source": "https://en.wikipedia.org/wiki/Enchanter_(video_game)"
+  },
+  {
+    "key": "hitchhikers-guide-game-released",
+    "date": "1984-09-14",
+    "title": "Infocom released The Hitchhiker's Guide to the Galaxy",
+    "phrase": "the release of the Hitchhiker's Guide to the Galaxy game",
+    "category": "videogames",
+    "description": "Designed by Douglas Adams himself with Steve Meretzky, and famously devious. Getting the Babel Fish out of its dispenser takes a Rube Goldberg chain of obscure items, and failing it leaves the game unwinnable. Infocom sold T-shirts that said \"I got the Babel Fish!\"",
+    "source": "https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy_(video_game)"
+  },
+  {
+    "key": "a-mind-forever-voyaging-released",
+    "date": "1985-08-14",
+    "title": "Infocom released A Mind Forever Voyaging",
+    "phrase": "the release of A Mind Forever Voyaging",
+    "category": "videogames",
+    "description": "You play PRISM, an artificial intelligence sent decades into the future of a simulated South Dakota town to report on what a sweeping set of conservative policies will do to it. Steve Meretzky wrote it out of dismay at Ronald Reagan's 1984 re-election. It didn't sell, but critics loved it, and some now call it prescient.",
+    "source": "https://en.wikipedia.org/wiki/A_Mind_Forever_Voyaging"
+  },
+  {
+    "key": "trinity-released",
+    "date": "1986-05-09",
+    "title": "Infocom released Trinity",
+    "phrase": "the release of Trinity",
+    "category": "videogames",
+    "description": "Brian Moriarty's prose poem about the atomic bomb opens with a Soviet missile on its way to Kensington Gardens, sends you through test sites and Nagasaki just before each detonation, and ends in the New Mexico desert on July 16, 1945. Widely regarded as one of Infocom's best, it was the last game Infocom released while it was still solvent.",
+    "source": "https://en.wikipedia.org/wiki/Trinity_(video_game)"
+  },
+  {
+    "key": "leather-goddesses-of-phobos-released",
+    "date": "1986-07-11",
+    "title": "Infocom released Leather Goddesses of Phobos",
+    "phrase": "the release of Leather Goddesses of Phobos",
+    "category": "videogames",
+    "description": "Infocom's first \"sex farce,\" with a naughtiness setting that runs from tame to suggestive to lewd, like G, PG, and R. Steve Meretzky said he was hoping to get it banned from 7-Eleven. Tom Clancy named it one of his favorite computer games.",
+    "source": "https://en.wikipedia.org/wiki/Leather_Goddesses_of_Phobos"
+  },
+  {
+    "key": "activision-shuts-down-infocom",
+    "date": "1989",
+    "title": "Activision shut down Infocom",
+    "phrase": "Activision shutting down Infocom",
+    "category": "videogames",
+    "description": "MIT staff and students founded Infocom in 1979. It sank much of its game money into Cornerstone, a business database, and after Cornerstone failed it laid off half its staff and sold itself to Activision in 1986. Activision closed it three years later.",
+    "source": "https://en.wikipedia.org/wiki/Infocom"
+  },
+  {
+    "key": "maniac-mansion-released",
+    "date": "1987-10",
+    "title": "Lucasfilm Games released Maniac Mansion",
+    "phrase": "the release of Maniac Mansion",
+    "category": "videogames",
+    "description": "Ron Gilbert didn't like typing commands, so he built a point-and-click interface and an engine called SCUMM to run it, and SCUMM went on to power Lucasarts adventure games for years. You can put the hamster in the microwave. The NES version had to be heavily reworked because Nintendo of America thought the game was inappropriate for children.",
+    "source": "https://en.wikipedia.org/wiki/Maniac_Mansion"
+  },
+  {
+    "key": "zak-mckracken-released",
+    "date": "1988-10",
+    "title": "Lucasfilm Games released Zak McKracken and the Alien Mindbenders",
+    "phrase": "the release of Zak McKracken and the Alien Mindbenders",
+    "category": "videogames",
+    "description": "The second SCUMM game. Zak, a writer for a tabloid, has to stop the aliens who've taken over The Phone Company from making everyone on Earth dumber with a 60 Hz hum.",
+    "source": "https://en.wikipedia.org/wiki/Zak_McKracken_and_the_Alien_Mindbenders"
+  },
+  {
+    "key": "last-crusade-graphic-adventure-released",
+    "date": "1989",
+    "title": "Lucasfilm Games released Indiana Jones and the Last Crusade: The Graphic Adventure",
+    "phrase": "the release of the Last Crusade graphic adventure",
+    "category": "videogames",
+    "description": "Released alongside the movie, with a replica of Henry Jones' Grail diary in the box. Its \"Indy Quotient\" score carried over between games, and the only way to max it out was to find every alternate solution, like fighting a guard instead of slipping past him.",
+    "source": "https://en.wikipedia.org/wiki/Indiana_Jones_and_the_Last_Crusade:_The_Graphic_Adventure"
+  },
+  {
+    "key": "loom-released",
+    "date": "1990",
+    "title": "Lucasfilm Games released Loom",
+    "phrase": "the release of Loom",
+    "category": "videogames",
+    "description": "Led by Brian Moriarty, who came over from Infocom after writing Trinity. Loom drops the verb list entirely: Bobbin Threadbare casts spells by playing four-note drafts on his distaff, and some work in reverse, so Dye played backwards becomes Bleach.",
+    "source": "https://en.wikipedia.org/wiki/Loom_(video_game)"
+  },
+  {
+    "key": "monkey-island-2-released",
+    "date": "1991-12",
+    "title": "Lucasarts released Monkey Island 2: LeChuck's Revenge",
+    "phrase": "the release of Monkey Island 2: LeChuck's Revenge",
+    "category": "videogames",
+    "description": "The first game with iMUSE, Lucasarts' adaptive music engine, which shifts the music smoothly as the story moves along. A critical success but a commercial disappointment, it ended on a cliffhanger that Ron Gilbert didn't pick back up until Return to Monkey Island in 2022.",
+    "source": "https://en.wikipedia.org/wiki/Monkey_Island_2:_LeChuck%27s_Revenge"
+  },
+  {
+    "key": "fate-of-atlantis-released",
+    "date": "1992-06",
+    "title": "Lucasarts released Indiana Jones and the Fate of Atlantis",
+    "phrase": "the release of Indiana Jones and the Fate of Atlantis",
+    "category": "videogames",
+    "description": "Indy and Sophia Hapgood, an archaeologist turned psychic, race the Nazis to Atlantis. Early on you pick the Team, Wits, or Fists path, and each has its own puzzles, scenes, and places to visit.",
+    "source": "https://en.wikipedia.org/wiki/Indiana_Jones_and_the_Fate_of_Atlantis"
+  },
+  {
+    "key": "day-of-the-tentacle-released",
+    "date": "1993-06-25",
+    "title": "Lucasarts released Day of the Tentacle",
+    "phrase": "the release of Day of the Tentacle",
+    "category": "videogames",
+    "description": "The sequel to Maniac Mansion. Bernard, Hoagie, and Laverne are scattered across time trying to stop Purple Tentacle from taking over the world. The whole original Maniac Mansion is playable on a computer inside the game, which no game had done before.",
+    "source": "https://en.wikipedia.org/wiki/Day_of_the_Tentacle"
+  },
+  {
+    "key": "sam-and-max-hit-the-road-released",
+    "date": "1993-11",
+    "title": "Lucasarts released Sam & Max Hit the Road",
+    "phrase": "the release of Sam & Max Hit the Road",
+    "category": "videogames",
+    "description": "Steve Purcell's Freelance Police, a dog and a \"hyperkinetic rabbity thing,\" chase a bigfoot missing from a carnival across America's tourist traps. It was one of the first games with full voice acting.",
+    "source": "https://en.wikipedia.org/wiki/Sam_%26_Max_Hit_the_Road"
+  },
+  {
+    "key": "full-throttle-released",
+    "date": "1995-04-30",
+    "title": "Lucasarts released Full Throttle",
+    "phrase": "the release of Full Throttle",
+    "category": "videogames",
+    "description": "Tim Schafer's first game as project lead. Biker Ben has to clear his name after he's framed for murder. It swapped the verb list for a pie menu and hired professional voice actors, including Mark Hamill as the villain.",
+    "source": "https://en.wikipedia.org/wiki/Full_Throttle_(1995_video_game)"
+  },
+  {
+    "key": "grim-fandango-released",
+    "date": "1998-10-30",
+    "title": "Lucasarts released Grim Fandango",
+    "phrase": "the release of Grim Fandango",
+    "category": "videogames",
+    "description": "Manny Calavera is a travel agent for the newly dead, working off a debt in a Land of the Dead that mixes the Aztec afterlife with 1950s film noir. Often listed among the greatest games ever made, it was a commercial failure that helped end Lucasarts' adventure games.",
+    "source": "https://en.wikipedia.org/wiki/Grim_Fandango"
+  },
+  {
+    "key": "nintendo-founded",
+    "date": "1889-09-23",
+    "title": "Nintendo founded",
+    "phrase": "the founding of Nintendo",
+    "category": "videogames",
+    "description": "Fusajiro Yamauchi founded Nintendo in Kyoto to make handmade hanafuda playing cards, which sold well in the city's yakuza-run gambling parlors. Nobody knows for sure what the name was meant to mean, not even Yamauchi's descendants.",
+    "source": "https://en.wikipedia.org/wiki/Nintendo"
+  },
+  {
+    "key": "game-and-watch-released",
+    "date": "1980-04-28",
+    "title": "Nintendo released the first Game & Watch",
+    "phrase": "the release of the first Game & Watch",
+    "category": "videogames",
+    "description": "Gunpei Yokoi got the idea on a bullet train, watching a bored businessman poke at a pocket calculator. Each handheld played a single game on a calculator-style LCD, and the line ran until 1991.",
+    "source": "https://en.wikipedia.org/wiki/Game_%26_Watch"
+  },
+  {
+    "key": "donkey-kong-released",
+    "date": "1981-07-09",
+    "title": "Nintendo released Donkey Kong",
+    "phrase": "the release of Donkey Kong",
+    "category": "videogames",
+    "description": "Built to use up unsold Radar Scope arcade cabinets, and handed to a first-time designer named Shigeru Miyamoto. Its hero, a carpenter who climbs a construction site to rescue Pauline, was later called Jumpman, and then Mario.",
+    "source": "https://en.wikipedia.org/wiki/Donkey_Kong_(1981_video_game)"
+  },
+  {
+    "key": "famicom-released",
+    "date": "1983-07-15",
+    "title": "Nintendo released the Family Computer (Famicom) in Japan",
+    "phrase": "the Japanese release of the Famicom",
+    "category": "videogames",
+    "description": "Hiroshi Yamauchi asked for a simple, cheap console that could play arcade games from cartridges, and Masayuki Uemura designed it. Yamauchi saw it as a home computer disguised as a toy, and some at Nintendo called it \"Yamauchi's Trojan Horse.\"",
+    "source": "https://en.wikipedia.org/wiki/Nintendo_Entertainment_System"
+  },
+  {
+    "key": "video-game-crash-of-1983",
+    "date": "1983",
+    "title": "The video game crash of 1983",
+    "phrase": "the video game crash of 1983",
+    "category": "videogames",
+    "description": "Home video game revenue in North America fell almost 97% between 1983 and 1985, and analysts wondered whether video games had a future at all. The industry recovered a few years later, mostly thanks to the NES.",
+    "source": "https://en.wikipedia.org/wiki/Video_game_crash_of_1983"
+  },
+  {
+    "key": "super-mario-bros-released",
+    "date": "1985-09-13",
+    "title": "Nintendo released Super Mario Bros.",
+    "phrase": "the release of Super Mario Bros",
+    "category": "videogames",
+    "description": "Shigeru Miyamoto wanted a more colorful platform game with a scrolling screen and bigger characters. Add the Super Mushroom, the Fire Flower, and the Starman, and you get one of the best-selling games ever, with more than 58 million copies sold.",
+    "source": "https://en.wikipedia.org/wiki/Super_Mario_Bros."
+  },
+  {
+    "key": "rob-released",
+    "date": "1985-10",
+    "title": "R.O.B. arrived with the NES Deluxe Set",
+    "phrase": "R.O.B. arriving with the NES",
+    "category": "videogames",
+    "description": "After the crash of 1983, American stores didn't want video games. So Nintendo of America built its launch around a toy robot, to sell the NES as a sophisticated electronic toy. R.O.B. only ever worked with two games, Gyromite and Stack-Up, but he got the NES onto store shelves.",
+    "source": "https://en.wikipedia.org/wiki/R.O.B."
+  },
+  {
+    "key": "legend-of-zelda-released",
+    "date": "1986-02-21",
+    "title": "Nintendo released The Legend of Zelda",
+    "phrase": "the release of The Legend of Zelda",
+    "category": "videogames",
+    "description": "Link starts with nothing but a small shield until an old man in a cave hands him a sword: \"It's dangerous to go alone!\" The US version was one of the first games with an internal battery for saving.",
+    "source": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda_(video_game)"
+  },
+  {
+    "key": "metroid-released",
+    "date": "1986-08-06",
+    "title": "Nintendo released Metroid",
+    "phrase": "the release of Metroid",
+    "category": "videogames",
+    "description": "Samus Aran hunts Space Pirates through the caverns of Zebes, and in the best endings takes off the suit to reveal she's a woman, at a time when women in games were mostly queens or kidnapped princesses. Those endings went to the fastest players, which made it an early speedrunning favorite.",
+    "source": "https://en.wikipedia.org/wiki/Metroid_(video_game)"
+  },
+  {
+    "key": "super-mario-bros-3-released",
+    "date": "1988-10-23",
+    "title": "Nintendo released Super Mario Bros. 3",
+    "phrase": "the release of Super Mario Bros. 3",
+    "category": "videogames",
+    "description": "The Super Leaf and the Tanooki Suit let Mario fly. Many Americans first saw it in the final scene of the 1989 movie The Wizard, and it sold more than 17 million copies.",
+    "source": "https://en.wikipedia.org/wiki/Super_Mario_Bros._3"
+  },
+  {
+    "key": "game-boy-released-north-america",
+    "date": "1989-07-31",
+    "title": "Game Boy released in North America",
+    "phrase": "the North American release of the Game Boy",
+    "category": "videogames",
+    "description": "Gunpei Yokoi's team picked price, battery life, and durability over a color screen and a fast processor. In North America it came with Tetris, and its color competitors were stuck with poor battery life.",
+    "source": "https://en.wikipedia.org/wiki/Game_Boy"
+  },
+  {
+    "key": "power-glove-released",
+    "date": "1989",
+    "title": "Mattel released the Power Glove for the NES",
+    "phrase": "the release of the Power Glove",
+    "category": "videogames",
+    "description": "In The Wizard, Lucas Barton plays Rad Racer with one. Everyone else found the controls imprecise and hard to use, and it cost $100, with only two games made for it.",
+    "source": "https://en.wikipedia.org/wiki/Power_Glove"
+  },
+  {
+    "key": "nintendo-64-released-north-america",
+    "date": "1996-09-29",
+    "title": "Nintendo 64 released in North America",
+    "phrase": "the North American release of the Nintendo 64",
+    "category": "videogames",
+    "description": "Its controller was the first with a thumbstick as standard, and the console had four controller ports for multiplayer. Nintendo even delayed its launch to avoid angering retailers \"in the same way Sega had.\"",
+    "source": "https://en.wikipedia.org/wiki/Nintendo_64"
+  },
+  {
+    "key": "super-mario-64-released",
+    "date": "1996-06-23",
+    "title": "Nintendo released Super Mario 64",
+    "phrase": "the release of Super Mario 64",
+    "category": "videogames",
+    "description": "Mario's first 3D game. Shigeru Miyamoto came up with the idea while making Star Fox, and the team built the camera system first.",
+    "source": "https://en.wikipedia.org/wiki/Super_Mario_64"
+  },
+  {
+    "key": "ocarina-of-time-released",
+    "date": "1998-11-21",
+    "title": "Nintendo released The Legend of Zelda: Ocarina of Time",
+    "phrase": "the release of Ocarina of Time",
+    "category": "videogames",
+    "description": "It introduced Z-targeting, which locks Link onto an enemy, along with Navi the fairy to explain it. It's still the highest-rated game on Metacritic, at 99 out of 100.",
+    "source": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Ocarina_of_Time"
+  },
+  {
+    "key": "wii-released",
+    "date": "2006-11-19",
+    "title": "Wii released in North America",
+    "phrase": "the North American release of the Wii",
+    "category": "videogames",
+    "description": "Wii Sports came in the box and became the killer app, and the motion-sensing Wii Remote sent Microsoft and Sony off to build Kinect and PlayStation Move. More than 101 million sold.",
+    "source": "https://en.wikipedia.org/wiki/Wii"
+  },
+  {
+    "key": "nintendo-switch-released",
+    "date": "2017-03-03",
+    "title": "Nintendo Switch released",
+    "phrase": "the release of the Nintendo Switch",
+    "category": "videogames",
+    "description": "A tablet that docks to the TV or goes with you, with Joy-Con that split into two controllers. More than 155 million shipped, making it Nintendo's best-selling console.",
+    "source": "https://en.wikipedia.org/wiki/Nintendo_Switch"
+  },
+  {
+    "key": "sg-1000-released",
+    "date": "1983-07-15",
+    "title": "Sega released the SG-1000 in Japan",
+    "phrase": "the release of the Sega SG-1000",
+    "category": "videogames",
+    "description": "Sega's first home console came out the very same day as Nintendo's Famicom. It beat Sega's sales projections, helped by a Famicom recall over a faulty circuit. Then Nintendo fixed the circuit. In Taiwan it was popular for a while, until cheaper Famicom clones took over, so Sega lost to Nintendo's knockoffs too.",
+    "source": "https://en.wikipedia.org/wiki/SG-1000"
+  },
+  {
+    "key": "master-system-released-north-america",
+    "date": "1986-09",
+    "title": "Sega Master System released in North America",
+    "phrase": "the North American release of the Sega Master System",
+    "category": "videogames",
+    "description": "The rare Sega console with better hardware than its Nintendo rival. It didn't help: Nintendo's licensing rules kept third-party games exclusive to the NES, so the Master System's library was smaller, and the NES dominated North America anyway.",
+    "source": "https://en.wikipedia.org/wiki/Master_System"
+  },
+  {
+    "key": "sega-genesis-released-north-america",
+    "date": "1989-08",
+    "title": "Sega Genesis released in North America",
+    "phrase": "the North American release of the Sega Genesis",
+    "category": "videogames",
+    "description": "It could show 61 colors at once from a palette of 512, while the Super Nintendo picked from 32,768. The controller had three main buttons until 1993, when Sega added three more for fighting games like Street Fighter II. So Sega's marketing promised \"blast processing,\" an obscure graphics programming method nobody actually used. In fairness, Sonic helped it outsell the SNES for four Christmases in a row.",
+    "source": "https://en.wikipedia.org/wiki/Sega_Genesis"
+  },
+  {
+    "key": "game-gear-released-north-america",
+    "date": "1991-04",
+    "title": "Sega Game Gear released in North America",
+    "phrase": "the North American release of the Game Gear",
+    "category": "videogames",
+    "description": "Its full-color backlit screen beat the Game Boy's monochrome one. It also ate six AA batteries every three to five hours, so the Game Boy kept playing while the Game Gear went back to the store for more.",
+    "source": "https://en.wikipedia.org/wiki/Game_Gear"
+  },
+  {
+    "key": "sega-cd-released-north-america",
+    "date": "1992-10-15",
+    "title": "Sega CD released in North America",
+    "phrase": "the North American release of the Sega CD",
+    "category": "videogames",
+    "description": "A CD drive for the Genesis with room for full-motion video, which its limited color palette gave what Digital Pictures' founder called \"a horrible grainy look.\" One of those grainy games, Night Trap, ended up at the center of Congress's hearings on video game violence. Nintendo canceled its own CD add-on, dodging a grainy bullet.",
+    "source": "https://en.wikipedia.org/wiki/Sega_CD"
+  },
+  {
+    "key": "sega-32x-released",
+    "date": "1994-11-21",
+    "title": "Sega 32X released in North America",
+    "phrase": "the North American release of the Sega 32X",
+    "category": "videogames",
+    "description": "An add-on to make the Genesis more powerful, which needed its own power supply, a cable to link it to the Genesis, and another conversion cable for the original model. Sega was launching the Saturn in Japan at the same time, so developers and buyers skipped it, and it was discontinued in 1996.",
+    "source": "https://en.wikipedia.org/wiki/32X"
+  },
+  {
+    "key": "sega-saturn-released-north-america",
+    "date": "1995-05-11",
+    "title": "Sega Saturn released in North America",
+    "phrase": "the North American release of the Sega Saturn",
+    "category": "videogames",
+    "description": "Sega surprise-launched it at the first E3, four months early, for $399. Retailers who weren't told were upset, and KB Toys refused to carry it at all. Inside were two CPUs and eight processors in all, a complex design that got it little third-party support. The Nintendo 64 outsold it.",
+    "source": "https://en.wikipedia.org/wiki/Sega_Saturn"
+  },
+  {
+    "key": "dreamcast-released-north-america",
+    "date": "1999-09-09",
+    "title": "Sega Dreamcast released in North America",
+    "phrase": "the North American release of the Dreamcast",
+    "category": "videogames",
+    "description": "\"9/9/99 for $199.\" It was the first console with a built-in modem for online play and is remembered as ahead of its time. It was also Sega's last console: Sega discontinued it in March 2001 and became a third-party developer. Nintendo is still making consoles.",
+    "source": "https://en.wikipedia.org/wiki/Dreamcast"
+  },
+  {
+    "key": "pac-man-released",
+    "date": "1980-05-22",
+    "title": "Namco released Pac-Man",
+    "phrase": "the release of Pac-Man",
+    "category": "videogames",
+    "description": "Toru Iwatani wanted a game that would appeal to women as well as men, when most games were about war or sports. In Japan it was Puck Man, and it was renamed for North America out of fear of what vandals would do to the P.",
+    "source": "https://en.wikipedia.org/wiki/Pac-Man"
+  },
+  {
+    "key": "tetris-created",
+    "date": "1984",
+    "title": "Alexey Pajitnov created Tetris",
+    "phrase": "the creation of Tetris",
+    "category": "videogames",
+    "description": "Alexey Pajitnov made it in his spare time at a Soviet state computing center, so he couldn't sell it for profit. Western companies sold the rights to each other for years, and the Soviet licensing agency licensed it to Nintendo for the Game Boy. The rights only went back to Pajitnov at the end of 1995.",
+    "source": "https://en.wikipedia.org/wiki/Tetris"
+  },
+  {
+    "key": "autoduel-released",
+    "date": "1985",
+    "title": "Origin Systems released Autoduel",
+    "phrase": "the release of Autoduel",
+    "category": "videogames",
+    "description": "Steve Jackson Games' Car Wars as an open-road RPG. Win some money at amateur night in the arena, then build your own car, from the power plant to the mine-layers, oil slicks, and rockets, and run courier jobs between the towns of the Atlantic seaboard. In 2018 Steve Jackson asked for the source code so it could be republished. There's still no other game quite like it.",
+    "source": "https://en.wikipedia.org/wiki/Autoduel"
+  },
+  {
+    "key": "mail-order-monsters-released",
+    "date": "1985",
+    "title": "Electronic Arts released Mail Order Monsters",
+    "phrase": "the release of Mail Order Monsters",
+    "category": "videogames",
+    "description": "Create a monster, arm it with modern and futuristic weapons, buy it tentacles so it can handle the fancier weapons, and send it to fight a friend or a horde of computer opponents. Your monster saved to disk and got stronger as it won, which has gotten it called a precursor to Pokémon. Many happy childhood hours went into this one.",
+    "source": "https://en.wikipedia.org/wiki/Mail_Order_Monsters"
   }
 ]
