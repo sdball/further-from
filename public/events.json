@@ -1562,5 +1562,50 @@
     "category": "videogames",
     "description": "Create a monster, arm it with modern and futuristic weapons, buy it tentacles so it can handle the fancier weapons, and send it to fight a friend or a horde of computer opponents. Your monster saved to disk and got stronger as it won, which has gotten it called a precursor to Pokémon. Many happy childhood hours went into this one. It was wild to have dinosaurs firing tactical nuclear weapons at each other!",
     "source": "https://en.wikipedia.org/wiki/Mail_Order_Monsters"
+  },
+  {
+    "key": "tron-movie-release",
+    "date": "1982-07-09",
+    "title": "Release of the movie Tron",
+    "phrase": "the release of the movie Tron",
+    "category": "movies",
+    "description": "Jeff Bridges plays a programmer and video game developer who gets pulled inside a mainframe and has to fight his way out, Light Cycles and all. It was one of the first films to make extensive use of computer animation, though only fifteen to twenty minutes of it. It wasn't even nominated for the visual effects Oscar, and director Steven Lisberger guessed the Academy thought he'd \"cheated by using computers.\"",
+    "source": "https://en.wikipedia.org/wiki/Tron"
+  },
+  {
+    "key": "tron-legacy-movie-release",
+    "date": "2010-12-17",
+    "title": "Release of the movie Tron: Legacy",
+    "phrase": "the release of the movie Tron: Legacy",
+    "category": "movies",
+    "description": "Twenty years after Kevin Flynn vanished, his son Sam follows a pager message from Flynn's shuttered arcade onto the Grid. Its villain Clu looks like the Bridges of 1982: a stand-in's head was replaced with a digitally de-aged young Bridges. Daft Punk scored it and cameo as disc jockey programs.",
+    "source": "https://en.wikipedia.org/wiki/Tron:_Legacy"
+  },
+  {
+    "key": "last-starfighter-movie-release",
+    "date": "1984-07-13",
+    "title": "Release of the movie The Last Starfighter",
+    "phrase": "the release of the movie The Last Starfighter",
+    "category": "movies",
+    "description": "Alex Rogan beats the high score on the Starfighter arcade game at his trailer park, which turns out to be a recruiting test for an alien defense force. Instead of models, its spaceships were 3D-rendered on a Cray X-MP supercomputer, 27 minutes of effects in all. The end credits promise a real Starfighter arcade game from Atari, but Atari dropped it after seeing the film and deciding it wouldn't be a hit.",
+    "source": "https://en.wikipedia.org/wiki/The_Last_Starfighter"
+  },
+  {
+    "key": "top-gun-movie-release",
+    "date": "1986-05-16",
+    "title": "Release of the movie Top Gun",
+    "phrase": "the release of the movie Top Gun",
+    "category": "movies",
+    "description": "Maverick and Goose get sent to the Navy's Fighter Weapons School after the pilot ahead of them loses his nerve. Paramount paid as much as $7,800 an hour for fuel and operating costs whenever the Navy's jets flew for the film, and the Navy set up recruiting booths in some theaters. It was the highest-grossing film of 1986, and \"Take My Breath Away\" won the Oscar.",
+    "source": "https://en.wikipedia.org/wiki/Top_Gun"
+  },
+  {
+    "key": "top-gun-maverick-movie-release",
+    "date": "2022-05-27",
+    "title": "Release of the movie Top Gun: Maverick",
+    "phrase": "the release of the movie Top Gun: Maverick",
+    "category": "movies",
+    "description": "More than thirty years later Maverick is still a captain, sent back to Top Gun to train a class that includes Goose's son, Rooster. Tom Cruise put the cast through a three-month boot camp so they could fly in the back seats of real Super Hornets with IMAX cameras in the cockpit. Its stunts and then COVID-19 pushed it back nearly three years, and it grossed $1.5 billion, the most of Cruise's career. It was Val Kilmer's final film role.",
+    "source": "https://en.wikipedia.org/wiki/Top_Gun:_Maverick"
   }
 ]
