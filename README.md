@@ -23,6 +23,7 @@ scripts/upcoming     prints the next crossovers
 ```sh
 scripts/serve        # http://localhost:8000/
 scripts/serve 9000   # or pick a port
+scripts/serve --list # Python servers still running, with their pids
 node --test test/*.test.mjs
 ```
 
