@@ -2246,5 +2246,437 @@
     "category": "food",
     "description": "The chip is a hyperbolic paraboloid. Science fiction author Gene Wolfe helped build the machine that cooks them, and part of the ashes of the can's inventor, Fredric Baur, were buried in one.",
     "source": "https://en.wikipedia.org/wiki/Pringles"
+  },
+  {
+    "key": "rock-around-the-clock-single-release",
+    "date": "1954-05-20",
+    "title": "Release of the song Rock Around the Clock",
+    "phrase": "the release of the song \"Rock Around the Clock\"",
+    "category": "music",
+    "description": "Bill Haley & His Comets first put \"Rock Around the Clock\" out as a B-side. A year later it played over the opening of Blackboard Jungle, and it became the first rock and roll record to top the pop charts in both the US and the UK.",
+    "source": "https://en.wikipedia.org/wiki/Rock_Around_the_Clock"
+  },
+  {
+    "key": "thats-all-right-elvis-single-release",
+    "date": "1954-07-19",
+    "title": "Elvis Presley's first single, That's All Right",
+    "phrase": "the release of Elvis Presley's first single, \"That's All Right\"",
+    "category": "music",
+    "description": "Elvis's first single was his take on a 1946 blues song by Arthur \"Big Boy\" Crudup. Crudup was credited on the label, but despite legal fights into the 1970s he reportedly never received royalties.",
+    "source": "https://en.wikipedia.org/wiki/That%27s_All_Right"
+  },
+  {
+    "key": "tutti-frutti-single-release",
+    "date": "1955-10",
+    "title": "Release of the song Tutti Frutti",
+    "phrase": "the release of Little Richard's \"Tutti Frutti\"",
+    "category": "music",
+    "description": "A-wop-bop-a-loo-bop-a-lop-bam-boom. Pat Boone quickly covered Little Richard's song, markedly toned down, and his version reached No. 12 on the pop chart while the original only reached No. 21.",
+    "source": "https://en.wikipedia.org/wiki/Tutti_Frutti_(song)"
+  },
+  {
+    "key": "johnny-b-goode-single-release",
+    "date": "1958-03-31",
+    "title": "Release of the song Johnny B. Goode",
+    "phrase": "the release of the song \"Johnny B. Goode\"",
+    "category": "music",
+    "description": "Chuck Berry's song about a country boy who could play a guitar just like ringing a bell. In 1977 it left the Solar System on the Voyager Golden Record.",
+    "source": "https://en.wikipedia.org/wiki/Johnny_B._Goode"
+  },
+  {
+    "key": "billboard-hot-100-debut",
+    "date": "1958-08-04",
+    "title": "First Billboard Hot 100 chart",
+    "phrase": "the first Billboard Hot 100 chart",
+    "category": "music",
+    "description": "Billboard merged its singles charts into one all-genre list. The first number one was Ricky Nelson's \"Poor Little Fool.\"",
+    "source": "https://en.wikipedia.org/wiki/Billboard_Hot_100"
+  },
+  {
+    "key": "motown-founded",
+    "date": "1959-01-12",
+    "title": "Motown founded",
+    "phrase": "the founding of Motown",
+    "category": "music",
+    "description": "Berry Gordy started Tamla Records in Detroit with $800 borrowed from his family's savings fund. Motown went on to release the Supremes, the Temptations, Marvin Gaye, Stevie Wonder, and the Jackson 5.",
+    "source": "https://en.wikipedia.org/wiki/Motown"
+  },
+  {
+    "key": "beatles-on-ed-sullivan",
+    "date": "1964-02-09",
+    "title": "The Beatles on The Ed Sullivan Show",
+    "phrase": "the Beatles' first appearance on The Ed Sullivan Show",
+    "category": "music",
+    "description": "Two days after landing in New York, the Beatles played their first live American TV show to about 73 million viewers, about a third of the country.",
+    "source": "https://en.wikipedia.org/wiki/The_Beatles"
+  },
+  {
+    "key": "dylan-goes-electric",
+    "date": "1965-07-25",
+    "title": "Bob Dylan goes electric at Newport",
+    "phrase": "Bob Dylan going electric at the Newport Folk Festival",
+    "category": "music",
+    "description": "The folk hero plugged in a Fender Stratocaster and played \"Maggie's Farm\" and \"Like a Rolling Stone\" with a loud electric band. Some of the crowd booed.",
+    "source": "https://en.wikipedia.org/wiki/Electric_Dylan_controversy"
+  },
+  {
+    "key": "pet-sounds-album-release",
+    "date": "1966-05-16",
+    "title": "Release of the album Pet Sounds",
+    "phrase": "the release of the album Pet Sounds",
+    "category": "music",
+    "description": "Brian Wilson's Beach Boys album is regularly named one of the greatest ever made. It ends with his dogs barking.",
+    "source": "https://en.wikipedia.org/wiki/Pet_Sounds"
+  },
+  {
+    "key": "respect-aretha-franklin-single-release",
+    "date": "1967-04-10",
+    "title": "Aretha Franklin's Respect",
+    "phrase": "the release of Aretha Franklin's \"Respect\"",
+    "category": "music",
+    "description": "Otis Redding wrote and recorded \"Respect\" in 1965. Aretha Franklin rearranged it, her sisters sang \"sock it to me,\" spelling out R-E-S-P-E-C-T was her sister Carolyn's idea, and it became her signature song and an anthem.",
+    "source": "https://en.wikipedia.org/wiki/Respect_(song)"
+  },
+  {
+    "key": "sgt-peppers-album-release",
+    "date": "1967-05-26",
+    "title": "Release of the album Sgt. Pepper's Lonely Hearts Club Band",
+    "phrase": "the release of Sgt. Pepper's Lonely Hearts Club Band",
+    "category": "music",
+    "description": "The Beatles' eighth album, made after they quit touring to spend their time in the studio.",
+    "source": "https://en.wikipedia.org/wiki/Sgt._Pepper%27s_Lonely_Hearts_Club_Band"
+  },
+  {
+    "key": "woodstock",
+    "date": "1969-08-15",
+    "title": "Woodstock",
+    "phrase": "Woodstock",
+    "category": "music",
+    "description": "Four days of music on Max Yasgur's dairy farm in Bethel, New York, about 60 miles from the town of Woodstock.",
+    "source": "https://en.wikipedia.org/wiki/Woodstock"
+  },
+  {
+    "key": "american-pie-single-release",
+    "date": "1971-10",
+    "title": "Release of the song American Pie",
+    "phrase": "the release of Don McLean's \"American Pie\"",
+    "category": "music",
+    "description": "\"The day the music died\" is the 1959 plane crash that killed Buddy Holly, Ritchie Valens, and the Big Bopper. At 8 minutes 42 seconds, it was the longest song to reach number one for almost 50 years.",
+    "source": "https://en.wikipedia.org/wiki/American_Pie_(song)"
+  },
+  {
+    "key": "birth-of-hip-hop",
+    "date": "1973-08-11",
+    "title": "The birth of hip hop",
+    "phrase": "DJ Kool Herc's party at 1520 Sedgwick Avenue",
+    "category": "music",
+    "description": "DJ Kool Herc spun records at his sister Cindy's back-to-school party in the rec room of a Bronx apartment building. It's widely credited as the start of hip hop. Herc called the building \"the Bethlehem of hip-hop culture.\"",
+    "source": "https://en.wikipedia.org/wiki/1520_Sedgwick_Avenue"
+  },
+  {
+    "key": "abba-wins-eurovision",
+    "date": "1974-04-06",
+    "title": "ABBA wins Eurovision with Waterloo",
+    "phrase": "ABBA winning Eurovision with \"Waterloo\"",
+    "category": "music",
+    "description": "Sweden's entry won the Eurovision Song Contest in Brighton, England, and ABBA was on its way to worldwide fame.",
+    "source": "https://en.wikipedia.org/wiki/Waterloo_(song)"
+  },
+  {
+    "key": "bohemian-rhapsody-single-release",
+    "date": "1975-10-31",
+    "title": "Release of the song Bohemian Rhapsody",
+    "phrase": "the release of Queen's \"Bohemian Rhapsody\"",
+    "category": "music",
+    "description": "Six minutes, no chorus, and an opera section in the middle. Queen gave DJ Kenny Everett a copy on the promise he wouldn't play it. He played it 14 times in two days.",
+    "source": "https://en.wikipedia.org/wiki/Bohemian_Rhapsody"
+  },
+  {
+    "key": "rumours-album-release",
+    "date": "1977-02-04",
+    "title": "Release of the album Rumours",
+    "phrase": "the release of Fleetwood Mac's Rumours",
+    "category": "music",
+    "description": "Fleetwood Mac recorded it while the band's members were breaking up with each other, and wrote the breakups into the songs.",
+    "source": "https://en.wikipedia.org/wiki/Rumours_(album)"
+  },
+  {
+    "key": "disco-demolition-night",
+    "date": "1979-07-12",
+    "title": "Disco Demolition Night",
+    "phrase": "Disco Demolition Night",
+    "category": "music",
+    "description": "A Chicago radio DJ blew up a crate of disco records on the field between games of a White Sox doubleheader. The crowd rioted and the Sox forfeited the second game. Disco came from Black, Latino, and gay clubs, and scholars still debate how much the backlash was aimed at them.",
+    "source": "https://en.wikipedia.org/wiki/Disco_Demolition_Night"
+  },
+  {
+    "key": "rappers-delight-single-release",
+    "date": "1979-09-16",
+    "title": "Release of the song Rapper's Delight",
+    "phrase": "the release of \"Rapper's Delight\"",
+    "category": "music",
+    "description": "The Sugarhill Gang's single brought rap to a wide audience and reached the US top 40. It borrowed Chic's \"Good Times,\" and after a settlement Nile Rodgers and Bernard Edwards got songwriting credits.",
+    "source": "https://en.wikipedia.org/wiki/Rapper%27s_Delight"
+  },
+  {
+    "key": "mtv-launch",
+    "date": "1981-08-01",
+    "title": "MTV launches",
+    "phrase": "the launch of MTV",
+    "category": "music",
+    "description": "The first video was, of course, \"Video Killed the Radio Star\" by the Buggles. In its first years MTV featured very few Black artists, until Michael Jackson's \"Billie Jean\" broke the color barrier the channel had put up.",
+    "source": "https://en.wikipedia.org/wiki/MTV"
+  },
+  {
+    "key": "thriller-album-release",
+    "date": "1982-11-29",
+    "title": "Release of the album Thriller",
+    "phrase": "the release of Michael Jackson's Thriller",
+    "category": "music",
+    "description": "By early 1984 it was the best-selling album of all time, and it still is.",
+    "source": "https://en.wikipedia.org/wiki/Thriller_(album)"
+  },
+  {
+    "key": "moonwalk-on-motown-25",
+    "date": "1983-05-16",
+    "title": "Michael Jackson moonwalks on Motown 25",
+    "phrase": "Michael Jackson's first moonwalk on TV",
+    "category": "music",
+    "description": "Performing \"Billie Jean\" on the Motown 25 TV special, Michael Jackson did the moonwalk for the first time. Sales of Thriller surged.",
+    "source": "https://en.wikipedia.org/wiki/Motown_25%3A_Yesterday,_Today,_Forever"
+  },
+  {
+    "key": "like-a-virgin-album-release",
+    "date": "1984-11-12",
+    "title": "Release of the album Like a Virgin",
+    "phrase": "the release of Madonna's Like a Virgin",
+    "category": "music",
+    "description": "Madonna's second album was her first number one, and the first album by a woman to sell over five million copies in the US.",
+    "source": "https://en.wikipedia.org/wiki/Like_a_Virgin_(album)"
+  },
+  {
+    "key": "take-on-me-single-release",
+    "date": "1984-10-19",
+    "title": "Release of the song Take On Me",
+    "phrase": "the release of a-ha's \"Take On Me\"",
+    "category": "music",
+    "description": "a-ha released \"Take On Me\" in 1984, and it went nowhere. They released it again in 1985, and it went nowhere again. Then came the pencil-sketch video, and in October 1985 it was number one in the US. In 2020 it was the first 1980s music video to reach a billion views on YouTube.",
+    "source": "https://en.wikipedia.org/wiki/Take_On_Me"
+  },
+  {
+    "key": "we-are-the-world-single-release",
+    "date": "1985-03-07",
+    "title": "Release of the song We Are the World",
+    "phrase": "the release of \"We Are the World\"",
+    "category": "music",
+    "description": "Michael Jackson and Lionel Richie finished writing it the night before the first recording session. It raised money for famine relief in Ethiopia and sold over 20 million copies.",
+    "source": "https://en.wikipedia.org/wiki/We_Are_the_World"
+  },
+  {
+    "key": "live-aid",
+    "date": "1985-07-13",
+    "title": "Live Aid",
+    "phrase": "Live Aid",
+    "category": "music",
+    "description": "Twin benefit concerts in London and Philadelphia. Phil Collins played both, taking a Concorde across the Atlantic in between.",
+    "source": "https://en.wikipedia.org/wiki/Live_Aid"
+  },
+  {
+    "key": "running-up-that-hill-single-release",
+    "date": "1985-08-05",
+    "title": "Release of the song Running Up That Hill",
+    "phrase": "the release of Kate Bush's \"Running Up That Hill\"",
+    "category": "music",
+    "description": "It reached number three in the UK in 1985. In 2022 Stranger Things put it in a new generation's ears and it hit number one in eight countries.",
+    "source": "https://en.wikipedia.org/wiki/Running_Up_That_Hill"
+  },
+  {
+    "key": "walk-this-way-run-dmc",
+    "date": "1986",
+    "title": "Run-DMC and Aerosmith's Walk This Way",
+    "phrase": "the release of Run-DMC and Aerosmith's \"Walk This Way\"",
+    "category": "music",
+    "description": "Run-DMC covered Aerosmith's 1975 song with Aerosmith's Steven Tyler and Joe Perry. It was the first hip-hop single to reach the top five on the Billboard charts, and it revitalized Aerosmith's career.",
+    "source": "https://en.wikipedia.org/wiki/Walk_This_Way"
+  },
+  {
+    "key": "never-gonna-give-you-up-single-release",
+    "date": "1987-07-27",
+    "title": "Release of the song Never Gonna Give You Up",
+    "phrase": "the release of Rick Astley's \"Never Gonna Give You Up\"",
+    "category": "music",
+    "description": "A number one hit in 25 countries. Twenty years later it came back as the Rickroll, and if you clicked on this expecting something else, well.",
+    "source": "https://en.wikipedia.org/wiki/Never_Gonna_Give_You_Up"
+  },
+  {
+    "key": "smells-like-teen-spirit-single-release",
+    "date": "1991-09-10",
+    "title": "Release of the song Smells Like Teen Spirit",
+    "phrase": "the release of Nirvana's \"Smells Like Teen Spirit\"",
+    "category": "music",
+    "description": "Kathleen Hanna of Bikini Kill wrote \"Kurt smells like Teen Spirit\" on Kurt Cobain's wall. She meant the deodorant. He thought it was a revolutionary slogan.",
+    "source": "https://en.wikipedia.org/wiki/Smells_Like_Teen_Spirit"
+  },
+  {
+    "key": "i-will-always-love-you-single-release",
+    "date": "1974-03",
+    "title": "Release of the song I Will Always Love You",
+    "phrase": "the release of Dolly Parton's \"I Will Always Love You\"",
+    "category": "music",
+    "description": "Dolly Parton wrote it as a farewell to her mentor Porter Wagoner. She turned down Elvis because his manager wanted half the publishing rights, Whitney Houston's 1992 version spent a then-record 14 weeks at number one.",
+    "source": "https://en.wikipedia.org/wiki/I_Will_Always_Love_You"
+  },
+  {
+    "key": "all-i-want-for-christmas-single-release",
+    "date": "1994-10-29",
+    "title": "Release of the song All I Want for Christmas Is You",
+    "phrase": "the release of \"All I Want for Christmas Is You\"",
+    "category": "music",
+    "description": "Mariah Carey's Christmas song took 25 years to top the Billboard Hot 100, finally getting there in December 2019. It comes back every year.",
+    "source": "https://en.wikipedia.org/wiki/All_I_Want_for_Christmas_Is_You"
+  },
+  {
+    "key": "wannabe-single-release",
+    "date": "1996-06-26",
+    "title": "Release of the song Wannabe",
+    "phrase": "the release of the Spice Girls' \"Wannabe\"",
+    "category": "music",
+    "description": "So tell me what you want, what you really really want. The Spice Girls' debut single made up the word \"zigazig-ah\" while the group was having a giggle.",
+    "source": "https://en.wikipedia.org/wiki/Wannabe"
+  },
+  {
+    "key": "believe-cher-single-release",
+    "date": "1998-10-19",
+    "title": "Release of the song Believe",
+    "phrase": "the release of Cher's \"Believe\"",
+    "category": "music",
+    "description": "Its producers ran Cher's vocals through Auto-Tune and pushed it until it warbled. Everyone copied it, and it became known as the \"Cher effect.\"",
+    "source": "https://en.wikipedia.org/wiki/Believe_(Cher_song)"
+  },
+  {
+    "key": "baby-one-more-time-single-release",
+    "date": "1998-09-29",
+    "title": "Release of the song ...Baby One More Time",
+    "phrase": "the release of Britney Spears's \"...Baby One More Time\"",
+    "category": "music",
+    "description": "Max Martin wrote \"Hit Me Baby One More Time\" for the Backstreet Boys and TLC, and both turned it down. Britney Spears didn't.",
+    "source": "https://en.wikipedia.org/wiki/...Baby_One_More_Time"
+  },
+  {
+    "key": "napster-launched",
+    "date": "1999-06",
+    "title": "Napster launches",
+    "phrase": "the launch of Napster",
+    "category": "music",
+    "description": "Shawn Fanning and Sean Parker's file sharing service let anyone download almost any song for free. Metallica sued in 2000.",
+    "source": "https://en.wikipedia.org/wiki/Napster"
+  },
+  {
+    "key": "itunes-store-launched",
+    "date": "2003-04-28",
+    "title": "iTunes Store launches",
+    "phrase": "the launch of the iTunes Store",
+    "category": "music",
+    "description": "Apple started selling songs for 99 cents each.",
+    "source": "https://en.wikipedia.org/wiki/iTunes_Store"
+  },
+  {
+    "key": "hey-ya-single-release",
+    "date": "2003-08-25",
+    "title": "Release of the song Hey Ya!",
+    "phrase": "the release of OutKast's \"Hey Ya!\"",
+    "category": "music",
+    "description": "André 3000 told everyone to shake it like a Polaroid picture, which is how some photographers dried their instant photos faster.",
+    "source": "https://en.wikipedia.org/wiki/Hey_Ya!"
+  },
+  {
+    "key": "just-dance-single-release",
+    "date": "2008-04-08",
+    "title": "Release of the song Just Dance",
+    "phrase": "the release of Lady Gaga's \"Just Dance\"",
+    "category": "music",
+    "description": "Lady Gaga's debut single was a sleeper hit. It spent almost five months on the Billboard Hot 100 before reaching number one in January 2009.",
+    "source": "https://en.wikipedia.org/wiki/Just_Dance_(song)"
+  },
+  {
+    "key": "spotify-launched",
+    "date": "2008-10-07",
+    "title": "Spotify launches",
+    "phrase": "the launch of Spotify",
+    "category": "music",
+    "description": "Daniel Ek and Martin Lorentzon's music streaming service launched, from Stockholm, Sweden.",
+    "source": "https://en.wikipedia.org/wiki/Spotify"
+  },
+  {
+    "key": "gangnam-style-video-release",
+    "date": "2012-07-15",
+    "title": "Release of the song Gangnam Style",
+    "phrase": "the release of PSY's \"Gangnam Style\"",
+    "category": "music",
+    "description": "The first YouTube video to reach a billion views. In 2014 it passed 2,147,483,647, the most a 32-bit integer can count, and YouTube switched its view counts to 64-bit integers, which go up to about nine quintillion.",
+    "source": "https://en.wikipedia.org/wiki/Gangnam_Style"
+  },
+  {
+    "key": "despacito-single-release",
+    "date": "2017-01-12",
+    "title": "Release of the song Despacito",
+    "phrase": "the release of \"Despacito\"",
+    "category": "music",
+    "description": "Luis Fonsi and Daddy Yankee's song was the first Spanish-language number one on the Billboard Hot 100 since \"Macarena\" in 1996.",
+    "source": "https://en.wikipedia.org/wiki/Despacito"
+  },
+  {
+    "key": "old-town-road-single-release",
+    "date": "2018-12-03",
+    "title": "Release of the song Old Town Road",
+    "phrase": "the release of Lil Nas X's \"Old Town Road\"",
+    "category": "music",
+    "description": "Billboard pulled Lil Nas X's country rap song from its Hot Country Songs chart, saying it didn't fit the genre. Billy Ray Cyrus joined him on a remix, and it spent 19 weeks at number one on the Hot 100.",
+    "source": "https://en.wikipedia.org/wiki/Old_Town_Road"
+  },
+  {
+    "key": "dynamite-bts-single-release",
+    "date": "2020-08-21",
+    "title": "Release of the song Dynamite",
+    "phrase": "the release of BTS's \"Dynamite\"",
+    "category": "music",
+    "description": "BTS's first song in English debuted at number one on the Billboard Hot 100, the first time an all-South Korean act topped the chart.",
+    "source": "https://en.wikipedia.org/wiki/Dynamite_(BTS_song)"
+  },
+  {
+    "key": "drivers-license-single-release",
+    "date": "2021-01-08",
+    "title": "Release of the song Drivers License",
+    "phrase": "the release of Olivia Rodrigo's \"Drivers License\"",
+    "category": "music",
+    "description": "Olivia Rodrigo's debut single broke Spotify's record for the most streams in a day for a song that isn't about the holidays, four days after it came out.",
+    "source": "https://en.wikipedia.org/wiki/Drivers_License_(song)"
+  },
+  {
+    "key": "eras-tour-begins",
+    "date": "2023-03-17",
+    "title": "The Eras Tour begins",
+    "phrase": "the start of Taylor Swift's Eras Tour",
+    "category": "music",
+    "description": "Taylor Swift's tour through all her albums became the highest-grossing tour of all time, and the first to earn over $1 billion, and then $2 billion.",
+    "source": "https://en.wikipedia.org/wiki/The_Eras_Tour"
+  },
+  {
+    "key": "texas-hold-em-single-release",
+    "date": "2024-02-11",
+    "title": "Release of the song Texas Hold 'Em",
+    "phrase": "the release of Beyoncé's \"Texas Hold 'Em\"",
+    "category": "music",
+    "description": "Beyoncé, from Houston, became the first Black woman with a number one on Billboard's Hot Country Songs chart in its history.",
+    "source": "https://en.wikipedia.org/wiki/Texas_Hold_%27Em_(song)"
+  },
+  {
+    "key": "friday-rebecca-black-video-release",
+    "date": "2011-02-10",
+    "title": "Rebecca Black's Friday video",
+    "phrase": "the release of Rebecca Black's \"Friday\"",
+    "category": "music",
+    "description": "Rebecca Black was 13 when her mother paid ARK Music Factory $4,000 for a song and a video. The video went up on a Thursday, and by the end of March it was the most disliked video on YouTube because too many people on the Internet hate whimsy. The song still went platinum because enough people on the Internet love whimsy, and for its tenth anniversary Black put out a hyperpop remix with 3OH!3, Big Freedia, and Dorian Electra.",
+    "source": "https://en.wikipedia.org/wiki/Friday_(Rebecca_Black_song)"
   }
 ]
