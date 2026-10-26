@@ -23,7 +23,8 @@ and the vetting scripts. This file covers what the README doesn't.
 
 `public/index.html` is the whole app: styles, markup, and one inline script
 split into `// ---------- Section ----------` blocks (URL state, Comparison,
-Picker, What if, Crossovers on the calendar, In your lifetime, Events, Start).
+Picker, What if, Crossovers on the calendar, In your lifetime, Focus, Events,
+Start).
 Put new code in the section it belongs to, and match the style: the `el()` and
 `$()` helpers, one `state` object, and `render*` functions.
 
@@ -31,7 +32,10 @@ Put new code in the section it belongs to, and match the style: the `el()` and
   `prefers-color-scheme` and `[data-theme]`. Use the tokens, not literal colors.
 - Respect `prefers-reduced-motion` (see `reduceMotion`), keep the ARIA labels
   and live regions, and keep keyboard support working (`/` focuses search, `r`
-  picks another pair, arrow keys walk the list).
+  picks another pair, arrow keys walk the list, Escape leaves a focused view).
+- A card that can be focused has `data-card` and a `data-focus` button, and
+  its name is in `VIEWS`. Links to a comparison drop the view, so they always
+  land somewhere the comparison shows.
 - `PAIRS` near the top of the script lists the "Interesting pairs" by event
   key. No test checks it, so if you rename or remove a key, update `PAIRS`
   too. Renaming a key also breaks links people have shared, so avoid it.

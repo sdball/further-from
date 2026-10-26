@@ -67,3 +67,8 @@ are compared to the day, a day and a month to the month, and anything with a
 year-only date to the year. The page says when that happens.
 
 Any year or date also works in place of an event key: `?a=1999-12-31&b=apollo-11-moon-landing`.
+
+The rest of the page lives in the URL too. `?born=1985-06-14` (or a year) or
+`?age=40` fills in "In your lifetime", and `?view=` shows one card on its own:
+`comparison`, `what-if`, `lifetime`, `calendar`, or `pairs`. Each of those cards
+has a Focus button, and Escape shows everything again.

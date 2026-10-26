@@ -180,6 +180,16 @@
 
   .sub { margin: 0 0 1rem; color: var(--muted); font-size: 0.95rem; }
 
+  .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
+  .card-head .focus-btn { flex: none; margin-top: -0.35rem; }
+  .focus-btn { color: var(--muted); font-weight: 500; }
+
+  /* ?view= leaves one card on the page, on its own */
+  body[data-view] .card:not(.focused) { display: none; }
+  body[data-view] .layout, body[data-view] .lower { display: block; margin-top: 0; }
+  body[data-view] .card.focused { max-width: 52rem; margin: 0 auto; }
+  body[data-view="lifetime"] .card.focused { max-width: none; }
+
   .btn {
     display: inline-flex;
     align-items: center;
@@ -587,7 +597,7 @@
 
 <div class="wrap">
   <div class="layout">
-    <main id="comparison" class="card" aria-live="polite">
+    <main id="comparison" class="card" data-card="comparison" aria-live="polite">
       <p class="eyebrow">Loading</p>
       <noscript><p>Further From does its date math in your browser, so it needs JavaScript.</p></noscript>
     </main>
@@ -603,8 +613,11 @@
       <ul class="list" id="list"></ul>
     </section>
 
-    <section class="card" id="whatif" aria-labelledby="whatif-h">
-      <h2 class="section" id="whatif-h">What if</h2>
+    <section class="card" id="whatif" aria-labelledby="whatif-h" data-card="what-if">
+      <div class="card-head">
+        <h2 class="section" id="whatif-h">What if</h2>
+        <button class="btn small focus-btn" type="button" data-focus="what-if">Focus</button>
+      </div>
       <p class="sub">Move one of the two moments and the other one follows, keeping the same gap.</p>
       <div class="whatif-controls" id="whatif-controls" hidden>
         <span class="whatif-label" id="move-label">Move</span>
@@ -617,8 +630,11 @@
     </section>
   </div>
 
-  <section class="card age" aria-labelledby="age-h">
-    <h2 class="section" id="age-h">In your lifetime</h2>
+  <section class="card age" aria-labelledby="age-h" data-card="lifetime">
+    <div class="card-head">
+      <h2 class="section" id="age-h">In your lifetime</h2>
+      <button class="btn small focus-btn" type="button" data-focus="lifetime">Focus</button>
+    </div>
     <p class="sub">Put in your age, or your birthday for ages to the day, to see every event since you were born, how old you were for each one, and the crossovers with your birth coming up soon. Pick one to find when we'll be further from it than it was from your birth.</p>
     <div class="age-controls">
       <label class="whatif-label" for="age-in">Your age or birthday</label>
@@ -647,8 +663,11 @@
   </section>
 
   <div class="lower">
-    <section class="card" aria-labelledby="soon-h">
-      <h2 class="section" id="soon-h">Crossovers on the calendar</h2>
+    <section class="card" aria-labelledby="soon-h" data-card="calendar">
+      <div class="card-head">
+        <h2 class="section" id="soon-h">Crossovers on the calendar</h2>
+        <button class="btn small focus-btn" type="button" data-focus="calendar">Focus</button>
+      </div>
       <p class="sub">Every pair of events has a crossover. These are the next ones coming up, and the ones we passed most recently.</p>
       <h3 class="feed-head">Coming up</h3>
       <ol class="feed" id="upcoming"></ol>
@@ -656,8 +675,11 @@
       <ol class="feed" id="passed"></ol>
     </section>
 
-    <section class="card" aria-labelledby="pairs-h">
-      <h2 class="section" id="pairs-h">Interesting pairs</h2>
+    <section class="card" aria-labelledby="pairs-h" data-card="pairs">
+      <div class="card-head">
+        <h2 class="section" id="pairs-h">Interesting pairs</h2>
+        <button class="btn small focus-btn" type="button" data-focus="pairs">Focus</button>
+      </div>
       <p class="sub">A few comparisons worth a look.</p>
       <ul class="pairs" id="pairs"></ul>
     </section>
@@ -712,7 +734,7 @@
   let COMPARISONS = [];
   const BY_KEY = new Map();
   // whatIf.on is null for today
-  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null }, life: null, lifeHidden: new Set(), ageShown: AGE_STEP, soonShown: AGE_STEP };
+  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null }, life: null, lifeHidden: new Set(), ageShown: AGE_STEP, soonShown: AGE_STEP, view: null };
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
   // ---------- Helpers ----------
@@ -755,10 +777,13 @@
     };
   }
 
-  function href(a, b) {
+  // a link to a comparison, which keeps your birthday but only keeps the view when asked
+  function href(a, b, view = null) {
     const params = new URLSearchParams();
     if (a) params.set("a", a);
     if (b) params.set("b", b);
+    if (state.life) params.set(state.life.moment ? "born" : "age", state.life.text);
+    if (view) params.set("view", view);
     const q = params.toString();
     return q ? `?${q}` : "./";
   }
@@ -769,10 +794,18 @@
     const params = new URLSearchParams(location.search);
     state.picks = [resolve(params.get("a")), resolve(params.get("b"))];
     state.active = state.picks[0] ? 1 : 0;
+    state.view = Object.hasOwn(VIEWS, params.get("view")) ? params.get("view") : null;
+    // a birthday is ?born=1985-06-14 (or a year), and an age is ?age=40
+    const born = params.get("born") ?? params.get("age") ?? "";
+    if (born !== $("age-in").value.trim()) {
+      $("age-in").value = born;
+      state.ageShown = state.soonShown = AGE_STEP;
+    }
+    state.life = readBirth(born);
   }
 
   function writeUrl(push) {
-    const url = href(state.picks[0]?.key, state.picks[1]?.key);
+    const url = href(state.picks[0]?.key, state.picks[1]?.key, state.view);
     history[push ? "pushState" : "replaceState"](null, "", url);
   }
 
@@ -920,6 +953,7 @@
           }
         },
       }, "Copy link"),
+      focusButton("comparison"),
       copied);
   }
 
@@ -1064,6 +1098,7 @@
     renderSlots();
     renderList();
     renderWhatIf();
+    renderView();
   }
 
   // ---------- What if ----------
@@ -1178,7 +1213,7 @@
     }
     // the middle of the range stands in for a single birthday when one is needed
     const mid = W.fromDayNumber(Math.min(t, Math.floor((born[0] + born[1]) / 2)));
-    return { born, moment, key: moment ? s : String(mid.y), age: W.between(mid, now).years };
+    return { born, moment, text: s, key: moment ? s : String(mid.y), age: W.between(mid, now).years };
   }
 
   function ageLabel([young, old]) {
@@ -1319,20 +1354,70 @@
     $("age-more").hidden = fits.length <= state.ageShown;
   }
 
+  // ---------- Focus ----------
+  // ?view= shows one card on its own; each name here is how its Focus button reads aloud
+
+  const VIEWS = {
+    comparison: "the comparison",
+    "what-if": "What if",
+    lifetime: "In your lifetime",
+    calendar: "Crossovers on the calendar",
+    pairs: "Interesting pairs",
+  };
+
+  function labelFocus(button) {
+    const on = button.dataset.focus === state.view;
+    button.textContent = on ? "Show all" : "Focus";
+    button.setAttribute("aria-label", on ? "Show all sections" : `Focus on ${VIEWS[button.dataset.focus]}`);
+    return button;
+  }
+
+  function focusButton(view) {
+    return labelFocus(el("button", { class: "btn small focus-btn", type: "button", "data-focus": view }));
+  }
+
+  function renderView() {
+    if (state.view) document.body.dataset.view = state.view;
+    else delete document.body.dataset.view;
+    for (const card of document.querySelectorAll("[data-card]")) card.classList.toggle("focused", card.dataset.card === state.view);
+    for (const button of document.querySelectorAll("button[data-focus]")) labelFocus(button);
+  }
+
+  function setView(view) {
+    const card = document.querySelector(`[data-card="${view || state.view}"]`);
+    state.view = view;
+    writeUrl(true);
+    renderView();
+    // focusing starts at the top, and showing everything again keeps the card in sight
+    if (view) window.scrollTo({ top: 0 });
+    else card.scrollIntoView({ block: "start" });
+  }
+
+  // the comparison and what-if both follow the picks, so "r" only works while one shows
+  const picksShown = () => !state.view || state.view === "comparison" || state.view === "what-if";
+
   // ---------- Events ----------
 
-  // links to other comparisons swap the page in place instead of reloading
+  document.addEventListener("click", (e) => {
+    const button = e.target.closest("button[data-focus]");
+    if (button) setView(button.dataset.focus === state.view ? null : button.dataset.focus);
+  });
+
+  // links to other comparisons swap the page in place instead of reloading, and show everything
   document.addEventListener("click", (e) => {
     const link = e.target.closest("a[data-pair]");
     if (!link || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     e.preventDefault();
-    history.pushState(null, "", link.getAttribute("href"));
+    // rebuilt from the picks so a link drawn before the birthday was typed still keeps it
+    const params = new URLSearchParams(link.search);
+    history.pushState(null, "", href(params.get("a"), params.get("b")));
     readUrl();
     render();
+    renderLife();
     window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
   });
 
-  window.addEventListener("popstate", () => { readUrl(); render(); });
+  window.addEventListener("popstate", () => { readUrl(); render(); renderLife(); });
 
   $("filter").addEventListener("input", (e) => { state.filter = e.target.value; renderList(); });
 
@@ -1340,6 +1425,7 @@
     state.life = readBirth(e.target.value);
     state.ageShown = AGE_STEP;
     state.soonShown = AGE_STEP;
+    writeUrl(false);
     renderLife();
   });
   $("age-more").addEventListener("click", () => { state.ageShown += AGE_STEP; renderAge(state.life.age); });
@@ -1379,8 +1465,13 @@
   document.addEventListener("keydown", (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.target.matches("input:not([type=range]), textarea, select")) return;
-    if (e.key === "/") { e.preventDefault(); $("filter").focus(); }
-    else if (e.key === "r" || e.key === "R") { if (EVENTS.length) another(); }
+    if (e.key === "/") {
+      e.preventDefault();
+      if (state.view) setView(null);
+      $("filter").focus();
+    }
+    else if (e.key === "r" || e.key === "R") { if (EVENTS.length && picksShown()) another(); }
+    else if (e.key === "Escape" && state.view) setView(null);
   });
 
   // ---------- Start ----------
@@ -1412,12 +1503,11 @@
     }
 
     readUrl();
-    if (!state.picks[0] && !state.picks[1] && !location.search) {
+    const asked = new URLSearchParams(location.search);
+    if (!state.picks[0] && !state.picks[1] && !asked.has("a") && !asked.has("b")) {
       state.picks = randomPair();
       writeUrl(false);
     }
-    // a browser can bring back what was typed before a reload
-    state.life = readBirth($("age-in").value);
     renderLife();
     renderChips();
     renderFeeds();
