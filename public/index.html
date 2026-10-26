@@ -506,6 +506,7 @@
   .age-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.6rem; margin: 1rem 0 0; }
   .age-input { width: 13rem; min-height: 44px; font: 500 1rem var(--mono); }
   .age-more { margin-top: 1rem; }
+  .life-soon { margin-bottom: 2rem; }
 
   .life { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
   .life h3.feed-head { margin-top: 0; }
@@ -618,7 +619,7 @@
 
   <section class="card age" aria-labelledby="age-h">
     <h2 class="section" id="age-h">In your lifetime</h2>
-    <p class="sub">Put in your age, or your birthday for ages to the day, to see every event since you were born and how old you were for each one. Pick one to find when we'll be further from it than it was from your birth.</p>
+    <p class="sub">Put in your age, or your birthday for ages to the day, to see every event since you were born, how old you were for each one, and the crossovers with your birth coming up soon. Pick one to find when we'll be further from it than it was from your birth.</p>
     <div class="age-controls">
       <label class="whatif-label" for="age-in">Your age or birthday</label>
       <input class="search age-input" id="age-in" type="text" placeholder="40 or 1985-06-14" autocomplete="off" spellcheck="false">
@@ -631,6 +632,12 @@
         <ol class="life-list" id="life-list"></ol>
       </div>
       <div>
+        <div class="life-soon">
+          <h3 class="feed-head">Your next crossovers</h3>
+          <p class="count" id="life-soon-count"></p>
+          <ol class="feed" id="life-soon"></ol>
+          <button class="btn small age-more" type="button" id="life-soon-more" hidden>Show more</button>
+        </div>
         <h3 class="feed-head">As far apart as you've been alive</h3>
         <p class="count" id="age-count"></p>
         <ul class="pairs" id="age-pairs"></ul>
@@ -697,13 +704,15 @@
   const PRECISION_NOUN = ["year", "month", "day"];
   // how many age matches show at a time
   const AGE_STEP = 6;
+  // how many years ahead "Your next crossovers" looks
+  const SOON_YEARS = 5;
 
   let EVENTS = [];
   // every pair of events that didn't happen at the same time, compared
   let COMPARISONS = [];
   const BY_KEY = new Map();
   // whatIf.on is null for today
-  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null }, life: null, lifeHidden: new Set(), ageShown: AGE_STEP };
+  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null }, life: null, lifeHidden: new Set(), ageShown: AGE_STEP, soonShown: AGE_STEP };
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
   // ---------- Helpers ----------
@@ -1116,12 +1125,15 @@
 
   // ---------- Crossovers on the calendar ----------
 
+  // "in 3 years, 2 months", "4 days ago", or "today"
+  function fromNow(c) {
+    if (c.tense === "present") return ["this year", "this month", "today"][c.p];
+    return c.tense === "future" ? `in ${W.distance(c.pivot)}` : `${W.distance(c.pivot)} ago`;
+  }
+
   function feedRow(c) {
-    const ahead = c.tense === "future";
-    const rel = c.tense === "present" ? ["this year", "this month", "today"][c.p]
-      : ahead ? `in ${W.distance(c.pivot)}` : `${W.distance(c.pivot)} ago`;
     return el("li", {}, el("a", { href: href(c.first.key, c.last.key), "data-pair": "" },
-      el("time", {}, short(c.pivot), el("span", {}, rel)),
+      el("time", {}, short(c.pivot), el("span", {}, fromNow(c))),
       el("span", { class: "feed-pair" }, el("b", {}, c.last.title), el("span", {}, " passes "), c.first.title)));
   }
 
@@ -1225,7 +1237,36 @@
       lived.length && !shown.length ? el("li", { class: "no-match" }, "Every event type is hidden. Pick one above to show it.") : null,
       lifeMark(ageLabel(W.agesAt(life.born, now)), short(now), "Today"));
 
+    renderSoon(life);
     renderAge(life.age);
+  }
+
+  // the crossovers between your birth and each event that land in the next few years
+  function renderSoon(life) {
+    const now = W.today(), t = W.dayNumber(now.y, now.m, now.d);
+    const end = W.dayNumber(now.y + SOON_YEARS, now.m, now.d);
+    const birth = { ...resolve(life.key), title: "You were born", phrase: "your birth" };
+    const soon = EVENTS.map((e) => W.compare(birth, e))
+      .filter((c) => c.tense !== "same")
+      .map((c) => ({ c, span: W.span(c.pivot) }))
+      .filter((x) => x.span[1] >= t && x.span[0] <= end)
+      .sort((x, y) => x.span[1] - y.span[1])
+      .map((x) => x.c);
+
+    const exact = life.moment && life.moment.p === W.DAY;
+    $("life-soon-count").textContent = (soon.length
+      ? `${W.plural(soon.length, "crossover")} with your birth in the next ${SOON_YEARS} years.`
+      : `No crossovers with your birth in the next ${SOON_YEARS} years.`)
+      + (exact ? "" : " Put in your birthday to get them to the day.");
+    // the event stands out, whichever side of your birth it's on
+    const phrase = (x) => x === birth ? x.phrase : el("b", {}, x.phrase);
+    $("life-soon").replaceChildren(...soon.slice(0, state.soonShown).map((c) =>
+      el("li", {}, el("a", { href: href(c.first.key, c.last.key), "data-pair": "" },
+        el("time", {}, short(c.pivot), el("span", {}, fromNow(c))),
+        el("span", { class: "feed-pair" },
+          c.tense === "present" ? "We're now further from " : "We'll be further from ",
+          phrase(c.last), " than it was from ", phrase(c.first), ".")))));
+    $("life-soon-more").hidden = soon.length <= state.soonShown;
   }
 
   // the gap in years, months, and days, as precisely as the comparison knows it
@@ -1298,9 +1339,11 @@
   $("age-in").addEventListener("input", (e) => {
     state.life = readBirth(e.target.value);
     state.ageShown = AGE_STEP;
+    state.soonShown = AGE_STEP;
     renderLife();
   });
   $("age-more").addEventListener("click", () => { state.ageShown += AGE_STEP; renderAge(state.life.age); });
+  $("life-soon-more").addEventListener("click", () => { state.soonShown += AGE_STEP; renderSoon(state.life); });
 
   // a half-typed date reads as empty, so only a cleared field goes back to today
   $("whatif-on").addEventListener("input", (e) => {
