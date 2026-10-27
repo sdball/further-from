@@ -45,6 +45,18 @@
       el("span", { class: "life-title" }, title)));
   }
 
+  // the chips that narrow a list of events to one type: "all" and then one
+  // chip per category, each with its number of events. counts maps each
+  // category to that number, current is the chosen category or null for all,
+  // and onpick gets the category clicked, or null for "all".
+  function categoryChips(counts, current, onpick) {
+    const total = [...counts.values()].reduce((a, b) => a + b, 0);
+    return [null, ...[...counts.keys()].sort()].map((cat) => el("button", {
+      class: "chip", type: "button", "aria-pressed": String(current === cat),
+      onclick: () => onpick(cat),
+    }, `${cat ?? "all"} ${cat ? counts.get(cat) : total}`));
+  }
+
   // every event, oldest first, from the category files that events/index.json lists
   async function loadEvents() {
     const json = async (url) => {
@@ -102,5 +114,5 @@
   }
   themeToggle();
 
-  root.Site = { $, el, fill, cap, short, ageLabel, lifeMark, loadEvents };
+  root.Site = { $, el, fill, cap, short, ageLabel, lifeMark, categoryChips, loadEvents };
 })(window);

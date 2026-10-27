@@ -145,7 +145,7 @@
 <script src="site.js"></script>
 <script>
   const W = window.When;
-  const { $, el, fill, cap, short, ageLabel, lifeMark, loadEvents } = window.Site;
+  const { $, el, fill, cap, short, ageLabel, lifeMark, categoryChips, loadEvents } = window.Site;
 
   const PAIRS = [
     ["first-flight", "apollo-11-moon-landing"],
@@ -181,7 +181,7 @@
   let COMPARISONS = [];
   const BY_KEY = new Map();
   // whatIf.on is null for today
-  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null }, life: null, lifeHidden: new Set(), ageShown: AGE_STEP, soonShown: AGE_STEP, view: null };
+  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null }, life: null, lifeCategory: null, ageShown: AGE_STEP, soonShown: AGE_STEP, view: null };
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
   // ---------- Helpers ----------
@@ -479,15 +479,9 @@
   }
 
   function renderChips() {
-    const cats = [...new Set(EVENTS.map((e) => e.category))].sort();
-    const chips = $("chips");
-    chips.replaceChildren();
-    for (const cat of [null, ...cats]) {
-      chips.append(el("button", {
-        class: "chip", type: "button", "aria-pressed": String(state.category === cat),
-        onclick: () => { state.category = cat; renderChips(); renderList(); },
-      }, cat ?? "all"));
-    }
+    const counts = new Map();
+    for (const e of EVENTS) counts.set(e.category, (counts.get(e.category) || 0) + 1);
+    fill($("chips"), categoryChips(counts, state.category, (cat) => { state.category = cat; renderChips(); renderList(); }));
   }
 
   function pick(e) {
@@ -664,15 +658,11 @@
 
     const counts = new Map();
     for (const { e } of lived) counts.set(e.category, (counts.get(e.category) || 0) + 1);
-    fill($("life-chips"), [...counts.keys()].sort().map((cat) => el("button", {
-      class: "chip", type: "button", "aria-pressed": String(!state.lifeHidden.has(cat)),
-      onclick: () => {
-        if (state.lifeHidden.has(cat)) state.lifeHidden.delete(cat); else state.lifeHidden.add(cat);
-        renderLife();
-      },
-    }, `${cat} ${counts.get(cat)}`)));
+    // a type picked for an earlier birthday may have no events in this lifetime
+    if (!counts.has(state.lifeCategory)) state.lifeCategory = null;
+    fill($("life-chips"), categoryChips(counts, state.lifeCategory, (cat) => { state.lifeCategory = cat; renderLife(); }));
 
-    const shown = lived.filter((x) => !state.lifeHidden.has(x.e.category));
+    const shown = lived.filter((x) => !state.lifeCategory || x.e.category === state.lifeCategory);
     const [y0, y1] = life.born.map((n) => W.fromDayNumber(n).y);
     fill($("life-list"),
       lifeMark("born", life.moment ? short(life.moment) : y0 === y1 ? String(y0) : `${y0}–${y1}`, "You were born"),
@@ -680,7 +670,6 @@
         el("span", { class: ages[0] === null ? "life-age unsure" : "life-age" }, ageLabel(ages)),
         el("span", { class: "life-date" }, short(e.when)),
         el("span", { class: "life-title" }, e.title, el("span", { class: "tag" }, e.category))))),
-      lived.length && !shown.length ? el("li", { class: "no-match" }, "Every event type is hidden. Pick one above to show it.") : null,
       lifeMark(ageLabel(W.agesAt(life.born, now)), short(now), "Today"));
 
     renderSoon(life);

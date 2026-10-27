@@ -88,14 +88,14 @@
 <script src="site.js"></script>
 <script>
   const W = window.When;
-  const { $, el, fill, cap, short, ageLabel, lifeMark, loadEvents } = window.Site;
+  const { $, el, fill, cap, short, ageLabel, lifeMark, categoryChips, loadEvents } = window.Site;
 
   // anyone older than this without a death date needs one
   const OLDEST = 130;
 
   let EVENTS = [];
   // person is null until there's a birth to work from, and problem says what's wrong with the inputs
-  const state = { person: null, problem: null, hidden: new Set() };
+  const state = { person: null, problem: null, category: null };
 
   // ---------- Helpers ----------
 
@@ -241,15 +241,11 @@
 
     const counts = new Map();
     for (const { e } of [...during, ...after]) counts.set(e.category, (counts.get(e.category) || 0) + 1);
-    fill($("life-chips"), [...counts.keys()].sort().map((cat) => el("button", {
-      class: "chip", type: "button", "aria-pressed": String(!state.hidden.has(cat)),
-      onclick: () => {
-        if (state.hidden.has(cat)) state.hidden.delete(cat); else state.hidden.add(cat);
-        renderTimeline(state.person);
-      },
-    }, `${cat} ${counts.get(cat)}`)));
+    // a type picked for an earlier person may have no events in this lifetime
+    if (!counts.has(state.category)) state.category = null;
+    fill($("life-chips"), categoryChips(counts, state.category, (cat) => { state.category = cat; renderTimeline(state.person); }));
 
-    const shown = (rows, from) => rows.filter((x) => !state.hidden.has(x.e.category))
+    const shown = (rows, from) => rows.filter((x) => !state.category || x.e.category === state.category)
       .map((x) => eventRow(x.e, x.label, x.cls, from));
     const rows = [shown(during, p.bornText), died ? shown(after, p.diedText) : []];
     const subject = p.name || "They";
@@ -258,7 +254,6 @@
       rows[0],
       died ? lifeMark(ageLabel(W.agesAt(born, p.died)), short(p.died), `${subject} died`) : null,
       rows[1],
-      counts.size && !rows.flat().length ? el("li", { class: "no-match" }, "Every event type is hidden. Pick one above to show it.") : null,
       lifeMark(died ? afterLabel(W.agesAt(died, now)) : ageLabel(W.agesAt(born, now)), short(now), "Today"));
   }
 
