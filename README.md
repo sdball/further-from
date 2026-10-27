@@ -10,7 +10,7 @@ pushing to `main` deploys it to GitHub Pages.
 ```
 public/index.html    the page: comparison, picker, lifetime timeline, upcoming crossovers, interesting pairs
 public/when.js       the date math, shared by the page and the tests
-public/events.json   every event
+public/events/       every event, one file per category, listed in index.json
 test/                node --test checks for the date math and the events
 scripts/serve        serves public/ locally
 scripts/check-dates  compares event dates with Wikidata
@@ -27,11 +27,14 @@ scripts/serve --list # Python servers still running, with their pids
 node --test test/*.test.mjs
 ```
 
-Use the server rather than opening the file directly, since the page fetches `events.json`.
+Use the server rather than opening the file directly, since the page fetches the event files.
 
 ## Adding an event
 
-Add an object to `public/events.json`. Order doesn't matter.
+Add an object to the category's file in `public/events/`, such as
+`public/events/space.json`. Order doesn't matter. A new category gets a new
+file, and its name goes in `public/events/index.json`, since the page can't list
+the directory and loads only what that names.
 
 ```json
 {
@@ -51,7 +54,8 @@ Add an object to `public/events.json`. Order doesn't matter.
 - `phrase` has to read in the middle of a sentence: "we'll be further from *the Apollo 11 Moon landing* than it was from *the Wright brothers' first flight*." Include the article.
 - `description` and `source` are optional.
 
-`node --test test/*.test.mjs` checks for missing fields, duplicate keys, and bad dates. CI runs it before every deploy.
+`node --test test/*.test.mjs` checks for missing fields, duplicate keys, bad dates,
+events in the wrong file, and category files missing from `index.json`. CI runs it before every deploy.
 
 When adding a batch, `scripts/check-dates` compares each event's date with
 Wikidata's dates for its Wikipedia `source` (or pass a TSV of `date<TAB>title`

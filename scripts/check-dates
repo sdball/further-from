@@ -6,9 +6,10 @@
 # "ok" means one of Wikidata's dates starts with ours. "!!" isn't necessarily wrong: Wikidata
 # often has a different date for the article (a spacecraft's launch, not its flyby) or none.
 
-import json, os, sys, time, urllib.parse, urllib.request
+import glob, json, os, sys, time, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EVENTS = os.path.join(ROOT, "public", "events")
 AGENT = "further-from-events (https://furtherfrom.com)"
 PROPS = {"P619": "launch", "P620": "landing", "P577": "published", "P585": "point in time",
          "P571": "inception", "P580": "start", "P1191": "first performance", "P606": "first flight",
@@ -31,7 +32,8 @@ def candidates():
                 date, title = line.rstrip("\n").split("\t")
                 yield date, title.replace("_", " "), title
         return
-    for e in json.load(open(os.path.join(ROOT, "public", "events.json"))):
+    files = [f for f in sorted(glob.glob(os.path.join(EVENTS, "*.json"))) if os.path.basename(f) != "index.json"]
+    for e in (e for f in files for e in json.load(open(f))):
         if e.get("source", "").startswith(WIKI):
             title = urllib.parse.unquote(e["source"][len(WIKI):]).split("#")[0].replace("_", " ")
             yield e["date"], title, e["key"]

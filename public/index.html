@@ -689,7 +689,7 @@
     <h2 class="section" id="about-h">How it works</h2>
     <p>Take two moments. The gap between them keeps the same length forever, but the later one keeps slipping further into the past. The crossover is the moment the later one is as far behind us as the earlier one was behind it. After that, we're further from it than it was from the other.</p>
     <p>Each event is dated as precisely as it's known. Two exact dates are compared to the day. If either one is only known to the month or the year, the comparison uses that instead, and the page says so.</p>
-    <p>The events live in <a href="https://github.com/sdball/further-from/blob/main/public/events.json">events.json</a> on GitHub. Suggestions and pull requests are welcome.</p>
+    <p>The events live in <a href="https://github.com/sdball/further-from/tree/main/public/events">public/events</a> on GitHub, one file per category. Suggestions and pull requests are welcome.</p>
   </section>
 </div>
 
@@ -1482,9 +1482,13 @@
     $("year").textContent = W.today().y;
     $("whatif-on").value = isoDate(W.today());
     try {
-      const res = await fetch("events.json");
-      if (!res.ok) throw new Error(res.status);
-      EVENTS = (await res.json())
+      const json = async (url) => {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`${url}: ${res.status}`);
+        return res.json();
+      };
+      const cats = await json("events/index.json");
+      EVENTS = (await Promise.all(cats.map((cat) => json(`events/${cat}.json`)))).flat()
         .map((e) => ({ ...e, when: W.parse(e.date) }))
         .filter((e) => e.when)
         .sort((x, y) => W.span(x.when)[0] - W.span(y.when)[0]);

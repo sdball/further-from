@@ -1,0 +1,236 @@
+[
+  {
+    "key": "aim-released",
+    "date": "1997-05-01",
+    "title": "AOL Instant Messenger released",
+    "phrase": "the release of AOL Instant Messenger",
+    "category": "internet",
+    "description": "On May 1, 1997 AOL Instant Messenger (AIM) was released. It wasn't the first way to chat with friends online (ICQ) but it was extremely popular.",
+    "source": "https://en.wikipedia.org/wiki/AIM_(software)"
+  },
+  {
+    "key": "aim-discontinued",
+    "date": "2017-12-15",
+    "title": "AOL Instant Messenger shut down",
+    "phrase": "the shutdown of AOL Instant Messenger",
+    "category": "internet",
+    "description": "In 2017 Verizon (having acquired AOL in 2015) discontinued AIM as a service after years of declining use. For years users had been moving to even easier to use services such as Google Chat and iMessage.",
+    "source": "https://en.wikipedia.org/wiki/AIM_(software)"
+  },
+  {
+    "key": "arpanet-first-message",
+    "date": "1969-10-29",
+    "title": "First message sent over ARPANET",
+    "phrase": "the first message sent over ARPANET",
+    "category": "internet",
+    "description": "A student at UCLA tried to log in to a computer at the Stanford Research Institute by typing \"LOGIN.\" The system crashed after \"LO.\"",
+    "source": "https://en.wikipedia.org/wiki/ARPANET"
+  },
+  {
+    "key": "first-email",
+    "date": "1971",
+    "title": "First email sent between computers",
+    "phrase": "the first email sent between two computers",
+    "category": "internet",
+    "description": "Ray Tomlinson sent it over ARPANET and chose the @ sign to separate the user from the machine. He later said he couldn't remember what the message said, probably something like QWERTYUIOP.",
+    "source": "https://en.wikipedia.org/wiki/History_of_email"
+  },
+  {
+    "key": "world-wide-web-proposal",
+    "date": "1989-03",
+    "title": "Tim Berners-Lee proposes the World Wide Web",
+    "phrase": "Tim Berners-Lee's proposal for the World Wide Web",
+    "category": "internet",
+    "description": "His manager at CERN, Mike Sendall, called it \"vague, but exciting.\" Berners-Lee has given the date as March 12, but he admits the document itself only says \"March 1989\" and that March 12 is actually his mother's birthday.",
+    "source": "https://en.wikipedia.org/wiki/History_of_the_World_Wide_Web"
+  },
+  {
+    "key": "world-wide-web-goes-public",
+    "date": "1991-08-06",
+    "title": "The World Wide Web goes public",
+    "phrase": "the World Wide Web going public",
+    "category": "internet",
+    "description": "Tim Berners-Lee posted a short summary of the project to the alt.hypertext newsgroup and invited anyone interested to join in.",
+    "source": "https://en.wikipedia.org/wiki/History_of_the_World_Wide_Web"
+  },
+  {
+    "key": "google-founded",
+    "date": "1998-09-04",
+    "title": "Founding of Google",
+    "phrase": "the founding of Google",
+    "category": "internet",
+    "description": "Larry Page and Sergey Brin incorporated Google while they were PhD students at Stanford. Its first office was their friend Susan Wojcicki's garage.",
+    "source": "https://en.wikipedia.org/wiki/Google"
+  },
+  {
+    "key": "wikipedia-launch",
+    "date": "2001-01-15",
+    "title": "Wikipedia launches",
+    "phrase": "the launch of Wikipedia",
+    "category": "internet",
+    "description": "Wikipedia started as a side project to feed draft articles into Nupedia, an encyclopedia written by experts. It quickly outgrew Nupedia, which shut down in 2003.",
+    "source": "https://en.wikipedia.org/wiki/Wikipedia"
+  },
+  {
+    "key": "facebook-launch",
+    "date": "2004-02-04",
+    "title": "Launch of Facebook",
+    "phrase": "the launch of Facebook",
+    "category": "internet",
+    "description": "It launched as TheFacebook, and at first only Harvard students could sign up.",
+    "source": "https://en.wikipedia.org/wiki/Facebook"
+  },
+  {
+    "key": "first-youtube-video",
+    "date": "2005-04-23",
+    "title": "First video uploaded to YouTube",
+    "phrase": "the first video uploaded to YouTube",
+    "category": "internet",
+    "description": "\"Me at the zoo\" is 19 seconds of co-founder Jawed Karim standing in front of the elephants at the San Diego Zoo. The cool thing about them is that they have really, really, really long trunks.",
+    "source": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+  },
+  {
+    "key": "twitter-public-launch",
+    "date": "2006-07-15",
+    "title": "Twitter launches to the public",
+    "phrase": "Twitter launching to the public",
+    "category": "internet",
+    "description": "Its original code name was twttr, inspired by Flickr and the five-character length of American SMS short codes. Posts were limited to 140 characters until 2017.",
+    "source": "https://en.wikipedia.org/wiki/Twitter"
+  },
+  {
+    "key": "telnet-developed",
+    "date": "1969",
+    "title": "Telnet developed for ARPANET",
+    "phrase": "the development of Telnet",
+    "category": "internet",
+    "description": "Telnet let you log in to a faraway computer and type on it as if you were sitting in front of it. It sends everything, usernames and passwords included, as plain text, so these days it's not recommended for anything that matters.",
+    "source": "https://en.wikipedia.org/wiki/Telnet"
+  },
+  {
+    "key": "ftp-specification",
+    "date": "1971-04-16",
+    "title": "File Transfer Protocol specified",
+    "phrase": "the first File Transfer Protocol specification",
+    "category": "internet",
+    "description": "Abhay Bhushan wrote the original specification for FTP, published as RFC 114. It's older than TCP/IP, the protocols the internet runs on, and it's still around.",
+    "source": "https://en.wikipedia.org/wiki/File_Transfer_Protocol"
+  },
+  {
+    "key": "first-bbs",
+    "date": "1978-02-16",
+    "title": "First bulletin board system (CBBS) goes online",
+    "phrase": "the first bulletin board system going online",
+    "category": "internet",
+    "description": "The Great Blizzard of 1978 snowed in Ward Christensen and Randy Suess, two Chicago computer hobbyists, and gave them the quiet time to build CBBS so hobbyists could swap messages by modem.",
+    "source": "https://en.wikipedia.org/wiki/CBBS"
+  },
+  {
+    "key": "usenet-established",
+    "date": "1980",
+    "title": "Usenet established",
+    "phrase": "the establishment of Usenet",
+    "category": "internet",
+    "description": "Tom Truscott and Jim Ellis of Duke University linked up with the University of North Carolina to share messages sorted into topics called newsgroups. Usenet gave us the FAQ, the flame, the sockpuppet, and spam.",
+    "source": "https://en.wikipedia.org/wiki/Usenet"
+  },
+  {
+    "key": "first-emoticon",
+    "date": "1982-09-19",
+    "title": "First :-) emoticon",
+    "phrase": "the first :-) emoticon",
+    "category": "internet",
+    "description": "Scott Fahlman posted to a Carnegie Mellon bulletin board: \"I propose that the following character sequence for joke markers: :-) Read it sideways.\"",
+    "source": "https://en.wikipedia.org/wiki/Scott_Fahlman"
+  },
+  {
+    "key": "arpanet-switches-to-tcp-ip",
+    "date": "1983-01-01",
+    "title": "ARPANET switches to TCP/IP",
+    "phrase": "ARPANET switching to TCP/IP",
+    "category": "internet",
+    "description": "On this flag day, ARPANET switched from its old NCP protocol to TCP/IP all at once, with no going back. The internet still runs on TCP/IP.",
+    "source": "https://en.wikipedia.org/wiki/Internet_protocol_suite"
+  },
+  {
+    "key": "first-com-domain",
+    "date": "1985-03-15",
+    "title": "First .com domain registered",
+    "phrase": "the registration of the first .com domain",
+    "category": "internet",
+    "description": "symbolics.com, for Symbolics, a company that made computers built to run the Lisp programming language. In 2009 the domain was sold to a domain name investment company.",
+    "source": "https://en.wikipedia.org/wiki/Symbolics"
+  },
+  {
+    "key": "irc-created",
+    "date": "1988-08",
+    "title": "Internet Relay Chat created",
+    "phrase": "the creation of IRC",
+    "category": "internet",
+    "description": "Jarkko Oikarinen wrote IRC at the University of Oulu in Finland to replace the chat program on the university's BBS. By the middle of 1989 there were some 40 IRC servers around the world.",
+    "source": "https://en.wikipedia.org/wiki/IRC"
+  },
+  {
+    "key": "archie-search-engine",
+    "date": "1990",
+    "title": "Archie, the first internet search engine",
+    "phrase": "the release of Archie, the first internet search engine",
+    "category": "internet",
+    "description": "Alan Emtage, a postgraduate student from Barbados at McGill University in Montreal, wrote Archie to index FTP archives. The name is \"archive\" without the v.",
+    "source": "https://en.wikipedia.org/wiki/Archie_(search_engine)"
+  },
+  {
+    "key": "gopher-released",
+    "date": "1991",
+    "title": "Gopher released",
+    "phrase": "the release of Gopher",
+    "category": "internet",
+    "description": "A team at the University of Minnesota, whose mascot is the gopher, built a menu-driven way to burrow through the internet. It was an early alternative to the World Wide Web, until the university announced in 1993 that it would charge licensing fees for its server.",
+    "source": "https://en.wikipedia.org/wiki/Gopher_(protocol)"
+  },
+  {
+    "key": "eternal-september",
+    "date": "1993-09",
+    "title": "The September that never ended",
+    "phrase": "the start of the Eternal September",
+    "category": "internet",
+    "description": "Every September a wave of new college students joined Usenet and had to learn its etiquette. In September 1993, internet providers started bringing in new users all year round, and to Usenet's old-timers it felt like the September that never ended.",
+    "source": "https://en.wikipedia.org/wiki/Eternal_September"
+  },
+  {
+    "key": "ebay-founded",
+    "date": "1995-09-03",
+    "title": "Founding of eBay",
+    "phrase": "the founding of eBay",
+    "category": "internet",
+    "description": "Pierre Omidyar started it as AuctionWeb, a hobby site. Its first sale was a broken laser pointer for $14.83, and when Omidyar checked that the buyer knew it was broken, he said, \"I'm a collector of broken laser pointers.\"",
+    "source": "https://en.wikipedia.org/wiki/EBay"
+  },
+  {
+    "key": "hotmail-launch",
+    "date": "1996-07-04",
+    "title": "Hotmail launches",
+    "phrase": "the launch of Hotmail",
+    "category": "internet",
+    "description": "Sabeer Bhatia and Jack Smith launched it on Independence Day to stand for freedom from email tied to your internet provider. Microsoft bought it the next year for about $400 million.",
+    "source": "https://en.wikipedia.org/wiki/Outlook.com"
+  },
+  {
+    "key": "gmail-launch",
+    "date": "2004-04-01",
+    "title": "Gmail launches",
+    "phrase": "the launch of Gmail",
+    "category": "internet",
+    "description": "Google launched it on April Fools' Day with a whole gigabyte of free storage, far more than anyone else offered. A year later, on its first birthday, Google doubled it.",
+    "source": "https://en.wikipedia.org/wiki/Gmail"
+  },
+  {
+    "key": "reddit-founded",
+    "date": "2005-06",
+    "title": "Reddit founded",
+    "phrase": "the founding of Reddit",
+    "category": "internet",
+    "description": "University of Virginia roommates Steve Huffman and Alexis Ohanian started it in Y Combinator's first class. The site looked empty at first, so they made hundreds of fake users to post from. Call it Usenet with upvotes.",
+    "source": "https://en.wikipedia.org/wiki/Reddit"
+  }
+]

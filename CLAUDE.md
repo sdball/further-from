@@ -70,7 +70,8 @@ Follow the README's format. Beyond what the tests enforce:
   and keeps wars and assassinations to a minimum.
 - Use an existing `category` if one fits (`history`, `videogames`, `movies`,
   `space`, `technology`, `internet`, `programming`, `books`, `music`,
-  `business`). Each category becomes a filter chip.
+  `food`, `business`). Each category is a file in `public/events/` and a
+  filter chip.
 
 ## Commits
 

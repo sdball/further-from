@@ -1,0 +1,83 @@
+[
+  {
+    "key": "erlang-lang",
+    "date": "1986",
+    "title": "Erlang programming language introduced",
+    "phrase": "the introduction of the Erlang programming language",
+    "category": "programming",
+    "description": "Developed and designed by Joe Armstrong, Erlang was originally proprietary to the Ericsson company. Erlang wasn't open sourced until years later in 1998. Erlang is fundamentally designed to be distributed, fault tolerant, soft realtime, and highly available. Erlang provides developer friendly concurrency abstractions, functional programming, and immutable data.",
+    "source": "https://en.wikipedia.org/wiki/Erlang_(programming_language)"
+  },
+  {
+    "key": "erlang-open-sourced",
+    "date": "1998",
+    "title": "Erlang programming language open sourced",
+    "phrase": "Erlang being open sourced",
+    "category": "programming",
+    "description": "Jane Walerud is credited with the heroic effort of convincing Ericsson management that it was in everyone's best interest to open source Erlang and OTP. This was a monumental feat as the very term \"open-source\" had only even been coined a few months prior.",
+    "source": "https://en.wikipedia.org/wiki/Erlang_(programming_language)"
+  },
+  {
+    "key": "elixir-lang",
+    "date": "2012",
+    "title": "Elixir programming language introduced",
+    "phrase": "the introduction of the Elixir programming language",
+    "category": "programming",
+    "description": "In 2012 José Valim publicly introduced Elixir to the world as a new syntactically approachable language for the BEAM (Erlang's VM). Elixir has grown extremely popular in the years since and noted for its ease of use, scalability, and reliability.",
+    "source": "https://en.wikipedia.org/wiki/Elixir_(programming_language)"
+  },
+  {
+    "key": "javascript-lang",
+    "date": "1995",
+    "title": "JavaScript introduced",
+    "phrase": "the introduction of JavaScript",
+    "category": "programming",
+    "description": "In 1995 the Internet was a simpler place. Your browser client would make an HTTP request to a server and get a response back. Done and done. But the Netscape Communications Corporation wasn't satisfied. It wanted to bring interaction to the web. Interaction brought about by including a runtime in their browser to locally execute code sent from the web server. What could go wrong?",
+    "source": "https://en.wikipedia.org/wiki/JavaScript"
+  },
+  {
+    "key": "nodejs-lang",
+    "date": "2009",
+    "title": "Node.js introduced",
+    "phrase": "the introduction of Node.js",
+    "category": "programming",
+    "description": "Long ago JavaScript was safely trapped within browser engines. Then everything changed when Google open sourced Chrome and developers used its JavaScript execution engine to build a server-side JavaScript runtime that we now call Node.js. Thus paving the way for the left-pad incident.",
+    "source": "https://en.wikipedia.org/wiki/Node.js"
+  },
+  {
+    "key": "left-pad-incident",
+    "date": "2016-03-22",
+    "title": "Left-pad incident",
+    "phrase": "the left-pad incident",
+    "category": "programming",
+    "description": "In 2016 a developer named Azer Koçulu unpublished more than 250 of his JavaScript packages from the npm registry, a popular package manager for the JavaScript programming language. One of the packages that was unpublished was a very small library called left-pad, which provided a simple function for padding a string with a specified character on the left side. The removal of the left-pad package caused a chain reaction, as many other packages that depended on it were also affected. This led to widespread disruption and caused numerous projects to break.",
+    "source": "https://en.wikipedia.org/wiki/Npm_left-pad_incident"
+  },
+  {
+    "key": "ruby-lang",
+    "date": "1995-12-21",
+    "title": "Ruby programming language introduced",
+    "phrase": "the introduction of the Ruby programming language",
+    "category": "programming",
+    "description": "Ruby is an interpreted, high-level, scripting language with a strong foundation in object oriented programming and famously expressive syntax. In the words of creator Yukihiro Matsumoto: \"I really wanted a genuine object-oriented, easy-to-use scripting language. I looked for but couldn't find one. So I decided to make it.\"",
+    "source": "https://en.wikipedia.org/wiki/Ruby_(programming_language)"
+  },
+  {
+    "key": "python-lang",
+    "date": "1991-02",
+    "title": "Python programming language introduced",
+    "phrase": "the introduction of the Python programming language",
+    "category": "programming",
+    "description": "Introduced in 1991 by Guido van Rossum. Python was designed to have a small core, large standard library, and to be easily extensible via modules. That foundational design has kept Python popular in the decades since.",
+    "source": "https://en.wikipedia.org/wiki/Python_(programming_language)"
+  },
+  {
+    "key": "linux-open-sourced",
+    "date": "1991-09-17",
+    "title": "Linux first released",
+    "phrase": "the first release of Linux",
+    "category": "programming",
+    "description": "Linus Torvalds started developing Linux as a personal project while he was a student at the University of Helsinki in Finland. He released the first version of Linux, called version 0.01, on September 17, 1991. Since then, Linux has become one of the most widely used operating systems in the world, powering everything from servers and supercomputers to smartphones and embedded devices.",
+    "source": "https://en.wikipedia.org/wiki/Linux"
+  }
+]

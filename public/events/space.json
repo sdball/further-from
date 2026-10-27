@@ -1,0 +1,119 @@
+[
+  {
+    "key": "apollo-11-moon-landing",
+    "date": "1969-07-20",
+    "title": "Apollo 11 Moon Landing",
+    "phrase": "the Apollo 11 Moon landing",
+    "category": "space",
+    "description": "Apollo 11 (July 16–24, 1969) was the American spaceflight that first landed humans on the Moon.",
+    "source": "https://en.wikipedia.org/wiki/Apollo_11"
+  },
+  {
+    "key": "sputnik-1-launch",
+    "date": "1957-10-04",
+    "title": "Launch of Sputnik 1",
+    "phrase": "the launch of Sputnik 1",
+    "category": "space",
+    "description": "Earth's first artificial satellite was a polished metal ball about the size of a beach ball that pretty much just orbited and beeped. But radio operators around the world could hear that beep, and it kicked off the Space Race.",
+    "source": "https://en.wikipedia.org/wiki/Sputnik_1"
+  },
+  {
+    "key": "first-human-in-space",
+    "date": "1961-04-12",
+    "title": "Yuri Gagarin's flight into space",
+    "phrase": "Yuri Gagarin becoming the first person in space",
+    "category": "space",
+    "description": "Vostok 1 made a single orbit of Earth in 108 minutes. Gagarin didn't land with his capsule: he ejected about 7 km up and parachuted down on his own!",
+    "source": "https://en.wikipedia.org/wiki/Vostok_1"
+  },
+  {
+    "key": "voyager-2-launch",
+    "date": "1977-08-20",
+    "title": "Launch of Voyager 2",
+    "phrase": "the launch of Voyager 2",
+    "category": "space",
+    "description": "Despite the name, Voyager 2 launched first. It's still the only spacecraft to have visited Uranus and Neptune.",
+    "source": "https://en.wikipedia.org/wiki/Voyager_2"
+  },
+  {
+    "key": "voyager-1-launch",
+    "date": "1977-09-05",
+    "title": "Launch of Voyager 1",
+    "phrase": "the launch of Voyager 1",
+    "category": "space",
+    "description": "Launched sixteen days after its twin on a faster path, Voyager 1 is the most distant human-made object. It carries a golden record of sounds and music from Earth.",
+    "source": "https://en.wikipedia.org/wiki/Voyager_1"
+  },
+  {
+    "key": "first-space-shuttle-launch",
+    "date": "1981-04-12",
+    "title": "First Space Shuttle launch",
+    "phrase": "the first Space Shuttle launch",
+    "category": "space",
+    "description": "STS-1 sent Columbia into orbit twenty years to the day after Yuri Gagarin's flight. It was the first time Americans had flown in space since 1975.",
+    "source": "https://en.wikipedia.org/wiki/STS-1"
+  },
+  {
+    "key": "challenger-disaster",
+    "date": "1986-01-28",
+    "title": "Space Shuttle Challenger disaster",
+    "phrase": "the Space Shuttle Challenger disaster",
+    "category": "space",
+    "description": "Challenger broke apart 73 seconds after launch, killing all seven crew members. An O-ring seal in one of the solid rocket boosters failed in the unusually cold weather. The Challenger disaster is still a foundational case study of engineering safety, group communication, and management.",
+    "source": "https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster"
+  },
+  {
+    "key": "hubble-launch",
+    "date": "1990-04-24",
+    "title": "Launch of the Hubble Space Telescope",
+    "phrase": "the launch of the Hubble Space Telescope",
+    "category": "space",
+    "description": "Hubble's first images were blurry because its main mirror had been ground to slightly the wrong shape. A 1993 shuttle mission fitted it with corrective optics. I always thought it was cool that a telescope had to get glasses.",
+    "source": "https://en.wikipedia.org/wiki/Hubble_Space_Telescope"
+  },
+  {
+    "key": "mars-pathfinder-landing",
+    "date": "1997-07-04",
+    "title": "Mars Pathfinder landing",
+    "phrase": "the Mars Pathfinder landing",
+    "category": "space",
+    "description": "Pathfinder bounced onto Mars wrapped in airbags, then let out Sojourner, the first rover to drive on another planet.",
+    "source": "https://en.wikipedia.org/wiki/Mars_Pathfinder"
+  },
+  {
+    "key": "iss-first-crew",
+    "date": "2000-11-02",
+    "title": "First crew arrives at the International Space Station",
+    "phrase": "the first crew arriving at the International Space Station",
+    "category": "space",
+    "description": "Expedition 1 started a continuous human presence in space that hasn't been broken since.",
+    "source": "https://en.wikipedia.org/wiki/Expedition_1"
+  },
+  {
+    "key": "curiosity-rover-landing",
+    "date": "2012-08-06",
+    "title": "Curiosity rover lands on Mars",
+    "phrase": "the Curiosity rover landing on Mars",
+    "category": "space",
+    "description": "Curiosity was too heavy for the bounce down on airbags approach, so NASA lowered it to the surface on cables from a rocket-powered sky crane. The engineers called the landing \"seven minutes of terror.\"",
+    "source": "https://en.wikipedia.org/wiki/Curiosity_(rover)"
+  },
+  {
+    "key": "new-horizons-pluto-flyby",
+    "date": "2015-07-14",
+    "title": "New Horizons flies past Pluto",
+    "phrase": "New Horizons flying past Pluto",
+    "category": "space",
+    "description": "New Horizons launched in January 2006, when Pluto was still a planet, and took nine and a half years to get there.",
+    "source": "https://en.wikipedia.org/wiki/New_Horizons"
+  },
+  {
+    "key": "jwst-launch",
+    "date": "2021-12-25",
+    "title": "Launch of the James Webb Space Telescope",
+    "phrase": "the launch of the James Webb Space Telescope",
+    "category": "space",
+    "description": "Launched on Christmas morning, folded origami-style to fit inside its rocket. On the way out to its orbit a million miles from Earth, it had to unfold a sunshield the size of a tennis court and it worked perfectly.",
+    "source": "https://en.wikipedia.org/wiki/James_Webb_Space_Telescope"
+  }
+]

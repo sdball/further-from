@@ -1,0 +1,20 @@
+[
+  {
+    "key": "disney-company-founded",
+    "date": "1923-10-16",
+    "title": "Walt Disney Company founded",
+    "phrase": "the founding of The Walt Disney Company",
+    "category": "business",
+    "description": "Founded by Roy and Walt Disney, at the time it was called the Disney Brothers Studio. It wasn't until 1928 with Steamboat Willie that the studio really started to take off.",
+    "source": "https://en.wikipedia.org/wiki/The_Walt_Disney_Company"
+  },
+  {
+    "key": "disneyland-opens",
+    "date": "1955-07-17",
+    "title": "Disneyland opens",
+    "phrase": "the opening of Disneyland",
+    "category": "business",
+    "description": "Opening day went so badly that it became known as \"Black Sunday.\"",
+    "source": "https://en.wikipedia.org/wiki/Disneyland"
+  }
+]

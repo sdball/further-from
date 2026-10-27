@@ -1,14 +1,28 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import vm from "node:vm";
 
 const context = {};
 vm.runInNewContext(readFileSync(new URL("../public/when.js", import.meta.url), "utf8"), context);
 const { When } = context;
-const events = JSON.parse(readFileSync(new URL("../public/events.json", import.meta.url), "utf8"));
+const dir = new URL("../public/events/", import.meta.url);
+const read = (name) => JSON.parse(readFileSync(new URL(name, dir), "utf8"));
+const manifest = read("index.json");
+const files = readdirSync(dir).filter((f) => f.endsWith(".json") && f !== "index.json");
+const fileOf = new Map();
+const events = files.flatMap((f) => read(f).map((e) => (fileOf.set(e, f), e)));
 
 const FIELDS = ["key", "date", "title", "phrase", "category", "description", "source"];
+
+test("the manifest lists every category file, sorted", () => {
+  // the page can't list a directory, so it loads only what index.json names
+  assert.deepEqual(manifest, files.map((f) => f.replace(/\.json$/, "")).sort());
+});
+
+test("each event is in its category's file", () => {
+  for (const e of events) assert.equal(fileOf.get(e), `${e.category}.json`, `${e.key} is in ${fileOf.get(e)}`);
+});
 
 test("every event is complete", () => {
   for (const e of events) {

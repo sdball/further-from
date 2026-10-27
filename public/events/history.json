@@ -1,0 +1,470 @@
+[
+  {
+    "key": "sinking-of-the-titanic",
+    "date": "1912-04-15",
+    "title": "Titanic sinks",
+    "phrase": "the sinking of the Titanic",
+    "category": "history",
+    "description": "The Titanic was equipped with a number of innovative features, including electricity, elevators, and a swimming pool. It also had a gym, a Turkish bath, and a squash court. Its historic sinking is still one of the deadliest maritime disasters in history.",
+    "source": "https://en.wikipedia.org/wiki/Titanic"
+  },
+  {
+    "key": "louisiana-purchase",
+    "date": "1803-04-30",
+    "title": "Louisiana Purchase",
+    "phrase": "the Louisiana Purchase",
+    "category": "history",
+    "description": "The purchase doubled the size of the United States and was considered a major accomplishment of the presidency of Thomas Jefferson. The Louisiana Purchase was made possible by the Napoleonic Wars, which had left France in need of funds and weakened its hold on its North American colonies. In 1803, the United States offered to purchase New Orleans and the land west of the Mississippi River for $10 million, but France instead offered to sell all of the Louisiana Territory, which included a much larger area, for $15 million. France, though, controlled only a small part of it. Most of the land was home to Native Americans, so for most of it the United States really bought the right to take it from them by treaty or by conquest.",
+    "source": "https://en.wikipedia.org/wiki/Louisiana_Purchase"
+  },
+  {
+    "key": "summer-of-1969",
+    "date": "1969-06",
+    "title": "The summer of 1969",
+    "phrase": "the summer of 1969",
+    "category": "history",
+    "description": "The summer of 1969 had the Stonewall riots, the Apollo 11 Moon landing, and Woodstock.",
+    "source": "https://en.wikipedia.org/wiki/1969"
+  },
+  {
+    "key": "assassination-of-julius-caesar",
+    "date": "-43",
+    "title": "Assassination of Julius Caesar",
+    "phrase": "the assassination of Julius Caesar",
+    "category": "history",
+    "description": "On the Ides of March, a group of senators stabbed Caesar to death during a session of the Senate. They meant to save the Republic, but the civil wars that followed ended with his heir Octavian ruling Rome alone as Augustus.",
+    "source": "https://en.wikipedia.org/wiki/Assassination_of_Julius_Caesar"
+  },
+  {
+    "key": "fall-of-the-western-roman-empire",
+    "date": "476",
+    "title": "Fall of the Western Roman Empire",
+    "phrase": "the fall of the Western Roman Empire",
+    "category": "history",
+    "description": "The Germanic king Odoacer deposed Romulus Augustulus, the last emperor in the West, and sent the imperial regalia off to the emperor in Constantinople. The Eastern half of the empire carried on for nearly another thousand years.",
+    "source": "https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire"
+  },
+  {
+    "key": "magna-carta",
+    "date": "1215",
+    "title": "Magna Carta",
+    "phrase": "the sealing of Magna Carta",
+    "category": "history",
+    "description": "Rebel barons forced King John of England to agree to it at Runnymede. Neither side kept its promises and the pope annulled it within months, but the idea that even the king is bound by the law outlived them all.",
+    "source": "https://en.wikipedia.org/wiki/Magna_Carta"
+  },
+  {
+    "key": "fall-of-constantinople",
+    "date": "1453",
+    "title": "Fall of Constantinople",
+    "phrase": "the fall of Constantinople",
+    "category": "history",
+    "description": "The Ottoman sultan Mehmed II took the city after a 53-day siege, ending the Byzantine Empire, the last piece of the Roman Empire still standing.",
+    "source": "https://en.wikipedia.org/wiki/Fall_of_Constantinople"
+  },
+  {
+    "key": "ninety-five-theses",
+    "date": "1517",
+    "title": "Martin Luther's Ninety-five Theses",
+    "phrase": "Martin Luther's Ninety-five Theses",
+    "category": "history",
+    "description": "Luther's objections to the sale of indulgences spread across Germany and kicked off the Protestant Reformation. He's famously said to have nailed them to a church door in Wittenberg, but that part may be legend.",
+    "source": "https://en.wikipedia.org/wiki/Ninety-five_Theses"
+  },
+  {
+    "key": "declaration-of-independence",
+    "date": "1776-07-04",
+    "title": "Adoption of the Declaration of Independence",
+    "phrase": "the adoption of the Declaration of Independence",
+    "category": "history",
+    "description": "The Continental Congress voted for independence on July 2 and approved Thomas Jefferson's declaration two days later. To keep South Carolina and Georgia on board, Congress cut Jefferson's passage blaming King George III for forcing slavery onto the colonies.",
+    "source": "https://en.wikipedia.org/wiki/United_States_Declaration_of_Independence"
+  },
+  {
+    "key": "us-constitution-signed",
+    "date": "1787-09-17",
+    "title": "Signing of the US Constitution",
+    "phrase": "the signing of the US Constitution",
+    "category": "history",
+    "description": "Thirty-nine delegates signed it at the end of the Constitutional Convention in Philadelphia. It protected slavery, partly through the Three-Fifths Compromise, which let states count three-fifths of their enslaved people toward their seats in Congress. It's the oldest written national constitution still in force.",
+    "source": "https://en.wikipedia.org/wiki/Constitution_of_the_United_States"
+  },
+  {
+    "key": "storming-of-the-bastille",
+    "date": "1789-07-14",
+    "title": "Storming of the Bastille",
+    "phrase": "the storming of the Bastille",
+    "category": "history",
+    "description": "Parisians stormed the fortress looking for gunpowder and found only seven prisoners inside. It became the symbol of the French Revolution, and July 14 is still France's national day.",
+    "source": "https://en.wikipedia.org/wiki/Storming_of_the_Bastille"
+  },
+  {
+    "key": "battle-of-waterloo",
+    "date": "1815-06-18",
+    "title": "Battle of Waterloo",
+    "phrase": "the Battle of Waterloo",
+    "category": "history",
+    "description": "Wellington's and Blücher's armies ended Napoleon's return from exile for good. This time he was sent to Saint Helena, a remote island in the South Atlantic, where he died in 1821.",
+    "source": "https://en.wikipedia.org/wiki/Battle_of_Waterloo"
+  },
+  {
+    "key": "emancipation-proclamation",
+    "date": "1863-01-01",
+    "title": "Emancipation Proclamation",
+    "phrase": "the Emancipation Proclamation",
+    "category": "history",
+    "description": "Lincoln's order declared enslaved people in the rebelling Confederate states free, but it depended on the Union army to enforce it. Federal troops announced it in Galveston, Texas, on June 19, 1865, the day now celebrated as Juneteenth.",
+    "source": "https://en.wikipedia.org/wiki/Emancipation_Proclamation"
+  },
+  {
+    "key": "assassination-of-abraham-lincoln",
+    "date": "1865-04-14",
+    "title": "Assassination of Abraham Lincoln",
+    "phrase": "the assassination of Abraham Lincoln",
+    "category": "history",
+    "description": "John Wilkes Booth shot Lincoln at Ford's Theatre five days after Lee's surrender at Appomattox. Lincoln died the next morning, the first US president to be assassinated.",
+    "source": "https://en.wikipedia.org/wiki/Assassination_of_Abraham_Lincoln"
+  },
+  {
+    "key": "assassination-of-franz-ferdinand",
+    "date": "1914-06-28",
+    "title": "Assassination of Archduke Franz Ferdinand",
+    "phrase": "the assassination of Archduke Franz Ferdinand",
+    "category": "history",
+    "description": "The archduke's driver took a wrong turn in Sarajevo and stalled the car while backing up, right next to Gavrilo Princip. Within weeks the shooting had pulled most of Europe into World War I.",
+    "source": "https://en.wikipedia.org/wiki/Assassination_of_Archduke_Franz_Ferdinand"
+  },
+  {
+    "key": "wwi-armistice",
+    "date": "1918-11-11",
+    "title": "Armistice ends World War I",
+    "phrase": "the armistice that ended World War I",
+    "category": "history",
+    "description": "The fighting stopped at 11 a.m.: the eleventh hour of the eleventh day of the eleventh month. Many countries still mark the day as Armistice Day, Remembrance Day, or Veterans Day.",
+    "source": "https://en.wikipedia.org/wiki/Armistice_of_11_November_1918"
+  },
+  {
+    "key": "nineteenth-amendment-ratified",
+    "date": "1920-08-18",
+    "title": "Nineteenth Amendment ratified",
+    "phrase": "the ratification of the Nineteenth Amendment",
+    "category": "history",
+    "description": "Tennessee's vote put it over the top after Harry Burn, the youngest member of the state legislature, changed his vote because his mother wrote him a letter asking him to. The amendment barred states from denying anyone the vote on the basis of sex.",
+    "source": "https://en.wikipedia.org/wiki/Nineteenth_Amendment_to_the_United_States_Constitution"
+  },
+  {
+    "key": "black-tuesday",
+    "date": "1929-10-29",
+    "title": "Black Tuesday stock market crash",
+    "phrase": "the Black Tuesday stock market crash",
+    "category": "history",
+    "description": "Some 16.4 million shares changed hands in the worst day of the Wall Street crash, which led into the Great Depression.",
+    "source": "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929"
+  },
+  {
+    "key": "invasion-of-poland",
+    "date": "1939-09-01",
+    "title": "Germany invades Poland",
+    "phrase": "Germany invading Poland",
+    "category": "history",
+    "description": "Britain and France declared war on Germany two days later, starting World War II in Europe.",
+    "source": "https://en.wikipedia.org/wiki/Invasion_of_Poland"
+  },
+  {
+    "key": "attack-on-pearl-harbor",
+    "date": "1941-12-07",
+    "title": "Attack on Pearl Harbor",
+    "phrase": "the attack on Pearl Harbor",
+    "category": "history",
+    "description": "Japan's surprise attack on the US Pacific Fleet in Hawaii brought the United States into World War II. Franklin Roosevelt called it \"a date which will live in infamy.\"",
+    "source": "https://en.wikipedia.org/wiki/Attack_on_Pearl_Harbor"
+  },
+  {
+    "key": "d-day",
+    "date": "1944-06-06",
+    "title": "D-Day",
+    "phrase": "D-Day",
+    "category": "history",
+    "description": "The Allied landings in Normandy are still the largest seaborne invasion in history, with nearly 5,000 landing and assault craft.",
+    "source": "https://en.wikipedia.org/wiki/Normandy_landings"
+  },
+  {
+    "key": "atomic-bombing-of-hiroshima",
+    "date": "1945-08-06",
+    "title": "Atomic bombing of Hiroshima",
+    "phrase": "the atomic bombing of Hiroshima",
+    "category": "history",
+    "description": "The first nuclear weapon used in war. The United States bombed Nagasaki three days later, and Japan announced its surrender on August 15.",
+    "source": "https://en.wikipedia.org/wiki/Atomic_bombings_of_Hiroshima_and_Nagasaki"
+  },
+  {
+    "key": "i-have-a-dream-speech",
+    "date": "1963-08-28",
+    "title": "Martin Luther King Jr.'s \"I Have a Dream\" speech",
+    "phrase": "Martin Luther King Jr.'s \"I Have a Dream\" speech",
+    "category": "history",
+    "description": "King gave it to more than 250,000 people at the Lincoln Memorial during the March on Washington. The famous part wasn't in his prepared text: Mahalia Jackson shouted \"Tell 'em about the dream, Martin!\" and he improvised it.",
+    "source": "https://en.wikipedia.org/wiki/I_Have_a_Dream"
+  },
+  {
+    "key": "assassination-of-john-f-kennedy",
+    "date": "1963-11-22",
+    "title": "Assassination of John F. Kennedy",
+    "phrase": "the assassination of John F. Kennedy",
+    "category": "history",
+    "description": "Lee Harvey Oswald shot Kennedy from the Texas School Book Depository as his motorcade passed through Dallas. Two days later Jack Ruby shot Oswald on live television.",
+    "source": "https://en.wikipedia.org/wiki/Assassination_of_John_F._Kennedy"
+  },
+  {
+    "key": "fall-of-the-berlin-wall",
+    "date": "1989-11-09",
+    "title": "Fall of the Berlin Wall",
+    "phrase": "the fall of the Berlin Wall",
+    "category": "history",
+    "description": "At a press conference, East German official Günter Schabowski mistakenly announced that new travel rules took effect immediately. Crowds rushed the checkpoints that night and the guards let them through.",
+    "source": "https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall"
+  },
+  {
+    "key": "nelson-mandela-released",
+    "date": "1990-02-11",
+    "title": "Nelson Mandela released from prison",
+    "phrase": "Nelson Mandela's release from prison",
+    "category": "history",
+    "description": "Mandela had spent 27 years in prison, much of it on Robben Island. Four years later he became South Africa's first Black president.",
+    "source": "https://en.wikipedia.org/wiki/Nelson_Mandela"
+  },
+  {
+    "key": "dissolution-of-the-soviet-union",
+    "date": "1991-12-26",
+    "title": "Dissolution of the Soviet Union",
+    "phrase": "the dissolution of the Soviet Union",
+    "category": "history",
+    "description": "Mikhail Gorbachev resigned on Christmas Day and handed the nuclear launch codes to Boris Yeltsin. The next day the Soviet Union formally ceased to exist.",
+    "source": "https://en.wikipedia.org/wiki/Dissolution_of_the_Soviet_Union"
+  },
+  {
+    "key": "first-olympic-games",
+    "date": "-775",
+    "title": "First recorded Olympic Games",
+    "phrase": "the first recorded Olympic Games",
+    "category": "history",
+    "description": "Tradition says the only event was the stadion, a sprint the length of the stadium, and that the first champion was Coroebus of Elis.",
+    "source": "https://en.wikipedia.org/wiki/Ancient_Olympic_Games"
+  },
+  {
+    "key": "founding-of-rome",
+    "date": "-752",
+    "title": "Legendary founding of Rome",
+    "phrase": "the legendary founding of Rome",
+    "category": "history",
+    "description": "The Romans said Romulus founded the city on April 21 after a fatal falling-out with his twin brother Remus. Rome still celebrates its birthday on April 21.",
+    "source": "https://en.wikipedia.org/wiki/Founding_of_Rome"
+  },
+  {
+    "key": "colosseum-opens",
+    "date": "80",
+    "title": "Colosseum opens",
+    "phrase": "the opening of the Colosseum",
+    "category": "history",
+    "description": "Emperor Titus opened it with inaugural games that reportedly included flooding the arena for a show of swimming horses and bulls. It could hold an estimated 50,000 to 80,000 spectators.",
+    "source": "https://en.wikipedia.org/wiki/Colosseum"
+  },
+  {
+    "key": "globe-theatre-opens",
+    "date": "1599",
+    "title": "Shakespeare's Globe Theatre opens",
+    "phrase": "the opening of Shakespeare's Globe Theatre",
+    "category": "history",
+    "description": "Shakespeare's company took their old playhouse apart beam by beam and used the timber to build the Globe. It burned down in 1613 during a performance of Henry VIII.",
+    "source": "https://en.wikipedia.org/wiki/Globe_Theatre"
+  },
+  {
+    "key": "boston-tea-party",
+    "date": "1773-12-16",
+    "title": "Boston Tea Party",
+    "phrase": "the Boston Tea Party",
+    "category": "history",
+    "description": "Sons of Liberty, some dressed as Mohawk warriors, spent three hours dumping more than 340 chests of East India Company tea into Boston Harbor.",
+    "source": "https://en.wikipedia.org/wiki/Boston_Tea_Party"
+  },
+  {
+    "key": "rosetta-stone-found",
+    "date": "1799-07",
+    "title": "Discovery of the Rosetta Stone",
+    "phrase": "the discovery of the Rosetta Stone",
+    "category": "history",
+    "description": "French soldiers found it while rebuilding a fort in Egypt. It has the same decree in Greek, Demotic, and hieroglyphs, which helped Jean-François Champollion crack hieroglyphs in 1822. When the British defeated the French in Egypt they took the stone to London, where it has been in the British Museum since 1802. Egypt's former antiquities chief Zahi Hawass has repeatedly demanded it back.",
+    "source": "https://en.wikipedia.org/wiki/Rosetta_Stone"
+  },
+  {
+    "key": "lewis-and-clark-set-out",
+    "date": "1804-05-14",
+    "title": "Lewis and Clark set out",
+    "phrase": "Lewis and Clark setting out on their expedition",
+    "category": "history",
+    "description": "The Corps of Discovery headed up the Missouri River to explore the newly bought Louisiana Territory, picking up Sacagawea as an interpreter along the way, and reached the Pacific in 1805. Part of the job was telling the Native nations they met that their lands now belonged to the United States.",
+    "source": "https://en.wikipedia.org/wiki/Lewis_and_Clark_Expedition"
+  },
+  {
+    "key": "gold-found-at-sutters-mill",
+    "date": "1848-01-24",
+    "title": "Gold found at Sutter's Mill",
+    "phrase": "the discovery of gold at Sutter's Mill",
+    "category": "history",
+    "description": "James W. Marshall spotted gold while building a sawmill in Coloma, California. The news brought about 300,000 people to California in the gold rush that followed. For Native Californians it was a catastrophe: mining poisoned rivers and destroyed habitats, and disease, starvation, and violence sped up the collapse of their population.",
+    "source": "https://en.wikipedia.org/wiki/California_gold_rush"
+  },
+  {
+    "key": "first-pony-express-ride",
+    "date": "1860-04-03",
+    "title": "First Pony Express ride",
+    "phrase": "the first Pony Express ride",
+    "category": "history",
+    "description": "Relay riders carried mail between Missouri and California in about 10 days, which many said was impossible. The transcontinental telegraph put it out of business after just 18 months.",
+    "source": "https://en.wikipedia.org/wiki/Pony_Express"
+  },
+  {
+    "key": "golden-spike",
+    "date": "1869-05-10",
+    "title": "Golden spike completes the transcontinental railroad",
+    "phrase": "the driving of the golden spike",
+    "category": "history",
+    "description": "Leland Stanford drove the ceremonial last spike at Promontory Summit, Utah, joining the Central Pacific and Union Pacific railroads into one line across the country. Chinese workers did most of the heavy labor on the Central Pacific, and eight of them laid its last rail.",
+    "source": "https://en.wikipedia.org/wiki/Golden_spike"
+  },
+  {
+    "key": "brooklyn-bridge-opens",
+    "date": "1883-05-24",
+    "title": "Brooklyn Bridge opens",
+    "phrase": "the opening of the Brooklyn Bridge",
+    "category": "history",
+    "description": "Not everyone trusted it at first, so the next year P. T. Barnum had Jumbo lead a parade of 21 elephants across to show it was safe.",
+    "source": "https://en.wikipedia.org/wiki/Brooklyn_Bridge"
+  },
+  {
+    "key": "statue-of-liberty-dedicated",
+    "date": "1886-10-28",
+    "title": "Statue of Liberty dedicated",
+    "phrase": "the dedication of the Statue of Liberty",
+    "category": "history",
+    "description": "A gift from the people of France, built in France and shipped over in crates. It started out shiny and reddish-brown, and within twenty years its copper had weathered to green. The statue's left foot steps on a broken chain and shackle, for the abolition of slavery after the Civil War.",
+    "source": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
+  },
+  {
+    "key": "eiffel-tower-completed",
+    "date": "1889-03-31",
+    "title": "Eiffel Tower completed",
+    "phrase": "the completion of the Eiffel Tower",
+    "category": "history",
+    "description": "Gustave Eiffel celebrated by leading officials up the stairs to the top. It was meant to be temporary and was slated for dismantling in 1909, but it turned out to be useful as a radio tower.",
+    "source": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+  },
+  {
+    "key": "first-modern-olympics",
+    "date": "1896-04-06",
+    "title": "First modern Olympic Games",
+    "phrase": "the first modern Olympic Games",
+    "category": "history",
+    "description": "About 241 athletes from 14 nations competed in Athens. The highlight for the hosts was the marathon, won by Greek water carrier Spyridon Louis.",
+    "source": "https://en.wikipedia.org/wiki/1896_Summer_Olympics"
+  },
+  {
+    "key": "first-nobel-prizes",
+    "date": "1901-12-10",
+    "title": "First Nobel Prizes awarded",
+    "phrase": "the first Nobel Prizes being awarded",
+    "category": "history",
+    "description": "Awarded on the fifth anniversary of Alfred Nobel's death. The story goes that the inventor of dynamite funded the prizes after a newspaper mistakenly ran his obituary under the headline \"The merchant of death is dead.\"",
+    "source": "https://en.wikipedia.org/wiki/Nobel_Prize"
+  },
+  {
+    "key": "mona-lisa-stolen",
+    "date": "1911-08-21",
+    "title": "Mona Lisa stolen from the Louvre",
+    "phrase": "the theft of the Mona Lisa",
+    "category": "history",
+    "description": "Vincenzo Peruggia, a glazier who had worked at the Louvre, simply walked out with it.",
+    "source": "https://en.wikipedia.org/wiki/Vincenzo_Peruggia"
+  },
+  {
+    "key": "amundsen-reaches-south-pole",
+    "date": "1911-12-14",
+    "title": "Amundsen reaches the South Pole",
+    "phrase": "Roald Amundsen reaching the South Pole",
+    "category": "history",
+    "description": "Amundsen's Norwegian team got there five weeks ahead of Robert Falcon Scott's British party.",
+    "source": "https://en.wikipedia.org/wiki/Amundsen%27s_South_Pole_expedition"
+  },
+  {
+    "key": "panama-canal-opens",
+    "date": "1914-08-15",
+    "title": "Panama Canal opens",
+    "phrase": "the opening of the Panama Canal",
+    "category": "history",
+    "description": "The cargo ship SS Ancon made the first official passage. Ships between the Atlantic and the Pacific no longer had to go all the way around South America. It cost thousands of lives to dig. An estimated 22,000 people died from disease and accidents during the earlier French attempt alone.",
+    "source": "https://en.wikipedia.org/wiki/Panama_Canal"
+  },
+  {
+    "key": "tutankhamun-tomb-found",
+    "date": "1922-11-04",
+    "title": "Discovery of Tutankhamun's tomb",
+    "phrase": "the discovery of Tutankhamun's tomb",
+    "category": "history",
+    "description": "A worker on Howard Carter's dig uncovered a step cut into the rock. When Carter first peered inside, he was asked if he could see anything: \"Yes, wonderful things.\"",
+    "source": "https://en.wikipedia.org/wiki/Discovery_of_the_tomb_of_Tutankhamun"
+  },
+  {
+    "key": "lindbergh-transatlantic-flight",
+    "date": "1927-05-21",
+    "title": "Lindbergh flies solo across the Atlantic",
+    "phrase": "Charles Lindbergh's solo flight across the Atlantic",
+    "category": "history",
+    "description": "Lindbergh landed in Paris 33 and a half hours after taking off from New York, winning the $25,000 Orteig Prize.",
+    "source": "https://en.wikipedia.org/wiki/Spirit_of_St._Louis"
+  },
+  {
+    "key": "golden-gate-bridge-opens",
+    "date": "1937-05-27",
+    "title": "Golden Gate Bridge opens",
+    "phrase": "the opening of the Golden Gate Bridge",
+    "category": "history",
+    "description": "It had the longest suspension bridge span in the world until 1964. The Navy wanted it painted in black and yellow stripes, but it got International Orange instead.",
+    "source": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge"
+  },
+  {
+    "key": "lascaux-cave-found",
+    "date": "1940-09-12",
+    "title": "Discovery of the Lascaux cave paintings",
+    "phrase": "the discovery of the Lascaux cave paintings",
+    "category": "history",
+    "description": "18-year-old Marcel Ravidat found the entrance when his dog went poking into a hole left by an uprooted tree. The paintings inside are around 17,000 to 22,000 years old.",
+    "source": "https://en.wikipedia.org/wiki/Lascaux"
+  },
+  {
+    "key": "mount-rushmore-completed",
+    "date": "1941-10-31",
+    "title": "Mount Rushmore completed",
+    "phrase": "the completion of Mount Rushmore",
+    "category": "history",
+    "description": "The Lakota call the mountain Tȟuŋkášila Šákpe Pahá, Six Grandfathers Mountain. The 1868 Treaty of Fort Laramie recognized the Black Hills as Lakota land, but the United States broke it as prospectors moved in and took the land in the 1870s. Fifty years later, four presidents' faces were carved into the mountain. In 1980 the Supreme Court ruled that the Sioux were owed compensation, but they have refused the money and still demand the land back.",
+    "source": "https://en.wikipedia.org/wiki/Mount_Rushmore"
+  },
+  {
+    "key": "first-ascent-of-everest",
+    "date": "1953-05-29",
+    "title": "First ascent of Mount Everest",
+    "phrase": "the first ascent of Mount Everest",
+    "category": "history",
+    "description": "Edmund Hillary and Tenzing Norgay reached the summit. By coincidence, the news broke in London on the morning of Queen Elizabeth II's coronation.",
+    "source": "https://en.wikipedia.org/wiki/1953_British_Mount_Everest_expedition"
+  },
+  {
+    "key": "terracotta-army-found",
+    "date": "1974-03-29",
+    "title": "Discovery of the Terracotta Army",
+    "phrase": "the discovery of the Terracotta Army",
+    "category": "history",
+    "description": "Farmers near Xi'an dug into the tomb complex of China's first emperor. The pits hold an estimated 8,000 soldiers, most of them still buried.",
+    "source": "https://en.wikipedia.org/wiki/Terracotta_Army"
+  }
+]

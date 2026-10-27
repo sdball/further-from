@@ -1,0 +1,315 @@
+[
+  {
+    "key": "beastmaster-movie-release",
+    "date": "1982-08-20",
+    "title": "Release of the movie The Beastmaster",
+    "phrase": "the release of the movie The Beastmaster",
+    "category": "movies",
+    "description": "One of the pinnacle achievements of the sword and sorcery movie genre.",
+    "source": "https://en.wikipedia.org/wiki/The_Beastmaster"
+  },
+  {
+    "key": "conan-the-barbarian-movie-release",
+    "date": "1982-05-14",
+    "title": "Release of the movie Conan the Barbarian",
+    "phrase": "the release of the movie Conan the Barbarian",
+    "category": "movies",
+    "description": "Not as good as The Beastmaster, but Conan the Barbarian earned lead actor Arnold Schwarzenegger worldwide recognition.",
+    "source": "https://en.wikipedia.org/wiki/Conan_the_Barbarian_(1982_film)"
+  },
+  {
+    "key": "forrest-gump-in-vietnam-war",
+    "date": "1967",
+    "title": "Character Forrest Gump in the Vietnam War",
+    "phrase": "Forrest Gump (the character) serving in the Vietnam War",
+    "category": "movies",
+    "source": "https://en.wikipedia.org/wiki/Forrest_Gump"
+  },
+  {
+    "key": "forrest-gump-movie-release",
+    "date": "1994-07-06",
+    "title": "Release of the movie Forrest Gump",
+    "phrase": "the release of the movie Forrest Gump",
+    "category": "movies",
+    "source": "https://en.wikipedia.org/wiki/Forrest_Gump"
+  },
+  {
+    "key": "first-movie",
+    "date": "1878",
+    "title": "First movie ever recorded",
+    "phrase": "the first movie ever recorded",
+    "category": "movies",
+    "description": "An 11-frame clip of a man riding a horse. It was recorded by Eadweard Muybridge using 12 separate cameras that he designed to have a then cutting edge 1/25th of a second shutter speed. He also designed the zoöpraxiscope as a mechanism to view the photos as a movie.",
+    "source": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+  },
+  {
+    "key": "interstellar-movie-release",
+    "date": "2014-11-07",
+    "title": "Interstellar movie released",
+    "phrase": "the release of the movie Interstellar",
+    "category": "movies",
+    "description": "Interstellar is a 2014 science fiction film directed by Christopher Nolan and starring Matthew McConaughey, Anne Hathaway, and Michael Caine. The film follows a group of astronauts who travel through a wormhole in search of a new home for humanity, as Earth is on the verge of environmental collapse. The story is based on scientific concepts such as relativity and gravity, and explores human themes of love and sacrifice.",
+    "source": "https://en.wikipedia.org/wiki/Interstellar_(film)"
+  },
+  {
+    "key": "release-of-the-movie-titanic",
+    "date": "1997-12-19",
+    "title": "Titanic movie released",
+    "phrase": "the release of the movie Titanic",
+    "category": "movies",
+    "description": "It's hard to overstate how much of a media phenomenon Titanic was during its theatrical release. One interesting fact is that the set crew built a 1:1 scale replica of the Titanic's Grand Staircase for the production.",
+    "source": "https://en.wikipedia.org/wiki/Titanic_(1997_film)"
+  },
+  {
+    "key": "bttf-movie-release",
+    "date": "1985-07-03",
+    "title": "Back to the Future movie release",
+    "phrase": "the release of the movie Back to the Future",
+    "category": "movies",
+    "description": "Marty McFly is accidentally sent back in time to 1955 in a time-traveling DeLorean car built by Doc Brown. He meets his parents as teenagers and must ensure that they fall in love in order to return to his own time.",
+    "source": "https://en.wikipedia.org/wiki/Back_to_the_Future"
+  },
+  {
+    "key": "bttf2-movie-release",
+    "date": "1989-11-22",
+    "title": "Back to the Future Part II movie release",
+    "phrase": "the release of the movie Back to the Future Part II",
+    "category": "movies",
+    "description": "In this sequel, Marty and Doc travel to the future, specifically to the year 2015. Their goal is to prevent Marty's future son from making a terrible mistake but then they must travel back to 1955 to fix a destructive alteration to the timeline.",
+    "source": "https://en.wikipedia.org/wiki/Back_to_the_Future_Part_II"
+  },
+  {
+    "key": "bttf3-movie-release",
+    "date": "1990-05-25",
+    "title": "Back to the Future Part III movie release",
+    "phrase": "the release of the movie Back to the Future Part III",
+    "category": "movies",
+    "description": "In the final movie of the trilogy, Marty must travel back in time to the Wild West and the year 1885. Marty must help Doc Brown, who became stranded in 1885 during the events of Back to the Future II.",
+    "source": "https://en.wikipedia.org/wiki/Back_to_the_Future_Part_III"
+  },
+  {
+    "key": "bttf-marty-in-1955",
+    "date": "1955-11-05",
+    "title": "Marty McFly is stuck in 1955 during Back to the Future",
+    "phrase": "Marty McFly being stuck in 1955",
+    "category": "movies",
+    "description": "1.21 gigawatts! A bolt of lightning!",
+    "source": "https://en.wikipedia.org/wiki/Back_to_the_Future"
+  },
+  {
+    "key": "future-time-of-bttf2",
+    "date": "2015-10-21",
+    "title": "The \"future\" in Back to the Future Part II",
+    "phrase": "the \"future\" of Back to the Future Part II",
+    "category": "movies",
+    "description": "Hoverboards don't work on water, unless you've got POWER!",
+    "source": "https://en.wikipedia.org/wiki/Back_to_the_Future_Part_II"
+  },
+  {
+    "key": "past-time-of-bttf3",
+    "date": "1885-09-02",
+    "title": "Marty and Doc in the Wild West during Back to the Future Part III",
+    "phrase": "Marty and Doc in the Wild West in Back to the Future Part III",
+    "category": "movies",
+    "description": "Mr. Fusion powers the time circuits and the flux capacitor. But the internal combustion engine runs on ordinary gasoline, it always has. There's not going to be a gas station around here until sometime in the next century. Without gasoline, we can't get the DeLorean up to 88 miles per hour.",
+    "source": "https://en.wikipedia.org/wiki/Back_to_the_Future_Part_III"
+  },
+  {
+    "key": "lord-of-the-rings-movie-release",
+    "date": "1978-11-15",
+    "title": "The Lord of the Rings movie release",
+    "phrase": "the release of the movie The Lord of the Rings",
+    "category": "movies",
+    "description": "Ralph Bakshi's ambitious undertaking which brought Middle Earth to life via cel animation and rotoscoped live action footage.",
+    "source": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_(1978_film)"
+  },
+  {
+    "key": "fellowship-of-the-ring-movie-release",
+    "date": "2001-12-19",
+    "title": "The Fellowship of the Ring movie release",
+    "phrase": "the release of the movie The Lord of the Rings: The Fellowship of the Ring",
+    "category": "movies",
+    "description": "Achieving near-universal critical acclaim is no small feat. The first of Peter Jackson's LOTR trilogy succeeds.",
+    "source": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Fellowship_of_the_Ring"
+  },
+  {
+    "key": "the-two-towers-movie-release",
+    "date": "2002-12-18",
+    "title": "The Two Towers movie release",
+    "phrase": "the release of the movie The Lord of the Rings: The Two Towers",
+    "category": "movies",
+    "description": "The opening scene of Gandalf fighting the Balrog is cinematic legend. We can almost forgive the movie's strange and complex divergence from the plot of the book which requires characters to make strangely illogical decisions in order to keep the story lined up for the third movie.",
+    "source": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Two_Towers"
+  },
+  {
+    "key": "the-return-of-the-king-movie-release",
+    "date": "2003-12-17",
+    "title": "The Return of the King movie release",
+    "phrase": "the release of the movie The Lord of the Rings: The Return of the King",
+    "category": "movies",
+    "description": "Sadly this movie misses a major point of the books by not including the scouring of the Shire. More than a battle set piece the hobbits reclaiming the Shire from an authoritarian government is a critical balance to the quest to destroy the ring.",
+    "source": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Return_of_the_King"
+  },
+  {
+    "key": "tron-movie-release",
+    "date": "1982-07-09",
+    "title": "Release of the movie Tron",
+    "phrase": "the release of the movie Tron",
+    "category": "movies",
+    "description": "Jeff Bridges plays a programmer and video game developer who gets pulled inside a mainframe and has to fight his way out, Light Cycles and all. It was one of the first films to make extensive use of computer animation, though only fifteen to twenty minutes of it. It wasn't even nominated for the visual effects Oscar, and director Steven Lisberger guessed the Academy thought he'd \"cheated by using computers.\"",
+    "source": "https://en.wikipedia.org/wiki/Tron"
+  },
+  {
+    "key": "tron-legacy-movie-release",
+    "date": "2010-12-17",
+    "title": "Release of the movie Tron: Legacy",
+    "phrase": "the release of the movie Tron: Legacy",
+    "category": "movies",
+    "description": "Twenty years after Kevin Flynn vanished, his son Sam follows a pager message from Flynn's shuttered arcade onto the Grid. Its villain Clu looks like the Bridges of 1982: a stand-in's head was replaced with a digitally de-aged young Bridges. Daft Punk scored it and cameo as disc jockey programs.",
+    "source": "https://en.wikipedia.org/wiki/Tron:_Legacy"
+  },
+  {
+    "key": "last-starfighter-movie-release",
+    "date": "1984-07-13",
+    "title": "Release of the movie The Last Starfighter",
+    "phrase": "the release of the movie The Last Starfighter",
+    "category": "movies",
+    "description": "Alex Rogan beats the high score on the Starfighter arcade game at his trailer park, which turns out to be a recruiting test for an alien defense force. Instead of models, its spaceships were 3D-rendered on a Cray X-MP supercomputer, 27 minutes of effects in all. The end credits promise a real Starfighter arcade game from Atari, but Atari dropped it after seeing the film and deciding it wouldn't be a hit.",
+    "source": "https://en.wikipedia.org/wiki/The_Last_Starfighter"
+  },
+  {
+    "key": "top-gun-movie-release",
+    "date": "1986-05-16",
+    "title": "Release of the movie Top Gun",
+    "phrase": "the release of the movie Top Gun",
+    "category": "movies",
+    "description": "Maverick and Goose get sent to the Navy's Fighter Weapons School after the pilot ahead of them loses his nerve. Paramount paid as much as $7,800 an hour for fuel and operating costs whenever the Navy's jets flew for the film, and the Navy set up recruiting booths in some theaters. It was the highest-grossing film of 1986, and \"Take My Breath Away\" won the Oscar.",
+    "source": "https://en.wikipedia.org/wiki/Top_Gun"
+  },
+  {
+    "key": "top-gun-maverick-movie-release",
+    "date": "2022-05-27",
+    "title": "Release of the movie Top Gun: Maverick",
+    "phrase": "the release of the movie Top Gun: Maverick",
+    "category": "movies",
+    "description": "More than thirty years later Maverick is still a captain, sent back to Top Gun to train a class that includes Goose's son, Rooster. Tom Cruise put the cast through a three-month boot camp so they could fly in the back seats of real Super Hornets with IMAX cameras in the cockpit. Its stunts and then COVID-19 pushed it back nearly three years, and it grossed $1.5 billion, the most of Cruise's career. It was Val Kilmer's final film role.",
+    "source": "https://en.wikipedia.org/wiki/Top_Gun:_Maverick"
+  },
+  {
+    "key": "wizard-of-oz-movie-release",
+    "date": "1939-08-25",
+    "title": "Release of the movie The Wizard of Oz",
+    "phrase": "the release of the movie The Wizard of Oz",
+    "category": "movies",
+    "description": "A tornado carries Dorothy and Toto out of sepia-toned Kansas into three-strip Technicolor Oz, where her shoes turned ruby (they're silver in the book) to show off the color. Buddy Ebsen was the original Tin Man until his aluminum powder makeup put him in the hospital. MGM almost cut \"Over the Rainbow\" for making the Kansas scenes too long, and the song won the Oscar. Start The Dark Side of the Moon on the MGM lion's third roar and fans swear the album and film line up. Pink Floyd swear they don't.",
+    "source": "https://en.wikipedia.org/wiki/The_Wizard_of_Oz"
+  },
+  {
+    "key": "snow-white-movie-release",
+    "date": "1937-12-21",
+    "title": "Release of the movie Snow White and the Seven Dwarfs",
+    "phrase": "the release of the movie Snow White and the Seven Dwarfs",
+    "category": "movies",
+    "description": "Disney's first feature, and the first animated feature film made in the United States. The industry called it \"Disney's Folly\" while it was in production, and Walt mortgaged his house to help pay for it. It became the highest-grossing film of 1938, and Disney's honorary Oscar for it was one full-size statuette and seven miniature ones.",
+    "source": "https://en.wikipedia.org/wiki/Snow_White_and_the_Seven_Dwarfs_(film)"
+  },
+  {
+    "key": "2001-a-space-odyssey-movie-release",
+    "date": "1968-04-03",
+    "title": "Release of the movie 2001: A Space Odyssey",
+    "phrase": "the release of the movie 2001: A Space Odyssey",
+    "category": "movies",
+    "description": "Astronauts fly to Jupiter to investigate an alien monolith, with the HAL 9000 computer running their ship and eventually refusing to open the pod bay doors. Stanley Kubrick and Arthur C. Clarke wrote the screenplay and the novel at the same time. Not one foot of it used computer-generated effects, and the visual effects Oscar was the only Academy Award Kubrick ever won.",
+    "source": "https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey"
+  },
+  {
+    "key": "jaws-movie-release",
+    "date": "1975-06-20",
+    "title": "Release of the movie Jaws",
+    "phrase": "the release of the movie Jaws",
+    "category": "movies",
+    "description": "The three mechanical sharks, all nicknamed Bruce after Steven Spielberg's lawyer, kept breaking down in the salt water off Martha's Vineyard, so Spielberg mostly suggested the shark with John Williams's ominous theme instead. It became the prototypical summer blockbuster. It was rough on real sharks: the \"Jaws effect\" was blamed for fishing tournaments that killed thousands of them, Peter Benchley went on to campaign for shark conservation, and Spielberg said he regretted \"the decimation of the shark population because of the book and the film.\"",
+    "source": "https://en.wikipedia.org/wiki/Jaws_(film)"
+  },
+  {
+    "key": "star-wars-movie-release",
+    "date": "1977-05-25",
+    "title": "Release of the movie Star Wars",
+    "phrase": "the release of the movie Star Wars",
+    "category": "movies",
+    "description": "Very few theaters wanted it, and it opened in just 32. George Lucas had founded Industrial Light & Magic to make its effects after finding out that Fox's own effects department had shut down. It became the highest-grossing film of all time, and there were so few toys ready that Kenner sold boxed vouchers for Christmas instead.",
+    "source": "https://en.wikipedia.org/wiki/Star_Wars_(film)"
+  },
+  {
+    "key": "et-movie-release",
+    "date": "1982-06-11",
+    "title": "Release of the movie E.T. the Extra-Terrestrial",
+    "phrase": "the release of the movie E.T. the Extra-Terrestrial",
+    "category": "movies",
+    "description": "Elliott lures a stranded alien into his house with a trail of Reese's Pieces, because Mars wouldn't let the film use M&M's, and Hershey's profits rose 65%. It passed Star Wars as the highest-grossing film of all time and held the record until Jurassic Park. Atari's E.T. game for the 2600 did the opposite: it's called one of the worst video games ever made and a major factor in the video game crash of 1983.",
+    "source": "https://en.wikipedia.org/wiki/E.T._the_Extra-Terrestrial"
+  },
+  {
+    "key": "blade-runner-movie-release",
+    "date": "1982-06-25",
+    "title": "Release of the movie Blade Runner",
+    "phrase": "the release of the movie Blade Runner",
+    "category": "movies",
+    "description": "Harrison Ford's Rick Deckard hunts replicants, bioengineered humans built with four-year lifespans, through the Los Angeles of 2019. It underperformed in North American theaters, found a cult following on home video, and exists in seven versions thanks to studio meddling, including a happy ending Ridley Scott later cut. People still argue about whether Deckard is a replicant. Scott says he is.",
+    "source": "https://en.wikipedia.org/wiki/Blade_Runner"
+  },
+  {
+    "key": "future-time-of-blade-runner",
+    "date": "2019-11",
+    "title": "The \"future\" in Blade Runner",
+    "phrase": "the \"future\" of Blade Runner",
+    "category": "movies",
+    "description": "Blade Runner is set in Los Angeles in November 2019. No flying police cars showed up, but Elon Musk unveiled Tesla's Cybertruck that month to match, calling it the \"Blade Runner Truck.\"",
+    "source": "https://en.wikipedia.org/wiki/Blade_Runner"
+  },
+  {
+    "key": "blade-runner-2049-movie-release",
+    "date": "2017-10-06",
+    "title": "Release of the movie Blade Runner 2049",
+    "phrase": "the release of the movie Blade Runner 2049",
+    "category": "movies",
+    "description": "Thirty years on, Ryan Gosling's K, a replicant who hunts other replicants for the LAPD, finds proof that a replicant once gave birth, which was thought impossible, and it leads him to Harrison Ford's Deckard. Sean Young's Rachael returns by having her face digitally put on another actress, Loren Peta, whom Young coached to recreate her performance. It won Oscars for cinematography and visual effects, and like the original it was a box office disappointment.",
+    "source": "https://en.wikipedia.org/wiki/Blade_Runner_2049"
+  },
+  {
+    "key": "ghostbusters-movie-release",
+    "date": "1984-06-08",
+    "title": "Release of the movie Ghostbusters",
+    "phrase": "the release of the movie Ghostbusters",
+    "category": "movies",
+    "description": "Dan Aykroyd was writing it for himself and John Belushi when Belushi died, and Harold Ramis helped rework it into a story set in New York City. It ends with a giant Stay Puft Marshmallow Man stomping through Manhattan. Huey Lewis turned down writing the theme to work on Back to the Future, then sued Ray Parker Jr. for copying \"I Want a New Drug\" in the one he wrote, which hit number one.",
+    "source": "https://en.wikipedia.org/wiki/Ghostbusters"
+  },
+  {
+    "key": "jurassic-park-movie-release",
+    "date": "1993-06-11",
+    "title": "Release of the movie Jurassic Park",
+    "phrase": "the release of the movie Jurassic Park",
+    "category": "movies",
+    "description": "Phil Tippett's team was preparing stop-motion-style go-motion dinosaurs until Industrial Light & Magic's computer-animated T. rex won the job, and Tippett declared, \"I think I'm extinct.\" Spielberg put it in the script as Malcolm's \"Don't you mean extinct?\" The dinosaurs ended up a mix of ILM's CGI and Stan Winston's animatronics, and it passed E.T. as the highest-grossing film of all time.",
+    "source": "https://en.wikipedia.org/wiki/Jurassic_Park"
+  },
+  {
+    "key": "toy-story-movie-release",
+    "date": "1995-11-22",
+    "title": "Release of the movie Toy Story",
+    "phrase": "the release of the movie Toy Story",
+    "category": "movies",
+    "description": "Andy's favorite toy, a cowboy doll named Woody, gets a rival in Buzz Lightyear, an action figure who doesn't know he's a toy. It was the first entirely computer-animated feature film and Pixar's first feature. Its 114,240 frames of animation took 800,000 machine hours.",
+    "source": "https://en.wikipedia.org/wiki/Toy_Story"
+  },
+  {
+    "key": "matrix-movie-release",
+    "date": "1999-03-31",
+    "title": "Release of the movie The Matrix",
+    "phrase": "the release of the movie The Matrix",
+    "category": "movies",
+    "description": "Hacker Neo (Keanu Reeves) learns that the world is a simulated reality built by machines to keep humans pacified. Will Smith turned down the role to make Wild Wild West, skeptical about the film's \"bullet time\" effects, which went on to be copied everywhere. Its digital rain green code was designed by Simon Whiteley, who likes to tell people it's made of Japanese sushi recipes.",
+    "source": "https://en.wikipedia.org/wiki/The_Matrix"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "key": "fellowship-of-the-ring-book-release",
+    "date": "1954-07-29",
+    "title": "The Fellowship of the Ring book release",
+    "phrase": "the release of the book The Lord of the Rings: The Fellowship of the Ring",
+    "category": "books",
+    "description": "\"Don't adventures ever have an end? I suppose not. Someone else always has to carry on the story.\"",
+    "source": "https://en.wikipedia.org/wiki/The_Fellowship_of_the_Ring"
+  },
+  {
+    "key": "the-two-towers-book-release",
+    "date": "1954-11-11",
+    "title": "The Two Towers book release",
+    "phrase": "the release of the book The Lord of the Rings: The Two Towers",
+    "category": "books",
+    "description": "\"I would not take this thing, if it lay by the highway. Not were Minas Tirith falling in ruin and I alone could save her, so, using the weapon of the Dark Lord for her good and my glory. No, I do not wish for such triumphs, Frodo.\" —Faramir. The book version of Faramir was far more level headed and wise.",
+    "source": "https://en.wikipedia.org/wiki/The_Two_Towers"
+  },
+  {
+    "key": "the-return-of-the-king-book-release",
+    "date": "1955-10-20",
+    "title": "The Return of the King book release",
+    "phrase": "the release of the book The Lord of the Rings: The Return of the King",
+    "category": "books",
+    "description": "Unlike the movies, the books contain the critically and thematically important \"scouring of the Shire\" which contextualizes the effects of the larger adventure. Frodo, Sam, Merry, and Pippin return to the Shire to find it under the control of an authoritarian regime that has torn down the old houses and replaced the mill with machinery that pollutes the air and water. They inspire and lead an uprising to overthrow those in power and restore the Shire. If you've only ever seen the movies, you should at least read this section of the books.",
+    "source": "https://en.wikipedia.org/wiki/The_Return_of_the_King"
+  },
+  {
+    "key": "shadow-over-innsmouth-narrator-visit",
+    "date": "1927-07-15",
+    "title": "The narrator's day in Innsmouth in The Shadow over Innsmouth",
+    "phrase": "the narrator's day in Innsmouth",
+    "category": "books",
+    "description": "\"Disliking the dinginess of the single restaurant I had seen, I bought a fair supply of cheese crackers and ginger wafers to serve as a lunch later on.\" Cheez-Its were launched in 1921 so the narrator could plausibly be referring to them. Despite the power of cheese crackers the narrator fled before dawn on July 16. Lovecraft's horror of racial mixing absolutely influenced the story.",
+    "source": "https://en.wikipedia.org/wiki/The_Shadow_over_Innsmouth"
+  }
+]

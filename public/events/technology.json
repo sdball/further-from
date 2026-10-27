@@ -1,0 +1,236 @@
+[
+  {
+    "key": "first-flight",
+    "date": "1903-12-17",
+    "title": "Wright brothers' first flight",
+    "phrase": "the Wright brothers' first flight",
+    "category": "technology",
+    "description": "The Wright Brothers did not solely rely on engine power to lift their flying machines off the ground. Instead, they emphasized the importance of piloting skills. Through over a thousand gliding flights from the top of Kill Devil Hill, the brothers were able to identify the engineering principles that allow for lift and the necessary controls to maintain an aircraft in flight.",
+    "source": "https://en.wikipedia.org/wiki/Wright_Flyer"
+  },
+  {
+    "key": "first-clamshell-laptop",
+    "date": "1982",
+    "title": "First clamshell laptop (GRiD Compass)",
+    "phrase": "the first clamshell laptop (GRiD Compass)",
+    "category": "technology",
+    "description": "The GRiD Compass was the first clamshell laptop. It weighed 10 pounds but is still considered the first truly portable laptop computer.",
+    "source": "https://en.wikipedia.org/wiki/Grid_Compass"
+  },
+  {
+    "key": "gutenberg-printing-press",
+    "date": "1439",
+    "title": "Gutenberg printing press introduced in Europe",
+    "phrase": "Gutenberg's printing press being introduced in Europe",
+    "category": "technology",
+    "description": "Around this time Johannes Gutenberg, of the German city of Mainz, introduced the printing press to Europe.",
+    "source": "https://en.wikipedia.org/wiki/Printing_press"
+  },
+  {
+    "key": "apple-ii-release",
+    "date": "1977-06-10",
+    "title": "Apple II goes on sale",
+    "phrase": "the Apple II going on sale",
+    "category": "technology",
+    "description": "Steve Wozniak's design, with color graphics and eight expansion slots, turned Apple into a real company. VisiCalc, the first spreadsheet program, gave people a reason to buy one for the office.",
+    "source": "https://en.wikipedia.org/wiki/Apple_II"
+  },
+  {
+    "key": "ibm-pc-announced",
+    "date": "1981-08-12",
+    "title": "IBM announces the IBM PC",
+    "phrase": "IBM announcing the IBM PC",
+    "category": "technology",
+    "description": "IBM built it from off-the-shelf parts and licensed its operating system from a small company called Microsoft. That made it easy to clone, and the clones are why we still say \"PC.\"",
+    "source": "https://en.wikipedia.org/wiki/IBM_Personal_Computer"
+  },
+  {
+    "key": "macintosh-release",
+    "date": "1984-01-24",
+    "title": "Release of the Macintosh",
+    "phrase": "the release of the original Macintosh",
+    "category": "technology",
+    "description": "Announced by the \"1984\" Super Bowl ad two days earlier, the Macintosh brought the mouse and a graphical interface to people who couldn't afford Apple's Lisa.",
+    "source": "https://en.wikipedia.org/wiki/Macintosh_128K"
+  },
+  {
+    "key": "windows-95-release",
+    "date": "1995-08-24",
+    "title": "Release of Windows 95",
+    "phrase": "the release of Windows 95",
+    "category": "technology",
+    "description": "Microsoft licensed \"Start Me Up\" by the Rolling Stones to introduce the Start button, and people lined up at midnight to buy an operating system.",
+    "source": "https://en.wikipedia.org/wiki/Windows_95"
+  },
+  {
+    "key": "ipod-introduced",
+    "date": "2001-10-23",
+    "title": "Apple introduces the iPod",
+    "phrase": "Apple introducing the iPod",
+    "category": "technology",
+    "description": "\"1,000 songs in your pocket.\" The first iPod had a scroll wheel that actually turned, and at first it only worked with Macs.",
+    "source": "https://en.wikipedia.org/wiki/IPod_Classic"
+  },
+  {
+    "key": "iphone-release",
+    "date": "2007-06-29",
+    "title": "Release of the iPhone",
+    "phrase": "the release of the original iPhone",
+    "category": "technology",
+    "description": "No App Store, no 3G, no copy and paste. All Apple offered was a compelling and intuitive user experience.",
+    "source": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)"
+  },
+  {
+    "key": "bitcoin-genesis-block",
+    "date": "2009-01-03",
+    "title": "Bitcoin's genesis block",
+    "phrase": "the mining of Bitcoin's first block",
+    "category": "technology",
+    "description": "Satoshi Nakamoto put a newspaper headline into the very first block: \"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks.\"",
+    "source": "https://en.wikipedia.org/wiki/Bitcoin"
+  },
+  {
+    "key": "eniac-unveiled",
+    "date": "1946-02-15",
+    "title": "ENIAC unveiled",
+    "phrase": "the unveiling of ENIAC",
+    "category": "technology",
+    "description": "The press called it a \"Giant Brain.\" Six women, Kay McNulty, Betty Jennings, Betty Snyder, Marlyn Wescoff, Fran Bilas, and Ruth Lichterman, did most of its programming, but none of the women who programmed it were invited to the dedication or the dinner afterward.",
+    "source": "https://en.wikipedia.org/wiki/ENIAC"
+  },
+  {
+    "key": "first-computer-bug",
+    "date": "1947",
+    "title": "First actual case of bug being found",
+    "phrase": "the first actual computer bug being found",
+    "category": "technology",
+    "description": "Operators traced an error in Harvard's Mark II computer to a moth stuck in a relay and taped it into the log: \"First actual case of bug being found.\" Engineers had called defects bugs since at least the 1870s, but Grace Hopper made the moth famous.",
+    "source": "https://en.wikipedia.org/wiki/Software_bug"
+  },
+  {
+    "key": "turing-imitation-game",
+    "date": "1950",
+    "title": "Alan Turing proposes the imitation game",
+    "phrase": "Alan Turing proposing the imitation game",
+    "category": "technology",
+    "description": "\"Can machines think?\" Turing found the question too vague, so he swapped it for a game: can a machine pass for a person in conversation? We call it the Turing test now.",
+    "source": "https://en.wikipedia.org/wiki/Computing_Machinery_and_Intelligence"
+  },
+  {
+    "key": "dartmouth-ai-workshop",
+    "date": "1956",
+    "title": "Dartmouth workshop on artificial intelligence",
+    "phrase": "the Dartmouth workshop on artificial intelligence",
+    "category": "technology",
+    "description": "Widely considered the founding event of AI as a field. The proposal was optimistic: \"We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer.\"",
+    "source": "https://en.wikipedia.org/wiki/Dartmouth_workshop"
+  },
+  {
+    "key": "perceptron",
+    "date": "1958",
+    "title": "Frank Rosenblatt describes the perceptron",
+    "phrase": "Frank Rosenblatt describing the perceptron",
+    "category": "technology",
+    "description": "An artificial neuron that learns from examples. A single layer of them turned out to be too limited, which stalled neural network research for years, until people stacked perceptrons into layers.",
+    "source": "https://en.wikipedia.org/wiki/Perceptron"
+  },
+  {
+    "key": "eliza-chatbot",
+    "date": "1966",
+    "title": "ELIZA, one of the first chatbots",
+    "phrase": "the creation of ELIZA",
+    "category": "technology",
+    "description": "Joseph Weizenbaum's program at MIT played a therapist by turning your words back into questions. He was surprised how readily people treated it as human; his own secretary asked him to leave the room so she and ELIZA could have a real conversation.",
+    "source": "https://en.wikipedia.org/wiki/ELIZA"
+  },
+  {
+    "key": "mother-of-all-demos",
+    "date": "1968-12-09",
+    "title": "The Mother of All Demos",
+    "phrase": "the Mother of All Demos",
+    "category": "technology",
+    "description": "In 90 minutes, Douglas Engelbart showed a San Francisco audience the mouse, clickable hypertext, and much of the rest of modern personal computing, running live over homemade modems from his lab in Menlo Park.",
+    "source": "https://en.wikipedia.org/wiki/The_Mother_of_All_Demos"
+  },
+  {
+    "key": "first-handheld-cell-phone-call",
+    "date": "1973-04-03",
+    "title": "First handheld cell phone call",
+    "phrase": "the first handheld cell phone call",
+    "category": "technology",
+    "description": "Martin Cooper of Motorola stood on a Manhattan sidewalk with a prototype and called his counterpart at the competition, Bell Labs.",
+    "source": "https://en.wikipedia.org/wiki/Martin_Cooper_(inventor)"
+  },
+  {
+    "key": "first-text-message",
+    "date": "1992-12-03",
+    "title": "First text message",
+    "phrase": "the first text message",
+    "category": "technology",
+    "description": "Neil Papworth, a test engineer, sent \"Merry Christmas\" from a computer to his colleague Richard Jarvis's phone over the Vodafone network in the UK.",
+    "source": "https://en.wikipedia.org/wiki/SMS"
+  },
+  {
+    "key": "deep-blue-beats-kasparov",
+    "date": "1997-05",
+    "title": "Deep Blue beats Garry Kasparov",
+    "phrase": "Deep Blue beating Garry Kasparov",
+    "category": "technology",
+    "description": "Kasparov beat IBM's chess computer in 1996, then lost the 1997 rematch 3½–2½. He accused IBM of cheating, alleging that a grandmaster had been behind one of its moves.",
+    "source": "https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov"
+  },
+  {
+    "key": "y2k",
+    "date": "2000-01-01",
+    "title": "Y2K",
+    "phrase": "Y2K",
+    "category": "technology",
+    "description": "Programs that saved space by storing only the last two digits of the year were about to decide it was 1900. The world spent something like $300 billion fixing them, and the problems on the day were generally minor.",
+    "source": "https://en.wikipedia.org/wiki/Year_2000_problem"
+  },
+  {
+    "key": "alexnet-imagenet",
+    "date": "2012-09-30",
+    "title": "AlexNet enters the ImageNet challenge",
+    "phrase": "AlexNet's entry in the ImageNet challenge",
+    "category": "technology",
+    "description": "Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton trained a neural network on two Nvidia graphics cards in Krizhevsky's bedroom at his parents' house. It won by more than ten percentage points and kicked off the deep learning boom.",
+    "source": "https://en.wikipedia.org/wiki/AlexNet"
+  },
+  {
+    "key": "alphago-beats-lee-sedol",
+    "date": "2016-03",
+    "title": "AlphaGo beats Lee Sedol",
+    "phrase": "AlphaGo beating Lee Sedol",
+    "category": "technology",
+    "description": "DeepMind's AlphaGo won four of five games of Go, and its move 37 in game two stunned professionals. Lee won game four with a \"divine move\" of his own. He retired in 2019, calling AI \"an entity that cannot be defeated.\"",
+    "source": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol"
+  },
+  {
+    "key": "attention-is-all-you-need",
+    "date": "2017-06-12",
+    "title": "\"Attention Is All You Need\" published",
+    "phrase": "the publication of \"Attention Is All You Need\"",
+    "category": "technology",
+    "description": "Eight researchers at Google introduced the transformer, which became the main architecture of large language models. It's the T in GPT.",
+    "source": "https://en.wikipedia.org/wiki/Attention_Is_All_You_Need"
+  },
+  {
+    "key": "chatgpt-release",
+    "date": "2022-11-30",
+    "title": "Release of ChatGPT",
+    "phrase": "the release of ChatGPT",
+    "category": "technology",
+    "description": "OpenAI's chatbot gained a million users in five days and 100 million in two months.",
+    "source": "https://en.wikipedia.org/wiki/ChatGPT"
+  },
+  {
+    "key": "claude-public-launch",
+    "date": "2023-07",
+    "title": "Claude.ai opens to the public",
+    "phrase": "Claude.ai opening to the public",
+    "category": "technology",
+    "description": "Anthropic first released Claude as a chatbot in March 2023. In July, Claude 2 became the first Anthropic model available to the general public.",
+    "source": "https://en.wikipedia.org/wiki/Claude_(AI)"
+  }
+]
