@@ -132,6 +132,18 @@ kbd {
 .nav a:hover { color: var(--ink); }
 .nav a[aria-current="page"] { color: var(--ink); text-decoration: underline 2px var(--pivot); text-underline-offset: 0.45em; }
 
+.theme-toggle {
+  align-self: center;
+  margin: -0.5rem -0.5rem -0.5rem auto;
+  padding: 0.5rem;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+.theme-toggle svg { display: block; width: 1.1rem; height: 1.1rem; }
+.theme-toggle:hover { color: var(--ink); }
+
 /* a ruler: small ticks every 8px, tall ones every 80px */
 .ruler {
   max-width: 1180px;

@@ -14,6 +14,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <script>
+  // a theme picked with the toggle, set before the page paints so it doesn't flash
+  try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch (e) {}
+</script>
+<script>
   window.goatcounter = {
     path: function(p) { return location.host + p }
   }
@@ -30,6 +34,7 @@
   <nav class="nav" aria-label="Pages">
     <a href="./" aria-current="page">Compare two moments</a>
     <a href="life.html">A lifetime</a>
+    <button class="theme-toggle" id="theme" type="button" hidden></button>
   </nav>
   <div class="ruler" aria-hidden="true"></div>
 </header>

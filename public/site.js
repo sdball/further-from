@@ -59,5 +59,48 @@
       .sort((x, y) => W.span(x.when)[0] - W.span(y.when)[0]);
   }
 
+  // the theme toggle in the nav flips between light and dark, showing a moon or
+  // a sun for the theme it switches to. A choice that matches the system's is
+  // forgotten, so the page follows the system again.
+  function themeToggle() {
+    const button = $("theme");
+    if (!button) return;
+    const svg = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
+    const icons = {
+      dark: svg("M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"), // moon
+      light: svg("M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"), // sun
+    };
+    const systemDark = matchMedia("(prefers-color-scheme: dark)");
+    const system = () => (systemDark.matches ? "dark" : "light");
+    const html = document.documentElement;
+    const current = () => html.dataset.theme || system();
+    const render = () => {
+      const next = current() === "dark" ? "light" : "dark";
+      button.innerHTML = icons[next];
+      button.title = `Switch to the ${next} theme`;
+      button.setAttribute("aria-label", button.title);
+    };
+    const set = (theme) => {
+      if (theme === "light" || theme === "dark") html.dataset.theme = theme;
+      else delete html.dataset.theme;
+      render();
+    };
+    button.addEventListener("click", () => {
+      const next = current() === "dark" ? "light" : "dark";
+      const choice = next === system() ? null : next;
+      try {
+        if (choice) localStorage.setItem("theme", choice);
+        else localStorage.removeItem("theme");
+      } catch (e) {}
+      set(choice);
+    });
+    systemDark.addEventListener("change", render);
+    // keep other open tabs in step
+    addEventListener("storage", (e) => { if (e.key === "theme") set(e.newValue); });
+    render();
+    button.hidden = false;
+  }
+  themeToggle();
+
   root.Site = { $, el, fill, cap, short, ageLabel, lifeMark, loadEvents };
 })(window);
