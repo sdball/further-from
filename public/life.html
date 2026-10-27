@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A lifetime · Further From</title>
+<meta name="description" content="See what events happened in someone's lifetime.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A lifetime · Further From">
+<meta property="og:description" content="See what events happened in someone's lifetime.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>
+  window.goatcounter = {
+    path: function(p) { return location.host + p }
+  }
+</script>
+<script data-goatcounter="https://sdball.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header class="mast">
+  <div class="mast-inner">
+    <a class="wordmark" href="./">Further <i>From</i></a>
+    <p class="tagline">See what events happened in someone's lifetime.</p>
+  </div>
+  <nav class="nav" aria-label="Pages">
+    <a href="./">Compare two moments</a>
+    <a href="life.html" aria-current="page">A lifetime</a>
+  </nav>
+  <div class="ruler" aria-hidden="true"></div>
+</header>
+
+<div class="wrap">
+  <main class="card" aria-labelledby="person-h">
+    <p class="eyebrow">A lifetime</p>
+    <div class="fields">
+      <div class="field">
+        <label class="whatif-label" for="name-in">Name, if you like</label>
+        <input class="search" id="name-in" type="text" placeholder="Ada Lovelace" autocomplete="off" maxlength="80">
+      </div>
+      <div class="field">
+        <label class="whatif-label" for="born-in">Born</label>
+        <input class="search age-input" id="born-in" type="text" placeholder="1815-12-10" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="field">
+        <label class="whatif-label" for="died-in">Died, if they have</label>
+        <input class="search age-input" id="died-in" type="text" placeholder="1852-11-27" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+    <div aria-live="polite">
+      <h1 class="headline" id="person-h">Whose lifetime?</h1>
+      <div id="person-out">
+        <noscript><p>Further From does its date math in your browser, so it needs JavaScript.</p></noscript>
+      </div>
+    </div>
+    <p class="examples" id="examples">For example:
+      <a href="?name=Ada+Lovelace&amp;born=1815-12-10&amp;died=1852-11-27">Ada Lovelace</a>,
+      <a href="?name=Grace+Hopper&amp;born=1906-12-09&amp;died=1992-01-01">Grace Hopper</a>, or
+      <a href="?born=2000">someone born in 2000</a>.</p>
+    <div class="card-foot">
+      <button class="btn" type="button" id="copy">Copy link</button>
+      <span class="copied" id="copied" aria-live="polite"></span>
+    </div>
+  </main>
+
+  <section class="card timeline" id="life" aria-labelledby="timeline-h" hidden>
+    <h2 class="section" id="timeline-h">Timeline</h2>
+    <p class="sub" id="timeline-sub"></p>
+    <div class="chips" role="group" aria-label="Event types on the timeline" id="life-chips"></div>
+    <ol class="life-list" id="life-list"></ol>
+  </section>
+</div>
+
+<footer>
+  © <span id="year">2026</span> <a href="https://www.strangeleaflet.com">Stephen Ball</a>. Every lifetime here has its own link.
+</footer>
+
+<script src="when.js"></script>
+<script src="site.js"></script>
+<script>
+  const W = window.When;
+  const { $, el, fill, cap, short, ageLabel, lifeMark, loadEvents } = window.Site;
+
+  // anyone older than this without a death date needs one
+  const OLDEST = 130;
+
+  let EVENTS = [];
+  // person is null until there's a birth to work from, and problem says what's wrong with the inputs
+  const state = { person: null, problem: null, hidden: new Set() };
+
+  // ---------- Helpers ----------
+
+  const INPUTS = { name: "name-in", born: "born-in", died: "died-in" };
+
+  // a comparison on the main page, where either side can be a date
+  function compareHref(a, b) {
+    return `./?${new URLSearchParams({ a, b })}`;
+  }
+
+  // "Ada Lovelace's" or "their"
+  const whose = (p) => (p.name ? `${p.name}'s` : "their");
+
+  // an age from W.agesAt, to follow "they're" or "at"
+  function ageWords([young, old]) {
+    if (young === null) return old === 0 ? "under a year old" : `${old} or younger`;
+    return young === old ? String(old) : `${young} or ${old}`;
+  }
+
+  // years since a death, from W.agesAt with the death in place of a birth
+  function afterLabel([lo, hi]) {
+    if (hi === 0) return "within a year";
+    return lo === hi ? `+${W.plural(hi, "year")}` : `+${lo ?? 0}–${hi} years`;
+  }
+
+  // ---------- URL state ----------
+
+  function readUrl() {
+    const params = new URLSearchParams(location.search);
+    for (const [key, id] of Object.entries(INPUTS)) $(id).value = params.get(key) ?? "";
+    readInputs();
+  }
+
+  function writeUrl() {
+    const params = new URLSearchParams();
+    for (const [key, id] of Object.entries(INPUTS)) {
+      const value = $(id).value.trim();
+      if (value) params.set(key, value);
+    }
+    const q = params.toString();
+    history.replaceState(null, "", q ? `?${q}` : location.pathname);
+  }
+
+  // ---------- Person ----------
+
+  // a birth, and maybe a death and a name, or the problem with them
+  function readPerson(name, bornText, diedText) {
+    const now = W.today(), t = W.dayNumber(now.y, now.m, now.d);
+    const hint = (what, y) => `For when they ${what}, try a year like ${y}, a month like ${y}-12, or a date like ${y}-12-10.`;
+    if (!bornText) return { problem: "Put in when they were born, and when they died if they have." };
+    const born = W.parse(bornText);
+    if (!born) return { problem: hint("were born", 1815) };
+    if (W.span(born)[0] > t) return { problem: "That birth hasn't happened yet." };
+    let died = null;
+    if (diedText) {
+      died = W.parse(diedText);
+      if (!died) return { problem: hint("died", 1852) };
+      if (W.span(died)[1] < W.span(born)[0]) return { problem: "That death comes before the birth. Check the dates." };
+      if (W.span(died)[0] > t) return { problem: "That death hasn't happened yet." };
+    } else if (W.agesAt(W.span(born), now)[0] > OLDEST) {
+      return { problem: `That's more than ${OLDEST} years ago, so put in when they died too.` };
+    }
+    return { person: { name, born, bornText, died, diedText } };
+  }
+
+  function readInputs() {
+    const [name, born, died] = Object.values(INPUTS).map((id) => $(id).value.trim());
+    const { person = null, problem = null } = readPerson(name, born, died);
+    state.person = person;
+    state.problem = problem;
+  }
+
+  // "Ada Lovelace was born on December 10, 1815, and died on November 27, 1852, at 36."
+  function headline(p) {
+    const subject = p.name || "They";
+    const born = `${subject} ${p.name ? "was" : "were"} born ${W.when(p.born)}`;
+    // a name never gets a pronoun, since the page can't know theirs
+    const age = ageWords(W.agesAt(W.span(p.born), W.today()));
+    if (!p.died) return p.name ? `${born}, and is ${age}.` : `${born}, so they're ${age}.`;
+    const ages = W.agesAt(W.span(p.born), p.died);
+    const at = ages[0] === null && ages[1] === 0 ? "before their first birthday" : `at ${ageWords(ages)}`;
+    return `${born}${p.born.p === W.DAY ? "," : ""} and died ${W.when(p.died)}, ${at}.`;
+  }
+
+  // the crossover of a birth and death: when they've been gone as long as they lived
+  function goneLine(p) {
+    if (!p.died) return null;
+    const c = W.compare({ when: p.born }, { when: p.died });
+    if (c.tense === "same") return null;
+    if (c.tense === "past") return `Since ${W.format(c.pivot)}, they've been gone longer than they lived.`;
+    if (c.tense === "present") return `${cap(["this year", "this month", "today"][c.p])}, they've been gone as long as they lived.`;
+    return `${cap(W.when(c.pivot))}, they'll have been gone as long as they lived. That's ${W.distance(c.pivot)} from now.`;
+  }
+
+  function renderPerson() {
+    const p = state.person;
+    $("examples").hidden = !!$("born-in").value.trim();
+    $("life").hidden = !p;
+    if (!p) {
+      $("person-h").textContent = "Whose lifetime?";
+      fill($("person-out"), el("p", { class: "status" }, state.problem));
+      document.title = "A lifetime · Further From";
+      return;
+    }
+    $("person-h").textContent = headline(p);
+    fill($("person-out"), goneLine(p) ? el("p", { class: "status" }, goneLine(p)) : null);
+    document.title = `${p.name ? `${p.name}'s lifetime` : "A lifetime"} · Further From`;
+  }
+
+  // ---------- Timeline ----------
+
+  function eventRow(e, label, cls, from) {
+    return el("li", {}, el("a", { class: "life-row", href: compareHref(from, e.key) },
+      el("span", { class: `life-age ${cls}` }, label),
+      el("span", { class: "life-date" }, short(e.when)),
+      el("span", { class: "life-title" }, e.title, el("span", { class: "tag" }, e.category))));
+  }
+
+  function renderTimeline(p) {
+    const now = W.today(), t = W.dayNumber(now.y, now.m, now.d);
+    const born = W.span(p.born);
+    const died = p.died ? W.span(p.died) : null;
+    const during = [], after = [];
+    for (const e of EVENTS) {
+      const start = W.span(e.when)[0];
+      if (start > t) continue;
+      if (!died || start <= died[1]) {
+        const ages = W.agesAt(born, e.when);
+        if (ages) during.push({ e, label: ageLabel(ages), cls: ages[0] === null ? "unsure" : "" });
+      } else {
+        after.push({ e, label: afterLabel(W.agesAt(died, e.when)), cls: "after" });
+      }
+    }
+
+    $("timeline-h").textContent = p.name ? `${p.name}'s timeline` : "Timeline";
+    const lifetime = `${whose(p)} lifetime`;
+    $("timeline-sub").textContent = (during.length
+      ? `${W.plural(during.length, "event")} on the list happened in ${lifetime}`
+      : `Nothing on the list happened in ${lifetime}`)
+      + (died ? `, and ${W.plural(after.length, "event")} since. ` : ". ")
+      + `Pick one to see when we'll be further from it than it was from ${whose(p)} birth`
+      + (died ? " or death." : ".");
+
+    const counts = new Map();
+    for (const { e } of [...during, ...after]) counts.set(e.category, (counts.get(e.category) || 0) + 1);
+    fill($("life-chips"), [...counts.keys()].sort().map((cat) => el("button", {
+      class: "chip", type: "button", "aria-pressed": String(!state.hidden.has(cat)),
+      onclick: () => {
+        if (state.hidden.has(cat)) state.hidden.delete(cat); else state.hidden.add(cat);
+        renderTimeline(state.person);
+      },
+    }, `${cat} ${counts.get(cat)}`)));
+
+    const shown = (rows, from) => rows.filter((x) => !state.hidden.has(x.e.category))
+      .map((x) => eventRow(x.e, x.label, x.cls, from));
+    const rows = [shown(during, p.bornText), died ? shown(after, p.diedText) : []];
+    const subject = p.name || "They";
+    fill($("life-list"),
+      lifeMark("born", short(p.born), `${subject} ${p.name ? "was" : "were"} born`),
+      rows[0],
+      died ? lifeMark(ageLabel(W.agesAt(born, p.died)), short(p.died), `${subject} died`) : null,
+      rows[1],
+      counts.size && !rows.flat().length ? el("li", { class: "no-match" }, "Every event type is hidden. Pick one above to show it.") : null,
+      lifeMark(died ? afterLabel(W.agesAt(died, now)) : ageLabel(W.agesAt(born, now)), short(now), "Today"));
+  }
+
+  function render() {
+    renderPerson();
+    if (!state.person) return;
+    renderTimeline(state.person);
+  }
+
+  // ---------- Events ----------
+
+  for (const id of Object.values(INPUTS)) {
+    $(id).addEventListener("input", () => {
+      readInputs();
+      writeUrl();
+      render();
+    });
+  }
+
+  $("copy").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      $("copied").textContent = "Link copied.";
+    } catch {
+      $("copied").textContent = "Couldn't copy. The address bar has the link.";
+    }
+  });
+
+  // ---------- Start ----------
+
+  async function start() {
+    $("year").textContent = W.today().y;
+    readUrl();
+    try {
+      EVENTS = await loadEvents();
+    } catch (err) {
+      fill($("person-out"), el("p", { class: "status" }, "The events didn't load. Reload the page to try again."));
+      console.error(err);
+      return;
+    }
+    render();
+  }
+
+  start();
+</script>
+</body>
+</html>

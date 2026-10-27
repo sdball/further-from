@@ -8,8 +8,11 @@ There's no build step and no dependencies. `public/` is the whole site, and
 pushing to `main` deploys it to GitHub Pages.
 
 ```
-public/index.html    the page: comparison, picker, lifetime timeline, upcoming crossovers, interesting pairs
-public/when.js       the date math, shared by the page and the tests
+public/index.html    the main page: comparison, picker, lifetime timeline, upcoming crossovers, interesting pairs
+public/life.html     someone else's lifetime, from their birth and maybe their death
+public/site.css      the styles, shared by both pages
+public/site.js       helpers and event loading, shared by both pages
+public/when.js       the date math, shared by the pages and the tests
 public/events/       every event, one file per category, listed in index.json
 test/                node --test checks for the date math and the events
 scripts/serve        serves public/ locally
@@ -27,7 +30,7 @@ scripts/serve --list # Python servers still running, with their pids
 node --test test/*.test.mjs
 ```
 
-Use the server rather than opening the file directly, since the page fetches the event files.
+Use the server rather than opening the files directly, since the pages fetch the event files.
 
 ## Adding an event
 
@@ -76,3 +79,9 @@ The rest of the page lives in the URL too. `?born=1985-06-14` (or a year) or
 `?age=40` fills in "In your lifetime", and `?view=` shows one card on its own:
 `comparison`, `what-if`, `lifetime`, `calendar`, or `pairs`. Each of those cards
 has a Focus button, and Escape shows everything again.
+
+`life.html` does the same for anyone else:
+`life.html?name=Ada+Lovelace&born=1815-12-10&died=1852-11-27`. Only `born` is
+needed. It lists every event from their birth to today with their age at each
+one (or the years since they died), and when they'll have been gone as long as
+they lived.

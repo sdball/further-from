@@ -19,14 +19,17 @@ and the vetting scripts. This file covers what the README doesn't.
 - The git history before "Rebuild Further From as a static site" is an old
   Elixir/Phoenix app. Ignore it.
 
-## The page
+## The pages
 
-`public/index.html` is the whole app: styles, markup, and one inline script
-split into `// ---------- Section ----------` blocks (URL state, Comparison,
-Picker, What if, Crossovers on the calendar, In your lifetime, Focus, Events,
-Start).
-Put new code in the section it belongs to, and match the style: the `el()` and
-`$()` helpers, one `state` object, and `render*` functions.
+There are two pages: `public/index.html` (the comparison and everything around
+it) and `public/life.html` (someone else's lifetime). Each has its markup and
+one inline script split into `// ---------- Section ----------` blocks (URL
+state, Comparison, Picker, and so on). What they share lives in
+`public/site.css` (every style) and `public/site.js`, a plain script like
+`when.js` that sets `window.Site` with the `el()`, `$()`, and `fill()` helpers,
+a few labels, and `loadEvents()`. Code used by one page stays in that page.
+Put new code in the section it belongs to, and match the style: those helpers,
+one `state` object, and `render*` functions.
 
 - Colors are CSS custom properties on `:root`, with a dark theme under
   `prefers-color-scheme` and `[data-theme]`. Use the tokens, not literal colors.
