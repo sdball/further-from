@@ -34,5 +34,320 @@
     "category": "books",
     "description": "\"Disliking the dinginess of the single restaurant I had seen, I bought a fair supply of cheese crackers and ginger wafers to serve as a lunch later on.\" Cheez-Its were launched in 1921 so the narrator could plausibly be referring to them. Despite the power of cheese crackers the narrator fled before dawn on July 16. Lovecraft's horror of racial mixing absolutely influenced the story.",
     "source": "https://en.wikipedia.org/wiki/The_Shadow_over_Innsmouth"
+  },
+  {
+    "key": "diamond-sutra-printed",
+    "date": "868",
+    "title": "Diamond Sutra printed",
+    "phrase": "the printing of the Diamond Sutra",
+    "category": "books",
+    "description": "This woodblock-printed scroll of a Buddhist sutra is broadly considered the oldest surviving printed book. It was walled up in the Mogao Caves near Dunhuang and found there in 1900. Its colophon says it was \"reverently made for universal free distribution by Wang Jie on behalf of his two parents,\" the first known public domain dedication.",
+    "source": "https://en.wikipedia.org/wiki/Diamond_Sutra"
+  },
+  {
+    "key": "journey-to-the-west",
+    "date": "1592",
+    "title": "Earliest surviving edition of Journey to the West",
+    "phrase": "the earliest surviving edition of Journey to the West",
+    "category": "books",
+    "description": "A fantastic retelling of the monk Xuanzang's real 7th-century pilgrimage to India for Buddhist scriptures, with Sun Wukong, a monkey born from a stone who learns 72 transformations. This Nanjing edition is the oldest copy left; two earlier editions are lost.",
+    "source": "https://en.wikipedia.org/wiki/Journey_to_the_West"
+  },
+  {
+    "key": "don-quixote-published",
+    "date": "1605",
+    "title": "Don Quixote published",
+    "phrase": "the publication of Don Quixote",
+    "category": "books",
+    "description": "Miguel de Cervantes's would-be knight attacks windmills he believes are giants, which gave us \"tilting at windmills.\" It's often called the first modern novel. A writer calling himself Avellaneda beat Cervantes to a Part Two with a spurious one, so the real Part Two (1615) ends by insisting that any further books about Don Quixote would be spurious too.",
+    "source": "https://en.wikipedia.org/wiki/Don_Quixote"
+  },
+  {
+    "key": "first-folio-published",
+    "date": "1623",
+    "title": "Shakespeare's First Folio published",
+    "phrase": "the publication of Shakespeare's First Folio",
+    "category": "books",
+    "description": "Seven years after Shakespeare died, his fellow actors John Heminges and Henry Condell collected 36 of his plays. Eighteen of them, including Macbeth, The Tempest, and Twelfth Night, aren't known to have been printed before.",
+    "source": "https://en.wikipedia.org/wiki/First_Folio"
+  },
+  {
+    "key": "johnsons-dictionary-published",
+    "date": "1755-04-15",
+    "title": "Samuel Johnson's Dictionary published",
+    "phrase": "the publication of Samuel Johnson's Dictionary",
+    "category": "books",
+    "description": "Johnson claimed he could write it in three years. It took seven, and he did it single-handedly, with clerks only to copy out quotations. Some definitions are opinions: a lexicographer is \"a harmless drudge,\" and oats are \"a grain which in England is generally given to horses, but in Scotland supports the people.\"",
+    "source": "https://en.wikipedia.org/wiki/A_Dictionary_of_the_English_Language"
+  },
+  {
+    "key": "grimms-fairy-tales-published",
+    "date": "1812",
+    "title": "Grimms' Fairy Tales published",
+    "phrase": "the publication of Grimms' Fairy Tales",
+    "category": "books",
+    "description": "Jacob and Wilhelm Grimm called their collection Children's and Household Tales, and critics said it wasn't suitable for children. Later editions toned it down: the wicked mothers in Snow White and Hansel and Gretel became stepmothers, and Rapunzel stopped asking why her dress was getting tight.",
+    "source": "https://en.wikipedia.org/wiki/Grimms%27_Fairy_Tales"
+  },
+  {
+    "key": "pride-and-prejudice-published",
+    "date": "1813-01-28",
+    "title": "Pride and Prejudice published",
+    "phrase": "the publication of Pride and Prejudice",
+    "category": "books",
+    "description": "Jane Austen asked for £150 and sold the copyright to Thomas Egerton for £110. Like all her novels, it was published anonymously.",
+    "source": "https://en.wikipedia.org/wiki/Pride_and_Prejudice"
+  },
+  {
+    "key": "frankenstein-published",
+    "date": "1818-01-01",
+    "title": "Frankenstein published",
+    "phrase": "the publication of Frankenstein",
+    "category": "books",
+    "description": "In the cold, rainy \"Year Without a Summer\" after Mount Tambora erupted, Lord Byron suggested that he, Mary and Percy Shelley, and John Polidori each write a ghost story. Mary was 18. Her story, published anonymously, is one of the first science fiction novels.",
+    "source": "https://en.wikipedia.org/wiki/Frankenstein"
+  },
+  {
+    "key": "cherokee-syllabary-completed",
+    "date": "1821",
+    "title": "Sequoyah completes the Cherokee syllabary",
+    "phrase": "Sequoyah's completion of the Cherokee syllabary",
+    "category": "books",
+    "description": "Sequoyah couldn't read or write when he set out to give Cherokee a written form, and he settled on a symbol for each syllable, 86 in all. By 1825 most Cherokees could read and write in it, and the Cherokee Phoenix newspaper was printed in it.",
+    "source": "https://en.wikipedia.org/wiki/Cherokee_syllabary"
+  },
+  {
+    "key": "champollion-reads-hieroglyphs",
+    "date": "1822-09-27",
+    "title": "Champollion presents the decipherment of hieroglyphs",
+    "phrase": "Champollion's presentation of how to read hieroglyphs",
+    "category": "books",
+    "description": "Two weeks earlier, Jean-François Champollion had worked out that hieroglyphs were partly phonetic, shouted \"Je tiens l'affaire!\" (\"I've got it!\"), and fainted. On this day he showed his findings to a packed room at the Académie des Inscriptions et Belles-Lettres.",
+    "source": "https://en.wikipedia.org/wiki/Lettre_%C3%A0_M._Dacier"
+  },
+  {
+    "key": "a-christmas-carol-published",
+    "date": "1843-12-19",
+    "title": "A Christmas Carol published",
+    "phrase": "the publication of A Christmas Carol",
+    "category": "books",
+    "description": "Charles Dickens wrote it in six weeks, and the first edition sold out by Christmas Eve. A pirated copy appeared in January, and when Dickens sued, the pirates went bankrupt, which shrank his small profits even further.",
+    "source": "https://en.wikipedia.org/wiki/A_Christmas_Carol"
+  },
+  {
+    "key": "moby-dick-published",
+    "date": "1851-10-18",
+    "title": "Moby-Dick published",
+    "phrase": "the publication of Moby-Dick",
+    "category": "books",
+    "description": "It came out in London first, and the British edition lacked the epilogue, so reviewers wondered how a narrator who went down with the ship was telling the story. It was a commercial failure and out of print when Herman Melville died in 1891.",
+    "source": "https://en.wikipedia.org/wiki/Moby-Dick"
+  },
+  {
+    "key": "alice-in-wonderland-published",
+    "date": "1865-11-26",
+    "title": "Alice's Adventures in Wonderland published",
+    "phrase": "the publication of Alice's Adventures in Wonderland",
+    "category": "books",
+    "description": "Lewis Carroll made the story up on July 4, 1862, rowing up the river Isis with the three young Liddell sisters, and Alice Liddell asked him to write it down. Carroll scrapped the first print run because the illustrator, John Tenniel, was unhappy with the printing.",
+    "source": "https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland"
+  },
+  {
+    "key": "oxford-english-dictionary-begins",
+    "date": "1884",
+    "title": "First installment of the Oxford English Dictionary",
+    "phrase": "the first installment of the Oxford English Dictionary",
+    "category": "books",
+    "description": "The first part was 352 pages and covered A to Ant. The editors hoped to finish in ten years, and the last part, Wise to the end of W, came out 44 years later. One especially prolific volunteer, the American surgeon W. C. Minor, sent in his quotation slips from Broadmoor Asylum.",
+    "source": "https://en.wikipedia.org/wiki/Oxford_English_Dictionary"
+  },
+  {
+    "key": "sherlock-holmes-first-appears",
+    "date": "1887",
+    "title": "Sherlock Holmes first appears",
+    "phrase": "the first appearance of Sherlock Holmes",
+    "category": "books",
+    "description": "A Study in Scarlet ran in Beeton's Christmas Annual after many rejections. Arthur Conan Doyle pressed for a royalty and got £25 for the full rights instead.",
+    "source": "https://en.wikipedia.org/wiki/A_Study_in_Scarlet"
+  },
+  {
+    "key": "dracula-published",
+    "date": "1897-05-26",
+    "title": "Dracula published",
+    "phrase": "the publication of Dracula",
+    "category": "books",
+    "description": "Bram Stoker told the story entirely through letters, diary entries, and newspaper articles. He originally set it in Styria, not Transylvania.",
+    "source": "https://en.wikipedia.org/wiki/Dracula"
+  },
+  {
+    "key": "wonderful-wizard-of-oz-published",
+    "date": "1900-09-01",
+    "title": "The Wonderful Wizard of Oz published",
+    "phrase": "the publication of the book The Wonderful Wizard of Oz",
+    "category": "books",
+    "description": "L. Frank Baum's story of Dorothy and Toto, illustrated by W. W. Denslow, had a first printing of 10,000 copies and had sold three million by 1956. Dorothy's shoes are silver. The 1939 movie made them ruby.",
+    "source": "https://en.wikipedia.org/wiki/The_Wonderful_Wizard_of_Oz"
+  },
+  {
+    "key": "marvelous-land-of-oz-published",
+    "date": "1904-07",
+    "title": "The Marvelous Land of Oz published",
+    "phrase": "the publication of The Marvelous Land of Oz",
+    "category": "books",
+    "description": "The first Oz sequel, and Dorothy isn't in it. The Scarecrow and the Tin Woodman got the big parts because they'd been the stars of the 1902 stage play. It introduces Princess Ozma and Jack Pumpkinhead.",
+    "source": "https://en.wikipedia.org/wiki/The_Marvelous_Land_of_Oz"
+  },
+  {
+    "key": "ozma-of-oz-published",
+    "date": "1907",
+    "title": "Ozma of Oz published",
+    "phrase": "the publication of Ozma of Oz",
+    "category": "books",
+    "description": "Dorothy returns, along with a talking yellow hen she names Billina. They meet Tik-Tok, a clockwork man and one of the first intelligent humanoid automata in literature.",
+    "source": "https://en.wikipedia.org/wiki/Ozma_of_Oz"
+  },
+  {
+    "key": "emerald-city-of-oz-published",
+    "date": "1910-07-20",
+    "title": "The Emerald City of Oz published",
+    "phrase": "the publication of The Emerald City of Oz",
+    "category": "books",
+    "description": "Baum meant this to be the last Oz book. Dorothy moves to Oz for good with Uncle Henry and Aunt Em, and Glinda makes Oz invisible to the outside world. Money troubles brought him back three years later, with eight more Oz books to come.",
+    "source": "https://en.wikipedia.org/wiki/The_Emerald_City_of_Oz"
+  },
+  {
+    "key": "glinda-of-oz-published",
+    "date": "1920-07-10",
+    "title": "Glinda of Oz published",
+    "phrase": "the publication of Glinda of Oz",
+    "category": "books",
+    "description": "Baum's fourteenth and final Oz book came out a year after he died. Other authors kept the series going, especially Ruth Plumly Thompson, who wrote 21 more.",
+    "source": "https://en.wikipedia.org/wiki/Glinda_of_Oz"
+  },
+  {
+    "key": "winnie-the-pooh-published",
+    "date": "1926-10-14",
+    "title": "Winnie-the-Pooh published",
+    "phrase": "the publication of Winnie-the-Pooh",
+    "category": "books",
+    "description": "A. A. Milne's stories star the stuffed animals of his son, Christopher Robin, who named his teddy bear after Winnie, a Canadian black bear he often saw at London Zoo.",
+    "source": "https://en.wikipedia.org/wiki/Winnie-the-Pooh_(book)"
+  },
+  {
+    "key": "first-penguin-paperbacks",
+    "date": "1935-07-30",
+    "title": "First Penguin paperbacks",
+    "phrase": "the launch of Penguin paperbacks",
+    "category": "books",
+    "description": "Allen Lane said the poor reading on offer at Exeter's railway station inspired him. Penguins cost sixpence, the price of a pack of cigarettes, and were sold at Woolworths. Ten months later, a million had been printed.",
+    "source": "https://en.wikipedia.org/wiki/Penguin_Books"
+  },
+  {
+    "key": "the-hobbit-published",
+    "date": "1937-09-21",
+    "title": "The Hobbit published",
+    "phrase": "the publication of The Hobbit",
+    "category": "books",
+    "description": "J. R. R. Tolkien was marking exam papers when he found a blank page and wrote, \"In a hole in the ground there lived a hobbit.\" Once Bilbo's ring became the One Ring, Tolkien revised the second edition so Gollum turned aggressive and was distraught at losing it.",
+    "source": "https://en.wikipedia.org/wiki/The_Hobbit"
+  },
+  {
+    "key": "the-little-prince-published",
+    "date": "1943-04-06",
+    "title": "The Little Prince published",
+    "phrase": "the publication of The Little Prince",
+    "category": "books",
+    "description": "Antoine de Saint-Exupéry wrote and illustrated it while living in New York, and it came out in the US first, in English and French. It's been translated into 600 languages and dialects, more than any book but the Bible.",
+    "source": "https://en.wikipedia.org/wiki/The_Little_Prince"
+  },
+  {
+    "key": "nineteen-eighty-four-published",
+    "date": "1949-06-08",
+    "title": "Nineteen Eighty-Four published",
+    "phrase": "the publication of Nineteen Eighty-Four",
+    "category": "books",
+    "description": "George Orwell wrote much of it on the Scottish island of Jura and finished the first draft in bed, shortly before he was diagnosed with tuberculosis. It gave English Big Brother, doublethink, thoughtcrime, and Newspeak.",
+    "source": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four"
+  },
+  {
+    "key": "linear-b-deciphered",
+    "date": "1952-07-01",
+    "title": "Linear B deciphered",
+    "phrase": "the decipherment of Linear B",
+    "category": "books",
+    "description": "As a 14-year-old schoolboy, Michael Ventris heard Arthur Evans, the excavator of Knossos, give a lecture. Building on Alice Kober's research, Ventris, an architect, showed that the script was Mycenaean Greek, the earliest known form of Greek, and announced it in a BBC radio talk.",
+    "source": "https://en.wikipedia.org/wiki/Michael_Ventris"
+  },
+  {
+    "key": "the-cat-in-the-hat-published",
+    "date": "1957-03-12",
+    "title": "The Cat in the Hat published",
+    "phrase": "the publication of The Cat in the Hat",
+    "category": "books",
+    "description": "After John Hersey complained in Life that school primers like Dick and Jane were dull, Dr. Seuss was challenged: \"Write me a story that first-graders can't put down!\" He had to stick to a list of easy words, and the finished book uses 236 different ones.",
+    "source": "https://en.wikipedia.org/wiki/The_Cat_in_the_Hat"
+  },
+  {
+    "key": "things-fall-apart-published",
+    "date": "1958-06-17",
+    "title": "Things Fall Apart published",
+    "phrase": "the publication of Things Fall Apart",
+    "category": "books",
+    "description": "Chinua Achebe's first novel follows Okonkwo, an Igbo leader, as British missionaries and colonial rule arrive. Achebe decided to become a writer after reading Joyce Cary's Mister Johnson, which portrayed its Nigerian characters as savages or buffoons.",
+    "source": "https://en.wikipedia.org/wiki/Things_Fall_Apart"
+  },
+  {
+    "key": "one-hundred-years-of-solitude-published",
+    "date": "1967-05",
+    "title": "One Hundred Years of Solitude published",
+    "phrase": "the publication of One Hundred Years of Solitude",
+    "category": "books",
+    "description": "Driving his family to Acapulco on vacation, Gabriel García Márquez thought of how the book should begin, turned the car around, and went home to Mexico City to write it. It follows generations of the Buendía family in Macondo, a town inspired by his childhood home, and has sold more than 50 million copies.",
+    "source": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude"
+  },
+  {
+    "key": "project-gutenberg-begins",
+    "date": "1971-07-04",
+    "title": "Project Gutenberg begins",
+    "phrase": "the start of Project Gutenberg",
+    "category": "books",
+    "description": "On the Fourth of July, Michael Hart, a student at the University of Illinois, typed the US Declaration of Independence into a computer on the ARPANET and shared it. It was the first book in what's now the oldest digital library.",
+    "source": "https://en.wikipedia.org/wiki/Project_Gutenberg"
+  },
+  {
+    "key": "hitchhikers-guide-novel-published",
+    "date": "1979-10-12",
+    "title": "The Hitchhiker's Guide to the Galaxy published",
+    "phrase": "the publication of the novel The Hitchhiker's Guide to the Galaxy",
+    "category": "books",
+    "description": "Douglas Adams adapted it from his radio comedy series. The supercomputer Deep Thought works out the answer to the Ultimate Question of Life, the Universe, and Everything: 42. Unfortunately, nobody knows what the question is.",
+    "source": "https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy_(novel)"
+  },
+  {
+    "key": "neuromancer-published",
+    "date": "1984-07-01",
+    "title": "Neuromancer published",
+    "phrase": "the publication of Neuromancer",
+    "category": "books",
+    "description": "William Gibson's debut novel popularized cyberspace and \"jacking in\" and set the vocabulary of cyberpunk. It's still the only novel to win the Hugo, the Nebula, and the Philip K. Dick Award.",
+    "source": "https://en.wikipedia.org/wiki/Neuromancer"
+  },
+  {
+    "key": "harry-potter-philosophers-stone-published",
+    "date": "1997-06-26",
+    "title": "Harry Potter and the Philosopher's Stone published",
+    "phrase": "the publication of Harry Potter and the Philosopher's Stone",
+    "category": "books",
+    "description": "Most publishers thought it was too long at about 90,000 words. Bloomsbury took it and printed 500 copies, 300 of which went to libraries. In the US, Scholastic thought \"philosopher\" sounded too archaic and called it the Sorcerer's Stone.",
+    "source": "https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone"
+  },
+  {
+    "key": "snow-crash-published",
+    "date": "1992-06",
+    "title": "Snow Crash published",
+    "phrase": "the publication of Snow Crash",
+    "category": "books",
+    "description": "Neal Stephenson's hero, Hiro Protagonist, is a freelance hacker and a pizza delivery driver for the Mafia. The book coined \"the Metaverse\" and popularized \"avatar\" for a body online. Its title is Stephenson's name for the static-like gibberish an early Macintosh showed when it crashed.",
+    "source": "https://en.wikipedia.org/wiki/Snow_Crash"
   }
 ]
