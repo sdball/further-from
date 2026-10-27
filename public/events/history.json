@@ -466,5 +466,248 @@
     "category": "history",
     "description": "Farmers near Xi'an dug into the tomb complex of China's first emperor. The pits hold an estimated 8,000 soldiers, most of them still buried.",
     "source": "https://en.wikipedia.org/wiki/Terracotta_Army"
+  },
+  {
+    "key": "qin-unifies-china",
+    "date": "-220",
+    "title": "Qin unifies China",
+    "phrase": "the Qin unification of China",
+    "category": "history",
+    "description": "King Zheng of Qin conquered the last of the Warring States and declared himself Qin Shi Huang, China's first emperor. He standardized weights and measures across the country and was buried with the Terracotta Army.",
+    "source": "https://en.wikipedia.org/wiki/Qin_Shi_Huang"
+  },
+  {
+    "key": "the-hijra",
+    "date": "622",
+    "title": "The Hijra",
+    "phrase": "the Hijra",
+    "category": "history",
+    "description": "Muhammad and his followers left Mecca for Medina, at the invitation of the city's tribes. The year of the journey became year one of the Islamic calendar.",
+    "source": "https://en.wikipedia.org/wiki/Hijrah"
+  },
+  {
+    "key": "founding-of-baghdad",
+    "date": "762",
+    "title": "Founding of Baghdad",
+    "phrase": "the founding of Baghdad",
+    "category": "history",
+    "description": "The caliph al-Mansur founded Baghdad as the capital of the Abbasid Caliphate. It became a center of learning, and by the middle of the 800s its House of Wisdom had the largest selection of books in the world.",
+    "source": "https://en.wikipedia.org/wiki/Baghdad"
+  },
+  {
+    "key": "mansa-musa-hajj",
+    "date": "1324",
+    "title": "Mansa Musa's hajj",
+    "phrase": "Mansa Musa's hajj",
+    "category": "history",
+    "description": "Mansa Musa, ruler of the Mali Empire, made the pilgrimage to Mecca with an enormous entourage and a vast supply of gold. He gave away so much of it in Cairo that he's said to have lowered the value of gold in Egypt.",
+    "source": "https://en.wikipedia.org/wiki/Mansa_Musa"
+  },
+  {
+    "key": "founding-of-tenochtitlan",
+    "date": "1325",
+    "title": "Founding of Tenochtitlan",
+    "phrase": "the founding of Tenochtitlan",
+    "category": "history",
+    "description": "The Mexica founded Tenochtitlan on an island in Lake Texcoco. At its peak it was the largest city in the Americas before Columbus, and its ruins lie under the historic center of Mexico City.",
+    "source": "https://en.wikipedia.org/wiki/Tenochtitlan"
+  },
+  {
+    "key": "zheng-he-treasure-voyages",
+    "date": "1405",
+    "title": "Zheng He's treasure fleet sets sail",
+    "phrase": "the first voyage of Zheng He's treasure fleet",
+    "category": "history",
+    "description": "Admiral Zheng He led the first of seven Ming treasure voyages across the Indian Ocean. The early voyages reached India, and the later ones went as far as Arabia and East Africa.",
+    "source": "https://en.wikipedia.org/wiki/Ming_treasure_voyages"
+  },
+  {
+    "key": "forbidden-city-completed",
+    "date": "1420",
+    "title": "Forbidden City completed",
+    "phrase": "the completion of the Forbidden City",
+    "category": "history",
+    "description": "The palace in Beijing was home to twenty-four Ming and Qing emperors and the center of power in China for five centuries. Today it's the Palace Museum.",
+    "source": "https://en.wikipedia.org/wiki/Forbidden_City"
+  },
+  {
+    "key": "hangul-published",
+    "date": "1446",
+    "title": "Hangul published",
+    "phrase": "the publication of Hangul",
+    "category": "history",
+    "description": "King Sejong the Great published \"The Correct Sounds for the Instruction of the People,\" introducing a native Korean alphabet. Chinese characters fit Korean poorly and were hard to learn, and Sejong wanted ordinary people to be able to read and write.",
+    "source": "https://en.wikipedia.org/wiki/Hunminjeongeum"
+  },
+  {
+    "key": "tokugawa-shogunate",
+    "date": "1603-03-24",
+    "title": "Tokugawa Ieyasu becomes shogun",
+    "phrase": "the founding of the Tokugawa shogunate",
+    "category": "history",
+    "description": "Tokugawa Ieyasu became shogun and his family ruled Japan from Edo, now Tokyo, for the next 265 years. The shogunate kept most foreigners out of the country under a policy called sakoku.",
+    "source": "https://en.wikipedia.org/wiki/Tokugawa_shogunate"
+  },
+  {
+    "key": "taj-mahal-completed",
+    "date": "1653",
+    "title": "Taj Mahal completed",
+    "phrase": "the completion of the Taj Mahal",
+    "category": "history",
+    "description": "The Mughal emperor Shah Jahan built the white marble mausoleum in Agra for his late wife, Mumtaz Mahal. More than 20,000 artisans and laborers worked on it, and he was later buried there too.",
+    "source": "https://en.wikipedia.org/wiki/Taj_Mahal"
+  },
+  {
+    "key": "haitian-independence",
+    "date": "1804-01-01",
+    "title": "Haiti declares independence",
+    "phrase": "the Haitian declaration of independence",
+    "category": "history",
+    "description": "Jean-Jacques Dessalines declared Haiti independent from France at the end of the Haitian Revolution, one of the only slave revolts in history to found a state. Haiti was the first independent nation in Latin America and the Caribbean.",
+    "source": "https://en.wikipedia.org/wiki/Haitian_Declaration_of_Independence"
+  },
+  {
+    "key": "cry-of-dolores",
+    "date": "1810-09-16",
+    "title": "The Cry of Dolores",
+    "phrase": "the Cry of Dolores",
+    "category": "history",
+    "description": "Before dawn, the priest Miguel Hidalgo rang his church bell in Dolores and called his parishioners to rise against Spanish rule, beginning the Mexican War of Independence. Every year, the president of Mexico rings the same bell to re-enact it.",
+    "source": "https://en.wikipedia.org/wiki/Grito_de_Dolores"
+  },
+  {
+    "key": "treaty-of-waitangi",
+    "date": "1840-02-06",
+    "title": "Treaty of Waitangi signed",
+    "phrase": "the signing of the Treaty of Waitangi",
+    "category": "history",
+    "description": "Māori chiefs and the British Crown signed New Zealand's founding document. More than 500 chiefs signed the Māori text, which granted the Crown governance, while only 39 signed the English one, which ceded sovereignty. Whether Māori ever gave up sovereignty is still debated.",
+    "source": "https://en.wikipedia.org/wiki/Treaty_of_Waitangi"
+  },
+  {
+    "key": "meiji-restoration",
+    "date": "1868-01-03",
+    "title": "Meiji Restoration",
+    "phrase": "the Meiji Restoration",
+    "category": "history",
+    "description": "Domain troops seized the Imperial Palace in Kyoto from the shogunate, and the fifteen-year-old Emperor Meiji declared power restored to the imperial house after more than two and a half centuries of Tokugawa rule. Japan went on to industrialize at a remarkable pace.",
+    "source": "https://en.wikipedia.org/wiki/Meiji_Restoration"
+  },
+  {
+    "key": "suez-canal-opens",
+    "date": "1869-11-17",
+    "title": "Suez Canal opens",
+    "phrase": "the opening of the Suez Canal",
+    "category": "history",
+    "description": "The canal joined the Mediterranean to the Red Sea, so ships between Europe and Asia no longer had to sail around Africa. Much of it was dug by forced Egyptian labor, and tens of thousands of workers died, many of cholera.",
+    "source": "https://en.wikipedia.org/wiki/Suez_Canal"
+  },
+  {
+    "key": "last-emperor-of-china-abdicates",
+    "date": "1912-02-12",
+    "title": "Last emperor of China abdicates",
+    "phrase": "the abdication of the last emperor of China",
+    "category": "history",
+    "description": "After the Xinhai Revolution, the Empress Dowager signed an abdication edict on behalf of six-year-old Puyi. It ended more than two thousand years of imperial rule in China, though Puyi got to keep his title and stay in the Forbidden City.",
+    "source": "https://en.wikipedia.org/wiki/Imperial_Edict_of_the_Abdication_of_the_Qing_Emperor"
+  },
+  {
+    "key": "republic-of-turkey-proclaimed",
+    "date": "1923-10-29",
+    "title": "Republic of Turkey proclaimed",
+    "phrase": "the proclamation of the Republic of Turkey",
+    "category": "history",
+    "description": "The Grand National Assembly declared Turkey a republic, in place of the Ottoman Empire, with a constitutional amendment drafted by Mustafa Kemal Atatürk. It opened the way for his sweeping reforms to modernize Turkish society.",
+    "source": "https://en.wikipedia.org/wiki/Proclamation_of_the_Republic_of_Turkey"
+  },
+  {
+    "key": "salt-march",
+    "date": "1930-03-12",
+    "title": "Gandhi's Salt March begins",
+    "phrase": "the start of the Salt March",
+    "category": "history",
+    "description": "Gandhi and 78 volunteers set out on a 24-day walk to the sea at Dandi, where he made salt in defiance of the British salt monopoly. The nonviolent protest drew the world's attention to the movement for Indian independence.",
+    "source": "https://en.wikipedia.org/wiki/Salt_March"
+  },
+  {
+    "key": "indonesian-independence",
+    "date": "1945-08-17",
+    "title": "Indonesia declares independence",
+    "phrase": "the proclamation of Indonesian independence",
+    "category": "history",
+    "description": "Two days after Japan surrendered, Sukarno and Mohammad Hatta proclaimed Indonesia's independence. The Netherlands, which had ruled the islands as a colony, fought it and didn't recognize Indonesia until 1949.",
+    "source": "https://en.wikipedia.org/wiki/Proclamation_of_Indonesian_Independence"
+  },
+  {
+    "key": "indian-independence",
+    "date": "1947-08-15",
+    "title": "India becomes independent",
+    "phrase": "Indian independence",
+    "category": "history",
+    "description": "India became independent from Britain, and Jawaharlal Nehru raised the flag over the Red Fort in Delhi. Independence came with Partition, which split British India into India and Pakistan and displaced between 12 and 20 million people.",
+    "source": "https://en.wikipedia.org/wiki/Independence_Day_(India)"
+  },
+  {
+    "key": "founding-of-the-prc",
+    "date": "1949-10-01",
+    "title": "People's Republic of China proclaimed",
+    "phrase": "the founding of the People's Republic of China",
+    "category": "history",
+    "description": "Mao Zedong proclaimed the People's Republic of China in Tiananmen Square after the Communists won the civil war. The Nationalist government retreated to Taiwan.",
+    "source": "https://en.wikipedia.org/wiki/Proclamation_of_the_People%27s_Republic_of_China"
+  },
+  {
+    "key": "ghana-independence",
+    "date": "1957-03-06",
+    "title": "Ghana becomes independent",
+    "phrase": "Ghana's independence",
+    "category": "history",
+    "description": "The British colony of the Gold Coast became Ghana, the first colony in sub-Saharan Africa to win its independence. Under its first leader, Kwame Nkrumah, Ghana became a force in decolonization and the Pan-African movement.",
+    "source": "https://en.wikipedia.org/wiki/Ghana"
+  },
+  {
+    "key": "tokyo-olympics-1964",
+    "date": "1964-10-10",
+    "title": "Tokyo Olympics open",
+    "phrase": "the 1964 Tokyo Olympics",
+    "category": "history",
+    "description": "The first Olympics held in Asia. The flame was lit by Yoshinori Sakai, born in Hiroshima on the day of the atomic bombing, to stand for Japan's postwar reconstruction and peace. They were also the first Games to bar South Africa over apartheid.",
+    "source": "https://en.wikipedia.org/wiki/1964_Summer_Olympics"
+  },
+  {
+    "key": "cultural-revolution-begins",
+    "date": "1966-05-16",
+    "title": "Cultural Revolution begins",
+    "phrase": "the start of the Cultural Revolution",
+    "category": "history",
+    "description": "Mao Zedong launched the Cultural Revolution, saying that bourgeois elements had infiltrated the government and society. Students formed Red Guards, who attacked teachers and officials and destroyed temples, books, and artifacts as the \"Four Olds.\"",
+    "source": "https://en.wikipedia.org/wiki/Cultural_Revolution"
+  },
+  {
+    "key": "cultural-revolution-ends",
+    "date": "1976-10-06",
+    "title": "Cultural Revolution ends",
+    "phrase": "the end of the Cultural Revolution",
+    "category": "history",
+    "description": "A month after Mao's death, the Gang of Four, the radicals who had dominated its last years, were arrested in a bloodless coup. A decade of upheaval was over, and estimates of its death toll range from one to two million.",
+    "source": "https://en.wikipedia.org/wiki/Gang_of_Four"
+  },
+  {
+    "key": "south-africa-first-free-election",
+    "date": "1994-04-27",
+    "title": "South Africa's first free election",
+    "phrase": "South Africa's first election open to all races",
+    "category": "history",
+    "description": "South Africans of every race voted in the same election for the first time, ending apartheid at the ballot box. The new parliament's first act was to elect Nelson Mandela, the country's first Black president.",
+    "source": "https://en.wikipedia.org/wiki/1994_South_African_general_election"
+  },
+  {
+    "key": "hong-kong-handover",
+    "date": "1997-07-01",
+    "title": "Hong Kong handed over to China",
+    "phrase": "the handover of Hong Kong",
+    "category": "history",
+    "description": "Britain returned Hong Kong to China, ending 156 years of British rule that began when it took Hong Kong Island in the First Opium War. China promised the city \"one country, two systems.\"",
+    "source": "https://en.wikipedia.org/wiki/Handover_of_Hong_Kong"
   }
 ]
