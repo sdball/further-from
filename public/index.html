@@ -33,6 +33,8 @@
   </div>
   <nav class="nav" aria-label="Pages">
     <a href="./" aria-current="page">Compare two moments</a>
+    <a href="event.html">One moment</a>
+    <a href="anniversaries.html">Anniversaries</a>
     <a href="life.html">A lifetime</a>
     <button class="theme-toggle" id="theme" type="button" hidden></button>
   </nav>
@@ -74,38 +76,6 @@
     </section>
   </div>
 
-  <section class="card age" aria-labelledby="age-h" data-card="lifetime">
-    <div class="card-head">
-      <h2 class="section" id="age-h">In your lifetime</h2>
-      <button class="btn small focus-btn" type="button" data-focus="lifetime">Focus</button>
-    </div>
-    <p class="sub">Put in your age, or your birthday for ages to the day, to see every event since you were born, how old you were for each one, and the crossovers with your birth coming up soon. Pick one to find when we'll be further from it than it was from your birth. For anyone else, living or not, see <a href="life.html">A lifetime</a>.</p>
-    <div class="age-controls">
-      <label class="whatif-label" for="age-in">Your age or birthday</label>
-      <input class="search age-input" id="age-in" type="text" placeholder="40 or 1985-06-14" autocomplete="off" spellcheck="false">
-    </div>
-    <p class="status" id="age-summary" aria-live="polite"></p>
-    <div class="life" id="life" hidden>
-      <div class="life-main">
-        <h3 class="feed-head">Your timeline</h3>
-        <div class="chips" role="group" aria-label="Event types on your timeline" id="life-chips"></div>
-        <ol class="life-list" id="life-list"></ol>
-      </div>
-      <div>
-        <div class="life-soon">
-          <h3 class="feed-head">Your next crossovers</h3>
-          <p class="count" id="life-soon-count"></p>
-          <ol class="feed" id="life-soon"></ol>
-          <button class="btn small age-more" type="button" id="life-soon-more" hidden>Show more</button>
-        </div>
-        <h3 class="feed-head">As far apart as you've been alive</h3>
-        <p class="count" id="age-count"></p>
-        <ul class="pairs" id="age-pairs"></ul>
-        <button class="btn small age-more" type="button" id="age-more" hidden>Show more</button>
-      </div>
-    </div>
-  </section>
-
   <div class="lower">
     <section class="card" aria-labelledby="soon-h" data-card="calendar">
       <div class="card-head">
@@ -145,7 +115,7 @@
 <script src="site.js"></script>
 <script>
   const W = window.When;
-  const { $, el, fill, cap, short, ageLabel, lifeMark, categoryChips, loadEvents } = window.Site;
+  const { $, el, fill, cap, short, isoDate, fromNow, eventHref, sourceLink, categoryChips, loadEvents } = window.Site;
 
   const PAIRS = [
     ["first-flight", "apollo-11-moon-landing"],
@@ -171,17 +141,13 @@
 
   const PRECISION = ["to the year", "to the month", "to the day"];
   const PRECISION_NOUN = ["year", "month", "day"];
-  // how many age matches show at a time
-  const AGE_STEP = 6;
-  // how many years ahead "Your next crossovers" looks
-  const SOON_YEARS = 5;
 
   let EVENTS = [];
   // every pair of events that didn't happen at the same time, compared
   let COMPARISONS = [];
   const BY_KEY = new Map();
   // whatIf.on is null for today
-  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null }, life: null, lifeCategory: null, ageShown: AGE_STEP, soonShown: AGE_STEP, view: null };
+  const state = { picks: [null, null], active: 1, filter: "", category: null, whatIf: { move: "last", on: null }, view: null };
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
   // ---------- Helpers ----------
@@ -200,12 +166,11 @@
     };
   }
 
-  // a link to a comparison, which keeps your birthday but only keeps the view when asked
+  // a link to a comparison, which only keeps the view when asked
   function href(a, b, view = null) {
     const params = new URLSearchParams();
     if (a) params.set("a", a);
     if (b) params.set("b", b);
-    if (state.life) params.set(state.life.moment ? "born" : "age", state.life.text);
     if (view) params.set("view", view);
     const q = params.toString();
     return q ? `?${q}` : "./";
@@ -218,13 +183,6 @@
     state.picks = [resolve(params.get("a")), resolve(params.get("b"))];
     state.active = state.picks[0] ? 1 : 0;
     state.view = Object.hasOwn(VIEWS, params.get("view")) ? params.get("view") : null;
-    // a birthday is ?born=1985-06-14 (or a year), and an age is ?age=40
-    const born = params.get("born") ?? params.get("age") ?? "";
-    if (born !== $("age-in").value.trim()) {
-      $("age-in").value = born;
-      state.ageShown = state.soonShown = AGE_STEP;
-    }
-    state.life = readBirth(born);
   }
 
   function writeUrl(push) {
@@ -342,10 +300,9 @@
   function eventStop(e, cls) {
     return el("li", { class: `stop ${cls}` },
       el("p", { class: "stop-date" }, W.format(e.when)),
-      el("h3", { class: "stop-title" }, e.title, el("span", { class: "tag" }, e.category)),
+      el("h3", { class: "stop-title" }, e.custom ? e.title : el("a", { href: eventHref(e.key) }, e.title), el("span", { class: "tag" }, e.category)),
       e.description || e.source ? el("p", { class: "stop-body" }, e.description, e.description && e.source ? " " : null,
-        e.source ? el("a", { class: "source", href: e.source, target: "_blank", rel: "noopener" },
-          "Source", el("span", { "aria-hidden": "true" }, " ↗")) : null) : null);
+        e.source ? sourceLink(e.source) : null) : null);
   }
 
   function gapItem(c) {
@@ -520,10 +477,6 @@
 
   // ---------- What if ----------
 
-  function isoDate(t) {
-    return `${String(t.y).padStart(4, "0")}-${String(t.m).padStart(2, "0")}-${String(t.d).padStart(2, "0")}`;
-  }
-
   function whatIfStop(e, cls, t) {
     return el("li", { class: `stop ${cls}` },
       el("p", { class: "stop-date" }, W.format(t)),
@@ -577,12 +530,6 @@
 
   // ---------- Crossovers on the calendar ----------
 
-  // "in 3 years, 2 months", "4 days ago", or "today"
-  function fromNow(c) {
-    if (c.tense === "present") return ["this year", "this month", "today"][c.p];
-    return c.tense === "future" ? `in ${W.distance(c.pivot)}` : `${W.distance(c.pivot)} ago`;
-  }
-
   function feedRow(c) {
     return el("li", {}, el("a", { href: href(c.first.key, c.last.key), "data-pair": "" },
       el("time", {}, short(c.pivot), el("span", {}, fromNow(c))),
@@ -611,156 +558,12 @@
     }));
   }
 
-  // ---------- In your lifetime ----------
-
-  // an age like 40, or a birthday like 1985 or 1985-06-14, as a range of possible birth days
-  function readBirth(text) {
-    const s = text.trim();
-    const now = W.today(), t = W.dayNumber(now.y, now.m, now.d);
-    let born, moment = null;
-    if (/^\d{1,3}$/.test(s)) {
-      const n = Number(s);
-      if (n < 1 || n > 150) return null;
-      born = W.bornAgo(n, now);
-    } else {
-      moment = /^\d{4}/.test(s) ? W.parse(s) : null;
-      if (!moment) return null;
-      born = W.span(moment);
-      if (born[0] > t || now.y - moment.y > 150) return null;
-    }
-    // the middle of the range stands in for a single birthday when one is needed
-    const mid = W.fromDayNumber(Math.min(t, Math.floor((born[0] + born[1]) / 2)));
-    return { born, moment, text: s, key: moment ? s : String(mid.y), age: W.between(mid, now).years };
-  }
-
-  function bornLine(life) {
-    const [young, old] = W.agesAt(life.born, W.today());
-    const now = young === old ? old : `${young} or ${old}`;
-    if (life.moment) return `You were born ${W.when(life.moment)}, so you're ${now}.`;
-    const [y0, y1] = life.born.map((n) => W.fromDayNumber(n).y);
-    return `You were born in ${y0 === y1 ? y0 : `${y0} or ${y1}`}.`;
-  }
-
-  function renderLife() {
-    const life = state.life;
-    $("life").hidden = !life;
-    if (!life) {
-      $("age-summary").textContent = $("age-in").value.trim() ? "Try an age like 40, a year like 1985, or a date like 1985-06-14." : "";
-      return;
-    }
-
-    const now = W.today(), t = W.dayNumber(now.y, now.m, now.d);
-    const lived = EVENTS.map((e) => ({ e, ages: W.agesAt(life.born, e.when) }))
-      .filter((x) => x.ages && W.span(x.e.when)[0] <= t);
-    $("age-summary").textContent = `${bornLine(life)} ${lived.length
-      ? `${W.plural(lived.length, "event")} on the list ${lived.length === 1 ? "has" : "have"} happened in your lifetime.`
-      : "Nothing on the list has happened in your lifetime yet."}`;
-
-    const counts = new Map();
-    for (const { e } of lived) counts.set(e.category, (counts.get(e.category) || 0) + 1);
-    // a type picked for an earlier birthday may have no events in this lifetime
-    if (!counts.has(state.lifeCategory)) state.lifeCategory = null;
-    fill($("life-chips"), categoryChips(counts, state.lifeCategory, (cat) => { state.lifeCategory = cat; renderLife(); }));
-
-    const shown = lived.filter((x) => !state.lifeCategory || x.e.category === state.lifeCategory);
-    const [y0, y1] = life.born.map((n) => W.fromDayNumber(n).y);
-    fill($("life-list"),
-      lifeMark("born", life.moment ? short(life.moment) : y0 === y1 ? String(y0) : `${y0}–${y1}`, "You were born"),
-      shown.map(({ e, ages }) => el("li", {}, el("a", { class: "life-row", href: href(life.key, e.key), "data-pair": "" },
-        el("span", { class: ages[0] === null ? "life-age unsure" : "life-age" }, ageLabel(ages)),
-        el("span", { class: "life-date" }, short(e.when)),
-        el("span", { class: "life-title" }, e.title, el("span", { class: "tag" }, e.category))))),
-      lifeMark(ageLabel(W.agesAt(life.born, now)), short(now), "Today"));
-
-    renderSoon(life);
-    renderAge(life.age);
-  }
-
-  // the crossovers between your birth and each event that land in the next few years
-  function renderSoon(life) {
-    const now = W.today(), t = W.dayNumber(now.y, now.m, now.d);
-    const end = W.dayNumber(now.y + SOON_YEARS, now.m, now.d);
-    const birth = { ...resolve(life.key), title: "You were born", phrase: "your birth" };
-    const soon = EVENTS.map((e) => W.compare(birth, e))
-      .filter((c) => c.tense !== "same")
-      .map((c) => ({ c, span: W.span(c.pivot) }))
-      .filter((x) => x.span[1] >= t && x.span[0] <= end)
-      .sort((x, y) => x.span[1] - y.span[1])
-      .map((x) => x.c);
-
-    const exact = life.moment && life.moment.p === W.DAY;
-    $("life-soon-count").textContent = (soon.length
-      ? `${W.plural(soon.length, "crossover")} with your birth in the next ${SOON_YEARS} years.`
-      : `No crossovers with your birth in the next ${SOON_YEARS} years.`)
-      + (exact ? "" : " Put in your birthday to get them to the day.");
-    // the event stands out, whichever side of your birth it's on
-    const phrase = (x) => x === birth ? x.phrase : el("b", {}, x.phrase);
-    $("life-soon").replaceChildren(...soon.slice(0, state.soonShown).map((c) =>
-      el("li", {}, el("a", { href: href(c.first.key, c.last.key), "data-pair": "" },
-        el("time", {}, short(c.pivot), el("span", {}, fromNow(c))),
-        el("span", { class: "feed-pair" },
-          c.tense === "present" ? "We're now further from " : "We'll be further from ",
-          phrase(c.last), " than it was from ", phrase(c.first), ".")))));
-    $("life-soon-more").hidden = soon.length <= state.soonShown;
-  }
-
-  // the gap in years, months, and days, as precisely as the comparison knows it
-  function apart(c) {
-    if (c.p !== W.DAY) return W.gapText(c.gap, c.p);
-    const { years, months, days } = W.between(c.first.when, c.last.when);
-    const parts = [];
-    if (years) parts.push(W.plural(years, "year"));
-    if (months) parts.push(W.plural(months, "month"));
-    if (days) parts.push(W.plural(days, "day"));
-    return parts.length === 1 && years ? `exactly ${parts[0]}` : parts.join(", ");
-  }
-
-  // roughly how many days past the whole years a gap runs, so the closest fits come first;
-  // a gap only known to the year or month could fall anywhere in it, so it sits in the middle
-  function overrun(c) {
-    if (c.p === W.YEAR) return 183;
-    if (c.p === W.MONTH) return (c.gap % 12) * 30.5 + 15;
-    const { months, days } = W.between(c.first.when, c.last.when);
-    return months * 30.5 + days;
-  }
-
-  // the closest fits, each event once, then everything else that fits
-  function ageMatches(age) {
-    const fits = COMPARISONS.filter((c) => W.wholeYears(c) === age)
-      .map((c) => ({ c, over: overrun(c) }))
-      .sort((x, y) => x.over - y.over || W.span(y.c.last.when)[0] - W.span(x.c.last.when)[0])
-      .map((x) => x.c);
-    const used = new Set(), first = [], rest = [];
-    for (const c of fits) {
-      if (used.has(c.first.key) || used.has(c.last.key)) rest.push(c);
-      else { first.push(c); used.add(c.first.key); used.add(c.last.key); }
-    }
-    return [...first, ...rest];
-  }
-
-  function renderAge(age) {
-    const list = $("age-pairs");
-    const fits = ageMatches(age);
-    const years = W.plural(age, "year");
-    $("age-count").textContent = fits.length
-      ? `${W.plural(fits.length, "pair")} of events ${fits.length === 1 ? "is" : "are"} ${years} apart.`
-      : `No two events are ${years} apart. Try another age.`;
-    list.replaceChildren(...fits.slice(0, state.ageShown).map((c) =>
-      el("li", {}, el("a", { href: href(c.first.key, c.last.key), "data-pair": "" },
-        el("span", { class: "pair-a" }, c.first.title),
-        el("span", { class: "pair-and" }, `${apart(c)} later`),
-        el("span", { class: "pair-b" }, c.last.title),
-        el("span", { class: "pair-when" }, `crossover ${short(c.pivot)}`)))));
-    $("age-more").hidden = fits.length <= state.ageShown;
-  }
-
   // ---------- Focus ----------
   // ?view= shows one card on its own; each name here is how its Focus button reads aloud
 
   const VIEWS = {
     comparison: "the comparison",
     "what-if": "What if",
-    lifetime: "In your lifetime",
     calendar: "Crossovers on the calendar",
     pairs: "Interesting pairs",
   };
@@ -808,28 +611,16 @@
     const link = e.target.closest("a[data-pair]");
     if (!link || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     e.preventDefault();
-    // rebuilt from the picks so a link drawn before the birthday was typed still keeps it
     const params = new URLSearchParams(link.search);
     history.pushState(null, "", href(params.get("a"), params.get("b")));
     readUrl();
     render();
-    renderLife();
     window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
   });
 
-  window.addEventListener("popstate", () => { readUrl(); render(); renderLife(); });
+  window.addEventListener("popstate", () => { readUrl(); render(); });
 
   $("filter").addEventListener("input", (e) => { state.filter = e.target.value; renderList(); });
-
-  $("age-in").addEventListener("input", (e) => {
-    state.life = readBirth(e.target.value);
-    state.ageShown = AGE_STEP;
-    state.soonShown = AGE_STEP;
-    writeUrl(false);
-    renderLife();
-  });
-  $("age-more").addEventListener("click", () => { state.ageShown += AGE_STEP; renderAge(state.life.age); });
-  $("life-soon-more").addEventListener("click", () => { state.soonShown += AGE_STEP; renderSoon(state.life); });
 
   // a half-typed date reads as empty, so only a cleared field goes back to today
   $("whatif-on").addEventListener("input", (e) => {
@@ -903,7 +694,6 @@
       state.picks = randomPair();
       writeUrl(false);
     }
-    renderLife();
     renderChips();
     renderFeeds();
     renderPairs();

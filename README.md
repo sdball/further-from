@@ -8,10 +8,12 @@ There's no build step and no dependencies. `public/` is the whole site, and
 pushing to `main` deploys it to GitHub Pages.
 
 ```
-public/index.html    the main page: comparison, picker, lifetime timeline, upcoming crossovers, interesting pairs
+public/index.html    the main page: comparison, picker, what if, upcoming crossovers, interesting pairs
+public/event.html    one event: its details, the events nearest it, and its crossovers with every other event
+public/anniversaries.html  what happened on a day of the year, and the anniversaries coming up
 public/life.html     someone else's lifetime, from their birth and maybe their death
-public/site.css      the styles, shared by both pages
-public/site.js       helpers and event loading, shared by both pages
+public/site.css      the styles, shared by every page
+public/site.js       helpers and event loading, shared by every page
 public/when.js       the date math, shared by the pages and the tests
 public/events/       every event, one file per category, listed in index.json
 test/                node --test checks for the date math and the events
@@ -75,10 +77,18 @@ year-only date to the year. The page says when that happens.
 
 Any year or date also works in place of an event key: `?a=1999-12-31&b=apollo-11-moon-landing`.
 
-The rest of the page lives in the URL too. `?born=1985-06-14` (or a year) or
-`?age=40` fills in "In your lifetime", and `?view=` shows one card on its own:
-`comparison`, `what-if`, `lifetime`, `calendar`, or `pairs`. Each of those cards
-has a Focus button, and Escape shows everything again.
+`?view=` shows one card on its own: `comparison`, `what-if`, `calendar`, or
+`pairs`. Each of those cards has a Focus button, and Escape shows everything
+again.
+
+`event.html?e=arpanet-first-message` is the page for one event: its details and
+anniversary, the events closest to it in time, others on the same day of the
+year, and its next crossovers with everything else. Without `?e=` it picks one
+of today's anniversaries, or any event on a day with none.
+
+`anniversaries.html` lists the events that happened on today's date (or
+`?on=2026-12-25` for any other day), the anniversaries coming up after it, and
+the next round-number anniversaries (multiples of 25 years) for every event.
 
 `life.html` does the same for anyone else:
 `life.html?name=Ada+Lovelace&born=1815-12-10&died=1852-11-27`. Only `born` is

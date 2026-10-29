@@ -118,22 +118,9 @@
     return { years: Math.floor(months / 12), months: months % 12, days: dayNumber(b.y, b.m, b.d) - anchor };
   }
 
-  // whole years from a comparison's earlier event to its later one, at its precision
-  function wholeYears(c) {
-    if (c.p === YEAR) return c.gap;
-    if (c.p === MONTH) return Math.floor(c.gap / 12);
-    return between(c.first.when, c.last.when).years;
-  }
-
   // ---------- Lifetimes ----------
-  // A birth is a range of day numbers [earliest, latest], since an age or a
-  // birth year only narrows it down so far.
-
-  // the birth range for someone who is n years old on day t
-  function bornAgo(n, t = today()) {
-    const day = (y) => dayNumber(y, t.m, Math.min(t.d, daysInMonth(y, t.m)));
-    return [day(t.y - n - 1) + 1, day(t.y - n)];
-  }
+  // A birth is a range of day numbers [earliest, latest], since a birth year
+  // or month only narrows it down so far.
 
   // the youngest and oldest someone with that birth could have been at a moment,
   // with null for youngest when the moment might be before they were born,
@@ -145,10 +132,36 @@
     return [start >= born[1] ? years(born[1], start) : null, years(born[0], end)];
   }
 
+  // ---------- Anniversaries ----------
+
+  // the next anniversary of a moment that's a multiple of every years, now or
+  // later at the moment's own precision, and how many years it marks.
+  // February 29 falls on February 28 in common years. Null for a moment that
+  // hasn't happened yet.
+  function milestone(t, every, now = today()) {
+    if (value(t, t.p) >= value(now, t.p)) return null;
+    const at = (n) => ({ p: t.p, y: t.y + n, m: t.m, d: Math.min(t.d, daysInMonth(t.y + n, t.m)) });
+    let years = Math.max(every, Math.ceil((now.y - t.y) / every) * every);
+    if (value(at(years), t.p) < value(now, t.p)) years += every;
+    return { on: at(years), years };
+  }
+
+  // the next anniversary of a day, today or later. Null for a moment that
+  // isn't known to the day, or hasn't happened yet.
+  function anniversary(t, now = today()) {
+    return t.p === DAY ? milestone(t, 1, now) : null;
+  }
+
   // ---------- Words ----------
 
   function plural(n, one, many = one + "s") {
     return `${n.toLocaleString("en-US")} ${n === 1 ? one : many}`;
+  }
+
+  // "1st", "12th", "57th"
+  function ordinal(n) {
+    const tens = n % 100 >= 11 && n % 100 <= 13;
+    return n.toLocaleString("en-US") + (tens ? "th" : ["th", "st", "nd", "rd"][n % 10] || "th");
   }
 
   function yearText(y) {
@@ -160,6 +173,11 @@
     if (t.p === YEAR) return yearText(t.y);
     if (t.p === MONTH) return `${month} ${yearText(t.y)}`;
     return `${month} ${t.d}, ${yearText(t.y)}`;
+  }
+
+  // "October 29", or "Oct 29"
+  function monthDay(t, style = "long") {
+    return `${style === "short" ? MONTHS[t.m - 1].slice(0, 3) : MONTHS[t.m - 1]} ${t.d}`;
   }
 
   // "in 2035", "in February 2035", "on February 21, 2035"
@@ -204,7 +222,8 @@
   }
 
   root.When = {
-    YEAR, MONTH, DAY, parse, dayNumber, fromDayNumber, value, fromValue, span,
-    today, compare, shift, between, wholeYears, bornAgo, agesAt, format, when, gapText, roughly, distance, plural, yearText,
+    YEAR, MONTH, DAY, MONTHS, parse, dayNumber, fromDayNumber, value, fromValue, span,
+    today, compare, shift, between, agesAt, milestone, anniversary, format, monthDay, when, gapText, roughly, distance,
+    plural, ordinal, yearText,
   };
 })(typeof window !== "undefined" ? window : globalThis);

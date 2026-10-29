@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>One moment · Further From</title>
+<meta name="description" content="One moment in history, the events around it, and its crossovers with everything else.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="One moment · Further From">
+<meta property="og:description" content="One moment in history, the events around it, and its crossovers with everything else.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>
+  // a theme picked with the toggle, set before the page paints so it doesn't flash
+  try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch (e) {}
+</script>
+<script>
+  window.goatcounter = {
+    path: function(p) { return location.host + p }
+  }
+</script>
+<script data-goatcounter="https://sdball.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header class="mast">
+  <div class="mast-inner">
+    <a class="wordmark" href="./">Further <i>From</i></a>
+    <p class="tagline">One moment, and everything around it.</p>
+  </div>
+  <nav class="nav" aria-label="Pages">
+    <a href="./">Compare two moments</a>
+    <a href="event.html" aria-current="page">One moment</a>
+    <a href="anniversaries.html">Anniversaries</a>
+    <a href="life.html">A lifetime</a>
+    <button class="theme-toggle" id="theme" type="button" hidden></button>
+  </nav>
+  <div class="ruler" aria-hidden="true"></div>
+</header>
+
+<div class="wrap">
+  <main class="card moment">
+    <div class="find">
+      <label class="whatif-label" for="filter">Find an event</label>
+      <input class="search" id="filter" type="search" placeholder="Search events, years, or categories" autocomplete="off" spellcheck="false" aria-keyshortcuts="/" aria-controls="results">
+      <ul class="list" id="results" hidden></ul>
+    </div>
+    <div id="moment" aria-live="polite">
+      <p class="eyebrow">Loading</p>
+      <noscript><p>Further From does its date math in your browser, so it needs JavaScript.</p></noscript>
+    </div>
+  </main>
+
+  <div class="lower" id="around" hidden>
+    <section class="card" aria-labelledby="near-h">
+      <h2 class="section" id="near-h">Nearby in time</h2>
+      <p class="sub">The events on the list closest to this one, and how far from it each one is. Pick one to see it.</p>
+      <ol class="life-list" id="near"></ol>
+    </section>
+
+    <section class="card" aria-labelledby="cross-h">
+      <h2 class="section" id="cross-h">Its crossovers</h2>
+      <p class="sub">Paired with every other event on the list, these are the next crossovers, and the ones we passed most recently.</p>
+      <h3 class="feed-head">Coming up</h3>
+      <ol class="feed" id="upcoming"></ol>
+      <h3 class="feed-head">Recently passed</h3>
+      <ol class="feed" id="passed"></ol>
+    </section>
+  </div>
+</div>
+
+<footer>
+  © <span id="year">2026</span> <a href="https://www.strangeleaflet.com">Stephen Ball</a>. Every moment here has its own link.
+</footer>
+
+<script src="when.js"></script>
+<script src="site.js"></script>
+<script>
+  const W = window.When;
+  const { $, el, fill, cap, short, isoDate, fromNow, eventHref, sourceLink, lifeMark, loadEvents } = window.Site;
+
+  const PRECISION = ["dated to the year", "dated to the month", "dated to the day"];
+  // how many of the closest events "Nearby in time" shows
+  const NEARBY = 12;
+
+  let EVENTS = [];
+  const BY_KEY = new Map();
+  // missing is a key from the URL that isn't an event
+  const state = { event: null, missing: null, filter: "" };
+
+  // ---------- URL state ----------
+
+  function readUrl() {
+    const key = new URLSearchParams(location.search).get("e");
+    state.event = BY_KEY.get(key) || null;
+    state.missing = key && !state.event ? key : null;
+  }
+
+  function writeUrl(push) {
+    const url = state.event ? eventHref(state.event.key) : "event.html";
+    history[push ? "pushState" : "replaceState"](null, "", url);
+  }
+
+  // one of today's anniversaries if there are any, or else any event
+  function randomEvent() {
+    const now = W.today();
+    const today = EVENTS.filter((e) => {
+      const a = W.anniversary(e.when, now);
+      return a && W.value(a.on, W.DAY) === W.value(now, W.DAY);
+    });
+    const pool = today.length ? today : EVENTS;
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  function show(e) {
+    state.event = e;
+    state.missing = null;
+    writeUrl(true);
+    render();
+    window.scrollTo({ top: 0 });
+  }
+
+  // ---------- Moment ----------
+
+  // "57 years ago", "in 3 months", or "today", in the units the event is known to
+  function sinceWords(e) {
+    const c = W.compare(e, { when: W.today() });
+    if (c.tense === "same") return ["this year", "this month", "today"][c.p];
+    return c.first === e ? `${W.distance(e.when)} ago` : `${W.distance(e.when)} from now`;
+  }
+
+  function anniversaryLine(e) {
+    const now = W.today();
+    const a = W.anniversary(e.when, now);
+    if (!a) return null;
+    const link = el("a", { href: `anniversaries.html?on=${isoDate(a.on)}` }, `${W.ordinal(a.years)} anniversary`);
+    if (W.value(a.on, W.DAY) === W.value(now, W.DAY)) return ["Today is its ", link, "."];
+    return ["Its ", link, ` is ${W.when(a.on)}, ${W.distance(a.on, now)} from now.`];
+  }
+
+  // the gap from this event to another, as "−12 years", "+3 months", or "same day"
+  function offset(e, other) {
+    const c = W.compare(e, other);
+    if (c.tense === "same") return `same ${["year", "month", "day"][c.p]}`;
+    let words;
+    if (c.p === W.YEAR) words = W.plural(c.gap, "year");
+    else if (c.p === W.MONTH) words = c.gap >= 12 ? W.plural(Math.floor(c.gap / 12), "year") : W.plural(c.gap, "month");
+    else {
+      const { years, months, days } = W.between(c.first.when, c.last.when);
+      words = years ? W.plural(years, "year") : months ? W.plural(months, "month") : W.plural(days, "day");
+    }
+    return (c.first === other ? "−" : "+") + words;
+  }
+
+  // other events on the same day of the year
+  function sameDay(e) {
+    if (e.when.p !== W.DAY) return [];
+    return EVENTS.filter((o) => o !== e && o.when.p === W.DAY && o.when.m === e.when.m && o.when.d === e.when.d);
+  }
+
+  function renderMoment() {
+    const e = state.event;
+    $("around").hidden = !e;
+    if (!e) {
+      fill($("moment"),
+        el("p", { class: "eyebrow" }, "Nothing here"),
+        el("h1", { class: "headline" }, `There's no event called “${state.missing}”.`),
+        el("p", { class: "status" }, "Search for one above, or pick any event."),
+        el("div", { class: "card-foot" },
+          el("button", { class: "btn primary", type: "button", "aria-keyshortcuts": "r", onclick: another }, "Any event ", el("kbd", {}, "R"))));
+      document.title = "One moment · Further From";
+      return;
+    }
+
+    const also = sameDay(e);
+    const copied = el("span", { class: "copied", "aria-live": "polite" });
+    fill($("moment"),
+      el("p", { class: "eyebrow" }, `${e.category} · ${PRECISION[e.when.p]}`),
+      el("h1", { class: "headline" }, e.title),
+      el("p", { class: "status" }, `${cap(W.when(e.when))}, ${sinceWords(e)}.`, anniversaryLine(e) ? [" ", anniversaryLine(e)] : null),
+      e.description || e.source ? el("p", { class: "stop-body" }, e.description, e.description && e.source ? " " : null,
+        e.source ? sourceLink(e.source) : null) : null,
+      also.length ? [
+        el("h3", { class: "feed-head" }, `Also on ${W.monthDay(e.when)}`),
+        el("ol", { class: "feed" }, also.map((o) => el("li", {}, el("a", { href: eventHref(o.key) },
+          el("time", {}, W.yearText(o.when.y), el("span", {}, offset(e, o))),
+          el("span", { class: "feed-pair" }, el("b", {}, o.title), el("span", { class: "tag" }, o.category)))))),
+      ] : null,
+      el("div", { class: "card-foot" },
+        el("a", { class: "btn primary", href: `./?${new URLSearchParams({ a: e.key })}` }, "Compare it with another"),
+        el("button", { class: "btn", type: "button", "aria-keyshortcuts": "r", onclick: another }, "Another event ", el("kbd", {}, "R")),
+        el("button", {
+          class: "btn", type: "button",
+          onclick: async () => {
+            try {
+              await navigator.clipboard.writeText(location.href);
+              copied.textContent = "Link copied.";
+            } catch {
+              copied.textContent = "Couldn't copy. The address bar has the link.";
+            }
+          },
+        }, "Copy link"),
+        copied));
+    document.title = `${e.title} · Further From`;
+  }
+
+  function another() {
+    if (EVENTS.length) show(EVENTS[Math.floor(Math.random() * EVENTS.length)]);
+  }
+
+  // ---------- Nearby in time ----------
+
+  // the closest events by their first day, oldest first, with this one in its place
+  function renderNear(e) {
+    const start = (x) => W.span(x.when)[0];
+    const near = EVENTS.filter((o) => o !== e)
+      .sort((x, y) => Math.abs(start(x) - start(e)) - Math.abs(start(y) - start(e)))
+      .slice(0, NEARBY)
+      .sort((x, y) => start(x) - start(y));
+    const row = (o) => el("li", {}, el("a", { class: "life-row", href: eventHref(o.key) },
+      el("span", { class: "life-age" }, offset(e, o)),
+      el("span", { class: "life-date" }, short(o.when)),
+      el("span", { class: "life-title" }, o.title, el("span", { class: "tag" }, o.category))));
+    // an event on the same first day goes after this one, as the list does
+    const before = near.filter((o) => EVENTS.indexOf(o) < EVENTS.indexOf(e));
+    fill($("near"),
+      before.map(row),
+      lifeMark("this one", short(e.when), e.title),
+      near.filter((o) => !before.includes(o)).map(row));
+  }
+
+  // ---------- Its crossovers ----------
+
+  function crossRow(e, c) {
+    // the other event stands out, whichever side of this one it's on
+    const phrase = (x) => x === e ? x.phrase : el("b", {}, x.phrase);
+    const lead = c.tense === "past" ? "We got further from " : c.tense === "present" ? "We're now further from " : "We'll be further from ";
+    return el("li", {}, el("a", { href: `./?${new URLSearchParams({ a: c.first.key, b: c.last.key })}` },
+      el("time", {}, short(c.pivot), el("span", {}, fromNow(c))),
+      el("span", { class: "feed-pair" }, lead, phrase(c.last), " than it was from ", phrase(c.first), ".")));
+  }
+
+  function renderCrossovers(e) {
+    const t = W.value(W.today(), W.DAY);
+    const all = EVENTS.filter((o) => o !== e)
+      .map((o) => W.compare(e, o))
+      .filter((c) => c.tense !== "same")
+      .map((c) => ({ c, end: W.span(c.pivot)[1] }));
+    const upcoming = all.filter((x) => x.end >= t).sort((x, y) => x.end - y.end).slice(0, 6);
+    const passed = all.filter((x) => x.end < t).sort((x, y) => y.end - x.end).slice(0, 4);
+    $("upcoming").replaceChildren(...upcoming.map((x) => crossRow(e, x.c)));
+    $("passed").replaceChildren(...passed.map((x) => crossRow(e, x.c)));
+  }
+
+  function render() {
+    renderMoment();
+    if (!state.event) return;
+    renderNear(state.event);
+    renderCrossovers(state.event);
+  }
+
+  // ---------- Search ----------
+
+  function renderResults() {
+    const words = state.filter.toLowerCase().split(/\s+/).filter(Boolean);
+    const list = $("results");
+    list.hidden = !words.length;
+    if (!words.length) return;
+    const shown = EVENTS.filter((e) => {
+      const hay = `${e.title} ${e.phrase} ${e.category} ${e.date} ${W.format(e.when)}`.toLowerCase();
+      return words.every((w) => hay.includes(w));
+    });
+    fill(list, shown.length
+      ? shown.map((e) => el("li", {}, el("a", {
+        class: "row", href: eventHref(e.key),
+        onclick: (ev) => {
+          if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+          ev.preventDefault();
+          clearSearch();
+          show(e);
+        },
+      },
+        el("span", { class: "row-date" }, short(e.when)),
+        el("span", { class: "row-title" }, e.title, el("span", { class: "tag" }, e.category)))))
+      : el("li", { class: "no-match" }, "No events match."));
+  }
+
+  function clearSearch() {
+    $("filter").value = state.filter = "";
+    renderResults();
+  }
+
+  // ---------- Events ----------
+
+  $("filter").addEventListener("input", (e) => { state.filter = e.target.value; renderResults(); });
+
+  $("filter").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      $("results").querySelector(".row")?.click();
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      $("results").querySelector(".row")?.focus();
+    } else if (e.key === "Escape" && state.filter) {
+      clearSearch();
+    }
+  });
+
+  // arrow keys walk the results, and up from the top goes back to the search
+  $("results").addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+    const rows = [...$("results").querySelectorAll(".row")];
+    const i = rows.indexOf(document.activeElement);
+    if (i === -1) return;
+    e.preventDefault();
+    if (e.key === "ArrowUp" && i === 0) $("filter").focus();
+    else rows[Math.max(0, Math.min(rows.length - 1, i + (e.key === "ArrowDown" ? 1 : -1)))].focus();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.target.matches("input:not([type=range]), textarea, select")) return;
+    if (e.key === "/") {
+      e.preventDefault();
+      $("filter").focus();
+    }
+    else if (e.key === "r" || e.key === "R") another();
+    else if (e.key === "Escape" && state.filter) { clearSearch(); $("filter").focus(); }
+  });
+
+  window.addEventListener("popstate", () => { readUrl(); render(); });
+
+  // ---------- Start ----------
+
+  async function start() {
+    $("year").textContent = W.today().y;
+    try {
+      EVENTS = await loadEvents();
+    } catch (err) {
+      fill($("moment"),
+        el("p", { class: "eyebrow" }, "Trouble"),
+        el("h1", { class: "headline" }, "The events didn't load."),
+        el("p", { class: "status" }, "Reload the page to try again."));
+      console.error(err);
+      return;
+    }
+    for (const e of EVENTS) BY_KEY.set(e.key, e);
+    readUrl();
+    if (!state.event && !state.missing) {
+      state.event = randomEvent();
+      writeUrl(false);
+    }
+    render();
+  }
+
+  start();
+</script>
+</body>
+</html>

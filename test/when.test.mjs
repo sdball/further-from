@@ -91,28 +91,54 @@ test("words", () => {
   assert.equal(When.distance(When.parse("2035-02-21"), NOW), "8 years, 3 months");
   assert.equal(When.distance(When.parse("2026-11-01"), NOW), "9 days");
   assert.equal(When.distance(When.parse("2015"), NOW), "11 years");
+  assert.equal(When.monthDay(When.parse("1969-10-29")), "October 29");
+  assert.equal(When.monthDay(When.parse("1969-10-29"), "short"), "Oct 29");
+  assert.deepEqual([1, 2, 3, 4, 11, 12, 13, 21, 57, 111, 1001].map(When.ordinal),
+    ["1st", "2nd", "3rd", "4th", "11th", "12th", "13th", "21st", "57th", "111th", "1,001st"]);
+});
+
+test("an anniversary is the next time the day comes around", () => {
+  const next = (date, now = "2026-10-23") => {
+    const a = When.anniversary(When.parse(date), When.parse(now));
+    return a && `${When.format(a.on)}, ${a.years}`;
+  };
+  assert.equal(next("1969-10-23"), "October 23, 2026, 57");
+  assert.equal(next("1969-10-29"), "October 29, 2026, 57");
+  assert.equal(next("1969-07-20"), "July 20, 2027, 58");
+  assert.equal(next("2025-10-23"), "October 23, 2026, 1");
+  assert.equal(next("-43-03-15"), "March 15, 2027, 2070");
+  // a leap day waits for February 28 in a common year, and keeps its own day in a leap year
+  assert.equal(next("2000-02-29", "2027-01-01"), "February 28, 2027, 27");
+  assert.equal(next("2000-02-29", "2028-01-01"), "February 29, 2028, 28");
+  // only a day has an anniversary, and only once it's happened
+  assert.equal(next("1969-10"), null);
+  assert.equal(next("1969"), null);
+  assert.equal(next("2026-10-23"), null);
+  assert.equal(next("2027-01-01"), null);
+});
+
+test("a milestone is the next anniversary that's a multiple of its years", () => {
+  const next = (date, every, now = "2026-10-23") => {
+    const a = When.milestone(When.parse(date), every, When.parse(now));
+    return a && `${When.format(a.on)}, ${a.years}`;
+  };
+  assert.equal(next("1969-07-20", 25), "July 20, 2044, 75");
+  assert.equal(next("1976-10-23", 25), "October 23, 2026, 50");
+  assert.equal(next("1976-10-22", 25), "October 22, 2051, 75");
+  assert.equal(next("2020-01-01", 25), "January 1, 2045, 25");
+  // a month or a year counts until it's over
+  assert.equal(next("1976-10", 25), "October 2026, 50");
+  assert.equal(next("1976", 25), "2026, 50");
+  assert.equal(next("1980", 25), "2030, 50");
+  assert.equal(next("-43", 25), "2032, 2075");
+  assert.equal(next("2000-02-29", 25, "2025-01-01"), "February 28, 2025, 25");
+  assert.equal(next("2026", 25), null);
+  assert.equal(next("2026-10", 25), null);
 });
 
 test("between borrows days from the right month", () => {
   assert.deepEqual({ ...When.between(When.parse("2024-01-31"), When.parse("2024-03-01")) }, { years: 0, months: 1, days: 1 });
   assert.deepEqual({ ...When.between(When.parse("2023-12-20"), When.parse("2024-01-05")) }, { years: 0, months: 0, days: 16 });
-});
-
-test("whole years count only full years at the comparison's precision", () => {
-  const years = (a, b) => When.wholeYears(When.compare(ev("a", a), ev("b", b), NOW));
-  assert.equal(years("1903-12-17", "1969-07-20"), 65);
-  assert.equal(years("1955-11-05", "1985-11-05"), 30);
-  assert.equal(years("1955-11-05", "1985-11-04"), 29);
-  assert.equal(years("1969-06", "1985-05-27"), 15);
-  assert.equal(years("1969-06", "1985-06-27"), 16);
-  assert.equal(years("1912", "1997-12-19"), 85);
-});
-
-test("an age narrows a birth to a year-long range", () => {
-  const born = [...When.bornAgo(40, NOW)].map((n) => When.format({ p: When.DAY, ...When.fromDayNumber(n) }));
-  assert.deepEqual(born, ["October 24, 1985", "October 23, 1986"]);
-  const leap = [...When.bornAgo(1, When.parse("2024-02-29"))].map((n) => When.format({ p: When.DAY, ...When.fromDayNumber(n) }));
-  assert.deepEqual(leap, ["March 1, 2022", "February 28, 2023"]);
 });
 
 test("ages at a moment cover every birthday the birth range allows", () => {
@@ -123,7 +149,7 @@ test("ages at a moment cover every birthday the birth range allows", () => {
   assert.equal(When.agesAt(exact, When.parse("1984")), null);
   assert.deepEqual([...When.agesAt(exact, When.parse("1985"))], [null, 0]);
 
-  const forty = When.bornAgo(40, NOW);
-  assert.deepEqual([...When.agesAt(forty, When.parse("1997-06-14"))], [10, 11]);
-  assert.deepEqual([...When.agesAt(forty, NOW)], [40, 40]);
+  const year = When.span(When.parse("1985"));
+  assert.deepEqual([...When.agesAt(year, When.parse("1997-06-14"))], [11, 12]);
+  assert.deepEqual([...When.agesAt(year, When.parse("1986-06-14"))], [0, 1]);
 });

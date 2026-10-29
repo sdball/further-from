@@ -37,6 +37,27 @@
     return young === old ? `age ${old}` : `age ${young}–${old}`;
   }
 
+  // a day as YYYY-MM-DD, for a date input or a link
+  function isoDate(t) {
+    return `${String(t.y).padStart(4, "0")}-${String(t.m).padStart(2, "0")}-${String(t.d).padStart(2, "0")}`;
+  }
+
+  // "in 3 years, 2 months", "4 days ago", or "today", for a comparison's crossover
+  function fromNow(c) {
+    if (c.tense === "present") return ["this year", "this month", "today"][c.p];
+    return c.tense === "future" ? `in ${W.distance(c.pivot)}` : `${W.distance(c.pivot)} ago`;
+  }
+
+  // the page for one event
+  function eventHref(key) {
+    return `event.html?${new URLSearchParams({ e: key })}`;
+  }
+
+  function sourceLink(url) {
+    return el("a", { class: "source", href: url, target: "_blank", rel: "noopener" },
+      "Source", el("span", { "aria-hidden": "true" }, " ↗"));
+  }
+
   // a row on a lifetime timeline that marks a moment instead of an event
   function lifeMark(age, date, title) {
     return el("li", {}, el("div", { class: "life-row mark" },
@@ -114,5 +135,5 @@
   }
   themeToggle();
 
-  root.Site = { $, el, fill, cap, short, ageLabel, lifeMark, categoryChips, loadEvents };
+  root.Site = { $, el, fill, cap, short, isoDate, fromNow, eventHref, sourceLink, ageLabel, lifeMark, categoryChips, loadEvents };
 })(window);

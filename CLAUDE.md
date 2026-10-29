@@ -21,13 +21,15 @@ and the vetting scripts. This file covers what the README doesn't.
 
 ## The pages
 
-There are two pages: `public/index.html` (the comparison and everything around
-it) and `public/life.html` (someone else's lifetime). Each has its markup and
+There are four pages: `public/index.html` (the comparison and everything
+around it), `public/event.html` (one event on its own),
+`public/anniversaries.html` (what happened on a day of the year), and
+`public/life.html` (someone's lifetime). Each has its markup and
 one inline script split into `// ---------- Section ----------` blocks (URL
 state, Comparison, Picker, and so on). What they share lives in
 `public/site.css` (every style) and `public/site.js`, a plain script like
 `when.js` that sets `window.Site` with the `el()`, `$()`, and `fill()` helpers,
-a few labels, and `loadEvents()`. Code used by one page stays in that page.
+a few labels and links, and `loadEvents()`. Code used by one page stays in that page.
 Put new code in the section it belongs to, and match the style: those helpers,
 one `state` object, and `render*` functions.
 

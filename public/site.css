@@ -201,7 +201,6 @@ h2.section {
 body[data-view] .card:not(.focused) { display: none; }
 body[data-view] .layout, body[data-view] .lower { display: block; margin-top: 0; }
 body[data-view] .card.focused { max-width: 52rem; margin: 0 auto; }
-body[data-view="lifetime"] .card.focused { max-width: none; }
 
 .btn {
   display: inline-flex;
@@ -326,6 +325,7 @@ a.btn { text-decoration: none; }
   font: 600 1.2rem/1.3 var(--serif);
   font-variation-settings: "opsz" 36;
 }
+.stop-title a { text-decoration-thickness: 1px; }
 .stop-body { margin: 0; color: var(--muted); max-width: 40rem; }
 .source { font-size: 0.85em; white-space: nowrap; }
 .tag {
@@ -441,6 +441,7 @@ a.btn { text-decoration: none; }
   text-align: left;
   cursor: pointer;
 }
+a.row { text-decoration: none; }
 .row:hover { background: var(--paper); }
 .row-date { font: 500 0.8rem var(--mono); color: var(--muted); }
 .row-title { font-size: 0.95rem; line-height: 1.35; }
@@ -524,25 +525,9 @@ h3.feed-head {
 .pairs .pair-and { display: block; font: 400 0.75rem var(--mono); color: var(--muted); margin: 0.1rem 0; }
 .pairs .pair-when { display: block; margin-top: 0.5rem; font: 500 0.78rem var(--mono); color: var(--pivot); }
 
-/* ---------- In your lifetime ---------- */
+/* ---------- Timelines ---------- */
 
-.age { margin-top: 1.5rem; }
-.age-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.6rem; margin: 1rem 0 0; }
 .age-input { width: 13rem; min-height: 44px; font: 500 1rem var(--mono); }
-.age-more { margin-top: 1rem; }
-.life-soon { margin-bottom: 2rem; }
-
-.life { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
-.life h3.feed-head { margin-top: 0; }
-.life .chips { margin-top: 0.5rem; }
-/* the pairs stack beside the timeline on wide screens, and the timeline
-   stretches to match them as "Show more" adds pairs */
-@media (min-width: 1000px) {
-  .life { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
-  .life .pairs { grid-template-columns: 1fr; }
-  .life-main { display: flex; flex-direction: column; }
-  .life-main .life-list { flex: 1 1 auto; min-height: 34rem; max-height: none; contain: size; }
-}
 
 .life-list {
   list-style: none; margin: 0; padding: 0;
@@ -580,6 +565,21 @@ a.life-row:hover { background: var(--paper); }
 .timeline { margin-top: 1.5rem; }
 .timeline .life-list { max-height: 44rem; }
 .examples { margin: 1rem 0 0; color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- Anniversaries ---------- */
+
+.day-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.6rem; margin: 0 0 1.5rem; }
+.day .stops { margin-top: 1.5rem; }
+.day .stop { --stop-color: var(--pivot); padding-bottom: 1.5rem; }
+.day .stop:last-child { padding-bottom: 0; }
+.day h3.feed-head { margin-top: 2rem; }
+
+/* ---------- One moment ---------- */
+
+.find { margin: 0 0 1.5rem; }
+.find .list { margin-top: 0.5rem; max-height: 20rem; }
+.moment .stop-body { margin-top: 1rem; }
+.moment .feed { margin-top: 0.25rem; }
 
 .about { margin-top: 1.5rem; }
 .about p { max-width: 46rem; }

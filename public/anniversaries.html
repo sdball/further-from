@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anniversaries · Further From</title>
+<meta name="description" content="What happened on this day in history, and the anniversaries coming up.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anniversaries · Further From">
+<meta property="og:description" content="What happened on this day in history, and the anniversaries coming up.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>
+  // a theme picked with the toggle, set before the page paints so it doesn't flash
+  try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch (e) {}
+</script>
+<script>
+  window.goatcounter = {
+    path: function(p) { return location.host + p }
+  }
+</script>
+<script data-goatcounter="https://sdball.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header class="mast">
+  <div class="mast-inner">
+    <a class="wordmark" href="./">Further <i>From</i></a>
+    <p class="tagline">What happened on this day in history.</p>
+  </div>
+  <nav class="nav" aria-label="Pages">
+    <a href="./">Compare two moments</a>
+    <a href="event.html">One moment</a>
+    <a href="anniversaries.html" aria-current="page">Anniversaries</a>
+    <a href="life.html">A lifetime</a>
+    <button class="theme-toggle" id="theme" type="button" hidden></button>
+  </nav>
+  <div class="ruler" aria-hidden="true"></div>
+</header>
+
+<div class="wrap">
+  <main class="card day" aria-labelledby="day-h">
+    <div class="day-controls">
+      <label class="whatif-label" for="day-in">Day</label>
+      <input class="search date-input" id="day-in" type="date">
+      <button class="btn small" type="button" id="prev" aria-label="The day before" aria-keyshortcuts="ArrowLeft">←</button>
+      <button class="btn small" type="button" id="next" aria-label="The day after" aria-keyshortcuts="ArrowRight">→</button>
+      <button class="btn small" type="button" id="today" hidden>Back to today</button>
+    </div>
+    <div aria-live="polite">
+      <h1 class="headline" id="day-h">On this day</h1>
+      <div id="day-out">
+        <noscript><p>Further From does its date math in your browser, so it needs JavaScript.</p></noscript>
+      </div>
+    </div>
+    <div class="card-foot">
+      <button class="btn" type="button" id="copy">Copy link</button>
+      <span class="copied" id="copied" aria-live="polite"></span>
+    </div>
+  </main>
+
+  <div class="lower">
+    <section class="card" aria-labelledby="soon-h">
+      <h2 class="section" id="soon-h">Coming up</h2>
+      <p class="sub" id="soon-sub"></p>
+      <ol class="feed" id="soon"></ol>
+    </section>
+
+    <section class="card" aria-labelledby="round-h">
+      <h2 class="section" id="round-h">Round numbers ahead</h2>
+      <p class="sub" id="round-sub"></p>
+      <ol class="feed" id="round"></ol>
+    </section>
+  </div>
+</div>
+
+<footer>
+  © <span id="year">2026</span> <a href="https://www.strangeleaflet.com">Stephen Ball</a>. Every day here has its own link.
+</footer>
+
+<script src="when.js"></script>
+<script src="site.js"></script>
+<script>
+  const W = window.When;
+  const { $, el, fill, cap, short, isoDate, eventHref, sourceLink, loadEvents } = window.Site;
+
+  // how many anniversaries "Coming up" shows
+  const SOON = 10;
+  // "Round numbers ahead" counts every this many years, and shows this many
+  const ROUND_EVERY = 25;
+  const ROUND = 10;
+
+  let EVENTS = [];
+  // on is null for today
+  const state = { on: null };
+
+  // ---------- Helpers ----------
+
+  const day = () => state.on || W.today();
+
+  // "in 2 days", "this year", or "next year", from the day being shown to a moment at its own precision
+  function until(t) {
+    if (W.value(t, t.p) === W.value(day(), t.p)) return ["this year", "this month", "today"][t.p];
+    if (t.p === W.YEAR && t.y === day().y + 1) return "next year";
+    return `in ${W.distance(t, day())}`;
+  }
+
+  // ---------- URL state ----------
+
+  function readUrl() {
+    const t = W.parse(new URLSearchParams(location.search).get("on") ?? "");
+    setDay(t && t.p === W.DAY ? t : null);
+  }
+
+  function writeUrl() {
+    history.replaceState(null, "", state.on ? `?on=${isoDate(state.on)}` : location.pathname);
+  }
+
+  // a day that's today goes back to following today
+  function setDay(t) {
+    state.on = t && W.value(t, W.DAY) !== W.value(W.today(), W.DAY) ? t : null;
+    $("day-in").value = isoDate(day());
+    $("today").hidden = !state.on;
+  }
+
+  function step(days) {
+    setDay({ p: W.DAY, ...W.fromDayNumber(W.value(day(), W.DAY) + days) });
+    writeUrl();
+    render();
+  }
+
+  // ---------- On this day ----------
+
+  function renderDay() {
+    const on = day(), t = W.value(on, W.DAY);
+    const thisYear = on.y === W.today().y;
+    const hits = EVENTS.map((e) => ({ e, a: W.anniversary(e.when, on) }))
+      .filter((x) => x.a && W.value(x.a.on, W.DAY) === t);
+    // events only known to the month have it all month
+    const month = EVENTS.filter((e) => e.when.p === W.MONTH && e.when.m === on.m && e.when.y < on.y);
+
+    $("day-h").textContent = state.on ? `On ${thisYear ? W.monthDay(on) : W.format(on)}` : `Today, ${W.monthDay(on)}`;
+    fill($("day-out"),
+      el("p", { class: "status" }, hits.length
+        ? `${W.plural(hits.length, "event")} on the list happened on ${W.monthDay(on)}.`
+        : `Nothing on the list happened on ${W.monthDay(on)}. The anniversaries coming up are below.`),
+      hits.length ? el("ol", { class: "stops" }, hits.map(({ e, a }) => el("li", { class: "stop" },
+        el("p", { class: "stop-date" }, `${W.format(e.when)} · ${W.ordinal(a.years)} anniversary`),
+        el("h3", { class: "stop-title" }, el("a", { href: eventHref(e.key) }, e.title), el("span", { class: "tag" }, e.category)),
+        e.description || e.source ? el("p", { class: "stop-body" }, e.description, e.description && e.source ? " " : null,
+          e.source ? sourceLink(e.source) : null) : null))) : null,
+      month.length ? [
+        el("h3", { class: "feed-head" }, `Sometime in ${W.MONTHS[on.m - 1]}`),
+        el("ol", { class: "feed" }, month.map((e) => el("li", {}, el("a", { href: eventHref(e.key) },
+          el("time", {}, short(e.when), el("span", {}, W.plural(on.y - e.when.y, "year"))),
+          el("span", { class: "feed-pair" }, el("b", {}, e.title), el("span", { class: "tag" }, e.category)))))),
+      ] : null);
+    document.title = state.on ? `${W.format(on)} · Anniversaries · Further From` : "Anniversaries · Further From";
+  }
+
+  // ---------- Coming up ----------
+
+  function renderSoon() {
+    const on = day(), t = W.value(on, W.DAY);
+    const soon = EVENTS.map((e) => ({ e, a: W.anniversary(e.when, on) }))
+      .filter((x) => x.a && W.value(x.a.on, W.DAY) > t)
+      .sort((x, y) => W.value(x.a.on, W.DAY) - W.value(y.a.on, W.DAY))
+      .slice(0, SOON);
+    $("soon-sub").textContent = `The next ${W.plural(soon.length, "anniversary", "anniversaries")} after ${W.monthDay(on)}.`;
+    $("soon").replaceChildren(...soon.map(({ e, a }) => el("li", {}, el("a", { href: eventHref(e.key) },
+      el("time", {}, W.monthDay(a.on, "short"), el("span", {}, until(a.on))),
+      el("span", { class: "feed-pair" }, el("b", {}, e.title), el("span", {}, `, ${W.ordinal(a.years)} anniversary`))))));
+  }
+
+  // the next anniversaries that come in round numbers, for events at any precision
+  function renderRound() {
+    const on = day();
+    const round = EVENTS.map((e) => ({ e, a: W.milestone(e.when, ROUND_EVERY, on) }))
+      .filter((x) => x.a)
+      .sort((x, y) => W.span(x.a.on)[0] - W.span(y.a.on)[0])
+      .slice(0, ROUND);
+    $("round-sub").textContent = `The next anniversaries in multiples of ${ROUND_EVERY} years, for events dated to the day, the month, or only the year.`;
+    $("round").replaceChildren(...round.map(({ e, a }) => el("li", {}, el("a", { href: eventHref(e.key) },
+      el("time", {}, short(a.on), el("span", {}, until(a.on))),
+      el("span", { class: "feed-pair" }, el("b", {}, e.title), el("span", {}, `, ${W.ordinal(a.years)} anniversary`))))));
+  }
+
+  function render() {
+    renderDay();
+    renderSoon();
+    renderRound();
+  }
+
+  // ---------- Events ----------
+
+  // a half-typed date reads as empty, so only a cleared field goes back to today
+  $("day-in").addEventListener("input", (e) => {
+    const t = W.parse(e.target.value);
+    if (!t && e.target.value) return;
+    setDay(t);
+    writeUrl();
+    render();
+  });
+  $("prev").addEventListener("click", () => step(-1));
+  $("next").addEventListener("click", () => step(1));
+  $("today").addEventListener("click", () => { setDay(null); writeUrl(); render(); });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey || !EVENTS.length) return;
+    if (e.target.matches("input, textarea, select")) return;
+    if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+
+  $("copy").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      $("copied").textContent = "Link copied.";
+    } catch {
+      $("copied").textContent = "Couldn't copy. The address bar has the link.";
+    }
+  });
+
+  // ---------- Start ----------
+
+  async function start() {
+    $("year").textContent = W.today().y;
+    readUrl();
+    try {
+      EVENTS = await loadEvents();
+    } catch (err) {
+      fill($("day-out"), el("p", { class: "status" }, "The events didn't load. Reload the page to try again."));
+      console.error(err);
+      return;
+    }
+    render();
+  }
+
+  start();
+</script>
+</body>
+</html>
