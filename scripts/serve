@@ -101,4 +101,20 @@ if [ -n "$holders" ]; then
 fi
 
 echo "Serving $root/public at http://localhost:$port/ (Ctrl-C to stop)"
-exec python3 -m http.server --bind 127.0.0.1 --directory "$root/public" "$port"
+# http.server, plus no-store: without it a browser can keep showing a page
+# that another project served on this port earlier.
+# --directory stays on the command line so describe() can find it
+exec python3 -c '
+import functools, http.server, sys
+
+class Handler(http.server.SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header("Cache-Control", "no-store")
+        super().end_headers()
+
+_, _, directory, port = sys.argv
+http.server.test(
+    HandlerClass=functools.partial(Handler, directory=directory),
+    ServerClass=http.server.ThreadingHTTPServer,
+    port=int(port), bind="127.0.0.1")
+' --directory "$root/public" "$port"
