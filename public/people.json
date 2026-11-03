@@ -1,0 +1,283 @@
+[
+  {
+    "key": "mary-shelley",
+    "name": "Mary Shelley",
+    "born": "1797-08-30",
+    "died": "1851-02-01",
+    "description": "English writer who began Frankenstein at 18, when Lord Byron challenged his guests at Lake Geneva to each write a ghost story. It's considered an early example of science fiction.",
+    "source": "https://en.wikipedia.org/wiki/Mary_Shelley"
+  },
+  {
+    "key": "ada-lovelace",
+    "name": "Ada Lovelace",
+    "born": "1815-12-10",
+    "died": "1852-11-27",
+    "description": "English mathematician who saw that Charles Babbage's Analytical Engine could do more than arithmetic, and published an algorithm for it that's often called the first computer program. The machine was never built.",
+    "source": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+  },
+  {
+    "key": "jrr-tolkien",
+    "name": "J. R. R. Tolkien",
+    "born": "1892-01-03",
+    "died": "1973-09-02",
+    "description": "Oxford philologist whose invented languages grew into Middle-earth, the world of The Hobbit and The Lord of the Rings.",
+    "source": "https://en.wikipedia.org/wiki/J._R._R._Tolkien"
+  },
+  {
+    "key": "grace-hopper",
+    "name": "Grace Hopper",
+    "born": "1906-12-09",
+    "died": "1992-01-01",
+    "description": "Computer scientist and US Navy rear admiral who programmed the Harvard Mark I and came up with programming languages that don't depend on the machine, which led through her FLOW-MATIC to COBOL. She handed out foot-long wires to show how far light travels in a nanosecond.",
+    "source": "https://en.wikipedia.org/wiki/Grace_Hopper"
+  },
+  {
+    "key": "mary-golda-ross",
+    "name": "Mary Golda Ross",
+    "born": "1908-08-09",
+    "died": "2008-04-29",
+    "description": "Cherokee engineer and one of the 40 founding engineers of Lockheed's Skunk Works, where she worked on design concepts for flyby missions to Mars and Venus.",
+    "source": "https://en.wikipedia.org/wiki/Mary_Golda_Ross"
+  },
+  {
+    "key": "alan-turing",
+    "name": "Alan Turing",
+    "born": "1912-06-23",
+    "died": "1954-06-07",
+    "description": "English mathematician who described the Turing machine, helped break German ciphers at Bletchley Park, and asked whether machines can think. He was prosecuted in 1952 over a relationship with another man and died two years later. He was pardoned in 2013.",
+    "source": "https://en.wikipedia.org/wiki/Alan_Turing"
+  },
+  {
+    "key": "julia-child",
+    "name": "Julia Child",
+    "born": "1912-08-15",
+    "died": "2004-08-13",
+    "description": "Cook who brought French cooking to American television with The French Chef, after working for the OSS during World War II, where she helped develop a shark repellent.",
+    "source": "https://en.wikipedia.org/wiki/Julia_Child"
+  },
+  {
+    "key": "katherine-johnson",
+    "name": "Katherine Johnson",
+    "born": "1918-08-26",
+    "died": "2020-02-24",
+    "description": "NASA mathematician who started in a computing pool of Black women kept separate under Virginia's segregation laws, and calculated the trajectories for the first American spaceflights. John Glenn refused to fly until she checked the electronic computer's numbers for his orbit.",
+    "source": "https://en.wikipedia.org/wiki/Katherine_Johnson"
+  },
+  {
+    "key": "betty-white",
+    "name": "Betty White",
+    "born": "1922-01-17",
+    "died": "2021-12-31",
+    "description": "Actor who twice set the Guinness World Record for the longest TV career by a female entertainer, from the early days of television through The Mary Tyler Moore Show and The Golden Girls.",
+    "source": "https://en.wikipedia.org/wiki/Betty_White"
+  },
+  {
+    "key": "ralph-baer",
+    "name": "Ralph Baer",
+    "born": "1922-03-08",
+    "died": "2014-12-06",
+    "description": "Engineer whose Jewish family fled Nazi Germany when he was a teenager. He later built the Brown Box, which became the Magnavox Odyssey, the first home video game console.",
+    "source": "https://en.wikipedia.org/wiki/Ralph_H._Baer"
+  },
+  {
+    "key": "maria-tallchief",
+    "name": "Maria Tallchief",
+    "born": "1925-01-24",
+    "died": "2013-04-11",
+    "description": "Osage ballerina, considered America's first major prima ballerina, who danced The Firebird with the New York City Ballet.",
+    "source": "https://en.wikipedia.org/wiki/Maria_Tallchief"
+  },
+  {
+    "key": "fred-rogers",
+    "name": "Fred Rogers",
+    "born": "1928-03-20",
+    "died": "2003-02-27",
+    "description": "Presbyterian minister who made Mister Rogers' Neighborhood for children, and in 1969 talked a skeptical US Senate subcommittee into funding public television.",
+    "source": "https://en.wikipedia.org/wiki/Fred_Rogers"
+  },
+  {
+    "key": "ursula-k-le-guin",
+    "name": "Ursula K. Le Guin",
+    "born": "1929-10-21",
+    "died": "2018-01-22",
+    "description": "Writer of the Earthsea books and The Left Hand of Darkness. The daughter of two anthropologists, she wrote science fiction and fantasy shaped by anthropology, Taoism, and feminism.",
+    "source": "https://en.wikipedia.org/wiki/Ursula_K._Le_Guin"
+  },
+  {
+    "key": "leonard-nimoy",
+    "name": "Leonard Nimoy",
+    "born": "1931-03-26",
+    "died": "2015-02-27",
+    "description": "Actor who played Spock in Star Trek. He based the Vulcan salute on a blessing he saw at synagogue as a boy.",
+    "source": "https://en.wikipedia.org/wiki/Leonard_Nimoy"
+  },
+  {
+    "key": "nichelle-nichols",
+    "name": "Nichelle Nichols",
+    "born": "1932-12-28",
+    "died": "2022-07-30",
+    "description": "Actor who played Uhura in Star Trek, and stayed on the show after Martin Luther King Jr. talked her out of leaving. She then recruited women and Black astronauts for NASA, including Sally Ride and Guion Bluford.",
+    "source": "https://en.wikipedia.org/wiki/Nichelle_Nichols"
+  },
+  {
+    "key": "carl-sagan",
+    "name": "Carl Sagan",
+    "born": "1934-11-09",
+    "died": "1996-12-20",
+    "description": "Astronomer who hosted Cosmos, helped put together the Voyager Golden Record, and asked for Voyager 1 to turn around and take the Pale Blue Dot photograph.",
+    "source": "https://en.wikipedia.org/wiki/Carl_Sagan"
+  },
+  {
+    "key": "margaret-hamilton",
+    "name": "Margaret Hamilton",
+    "born": "1936-08-17",
+    "died": "2026-09-30",
+    "description": "Computer scientist who led the team that wrote the onboard flight software for Apollo, and coined the term \"software engineering\" so the work would get the respect other engineering did.",
+    "source": "https://en.wikipedia.org/wiki/Margaret_Hamilton_(software_engineer)"
+  },
+  {
+    "key": "jim-henson",
+    "name": "Jim Henson",
+    "born": "1936-09-24",
+    "died": "1990-05-16",
+    "description": "Puppeteer who created the Muppets, brought them to Sesame Street, and made The Dark Crystal and Labyrinth.",
+    "source": "https://en.wikipedia.org/wiki/Jim_Henson"
+  },
+  {
+    "key": "george-takei",
+    "name": "George Takei",
+    "born": "1937-04-20",
+    "description": "Actor who played Sulu in Star Trek. As a child he and his family were held in US internment camps for Japanese Americans during World War II, a story he later told in the musical Allegiance.",
+    "source": "https://en.wikipedia.org/wiki/George_Takei"
+  },
+  {
+    "key": "patrick-stewart",
+    "name": "Patrick Stewart",
+    "born": "1940-07-13",
+    "died": "2026-10-28",
+    "description": "English actor who came up through the Royal Shakespeare Company, then commanded the Enterprise-D as Jean-Luc Picard and led the X-Men as Professor Charles Xavier. He was knighted in 2010.",
+    "source": "https://en.wikipedia.org/wiki/Patrick_Stewart"
+  },
+  {
+    "key": "hayao-miyazaki",
+    "name": "Hayao Miyazaki",
+    "born": "1941-01-05",
+    "description": "Animator who co-founded Studio Ghibli and directed My Neighbor Totoro, Princess Mononoke, and Spirited Away.",
+    "source": "https://en.wikipedia.org/wiki/Hayao_Miyazaki"
+  },
+  {
+    "key": "dennis-ritchie",
+    "name": "Dennis Ritchie",
+    "born": "1941-09-09",
+    "died": "2011-10-12",
+    "description": "Computer scientist who created the C programming language and, with Ken Thompson, the Unix operating system.",
+    "source": "https://en.wikipedia.org/wiki/Dennis_Ritchie"
+  },
+  {
+    "key": "bob-ross",
+    "name": "Bob Ross",
+    "born": "1942-10-29",
+    "died": "1995-07-04",
+    "description": "Painter who taught wet-on-wet oil painting on The Joy of Painting, finishing a landscape in about half an hour, happy little trees and all.",
+    "source": "https://en.wikipedia.org/wiki/Bob_Ross"
+  },
+  {
+    "key": "wilma-mankiller",
+    "name": "Wilma Mankiller",
+    "born": "1945-11-18",
+    "died": "2010-04-06",
+    "description": "First woman elected Principal Chief of the Cherokee Nation. Her administration built health clinics and started early education, adult education, and job training programs.",
+    "source": "https://en.wikipedia.org/wiki/Wilma_Mankiller"
+  },
+  {
+    "key": "dolly-parton",
+    "name": "Dolly Parton",
+    "born": "1946-01-19",
+    "died": "2026-08-25",
+    "description": "Singer and songwriter who wrote \"Jolene\" and \"I Will Always Love You\", and started the Imagination Library in honor of her father, who never learned to read. It mails free books to young children.",
+    "source": "https://en.wikipedia.org/wiki/Dolly_Parton"
+  },
+  {
+    "key": "david-bowie",
+    "name": "David Bowie",
+    "born": "1947-01-08",
+    "died": "2016-01-10",
+    "description": "Musician who sent Major Tom into space, became Ziggy Stardust, and released his last album two days before he died.",
+    "source": "https://en.wikipedia.org/wiki/David_Bowie"
+  },
+  {
+    "key": "octavia-e-butler",
+    "name": "Octavia E. Butler",
+    "born": "1947-06-22",
+    "died": "2006-02-24",
+    "description": "Science fiction writer of Kindred and the Parable novels, and the first science fiction writer to win a MacArthur Fellowship.",
+    "source": "https://en.wikipedia.org/wiki/Octavia_E._Butler"
+  },
+  {
+    "key": "terry-pratchett",
+    "name": "Terry Pratchett",
+    "born": "1948-04-28",
+    "died": "2015-03-12",
+    "description": "Writer of the Discworld novels, a flat world on the backs of four elephants on the back of a giant turtle.",
+    "source": "https://en.wikipedia.org/wiki/Terry_Pratchett"
+  },
+  {
+    "key": "sally-ride",
+    "name": "Sally Ride",
+    "born": "1951-05-26",
+    "died": "2012-07-23",
+    "description": "Physicist who became the first American woman in space in 1983. After she died, her obituary named her partner of 27 years, Tam O'Shaughnessy, making her the first known LGBT astronaut.",
+    "source": "https://en.wikipedia.org/wiki/Sally_Ride"
+  },
+  {
+    "key": "douglas-adams",
+    "name": "Douglas Adams",
+    "born": "1952-03-11",
+    "died": "2001-05-11",
+    "description": "Writer of The Hitchhiker's Guide to the Galaxy, which began as a BBC radio comedy before it was a novel, a game, and a towel day.",
+    "source": "https://en.wikipedia.org/wiki/Douglas_Adams"
+  },
+  {
+    "key": "shigeru-miyamoto",
+    "name": "Shigeru Miyamoto",
+    "born": "1952-11-16",
+    "description": "Game designer who made Donkey Kong, Super Mario Bros., and The Legend of Zelda for Nintendo.",
+    "source": "https://en.wikipedia.org/wiki/Shigeru_Miyamoto"
+  },
+  {
+    "key": "roberta-williams",
+    "name": "Roberta Williams",
+    "born": "1953-02-16",
+    "description": "Game designer who co-founded Sierra On-Line and wrote Mystery House and the King's Quest series, graphic adventure games at a time when most adventures were all text.",
+    "source": "https://en.wikipedia.org/wiki/Roberta_Williams"
+  },
+  {
+    "key": "tim-berners-lee",
+    "name": "Tim Berners-Lee",
+    "born": "1955-06-08",
+    "description": "Computer scientist who invented the World Wide Web at CERN, and wrote the first web browser and web server.",
+    "source": "https://en.wikipedia.org/wiki/Tim_Berners-Lee"
+  },
+  {
+    "key": "levar-burton",
+    "name": "LeVar Burton",
+    "born": "1957-02-16",
+    "description": "Actor who played Kunta Kinte in Roots and Geordi La Forge in Star Trek: The Next Generation, and hosted Reading Rainbow for 23 years.",
+    "source": "https://en.wikipedia.org/wiki/LeVar_Burton"
+  },
+  {
+    "key": "john-herrington",
+    "name": "John Herrington",
+    "born": "1958-09-14",
+    "description": "Naval aviator and Chickasaw Nation citizen who in 2002 became the first enrolled member of a Native American tribe to fly in space.",
+    "source": "https://en.wikipedia.org/wiki/John_Herrington"
+  },
+  {
+    "key": "satoru-iwata",
+    "name": "Satoru Iwata",
+    "born": "1959-12-06",
+    "died": "2015-07-11",
+    "description": "Programmer who wrote the compression tools for Pokémon Gold and Silver, then became Nintendo's president and led it through the DS and the Wii.",
+    "source": "https://en.wikipedia.org/wiki/Satoru_Iwata"
+  }
+]

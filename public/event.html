@@ -35,6 +35,7 @@
     <a href="./">Compare two moments</a>
     <a href="event.html" aria-current="page">One moment</a>
     <a href="anniversaries.html">Anniversaries</a>
+    <a href="people.html">People</a>
     <a href="life.html">A lifetime</a>
     <button class="theme-toggle" id="theme" type="button" hidden></button>
   </nav>
@@ -80,7 +81,7 @@
 <script src="site.js"></script>
 <script>
   const W = window.When;
-  const { $, el, fill, cap, short, isoDate, fromNow, eventHref, sourceLink, lifeMark, loadEvents } = window.Site;
+  const { $, el, fill, cap, short, isoDate, fromNow, eventHref, lifeHref, sourceLink, lifeMark, loadEvents } = window.Site;
 
   const PRECISION = ["dated to the year", "dated to the month", "dated to the day"];
   // how many of the closest events "Nearby in time" shows
@@ -191,6 +192,7 @@
       ] : null,
       el("div", { class: "card-foot" },
         el("a", { class: "btn primary", href: `./?${new URLSearchParams({ a: e.key })}` }, "Compare it with another"),
+        e.person ? el("a", { class: "btn", href: lifeHref(e.person) }, `${e.person.name}'s lifetime`) : null,
         el("button", { class: "btn", type: "button", "aria-keyshortcuts": "r", onclick: another }, "Another event ", el("kbd", {}, "R")),
         el("button", {
           class: "btn", type: "button",

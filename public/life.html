@@ -35,6 +35,7 @@
     <a href="./">Compare two moments</a>
     <a href="event.html">One moment</a>
     <a href="anniversaries.html">Anniversaries</a>
+    <a href="people.html">People</a>
     <a href="life.html" aria-current="page">A lifetime</a>
     <button class="theme-toggle" id="theme" type="button" hidden></button>
   </nav>
@@ -67,7 +68,8 @@
     <p class="examples" id="examples">For example:
       <a href="?name=Ada+Lovelace&amp;born=1815-12-10&amp;died=1852-11-27">Ada Lovelace</a>,
       <a href="?name=Grace+Hopper&amp;born=1906-12-09&amp;died=1992-01-01">Grace Hopper</a>, or
-      <a href="?born=2000">someone born in 2000</a>.</p>
+      <a href="?born=2000">someone born in 2000</a>.
+      Or pick someone from <a href="people.html">People</a>.</p>
     <div class="card-foot">
       <button class="btn" type="button" id="copy">Copy link</button>
       <span class="copied" id="copied" aria-live="polite"></span>
@@ -90,7 +92,7 @@
 <script src="site.js"></script>
 <script>
   const W = window.When;
-  const { $, el, fill, cap, short, ageLabel, lifeMark, categoryChips, loadEvents } = window.Site;
+  const { $, el, fill, cap, short, sourceLink, ageLabel, lifeMark, categoryChips, loadEvents } = window.Site;
 
   // anyone older than this without a death date needs one
   const OLDEST = 130;
@@ -110,6 +112,12 @@
 
   // "Ada Lovelace's" or "their"
   const whose = (p) => (p.name ? `${p.name}'s` : "their");
+
+  // the entry in people.json with this name and birth, if there is one
+  function known(p) {
+    if (!p.name) return null;
+    return EVENTS.find((e) => e.person && e.person.name === p.name && e.person.born === p.bornText)?.person ?? null;
+  }
 
   // an age from W.agesAt, to follow "they're" or "at"
   function ageWords([young, old]) {
@@ -203,7 +211,10 @@
       return;
     }
     $("person-h").textContent = headline(p);
-    fill($("person-out"), goneLine(p) ? el("p", { class: "status" }, goneLine(p)) : null);
+    const who = known(p);
+    fill($("person-out"),
+      goneLine(p) ? el("p", { class: "status" }, goneLine(p)) : null,
+      who ? el("p", { class: "stop-body" }, who.description, " ", sourceLink(who.source)) : null);
     document.title = `${p.name ? `${p.name}'s lifetime` : "A lifetime"} · Further From`;
   }
 
@@ -220,10 +231,12 @@
     const now = W.today(), t = W.dayNumber(now.y, now.m, now.d);
     const born = W.span(p.born);
     const died = p.died ? W.span(p.died) : null;
+    // their own birth and death are already marked
+    const who = known(p);
     const during = [], after = [];
     for (const e of EVENTS) {
       const start = W.span(e.when)[0];
-      if (start > t) continue;
+      if (start > t || (who && e.person === who)) continue;
       if (!died || start <= died[1]) {
         const ages = W.agesAt(born, e.when);
         if (ages) during.push({ e, label: ageLabel(ages), cls: ages[0] === null ? "unsure" : "" });
@@ -249,7 +262,9 @@
 
     const shown = (rows, from) => rows.filter((x) => !state.category || x.e.category === state.category)
       .map((x) => eventRow(x.e, x.label, x.cls, from));
-    const rows = [shown(during, p.bornText), died ? shown(after, p.diedText) : []];
+    // compare with someone's birth or death as an event when they're on the list, so the comparison names them
+    const rows = [shown(during, who ? `${who.key}-born` : p.bornText),
+      died ? shown(after, who && who.died === p.diedText ? `${who.key}-died` : p.diedText) : []];
     const subject = p.name || "They";
     fill($("life-list"),
       lifeMark("born", short(p.born), `${subject} ${p.name ? "was" : "were"} born`),

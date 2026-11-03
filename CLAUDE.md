@@ -21,17 +21,18 @@ and the vetting scripts. This file covers what the README doesn't.
 
 ## The pages
 
-There are four pages: `public/index.html` (the comparison and everything
+There are five pages: `public/index.html` (the comparison and everything
 around it), `public/event.html` (one event on its own),
-`public/anniversaries.html` (what happened on a day of the year), and
-`public/life.html` (someone's lifetime). Each has its markup and
-one inline script split into `// ---------- Section ----------` blocks (URL
-state, Comparison, Picker, and so on). What they share lives in
-`public/site.css` (every style) and `public/site.js`, a plain script like
-`when.js` that sets `window.Site` with the `el()`, `$()`, and `fill()` helpers,
-a few labels and links, and `loadEvents()`. Code used by one page stays in that page.
-Put new code in the section it belongs to, and match the style: those helpers,
-one `state` object, and `render*` functions.
+`public/anniversaries.html` (what happened on a day of the year),
+`public/people.html` (famous lifetimes), and `public/life.html` (someone's
+lifetime). Each has its markup and one inline script split into
+`// ---------- Section ----------` blocks (URL state, Comparison, Picker, and so on). What
+they share lives in `public/site.css` (every style) and `public/site.js`, a
+plain script like `when.js` that sets `window.Site` with the `el()`, `$()`,
+and `fill()` helpers, a few labels and links, `loadEvents()`, and
+`loadPeople()`. Code used by one page stays in that page. Put new code in the
+section it belongs to, and match the style: those helpers, one `state` object,
+and `render*` functions.
 
 - Colors are CSS custom properties on `:root`, with a dark theme under
   `prefers-color-scheme` and `[data-theme]`. Use the tokens, not literal colors.
@@ -73,6 +74,12 @@ Follow the README's format. Beyond what the tests enforce:
   carving. Back that perspective with the source. The point is a fuller
   picture, not a list of every harm. The site leans toward lighter history
   and keeps wars and assassinations to a minimum.
+- People go in `public/people.json`, not in an event file. `site.js` makes
+  their births and deaths into events in the `births` and `deaths`
+  categories, keyed `<key>-born` and `<key>-died`, and `scripts/upcoming`
+  does the same, so keep those two in step. Vet people the same way as
+  events. Wikidata and Wikipedia can know about a recent death before you do,
+  so check anyone living against `scripts/check-dates`.
 - Use an existing `category` if one fits (`history`, `videogames`, `movies`,
   `space`, `technology`, `internet`, `programming`, `books`, `music`,
   `food`, `business`). Each category is a file in `public/events/` and a

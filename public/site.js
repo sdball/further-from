@@ -78,18 +78,47 @@
     }, `${cat ?? "all"} ${cat ? counts.get(cat) : total}`));
   }
 
-  // every event, oldest first, from the category files that events/index.json lists
+  async function json(url) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`${url}: ${res.status}`);
+    return res.json();
+  }
+
+  const byStart = (x, y) => W.span(x.when)[0] - W.span(y.when)[0];
+
+  // the page for someone's lifetime
+  function lifeHref(person) {
+    const params = new URLSearchParams({ name: person.name, born: person.born });
+    if (person.died) params.set("died", person.died);
+    return `life.html?${params}`;
+  }
+
+  // a person's birth and, if they've died, their death, as events in the births and deaths categories
+  function personEvents(person) {
+    const base = { description: person.description, source: person.source, person };
+    return [
+      { ...base, key: `${person.key}-born`, category: "births", date: person.born, title: `${person.name} is born`, phrase: `${person.name}'s birth` },
+      person.died ? { ...base, key: `${person.key}-died`, category: "deaths", date: person.died, title: `${person.name} dies`, phrase: `${person.name}'s death` } : null,
+    ].filter(Boolean);
+  }
+
+  // everyone in people.json, oldest first, with their birth as when and their death as died
+  async function loadPeople() {
+    return (await json("people.json"))
+      .map((p) => ({ ...p, when: W.parse(p.born), diedWhen: p.died ? W.parse(p.died) : null }))
+      .filter((p) => p.when)
+      .sort(byStart);
+  }
+
+  // every event, oldest first, from the category files that events/index.json
+  // lists and from the births and deaths of everyone in people.json
   async function loadEvents() {
-    const json = async (url) => {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`${url}: ${res.status}`);
-      return res.json();
-    };
-    const cats = await json("events/index.json");
-    return (await Promise.all(cats.map((cat) => json(`events/${cat}.json`)))).flat()
+    const [cats, people] = await Promise.all([json("events/index.json"), json("people.json")]);
+    const files = await Promise.all(cats.map((cat) => json(`events/${cat}.json`)));
+    return [...files.flat(), ...people.flatMap(personEvents)]
       .map((e) => ({ ...e, when: W.parse(e.date) }))
       .filter((e) => e.when)
-      .sort((x, y) => W.span(x.when)[0] - W.span(y.when)[0]);
+      .sort(byStart);
   }
 
   // the theme toggle in the nav flips between light and dark, showing a moon or
@@ -135,5 +164,5 @@
   }
   themeToggle();
 
-  root.Site = { $, el, fill, cap, short, isoDate, fromNow, eventHref, sourceLink, ageLabel, lifeMark, categoryChips, loadEvents };
+  root.Site = { $, el, fill, cap, short, isoDate, fromNow, eventHref, lifeHref, sourceLink, ageLabel, lifeMark, categoryChips, loadEvents, loadPeople };
 })(window);

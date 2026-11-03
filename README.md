@@ -11,11 +11,13 @@ pushing to `main` deploys it to GitHub Pages.
 public/index.html    the main page: comparison, picker, what if, upcoming crossovers, interesting pairs
 public/event.html    one event: its details, the events nearest it, and its crossovers with every other event
 public/anniversaries.html  what happened on a day of the year, and the anniversaries coming up
+public/people.html   famous people, their birthdays, and when they'll have been gone as long as they lived
 public/life.html     someone else's lifetime, from their birth and maybe their death
 public/site.css      the styles, shared by every page
 public/site.js       helpers and event loading, shared by every page
 public/when.js       the date math, shared by the pages and the tests
 public/events/       every event, one file per category, listed in index.json
+public/people.json   famous people, whose births and deaths are events too
 test/                node --test checks for the date math and the events
 scripts/serve        serves public/ locally
 scripts/check-dates  compares event dates with Wikidata
@@ -69,6 +71,27 @@ a different date for the article, so check the article itself.
 `scripts/check-claims` takes a TSV of `title<TAB>regex` and prints the matching
 sentences, and `scripts/upcoming` shows what the batch does to the upcoming feed.
 
+## Adding a person
+
+Add an object to `public/people.json`. Order doesn't matter.
+
+```json
+{
+  "key": "ada-lovelace",
+  "name": "Ada Lovelace",
+  "born": "1815-12-10",
+  "died": "1852-11-27",
+  "description": "English mathematician who saw that Charles Babbage's Analytical Engine could do more than arithmetic…",
+  "source": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+}
+```
+
+- `key` is lowercase and hyphenated. `site.js` turns each person into a birth event, `ada-lovelace-born`, and a death event, `ada-lovelace-died`, in the `births` and `deaths` categories, so they show up everywhere events do.
+- `born` and `died` take the same dates as an event's `date`. Leave out `died` for someone living.
+- `description` says who they were, and is shared by both events. `source` is their Wikipedia article.
+
+`node --test test/*.test.mjs` checks people too, and `scripts/check-dates` compares their dates with Wikidata's birth and death dates.
+
 ## How the comparison works
 
 Two events are compared at the coarser of their two precisions. Two exact dates
@@ -90,8 +113,13 @@ of today's anniversaries, or any event on a day with none.
 `?on=2026-12-25` for any other day), the anniversaries coming up after it, and
 the next round-number anniversaries (multiples of 25 years) for every event.
 
+`people.html` lists everyone in `people.json`, each linking to their lifetime,
+with the birthdays coming up and when each person who has died will have been
+gone as long as they lived.
+
 `life.html` does the same for anyone else:
 `life.html?name=Ada+Lovelace&born=1815-12-10&died=1852-11-27`. Only `born` is
 needed. It lists every event from their birth to today with their age at each
 one (or the years since they died), and when they'll have been gone as long as
-they lived.
+they lived. When the name and birth match someone in `people.json`, it shows
+their description too.

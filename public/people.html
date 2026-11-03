@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>People · Further From</title>
+<meta name="description" content="Famous lifetimes, and what happened in them.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="People · Further From">
+<meta property="og:description" content="Famous lifetimes, and what happened in them.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>
+  // a theme picked with the toggle, set before the page paints so it doesn't flash
+  try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch (e) {}
+</script>
+<script>
+  window.goatcounter = {
+    path: function(p) { return location.host + p }
+  }
+</script>
+<script data-goatcounter="https://sdball.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<body>
+<header class="mast">
+  <div class="mast-inner">
+    <a class="wordmark" href="./">Further <i>From</i></a>
+    <p class="tagline">Famous lifetimes, and what happened in them.</p>
+  </div>
+  <nav class="nav" aria-label="Pages">
+    <a href="./">Compare two moments</a>
+    <a href="event.html">One moment</a>
+    <a href="anniversaries.html">Anniversaries</a>
+    <a href="people.html" aria-current="page">People</a>
+    <a href="life.html">A lifetime</a>
+    <button class="theme-toggle" id="theme" type="button" hidden></button>
+  </nav>
+  <div class="ruler" aria-hidden="true"></div>
+</header>
+
+<div class="wrap">
+  <main class="card people" aria-labelledby="people-h">
+    <p class="eyebrow">People</p>
+    <h1 class="headline" id="people-h">Whose lifetime?</h1>
+    <p class="status">Pick someone to see what happened in their lifetime. Their births and deaths are events too, so you can compare them with anything else on the list.</p>
+    <label class="sr-only" for="filter">Search people</label>
+    <input class="search" id="filter" type="search" placeholder="Search names, years, or what they did" autocomplete="off" spellcheck="false" aria-keyshortcuts="/" aria-controls="people">
+    <p class="count" id="count" aria-live="polite"></p>
+    <ul class="list" id="people">
+      <noscript><li class="no-match">Further From does its date math in your browser, so it needs JavaScript.</li></noscript>
+    </ul>
+  </main>
+
+  <div class="lower">
+    <section class="card" aria-labelledby="soon-h">
+      <h2 class="section" id="soon-h">Birthdays coming up</h2>
+      <p class="sub" id="soon-sub"></p>
+      <ol class="feed" id="soon"></ol>
+    </section>
+
+    <section class="card" aria-labelledby="gone-h">
+      <h2 class="section" id="gone-h">Gone as long as they lived</h2>
+      <p class="sub">A birth and a death have a crossover too: the day someone will have been gone as long as they were alive.</p>
+      <h3 class="feed-head">Coming up</h3>
+      <ol class="feed" id="gone-soon"></ol>
+      <h3 class="feed-head">Recently passed</h3>
+      <ol class="feed" id="gone-passed"></ol>
+    </section>
+  </div>
+</div>
+
+<footer>
+  © <span id="year">2026</span> <a href="https://www.strangeleaflet.com">Stephen Ball</a>. The people live in <a href="https://github.com/sdball/further-from/blob/main/public/people.json">public/people.json</a>, and suggestions are welcome.
+</footer>
+
+<script src="when.js"></script>
+<script src="site.js"></script>
+<script>
+  const W = window.When;
+  const { $, el, fill, short, fromNow, lifeHref, loadPeople } = window.Site;
+
+  // how many birthdays "Birthdays coming up" shows
+  const SOON = 8;
+
+  let PEOPLE = [];
+  const state = { filter: "" };
+
+  // ---------- Helpers ----------
+
+  // "1815–1852", or "1940–" for someone still living
+  function lifespan(p) {
+    return `${W.yearText(p.when.y)}–${p.diedWhen ? W.yearText(p.diedWhen.y) : ""}`;
+  }
+
+  // how old someone is, or was when they died: "86", or "85–86" for a birth known only to the year
+  function age(p) {
+    const [young, old] = W.agesAt(W.span(p.when), p.diedWhen || W.today());
+    return young === old ? String(old) : `${young ?? 0}–${old}`;
+  }
+
+  // "age 86" for someone living, "died at 36" for someone who isn't
+  const ageTag = (p) => (p.diedWhen ? `died at ${age(p)}` : `age ${age(p)}`);
+
+  // a person's birth and death as the comparison page's event keys
+  const compareHref = (p) => `./?${new URLSearchParams({ a: `${p.key}-born`, b: `${p.key}-died` })}`;
+
+  // ---------- People ----------
+
+  function matches(p, words) {
+    const hay = `${p.name} ${p.description} ${p.born} ${p.died ?? "living"} ${W.format(p.when)}`.toLowerCase();
+    return words.every((w) => hay.includes(w));
+  }
+
+  function renderPeople() {
+    const words = state.filter.toLowerCase().split(/\s+/).filter(Boolean);
+    const shown = PEOPLE.filter((p) => matches(p, words));
+    fill($("people"), shown.length
+      ? shown.map((p) => el("li", {}, el("a", { class: "row person", href: lifeHref(p) },
+        el("span", { class: "row-date" }, lifespan(p)),
+        el("span", { class: "row-title" },
+          el("b", {}, p.name), el("span", { class: "tag" }, ageTag(p)),
+          el("span", { class: "row-note" }, p.description)))))
+      : el("li", { class: "no-match" }, "Nobody matches. Try a name, a year, or something they did."));
+    $("count").textContent = W.plural(shown.length, "person", "people");
+  }
+
+  // ---------- Birthdays coming up ----------
+
+  function renderSoon() {
+    const now = W.today(), t = W.value(now, W.DAY);
+    const soon = PEOPLE.map((p) => ({ p, a: W.anniversary(p.when, now) }))
+      .filter((x) => x.a)
+      .sort((x, y) => W.value(x.a.on, W.DAY) - W.value(y.a.on, W.DAY))
+      .slice(0, SOON);
+    $("soon-sub").textContent = "The next birthdays, and how old each person is turning, or would have.";
+    $("soon").replaceChildren(...soon.map(({ p, a }) => el("li", {}, el("a", { href: lifeHref(p) },
+      el("time", {}, W.monthDay(a.on, "short"),
+        el("span", {}, W.value(a.on, W.DAY) === t ? "today" : `in ${W.distance(a.on, now)}`)),
+      el("span", { class: "feed-pair" }, el("b", {}, p.name),
+        el("span", {}, p.diedWhen ? `, born ${W.plural(a.years, "year")} ago` : ` turns ${a.years}`))))));
+  }
+
+  // ---------- Gone as long as they lived ----------
+
+  function goneRow(p, c) {
+    return el("li", {}, el("a", { href: compareHref(p) },
+      el("time", {}, short(c.pivot), el("span", {}, fromNow(c))),
+      el("span", { class: "feed-pair" }, el("b", {}, p.name),
+        el("span", {}, `, who died at ${age(p)}`))));
+  }
+
+  function renderGone() {
+    const t = W.value(W.today(), W.DAY);
+    const all = PEOPLE.filter((p) => p.diedWhen)
+      .map((p) => ({ p, c: W.compare({ when: p.when }, { when: p.diedWhen }) }))
+      .filter((x) => x.c.tense !== "same")
+      .map((x) => ({ ...x, end: W.span(x.c.pivot)[1] }));
+    const soon = all.filter((x) => x.end >= t).sort((x, y) => x.end - y.end).slice(0, 6);
+    const passed = all.filter((x) => x.end < t).sort((x, y) => y.end - x.end).slice(0, 4);
+    $("gone-soon").replaceChildren(...soon.map((x) => goneRow(x.p, x.c)));
+    $("gone-passed").replaceChildren(...passed.map((x) => goneRow(x.p, x.c)));
+  }
+
+  // ---------- Events ----------
+
+  $("filter").addEventListener("input", (e) => { state.filter = e.target.value; renderPeople(); });
+
+  $("filter").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      $("people").querySelector(".row")?.click();
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      $("people").querySelector(".row")?.focus();
+    } else if (e.key === "Escape" && state.filter) {
+      e.target.value = state.filter = "";
+      renderPeople();
+    }
+  });
+
+  // arrow keys walk the list, and up from the top goes back to the search
+  $("people").addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+    const rows = [...$("people").querySelectorAll(".row")];
+    const i = rows.indexOf(document.activeElement);
+    if (i === -1) return;
+    e.preventDefault();
+    if (e.key === "ArrowUp" && i === 0) $("filter").focus();
+    else rows[Math.max(0, Math.min(rows.length - 1, i + (e.key === "ArrowDown" ? 1 : -1)))].focus();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.target.matches("input:not([type=range]), textarea, select")) return;
+    if (e.key === "/") {
+      e.preventDefault();
+      $("filter").focus();
+    }
+  });
+
+  // ---------- Start ----------
+
+  async function start() {
+    $("year").textContent = W.today().y;
+    try {
+      PEOPLE = await loadPeople();
+    } catch (err) {
+      fill($("people"), el("li", { class: "no-match" }, "The people didn't load. Reload the page to try again."));
+      console.error(err);
+      return;
+    }
+    renderPeople();
+    renderSoon();
+    renderGone();
+  }
+
+  start();
+</script>
+</body>
+</html>

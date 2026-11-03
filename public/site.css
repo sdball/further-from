@@ -566,6 +566,13 @@ a.life-row:hover { background: var(--paper); }
 .timeline .life-list { max-height: 44rem; }
 .examples { margin: 1rem 0 0; color: var(--muted); font-size: 0.95rem; }
 
+/* ---------- People ---------- */
+
+.people .status { margin-bottom: 1.25rem; }
+/* the whole list shows, so it isn't a scroll box, which would hold on to the wheel with nothing to scroll */
+.people .list { max-height: none; overflow: visible; overscroll-behavior: auto; margin-top: 0.25rem; }
+.row-note { display: block; margin-top: 0.2rem; color: var(--muted); font-size: 0.88rem; }
+
 /* ---------- Anniversaries ---------- */
 
 .day-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.6rem; margin: 0 0 1.5rem; }

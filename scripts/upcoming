@@ -11,8 +11,15 @@ const context = {};
 vm.runInNewContext(readFileSync(path.join(root, "public", "when.js"), "utf8"), context);
 const W = context.When;
 const dir = path.join(root, "public", "events");
+const people = JSON.parse(readFileSync(path.join(root, "public", "people.json"), "utf8"));
+// births and deaths, as site.js's personEvents makes them
+const lives = people.flatMap((p) => [
+  { title: `${p.name} is born`, date: p.born },
+  ...(p.died ? [{ title: `${p.name} dies`, date: p.died }] : []),
+]);
 const events = readdirSync(dir).filter((f) => f.endsWith(".json") && f !== "index.json")
   .flatMap((f) => JSON.parse(readFileSync(path.join(dir, f), "utf8")))
+  .concat(lives)
   .map((e) => ({ ...e, when: W.parse(e.date) }));
 const count = Number(process.argv[2]) || 12;
 
