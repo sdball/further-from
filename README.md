@@ -28,11 +28,14 @@ scripts/upcoming     prints the next crossovers
 ## Run it locally
 
 ```sh
-scripts/serve        # http://localhost:8000/
+scripts/serve        # http://localhost:8010/
 scripts/serve 9000   # or pick a port
 scripts/serve --list # Python servers still running, with their pids
 node --test test/*.test.mjs
 ```
+
+With [direnv](https://direnv.net/), run `direnv allow` once and `.envrc` puts
+`scripts/` on your PATH here, so `serve`, `upcoming` and the rest work without the prefix.
 
 Use the server rather than opening the files directly, since the pages fetch the event files.
 

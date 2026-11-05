@@ -1,6 +1,6 @@
 #!/bin/sh
 # Serve public/ locally, the way GitHub Pages will.
-# Usage: scripts/serve [port]   (default 8000, or $PORT)
+# Usage: scripts/serve [port]   (default 8010, or $PORT)
 #        scripts/serve --list   show the local Python servers still running
 
 set -e
@@ -74,7 +74,7 @@ case "$1" in
   -*) echo "Unknown option: $1 (try --help)" >&2; exit 2 ;;
 esac
 
-port="${1:-${PORT:-8000}}"
+port="${1:-${PORT:-8010}}"
 case "$port" in
   ''|*[!0-9]*) echo "Not a port number: $port" >&2; exit 2 ;;
 esac
