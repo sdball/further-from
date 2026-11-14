@@ -1,0 +1,74 @@
+[
+  {
+    "key": "watch-mr-wizard-premiere",
+    "date": "1951-03-03",
+    "title": "Premiere of Watch Mr. Wizard",
+    "phrase": "the premiere of Watch Mr. Wizard",
+    "category": "tv",
+    "description": "Don Herbert played a science hobbyist whose young neighbor dropped by every Saturday morning for an experiment. It went out live from Chicago's WNBQ, ran 547 live broadcasts until 1965, and won a Peabody Award in 1953.",
+    "source": "https://en.wikipedia.org/wiki/Watch_Mr._Wizard"
+  },
+  {
+    "key": "mtv-launch",
+    "date": "1981-08-01",
+    "title": "MTV launches",
+    "phrase": "the launch of MTV",
+    "category": "tv",
+    "description": "The first video was, of course, \"Video Killed the Radio Star\" by the Buggles. In its first years MTV featured very few Black artists, until Michael Jackson's \"Billie Jean\" broke the color barrier the channel had put up.",
+    "source": "https://en.wikipedia.org/wiki/MTV"
+  },
+  {
+    "key": "mysterious-cities-of-gold-premiere",
+    "date": "1982-05-01",
+    "title": "Premiere of The Mysterious Cities of Gold",
+    "phrase": "the premiere of The Mysterious Cities of Gold",
+    "category": "tv",
+    "description": "A Japanese and French cartoon in which Esteban, Zia, and Tao cross the 16th-century Americas looking for the Seven Cities of Gold. Zia is the daughter of an Incan high priest, kidnapped by the Spanish invaders. It first aired on NHK in Japan and reached Nickelodeon in 1986.",
+    "source": "https://en.wikipedia.org/wiki/List_of_The_Mysterious_Cities_of_Gold_episodes"
+  },
+  {
+    "key": "third-eye-premiere",
+    "date": "1983-01",
+    "title": "Premiere of The Third Eye",
+    "phrase": "the premiere of The Third Eye",
+    "category": "tv",
+    "description": "Nickelodeon's anthology of spooky British and New Zealand serials, starting with Into the Labyrinth, The Haunting of Cassie Palmer, and Under the Mountain. Children of the Stones, about a village built inside a stone circle, joined in April.",
+    "source": "https://en.wikipedia.org/wiki/The_Third_Eye_(American_TV_series)"
+  },
+  {
+    "key": "mr-wizards-world-premiere",
+    "date": "1983-10-03",
+    "title": "Premiere of Mr. Wizard's World",
+    "phrase": "the premiere of Mr. Wizard's World",
+    "category": "tv",
+    "description": "Don Herbert brought Mr. Wizard back on Nickelodeon in a faster version of his 1950s show, filmed in Calgary and aired three times a week. Reruns kept going on Nickelodeon until 2000.",
+    "source": "https://en.wikipedia.org/wiki/Don_Herbert"
+  },
+  {
+    "key": "liquid-television-premiere",
+    "date": "1991-06-02",
+    "title": "Premiere of Liquid Television",
+    "phrase": "the premiere of Liquid Television",
+    "category": "tv",
+    "description": "MTV's showcase of experimental animation, produced by Colossal Pictures. It introduced Æon Flux and Beavis and Butt-Head, who got their own show in 1993.",
+    "source": "https://en.wikipedia.org/wiki/Liquid_Television"
+  },
+  {
+    "key": "real-world-premiere",
+    "date": "1992-05-21",
+    "title": "Premiere of The Real World",
+    "phrase": "the premiere of The Real World",
+    "category": "tv",
+    "description": "Seven strangers in a New York loft, filmed for three months. Mary-Ellis Bunim and Jonathan Murray had pitched MTV a scripted soap, and when that cost too much they tried an unscripted one. Reviews were mostly negative, and it ran until 2017.",
+    "source": "https://en.wikipedia.org/wiki/The_Real_World_(TV_series)"
+  },
+  {
+    "key": "avatar-the-last-airbender-premiere",
+    "date": "2005-02-21",
+    "title": "Premiere of Avatar: The Last Airbender",
+    "phrase": "the premiere of Avatar: The Last Airbender",
+    "category": "tv",
+    "description": "Michael Dante DiMartino and Bryan Konietzko's Nickelodeon series about Aang, the last airbender, who has to master all four elements to end a hundred-year war. It ran three seasons, until July 2008, and won a Peabody Award.",
+    "source": "https://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender"
+  }
+]
