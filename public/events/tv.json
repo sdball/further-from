@@ -133,5 +133,50 @@
     "category": "tv",
     "description": "The finale streamed on Netflix and played in 620 theaters in the US and Canada, from New Year's Eve into New Year's Day. Because of the cast's residuals contracts, the 1.1 million tickets sold in advance were technically concession vouchers. Netflix crashed again shortly after it aired.",
     "source": "https://en.wikipedia.org/wiki/Stranger_Things_season_5#Release"
+  },
+  {
+    "key": "star-trek-premiere",
+    "date": "1966-09-08",
+    "title": "Premiere of Star Trek",
+    "phrase": "the premiere of Star Trek",
+    "category": "tv",
+    "description": "Gene Roddenberry pitched it as \"Wagon Train to the stars.\" NBC turned down the first pilot as \"too cerebral\" and, unusually, paid for a second one. Ratings were low and NBC canceled it after 79 episodes, but reruns in syndication made it a hit in the 1970s.",
+    "source": "https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series"
+  },
+  {
+    "key": "star-trek-kirk-uhura-kiss",
+    "date": "1968-11-22",
+    "title": "Kirk and Uhura kiss on Star Trek",
+    "phrase": "Kirk and Uhura's kiss on Star Trek",
+    "category": "tv",
+    "description": "In \"Plato's Stepchildren,\" William Shatner's Kirk kissed Nichelle Nichols's Uhura, one of the earliest kisses between a white man and a Black woman on US television, though not the first. NBC worried about stations in the Deep South, but Nichols said the fan mail was huge and almost none of it objected.",
+    "source": "https://en.wikipedia.org/wiki/Plato%27s_Stepchildren"
+  },
+  {
+    "key": "star-trek-next-generation-premiere",
+    "date": "1987-09-28",
+    "title": "Premiere of Star Trek: The Next Generation",
+    "phrase": "the premiere of Star Trek: The Next Generation",
+    "category": "tv",
+    "description": "The networks would only consider pilot scripts or a miniseries, so Paramount sold it directly to individual stations in first-run syndication. Patrick Stewart's Captain Picard commanded the Enterprise-D for 178 episodes over seven seasons, then four movies.",
+    "source": "https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation"
+  },
+  {
+    "key": "star-trek-deep-space-nine-premiere",
+    "date": "1993-01-03",
+    "title": "Premiere of Star Trek: Deep Space Nine",
+    "phrase": "the premiere of Star Trek: Deep Space Nine",
+    "category": "tv",
+    "description": "The first Star Trek set on a space station instead of a starship, and the first led by an African American: Avery Brooks as Benjamin Sisko. The station orbits Bajor, whose people have just thrown off a long Cardassian occupation, and sits beside a wormhole to the far side of the galaxy.",
+    "source": "https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine"
+  },
+  {
+    "key": "star-trek-voyager-premiere",
+    "date": "1995-01-16",
+    "title": "Premiere of Star Trek: Voyager",
+    "phrase": "the premiere of Star Trek: Voyager",
+    "category": "tv",
+    "description": "The first Star Trek with a woman in command as its lead: Kate Mulgrew as Captain Kathryn Janeway, stranded with her crew on the far side of the galaxy. It was the first show on UPN, the new network Paramount wanted it to launch.",
+    "source": "https://en.wikipedia.org/wiki/Star_Trek:_Voyager"
   }
 ]

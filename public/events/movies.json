@@ -311,5 +311,14 @@
     "category": "movies",
     "description": "Hacker Neo (Keanu Reeves) learns that the world is a simulated reality built by machines to keep humans pacified. Will Smith turned down the role to make Wild Wild West, skeptical about the film's \"bullet time\" effects, which went on to be copied everywhere. Its digital rain green code was designed by Simon Whiteley, who likes to tell people it's made of Japanese sushi recipes.",
     "source": "https://en.wikipedia.org/wiki/The_Matrix"
+  },
+  {
+    "key": "star-trek-the-motion-picture-release",
+    "date": "1979-12-07",
+    "title": "Release of the movie Star Trek: The Motion Picture",
+    "phrase": "the release of the movie Star Trek: The Motion Picture",
+    "category": "movies",
+    "description": "Paramount had been bringing Star Trek back to TV as Star Trek: Phase II, until Star Wars and Close Encounters of the Third Kind made it a movie instead. The writers turned Phase II's planned pilot into the script, and Robert Wise directed.",
+    "source": "https://en.wikipedia.org/wiki/Star_Trek:_The_Motion_Picture"
   }
 ]
