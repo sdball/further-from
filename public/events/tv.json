@@ -70,5 +70,68 @@
     "category": "tv",
     "description": "Michael Dante DiMartino and Bryan Konietzko's Nickelodeon series about Aang, the last airbender, who has to master all four elements to end a hundred-year war. It ran three seasons, until July 2008, and won a Peabody Award.",
     "source": "https://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender"
+  },
+  {
+    "key": "stranger-things-will-byers-disappears",
+    "date": "1983-11",
+    "title": "Character Will Byers disappears in Stranger Things",
+    "phrase": "Will Byers (the character) vanishing into the Upside Down",
+    "category": "tv",
+    "description": "Twelve-year-old Will goes missing in Hawkins, Indiana, and his mother Joyce, his brother Jonathan, and police chief Jim Hopper start a town-wide search. His friends Mike, Lucas, and Dustin hide Eleven, a girl with psychokinetic powers who has escaped the Hawkins Laboratory, hoping she can help find him.",
+    "source": "https://en.wikipedia.org/wiki/Stranger_Things_season_1"
+  },
+  {
+    "key": "stranger-things-premiere",
+    "date": "2016-07-15",
+    "title": "Premiere of Stranger Things",
+    "phrase": "the premiere of Stranger Things",
+    "category": "tv",
+    "description": "The Duffer Brothers pitched it to about 15 cable networks, all of which said a show led by kids wouldn't work and asked them to make it a children's series or drop the children. Netflix, newly known for House of Cards and Orange Is the New Black, gave them a chance. It was first called Montauk and set on Long Island before moving to Hawkins, Indiana.",
+    "source": "https://en.wikipedia.org/wiki/Stranger_Things"
+  },
+  {
+    "key": "stranger-things-season-2-release",
+    "date": "2017-10-27",
+    "title": "Release of Stranger Things season 2",
+    "phrase": "the release of Stranger Things season 2",
+    "category": "tv",
+    "description": "Out just before Halloween and set in Halloween season 1984, a year after Will Byers came back from the Upside Down. Something is rotting the town's pumpkin patches, and Will keeps seeing a giant many-armed shadow the party names the Mind Flayer.",
+    "source": "https://en.wikipedia.org/wiki/Stranger_Things_season_2"
+  },
+  {
+    "key": "stranger-things-season-3-release",
+    "date": "2019-07-04",
+    "title": "Release of Stranger Things season 3",
+    "phrase": "the release of Stranger Things season 3",
+    "category": "tv",
+    "description": "Released on the Fourth of July and set in the summer of 1985, when the new Starcourt Mall is closing Hawkins' other stores. The mall was the re-dressed Gwinnett Place Mall in Georgia, a dead mall built in 1984, with Steve scooping ice cream at the fictional Scoops Ahoy.",
+    "source": "https://en.wikipedia.org/wiki/Stranger_Things_season_3"
+  },
+  {
+    "key": "stranger-things-season-4-release",
+    "date": "2022-05-27",
+    "title": "Release of Stranger Things season 4",
+    "phrase": "the release of Stranger Things season 4",
+    "category": "tv",
+    "description": "The longest season yet, so Netflix split it: seven episodes in May and the last two on July 1. The villain, Vecna, is named after the Dungeons & Dragons character, and Max escapes him to Kate Bush's \"Running Up That Hill,\" which sent the 1985 song back up the charts.",
+    "source": "https://en.wikipedia.org/wiki/Stranger_Things_season_4"
+  },
+  {
+    "key": "stranger-things-season-5-release",
+    "date": "2025-11-26",
+    "title": "Release of Stranger Things season 5",
+    "phrase": "the release of Stranger Things season 5",
+    "category": "tv",
+    "description": "The final season came in three drops: four episodes on November 26, three on Christmas, and the finale on New Year's Eve. Netflix added 30% more bandwidth for the premiere, and the site crashed anyway.",
+    "source": "https://en.wikipedia.org/wiki/Stranger_Things_season_5"
+  },
+  {
+    "key": "stranger-things-finale",
+    "date": "2025-12-31",
+    "title": "Stranger Things series finale",
+    "phrase": "the Stranger Things series finale",
+    "category": "tv",
+    "description": "The finale streamed on Netflix and played in 620 theaters in the US and Canada, from New Year's Eve into New Year's Day. Because of the cast's residuals contracts, the 1.1 million tickets sold in advance were technically concession vouchers. Netflix crashed again shortly after it aired.",
+    "source": "https://en.wikipedia.org/wiki/Stranger_Things_season_5#Release"
   }
 ]
