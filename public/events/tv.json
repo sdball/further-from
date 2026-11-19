@@ -178,5 +178,32 @@
     "category": "tv",
     "description": "The first Star Trek with a woman in command as its lead: Kate Mulgrew as Captain Kathryn Janeway, stranded with her crew on the far side of the galaxy. It was the first show on UPN, the new network Paramount wanted it to launch.",
     "source": "https://en.wikipedia.org/wiki/Star_Trek:_Voyager"
+  },
+  {
+    "key": "cobra-kai-premiere",
+    "date": "2018-05-02",
+    "title": "Premiere of Cobra Kai",
+    "phrase": "the premiere of Cobra Kai",
+    "category": "tv",
+    "description": "Thirty-four years after losing the All-Valley tournament to Daniel, Johnny Lawrence reopens the Cobra Kai dojo, with Ralph Macchio and William Zabka back as Daniel and Johnny. The show retells The Karate Kid as Johnny's redemption story. It started on YouTube Red, after Netflix, Amazon, Hulu, and AMC heard the pitch.",
+    "source": "https://en.wikipedia.org/wiki/Cobra_Kai"
+  },
+  {
+    "key": "cobra-kai-moves-to-netflix",
+    "date": "2020-08",
+    "title": "Cobra Kai moves to Netflix",
+    "phrase": "Cobra Kai's move to Netflix",
+    "category": "tv",
+    "description": "Its first two seasons, made for YouTube, became the most-watched series on Netflix, and its last four seasons premiered there.",
+    "source": "https://en.wikipedia.org/wiki/Cobra_Kai"
+  },
+  {
+    "key": "cobra-kai-finale",
+    "date": "2025-02-13",
+    "title": "Cobra Kai ends",
+    "phrase": "the end of Cobra Kai",
+    "category": "tv",
+    "description": "The last part of the sixth season finished the show after 65 episodes.",
+    "source": "https://en.wikipedia.org/wiki/Cobra_Kai"
   }
 ]

@@ -320,5 +320,59 @@
     "category": "movies",
     "description": "Paramount had been bringing Star Trek back to TV as Star Trek: Phase II, until Star Wars and Close Encounters of the Third Kind made it a movie instead. The writers turned Phase II's planned pilot into the script, and Robert Wise directed.",
     "source": "https://en.wikipedia.org/wiki/Star_Trek:_The_Motion_Picture"
+  },
+  {
+    "key": "karate-kid-movie-release",
+    "date": "1984-06-22",
+    "title": "Release of The Karate Kid",
+    "phrase": "the release of The Karate Kid",
+    "category": "movies",
+    "description": "Daniel LaRusso moves from New Jersey to Reseda, gets bullied by Johnny Lawrence's Cobra Kai, and learns karate from his apartment's handyman, Mr. Miyagi, an Okinawan immigrant whose wife and son died at the Manzanar internment camp while he fought in Europe with the 442nd. Pat Morita was nominated for an Oscar.",
+    "source": "https://en.wikipedia.org/wiki/The_Karate_Kid"
+  },
+  {
+    "key": "karate-kid-part-ii-movie-release",
+    "date": "1986-06-20",
+    "title": "Release of The Karate Kid Part II",
+    "phrase": "the release of The Karate Kid Part II",
+    "category": "movies",
+    "description": "Daniel goes with Mr. Miyagi to Okinawa to see his dying father, and runs into an old friend of Miyagi's with a decades-old grudge. Oahu stood in for Okinawa. It made $130 million, the same as the first film.",
+    "source": "https://en.wikipedia.org/wiki/The_Karate_Kid_Part_II"
+  },
+  {
+    "key": "karate-kid-part-iii-movie-release",
+    "date": "1989-06-30",
+    "title": "Release of The Karate Kid Part III",
+    "phrase": "the release of The Karate Kid Part III",
+    "category": "movies",
+    "description": "John Kreese and his army buddy Terry Silver come after Daniel and Mr. Miyagi, with a bonsai shop caught in the middle. Critics called it a rehash, and it made less than a third of what either earlier film did.",
+    "source": "https://en.wikipedia.org/wiki/The_Karate_Kid_Part_III"
+  },
+  {
+    "key": "next-karate-kid-movie-release",
+    "date": "1994-08-12",
+    "title": "Release of The Next Karate Kid",
+    "phrase": "the release of The Next Karate Kid",
+    "category": "movies",
+    "description": "Mr. Miyagi takes on a new student, Julie Pierce, played by Hilary Swank in her first starring film role. It was Pat Morita's last time as Miyagi, and the lowest-grossing film in the franchise.",
+    "source": "https://en.wikipedia.org/wiki/The_Next_Karate_Kid"
+  },
+  {
+    "key": "karate-kid-2010-movie-release",
+    "date": "2010-06-11",
+    "title": "Release of The Karate Kid (2010)",
+    "phrase": "the release of the 2010 Karate Kid",
+    "category": "movies",
+    "description": "Jaden Smith moves from Detroit to Beijing and learns from Jackie Chan's Mr. Han. Despite the title there's no karate, which comes from Okinawa: he learns kung fu. It's the highest-grossing film of the series.",
+    "source": "https://en.wikipedia.org/wiki/The_Karate_Kid_(2010_film)"
+  },
+  {
+    "key": "karate-kid-legends-movie-release",
+    "date": "2025-05-30",
+    "title": "Release of Karate Kid: Legends",
+    "phrase": "the release of Karate Kid: Legends",
+    "category": "movies",
+    "description": "Jackie Chan's Mr. Han and Ralph Macchio's Daniel LaRusso team up to teach Ben Wang's kung fu prodigy in New York, tying the 2010 film to the original series and Cobra Kai.",
+    "source": "https://en.wikipedia.org/wiki/Karate_Kid:_Legends"
   }
 ]
